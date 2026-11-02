@@ -1,0 +1,852 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<title>Фралова Брови — салон бровей и ресниц в Ялте</title>
+<meta name="description" content="Фралова Брови — салон бровей и ресниц в Ялте, Киевская улица, 24Б. Ежедневно 10:00–20:00. Онлайн-запись.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,500;1,600&family=Manrope:wght@400;500;700&family=Playfair+Display:ital,wght@0,500;0,700;0,900;1,500;1,700;1,900&family=Unbounded:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --sand:#EFE4D2; --sand2:#E5D5BC; --paper:#F7F0E4;
+  --sea:#12324A; --sea2:#2E4B62; --fog:#8C9AA3;
+  --terra:#B5573A; --terra2:#CE7656; --ink:#1B1B1B;
+  --serif:"Playfair Display",Georgia,serif;
+  --hand:"Cormorant Garamond",Georgia,serif;
+  --caps:"Unbounded",system-ui,sans-serif;
+  --sans:"Manrope",system-ui,sans-serif;
+  --m:clamp(16px,4vw,64px);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;overflow-x:clip}
+body{margin:0;background:var(--sand);color:var(--ink);font:400 16px/1.6 var(--sans);overflow-x:clip;position:relative;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit}
+button{font:inherit;color:inherit}
+.caps{font-family:var(--caps);font-size:11px;letter-spacing:.18em;text-transform:uppercase}
+
+/* ---------- кнопки ---------- */
+.btn{--b:var(--terra);--f:var(--sand);display:inline-flex;align-items:center;gap:.7em;padding:16px 26px;border:1.5px solid var(--b);background:var(--b);color:var(--f);font:600 12px/1 var(--caps);letter-spacing:.14em;text-transform:uppercase;text-decoration:none;cursor:pointer;border-radius:0;position:relative;overflow:hidden;transition:color .35s;isolation:isolate}
+.btn::before{content:"";position:absolute;inset:0;background:var(--ink);transform:translateY(101%);transition:transform .45s cubic-bezier(.7,0,.2,1);z-index:-1}
+.btn:hover::before{transform:none}
+.btn.ghost{background:transparent;color:var(--b)}
+.btn.ghost:hover{color:var(--sand)}
+.btn .arr{transition:transform .35s}
+.btn:hover .arr{transform:translateX(4px)}
+
+/* ---------- нить ---------- */
+#thread{position:absolute;left:0;top:0;width:100%;pointer-events:none;z-index:6;overflow:visible}
+#threadPath{fill:none;stroke:var(--terra);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+#threadTip{fill:var(--terra)}
+
+/* ---------- первый экран ---------- */
+.hero{position:relative;height:100svh;min-height:600px;max-height:1100px;overflow:hidden;background:var(--sand);color:var(--sea)}
+.poster{position:absolute;inset:0;width:100%;height:100%;display:block}
+.poster g{will-change:transform}
+.frame{position:absolute;inset:12px;border:1.5px solid var(--sea);pointer-events:none;z-index:3}
+.frame::after{content:"";position:absolute;inset:6px;border:1px solid rgba(18,50,74,.45)}
+.nav{position:absolute;z-index:8;top:28px;left:32px;right:32px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.mono{width:46px;height:46px;border:1.5px solid var(--sea);display:grid;place-items:center;font:900 22px/1 var(--serif);text-decoration:none;background:var(--sand)}
+.links{display:flex;gap:28px}
+.links a{font:400 11px/1 var(--caps);letter-spacing:.16em;text-transform:uppercase;text-decoration:none;position:relative;padding:6px 0}
+.links a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:1.5px;background:var(--terra);transition:right .4s}
+.links a:hover::after{right:0}
+.nav .btn{padding:13px 18px;font-size:11px}
+.hero-text{position:absolute;z-index:5;left:0;right:0;top:clamp(96px,15vh,150px);text-align:center;padding:0 var(--m)}
+.kicker{display:flex;justify-content:center;gap:14px;align-items:center;font:400 11px/1 var(--caps);letter-spacing:.3em;text-transform:uppercase}
+.kicker i{width:38px;height:1px;background:currentColor;display:block}
+.logo-brow{width:clamp(150px,22vw,280px);height:auto;margin:14px auto -1vw;display:block;overflow:visible}
+.lb-stroke{fill:none;stroke:var(--terra);stroke-width:2.2;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1;animation:draw 1.8s .3s cubic-bezier(.6,0,.2,1) forwards}
+.lb-fill{fill:var(--terra);opacity:0;animation:fadein 1s 1.7s forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes fadein{to{opacity:1}}
+.hero h1{margin:0;font:900 clamp(60px,16.5vw,232px)/.86 var(--serif);letter-spacing:-.015em;color:var(--sea);display:flex;justify-content:center}
+.hero h1 span{display:inline-block;opacity:0;transform:translateY(.35em) rotate(4deg);animation:rise 1s cubic-bezier(.2,.8,.2,1) forwards}
+@keyframes rise{to{opacity:1;transform:none}}
+.sub{margin:16px 0 0;font:500 italic clamp(20px,2.6vw,34px)/1.1 var(--serif);color:var(--terra)}
+.hero-foot{position:absolute;z-index:5;left:0;right:0;bottom:clamp(30px,5vh,56px);padding:0 calc(var(--m) + 12px);display:grid;grid-template-columns:1fr auto 1fr;align-items:end;gap:20px;color:var(--sand)}
+.plaque b{display:block;font:700 italic clamp(22px,2.4vw,32px)/1.05 var(--serif)}
+.plaque span{font:400 11px/1.8 var(--caps);letter-spacing:.16em;text-transform:uppercase;opacity:.85}
+.rating{justify-self:end;text-decoration:none;text-align:right;font:400 11px/1.6 var(--caps);letter-spacing:.14em;text-transform:uppercase}
+.rating b{display:block;font:900 clamp(36px,4vw,56px)/1 var(--serif);letter-spacing:0;color:var(--sand)}
+.rating b small{font-size:.45em;color:var(--terra2);vertical-align:.6em;margin-left:.15em}
+.hero-cta{display:flex;gap:10px;justify-content:center}
+.hero-cta .btn.ghost{--b:var(--sand)}
+.hero-cta .btn.ghost:hover{color:var(--sand)}
+
+/* ---------- лента ---------- */
+.ticker{background:var(--terra);color:var(--sand);overflow:hidden;white-space:nowrap;border-block:1.5px solid var(--ink);position:relative;z-index:2}
+.ticker div{display:inline-flex;animation:tick 38s linear infinite;padding:14px 0}
+.ticker span{font:400 13px/1 var(--caps);letter-spacing:.22em;text-transform:uppercase;padding-right:2.4em}
+.ticker span::after{content:"⌒";margin-left:2.4em;font-family:var(--serif)}
+@keyframes tick{to{transform:translateX(-50%)}}
+
+/* ---------- общее для разделов ---------- */
+.sec{position:relative;padding:clamp(80px,12vw,170px) var(--m)}
+.label{display:flex;align-items:center;gap:14px;font:400 11px/1 var(--caps);letter-spacing:.24em;text-transform:uppercase;margin-bottom:28px}
+.label b{font:900 italic 15px/1 var(--serif);letter-spacing:0;color:var(--terra)}
+.label::after{content:"";flex:0 1 120px;height:1px;background:currentColor;opacity:.5}
+.h2{margin:0;font:800 clamp(44px,8.2vw,132px)/.9 var(--serif);letter-spacing:-.02em}
+.h2 em{font-style:italic;font-weight:500;color:var(--terra)}
+.rv{opacity:0;transform:translateY(40px);transition:opacity 1s,transform 1.1s cubic-bezier(.2,.8,.2,1)}
+.rv.in{opacity:1;transform:none}
+
+/* ---------- манифест ---------- */
+.intro{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2.2fr);gap:clamp(24px,5vw,80px);padding-block:clamp(70px,10vw,140px)}
+.intro .caps{padding-top:14px;line-height:2}
+.intro p.big{margin:0;font:500 clamp(28px,4.3vw,64px)/1.08 var(--serif);letter-spacing:-.01em}
+.intro p.big em{color:var(--terra)}
+.intro p.big .ul{background:linear-gradient(var(--terra),var(--terra)) 0 92%/0 2px no-repeat;transition:background-size 1.4s .4s cubic-bezier(.6,0,.2,1)}
+.intro.in p.big .ul{background-size:100% 2px}
+
+/* ---------- характер ---------- */
+#character{background:var(--sea);color:var(--sand);overflow:hidden}
+#character .label b{color:var(--terra2)}
+#character .h2 em{color:var(--terra2)}
+.char-grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:clamp(24px,5vw,80px);align-items:center;margin-top:clamp(30px,5vw,60px)}
+.stage{position:relative;aspect-ratio:13/7;border:1px solid rgba(239,228,210,.25);background:radial-gradient(ellipse at 50% 60%,#E9D9C1 0%,#DCC6A8 70%,#CDB492 100%);overflow:hidden}
+.stage::before{content:"";position:absolute;inset:8px;border:1px solid rgba(27,27,27,.12);pointer-events:none}
+.stage svg{position:absolute;inset:0;width:100%;height:100%}
+.stage .tag{position:absolute;font:400 10px/1 var(--caps);letter-spacing:.2em;text-transform:uppercase;color:rgba(27,27,27,.55)}
+.stage .tag.tl{left:20px;bottom:20px}.stage .tag.br{right:20px;bottom:20px}
+#browMap line{stroke:rgba(27,27,27,.28);stroke-width:.8;stroke-dasharray:3 5}
+#browMap text{font:400 9px var(--caps);letter-spacing:.15em;fill:rgba(27,27,27,.45);text-transform:uppercase}
+.seg{display:grid;grid-template-columns:repeat(3,1fr);border:1.5px solid rgba(239,228,210,.55)}
+.seg button{background:none;border:0;padding:16px 6px;cursor:pointer;font:500 italic clamp(17px,1.6vw,22px)/1 var(--serif);color:var(--sand);position:relative;transition:color .3s}
+.seg button+button{border-left:1.5px solid rgba(239,228,210,.55)}
+.seg button.on{color:var(--sea);background:var(--sand)}
+.range{-webkit-appearance:none;appearance:none;width:100%;height:30px;background:transparent;margin:22px 0 4px;cursor:pointer}
+.range::-webkit-slider-runnable-track{height:2px;background:linear-gradient(90deg,#B7A58C,#7a5a43,#22160f)}
+.range::-moz-range-track{height:2px;background:linear-gradient(90deg,#B7A58C,#7a5a43,#22160f)}
+.range::-webkit-slider-thumb{-webkit-appearance:none;width:26px;height:26px;margin-top:-12px;border-radius:50%;background:var(--terra);border:3px solid var(--sand);box-shadow:0 0 0 1.5px var(--terra)}
+.range::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:var(--terra);border:3px solid var(--sand)}
+.scale{display:flex;justify-content:space-between;font:400 10px/1 var(--caps);letter-spacing:.16em;text-transform:uppercase;opacity:.6}
+.char-desc{min-height:3.4em;margin:28px 0 22px;font:500 italic clamp(20px,1.9vw,26px)/1.3 var(--serif)}
+.meters{margin:0 0 30px;display:grid;gap:12px}
+.meters div{display:grid;grid-template-columns:96px 1fr;align-items:center;gap:14px}
+.meters dt{font:400 10px/1 var(--caps);letter-spacing:.16em;text-transform:uppercase;opacity:.7}
+.meters dd{margin:0;height:2px;background:rgba(239,228,210,.18);position:relative}
+.meters dd i{position:absolute;left:0;top:-1px;height:4px;background:var(--terra2);width:0}
+.price-note{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin:0 0 22px;padding-top:22px;border-top:1px solid rgba(239,228,210,.25)}
+.price-note b{font:900 italic 44px/1 var(--serif);color:var(--sand)}
+.price-note span{font-size:15px;opacity:.85}
+
+/* ---------- до / после ---------- */
+#ba{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.6fr);gap:clamp(30px,6vw,100px);align-items:end}
+.ba-side p{max-width:34ch;margin:26px 0 30px;color:#4a4036}
+.ba-tabs{display:flex;gap:0;border:1.5px solid var(--ink);width:max-content}
+.ba-tabs button{background:none;border:0;padding:13px 22px;cursor:pointer;font:400 11px/1 var(--caps);letter-spacing:.16em;text-transform:uppercase}
+.ba-tabs button+button{border-left:1.5px solid var(--ink)}
+.ba-tabs button.on{background:var(--ink);color:var(--sand)}
+.ba-wrap{position:relative}
+.ba-wrap::before{content:"";position:absolute;inset:-14px 14px 14px -14px;border:1.5px solid var(--terra);z-index:0}
+.ba{position:relative;aspect-ratio:3/2;overflow:hidden;background:#d7c3a6;z-index:1;touch-action:pan-y}
+.ba .im{position:absolute;inset:0;background-repeat:no-repeat;transition:opacity .4s}
+.ba .after{clip-path:inset(0 0 0 var(--p,50%))}
+.ba .bar{position:absolute;top:0;bottom:0;left:var(--p,50%);width:2px;background:var(--sand);transform:translateX(-1px);pointer-events:none}
+.ba .knob{position:absolute;top:50%;left:50%;width:58px;height:58px;margin:-29px 0 0 -29px;border-radius:50%;background:var(--sand);display:grid;place-items:center;box-shadow:0 6px 24px rgba(0,0,0,.25)}
+.ba .knob svg{width:30px}
+.ba input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
+.ba .t{position:absolute;top:16px;padding:8px 12px;background:var(--sand);font:400 10px/1 var(--caps);letter-spacing:.2em;text-transform:uppercase;pointer-events:none}
+.ba .t.l{left:16px}.ba .t.r{right:16px;background:var(--terra);color:var(--sand)}
+.ba-cap{margin-top:16px;font:500 italic 17px/1.3 var(--hand);color:#5b4e42}
+
+/* ---------- прайс-билеты ---------- */
+#price{background:var(--sand2);--page:var(--sand2)}
+.price-head{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:30px;align-items:end;margin-bottom:clamp(50px,7vw,90px)}
+.price-head p{margin:0;max-width:36ch;color:#4a4036}
+.tickets{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(34px,4.5vw,64px) clamp(24px,4vw,70px)}
+.tickets h3{grid-column:1/-1;margin:20px 0 -14px;font:400 11px/1 var(--caps);letter-spacing:.3em;text-transform:uppercase;display:flex;gap:16px;align-items:center}
+.tickets h3::after{content:"";flex:1;height:1px;background:rgba(27,27,27,.3)}
+.ticket{--bg:var(--paper);--fg:var(--ink);--ac:var(--terra);display:flex;width:100%;min-height:200px;padding:0;border:0;background:none;text-align:left;cursor:pointer;transform:rotate(var(--r,0deg)) translateY(var(--y,0));transition:transform .5s;filter:drop-shadow(0 10px 18px rgba(60,40,20,.13))}
+.ticket:nth-of-type(even){--y:34px}
+.ticket.sea{--bg:var(--sea);--fg:var(--sand);--ac:var(--terra2)}
+.ticket.terra{--bg:var(--terra);--fg:var(--sand);--ac:var(--sea)}
+.ticket.ink{--bg:var(--ink);--fg:var(--sand);--ac:var(--terra2)}
+.stub,.tmain{background:var(--bg);color:var(--fg);position:relative}
+.stub{width:86px;flex:none;padding:18px 0;display:flex;flex-direction:column;align-items:center;justify-content:space-between;transform-origin:100% 100%;transition:transform .55s cubic-bezier(.2,.8,.2,1);-webkit-mask:radial-gradient(circle at 0 50%,transparent 5px,#000 5.5px) 0 0/100% 14px repeat-y;mask:radial-gradient(circle at 0 50%,transparent 5px,#000 5.5px) 0 0/100% 14px repeat-y}
+.stub .no{font:900 italic 22px/1 var(--serif);color:var(--ac)}
+.stub .vert{writing-mode:vertical-rl;transform:rotate(180deg);font:400 10px/1 var(--caps);letter-spacing:.24em;text-transform:uppercase;opacity:.7}
+.tmain{flex:1;min-width:0;padding:22px 26px 18px 30px;display:flex;flex-direction:column;transform-origin:0 100%;transition:transform .6s cubic-bezier(.2,.8,.25,1.25);background-image:radial-gradient(circle at 0 0,var(--page) 11px,transparent 11.5px),radial-gradient(circle at 0 100%,var(--page) 11px,transparent 11.5px)}
+.tmain::before{content:"";position:absolute;left:0;top:14px;bottom:14px;border-left:2px dotted var(--fg);opacity:.45}
+.tmain .cat{font:400 10px/1 var(--caps);letter-spacing:.2em;text-transform:uppercase;color:var(--ac);display:flex;justify-content:space-between;gap:10px}
+.tmain .tt{margin:12px 0 6px;font:700 clamp(21px,2vw,28px)/1.08 var(--serif)}
+.tmain .ds{font-size:13.5px;line-height:1.45;opacity:.8;flex:1}
+.tmain .bot{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-top:16px}
+.tmain .pr{font:900 italic clamp(40px,4vw,58px)/.9 var(--serif);white-space:nowrap}
+.tmain .pr small{font-size:.5em;font-style:normal;margin-left:.08em}
+.tmain .go{font:400 10px/1.3 var(--caps);letter-spacing:.16em;text-transform:uppercase;text-align:right;opacity:.75}
+.stamp{position:absolute;right:18px;top:40px;width:74px;height:74px;border:1.5px solid var(--ac);border-radius:50%;display:grid;place-items:center;text-align:center;font:600 8px/1.3 var(--caps);letter-spacing:.14em;color:var(--ac);transform:rotate(-14deg) scale(.6);opacity:0;transition:.5s .1s}
+.ticket:hover .tmain,.ticket:focus-visible .tmain{transform:translate(16px,-10px) rotate(5.5deg)}
+.ticket:hover .stub,.ticket:focus-visible .stub{transform:rotate(-3deg) translateY(4px)}
+.ticket:hover .stamp,.ticket:focus-visible .stamp{opacity:.9;transform:rotate(-14deg) scale(1)}
+.ticket:focus-visible{outline:2px solid var(--terra);outline-offset:8px}
+.price-foot{margin-top:clamp(70px,8vw,110px);font:500 italic 18px/1.4 var(--hand);color:#5b4e42}
+
+/* ---------- открытки ---------- */
+#works{background:#D9C3A3;background-image:repeating-linear-gradient(93deg,rgba(255,255,255,.05) 0 2px,transparent 2px 9px),radial-gradient(ellipse at 30% 20%,rgba(255,255,255,.25),transparent 60%);overflow:hidden}
+.works-head{display:flex;justify-content:space-between;align-items:end;gap:30px;flex-wrap:wrap;margin-bottom:clamp(40px,6vw,80px)}
+.works-head p{margin:0;max-width:30ch;font:500 italic 20px/1.35 var(--hand);color:#4a3b2e}
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(18px,3vw,44px);align-items:start}
+.card{background:#FBF6EC;padding:12px 12px 16px;box-shadow:0 2px 0 rgba(0,0,0,.05),0 18px 40px rgba(70,45,20,.22);will-change:transform;position:relative}
+.card:nth-child(3n+2){margin-top:60px}
+.card .pic{aspect-ratio:4/5;background:#cbb79b center/cover no-repeat;overflow:hidden}
+.card .pic img{width:100%;height:100%;object-fit:cover}
+.card .pic.wide{aspect-ratio:4/3}
+.card figcaption{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-top:12px;font:600 italic 20px/1.1 var(--hand);color:var(--sea)}
+.card figcaption small{font:400 9px/1 var(--caps);letter-spacing:.16em;text-transform:uppercase;color:#9b8a75;font-style:normal}
+.card svg{display:block;width:100%;height:100%}
+.pm{position:absolute;right:-14px;top:-18px;width:80px;height:80px;pointer-events:none;opacity:.75}
+
+/* ---------- контакты ---------- */
+#contacts{background:var(--sea);color:var(--sand)}
+#contacts .h2 em{color:var(--terra2)}
+#contacts .label b{color:var(--terra2)}
+.ct-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:clamp(30px,5vw,80px);margin-top:clamp(40px,6vw,80px);align-items:stretch}
+.mapbox{position:relative;border:1.5px solid var(--sand);padding:10px;min-height:420px;display:flex}
+.mapbox::after{content:"Ялта · Киевская ул., 24Б";position:absolute;left:24px;top:-9px;background:var(--sea);padding:0 10px;font:400 10px/18px var(--caps);letter-spacing:.2em;text-transform:uppercase}
+.mapbox iframe{border:0;width:100%;flex:1;min-height:400px;filter:sepia(.25) saturate(.9);display:block}
+.ct-info{display:flex;flex-direction:column;gap:30px}
+.row{border-top:1px solid rgba(239,228,210,.25);padding-top:18px}
+.row .caps{opacity:.6;display:block;margin-bottom:8px}
+.row .v{font:700 italic clamp(26px,2.6vw,38px)/1.1 var(--serif);text-decoration:none}
+.row a.v:hover{color:var(--terra2)}
+.ct-btns{display:grid;gap:10px}
+.ct-btns .btn{justify-content:space-between}
+.ct-btns .btn.ghost{--b:var(--sand)}
+.ct-btns .btn.ghost::before{background:var(--terra)}
+footer{background:var(--ink);color:rgba(239,228,210,.6);padding:28px var(--m) 32px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:12px}
+footer b{font:900 18px/1 var(--serif);color:var(--sand);letter-spacing:.04em}
+
+/* ---------- модалка ---------- */
+.modal{position:fixed;inset:0;z-index:50;display:grid;place-items:center;padding:16px;background:rgba(18,50,74,.55);backdrop-filter:blur(4px);opacity:0;pointer-events:none;transition:opacity .35s}
+.modal.open{opacity:1;pointer-events:auto}
+.sheet{width:min(560px,100%);max-height:calc(100svh - 32px);overflow:auto;background:var(--paper);color:var(--ink);position:relative;padding:clamp(24px,4vw,44px);transform:translateY(30px) rotate(-1.5deg);transition:transform .5s cubic-bezier(.2,.8,.2,1);border:1.5px solid var(--ink);box-shadow:12px 12px 0 var(--terra)}
+.modal.open .sheet{transform:none}
+.x{position:absolute;right:12px;top:12px;width:42px;height:42px;border:0;background:none;cursor:pointer;font:400 30px/1 var(--serif)}
+.sheet h3{margin:6px 0 4px;font:800 clamp(30px,5vw,44px)/1 var(--serif)}
+.sheet h3 em{font-weight:500;color:var(--terra)}
+.sheet .lead{margin:0 0 22px;color:#5b4e42;font-size:14px}
+.f{display:grid;gap:14px}
+.f .two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.f label{display:grid;gap:6px;font:400 10px/1 var(--caps);letter-spacing:.16em;text-transform:uppercase;color:#5b4e42}
+.f input,.f select{font:500 16px/1.2 var(--sans);color:var(--ink);background:transparent;border:0;border-bottom:1.5px solid var(--ink);padding:10px 0;border-radius:0;width:100%;min-width:0;-webkit-appearance:none;appearance:none}
+.f select{background:linear-gradient(45deg,transparent 50%,var(--ink) 50%) right 6px center/7px 7px no-repeat}
+.f input:focus,.f select:focus{outline:none;border-color:var(--terra)}
+.f .btn{justify-content:center;margin-top:8px}
+.alt{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.alt a{flex:1;min-width:140px;justify-content:center;--b:var(--ink)}
+.done{display:none;text-align:center;padding:20px 0 6px}
+.done svg{width:120px;margin:0 auto 10px;display:block}
+.done svg path{fill:none;stroke:var(--terra);stroke-width:2.4;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1}
+.sheet.ok .done{display:block}.sheet.ok .done svg path{animation:draw 1.2s forwards}
+.sheet.ok form,.sheet.ok .lead,.sheet.ok h3{display:none}
+.done p{font:500 italic 24px/1.3 var(--serif);margin:0 0 6px}
+
+/* ---------- липкая кнопка ---------- */
+.sticky{display:none}
+
+/* ---------- адаптив ---------- */
+@media (max-width:1000px){
+  .links{display:none}
+  .char-grid,#ba,.ct-grid,.price-head{grid-template-columns:minmax(0,1fr)}
+  .intro{grid-template-columns:minmax(0,1fr);gap:10px}
+  .cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .card:nth-child(3n+2){margin-top:0}
+  .card:nth-child(even){margin-top:40px}
+}
+@media (max-width:760px){
+  body{padding-bottom:76px}
+  .nav{top:24px;left:24px;right:24px}
+  .nav .btn{display:none}
+  .frame{inset:8px}
+  .hero{min-height:640px}
+  .hero-foot{grid-template-columns:1fr auto;padding:0 26px;bottom:104px}
+  .kicker{gap:10px;letter-spacing:.2em;font-size:10px}.kicker i{width:20px}
+  .stage .tag.br{display:none}
+  .hero-cta{grid-column:1/-1;grid-row:1;justify-content:flex-start}
+  .hero-cta .btn{padding:14px 16px;font-size:10.5px}
+  .rating b{font-size:34px}
+  .tickets{grid-template-columns:minmax(0,1fr);gap:30px}
+  .ticket:nth-of-type(even){--y:0}
+  .ticket{min-height:180px}
+  .stub{width:62px}
+  .tmain{padding:18px 16px 14px 22px}
+  .stamp{display:none}
+  .ticket:hover .tmain{transform:translate(8px,-6px) rotate(3deg)}
+  .cards{gap:14px}
+  .card{padding:7px 7px 10px}
+  .card figcaption{font-size:16px;flex-direction:column;gap:4px}
+  .card:nth-child(even){margin-top:28px}
+  .meters div{grid-template-columns:84px 1fr}
+  .mapbox{min-height:340px}.mapbox iframe{min-height:320px}
+  .f .two{grid-template-columns:1fr}
+  .sticky{display:grid;grid-template-columns:1fr 56px;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:40;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:var(--sand);border-top:1.5px solid var(--ink)}
+  .sticky .btn{justify-content:center;padding:16px}
+  .sticky .tel{display:grid;place-items:center;border:1.5px solid var(--ink);color:var(--ink)}
+  .sticky .tel svg{width:22px}
+}
+</style>
+<script>(new Function(decodeURIComponent(escape(atob("KGZ1bmN0aW9uKCl7CnZhciBvaz1bJ2RlZmFsbS5iZWdldC50ZWNoJywnYW5kcmV0MzkuYmVnZXQudGVjaCcsJ2xvY2FsaG9zdCcsJzEyNy4wLjAuMSddOwp2YXIgaD1sb2NhdGlvbi5ob3N0bmFtZTsKaWYobG9jYXRpb24ucHJvdG9jb2whPT0nZmlsZTonJiZvay5pbmRleE9mKGgpPDAmJiEvXC5naXRodWJcLmlvJHxcLm5ldGxpZnlcLmFwcCQvLnRlc3QoaCkpewpkb2N1bWVudC5kb2N1bWVudEVsZW1lbnQuaW5uZXJIVE1MPSc8Ym9keSBzdHlsZT0ibWFyZ2luOjA7bWluLWhlaWdodDoxMDB2aDtkaXNwbGF5OmdyaWQ7cGxhY2UtaXRlbXM6Y2VudGVyO2JhY2tncm91bmQ6IzJlMjIxYjtjb2xvcjojZjRlOWRhO2ZvbnQ6MThweC8xLjYgR2VvcmdpYSxzZXJpZjt0ZXh0LWFsaWduOmNlbnRlcjtwYWRkaW5nOjMwcHgiPjxkaXY+PGRpdiBzdHlsZT0iZm9udC1zaXplOjEzcHg7bGV0dGVyLXNwYWNpbmc6LjNlbTtvcGFjaXR5Oi42Ij7QlNCV0JzQni3QndCQ0JHQoNCe0KHQntCaPC9kaXY+PGgxIHN0eWxlPSJmb250LXdlaWdodDozMDA7Zm9udC1zaXplOjQwcHg7bWFyZ2luOjE0cHggMCI+0K3RgtC+0YIg0YHQsNC50YIg0L/RgNC40L3QsNC00LvQtdC20LjRgiDQsNCy0YLQvtGA0YM8L2gxPjxwPtCa0L7Qv9C40YDQvtCy0LDQvdC40LUg0Lgg0YDQsNC30LzQtdGJ0LXQvdC40LUg0LHQtdC3INGA0LDQt9GA0LXRiNC10L3QuNGPINC30LDQv9GA0LXRidC10L3Qvi48YnI+0JDQstGC0L7RgDog0JDQvdC00YDQtdC5IOKAlCA8YSBzdHlsZT0iY29sb3I6I2Q2YWQ3MiIgaHJlZj0iaHR0cHM6Ly90Lm1lL0RlZmFsbWVvIj5ARGVmYWxtZW88L2E+PC9wPjwvZGl2PjwvYm9keT4nOwpyZXR1cm47fQp2YXIgYj1mdW5jdGlvbihlKXtlLnByZXZlbnREZWZhdWx0KCk7cmV0dXJuIGZhbHNlfTsKZG9jdW1lbnQuYWRkRXZlbnRMaXN0ZW5lcignY29udGV4dG1lbnUnLGIpOwpkb2N1bWVudC5hZGRFdmVudExpc3RlbmVyKCdkcmFnc3RhcnQnLGZ1bmN0aW9uKGUpe2lmKGUudGFyZ2V0LnRhZ05hbWU9PT0nSU1HJyliKGUpfSk7CmRvY3VtZW50LmFkZEV2ZW50TGlzdGVuZXIoJ2NvcHknLGIpO2RvY3VtZW50LmFkZEV2ZW50TGlzdGVuZXIoJ2N1dCcsYik7CmRvY3VtZW50LmFkZEV2ZW50TGlzdGVuZXIoJ2tleWRvd24nLGZ1bmN0aW9uKGUpe3ZhciBrPShlLmtleXx8JycpLnRvTG93ZXJDYXNlKCk7CmlmKGUua2V5PT09J0YxMid8fCgoZS5jdHJsS2V5fHxlLm1ldGFLZXkpJiZbJ3UnLCdzJywncCcsJ2MnXS5pbmRleE9mKGspPi0xKXx8KChlLmN0cmxLZXl8fGUubWV0YUtleSkmJmUuc2hpZnRLZXkmJlsnaScsJ2onLCdjJ10uaW5kZXhPZihrKT4tMSkpe2IoZSl9fSk7CnZhciBzdD1kb2N1bWVudC5jcmVhdGVFbGVtZW50KCdzdHlsZScpO3N0LnRleHRDb250ZW50PSdib2R5ey13ZWJraXQtdXNlci1zZWxlY3Q6bm9uZTt1c2VyLXNlbGVjdDpub25lOy13ZWJraXQtdG91Y2gtY2FsbG91dDpub25lfWltZ3std2Via2l0LXVzZXItZHJhZzpub25lO3BvaW50ZXItZXZlbnRzOmF1dG99aW5wdXQsdGV4dGFyZWF7dXNlci1zZWxlY3Q6dGV4dH0nO2RvY3VtZW50LmhlYWQuYXBwZW5kQ2hpbGQoc3QpOwpjb25zb2xlLmxvZygnJWPCqSDQkNC90LTRgNC10LkgKEBEZWZhbG1lbykuINCU0LXQvNC+LdC90LDQsdGA0L7RgdC+0LouINCa0L7Qv9C40YDQvtCy0LDQvdC40LUg0LfQsNC/0YDQtdGJ0LXQvdC+LicsJ2ZvbnQ6MTZweCBzZXJpZjtjb2xvcjojYzI3YTRmJyk7Cn0pKCk7")))))()</script>
+</head>
+<body>
+
+<svg id="thread" aria-hidden="true"><path id="threadPath"/><circle id="threadTip" r="3.5"/></svg>
+
+<!-- ============ ПЕРВЫЙ ЭКРАН: ПЛАКАТ ============ -->
+<header class="hero" id="top" data-side="r">
+  <svg class="poster" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+    <defs>
+      <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#EFE4D2"/><stop offset=".55" stop-color="#F1D9BE"/><stop offset=".75" stop-color="#EDBE9C"/>
+      </linearGradient>
+      <mask id="sunMask">
+        <rect x="0" y="0" width="1600" height="1000" fill="#fff"/>
+        <g fill="#000"><rect x="600" y="612" width="700" height="7"/><rect x="600" y="636" width="700" height="9"/><rect x="600" y="661" width="700" height="11"/><rect x="600" y="688" width="700" height="13"/></g>
+      </mask>
+      <linearGradient id="seaG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1E4560"/><stop offset="1" stop-color="#0E2638"/></linearGradient>
+    </defs>
+    <rect x="-200" y="-200" width="2000" height="1400" fill="url(#sky)"/>
+    <g data-d=".015">
+      <g stroke="#B5573A" stroke-opacity=".22" stroke-width="2">
+        <line x1="930" y1="600" x2="930" y2="0"/><line x1="930" y1="600" x2="1130" y2="20"/><line x1="930" y1="600" x2="730" y2="20"/>
+        <line x1="930" y1="600" x2="1340" y2="80"/><line x1="930" y1="600" x2="520" y2="80"/><line x1="930" y1="600" x2="1520" y2="200"/>
+        <line x1="930" y1="600" x2="340" y2="200"/><line x1="930" y1="600" x2="1700" y2="380"/><line x1="930" y1="600" x2="160" y2="380"/>
+      </g>
+    </g>
+    <g data-d=".03"><circle cx="930" cy="600" r="210" fill="#B5573A" mask="url(#sunMask)"/></g>
+    <g data-d=".05" fill="none" stroke="#12324A" stroke-width="3" stroke-linecap="round">
+      <path d="M420 470 q18-14 36-2 q18-12 36 2"/><path d="M500 510 q12-9 24-1 q12-8 24 1"/><path d="M1230 460 q15-12 30-2 q15-10 30 2"/>
+    </g>
+    <g data-d=".06">
+      <path fill="#9AA6AA" d="M-200 650 L0 630 L120 600 L260 562 L380 528 L520 498 L630 474 L688 458 L698 420 L707 450 L716 398 L726 446 L736 388 L746 440 L756 404 L765 450 L776 426 L786 462 L900 474 L1050 500 L1200 528 L1350 562 L1500 590 L1800 610 V1100 H-200Z"/>
+    </g>
+    <g data-d=".1">
+      <path fill="#4C6579" d="M-200 720 L0 700 C200 642 330 624 480 664 S760 706 900 694 S1250 646 1400 672 S1560 700 1800 690 V1100 H-200Z"/>
+    </g>
+    <g data-d=".14">
+      <rect x="-200" y="722" width="2000" height="400" fill="url(#seaG)"/>
+      <g stroke="#EFE4D2" stroke-opacity=".28" stroke-width="2" stroke-dasharray="60 30 14 30">
+        <line x1="-200" y1="752" x2="1800" y2="752"/><line x1="-160" y1="790" x2="1800" y2="790"/><line x1="-120" y1="838" x2="1800" y2="838"/><line x1="-200" y1="900" x2="1800" y2="900"/>
+      </g>
+      <g stroke="#CE7656" stroke-width="5" stroke-linecap="round">
+        <line x1="880" y1="740" x2="980" y2="740"/><line x1="860" y1="764" x2="1000" y2="764"/><line x1="900" y1="764" x2="910" y2="764"/>
+        <line x1="840" y1="794" x2="1020" y2="794"/><line x1="815" y1="830" x2="900" y2="830"/><line x1="930" y1="830" x2="1045" y2="830"/>
+        <line x1="790" y1="874" x2="1070" y2="874"/>
+      </g>
+    </g>
+    <g data-d=".18">
+      <path fill="#EFE4D2" d="M560 724 L560 630 L606 716Z"/><path fill="#CE7656" d="M552 722 L552 650 L522 714Z"/>
+      <path fill="#1B1B1B" d="M512 724 H620 L606 740 H526Z"/>
+    </g>
+    <g data-d=".26" fill="#0B2131">
+      <path d="M-200 800 L0 790 C120 748 230 770 320 820 C360 860 380 920 400 1100 H-200Z"/>
+      <path d="M70 790 C58 740 64 690 78 650 C92 690 98 740 86 790Z"/>
+      <path d="M118 782 C104 724 112 670 128 628 C144 670 150 724 136 782Z"/>
+      <path d="M170 790 C160 748 166 708 178 676 C190 708 196 748 186 790Z"/>
+      <path d="M1600 760 C1500 770 1440 800 1400 860 L1380 1100 H1800 V760Z"/>
+      <path d="M1500 772 C1488 716 1496 664 1512 620 C1528 664 1534 716 1522 772Z"/>
+      <path d="M1552 768 C1542 728 1548 690 1560 660 C1572 690 1578 728 1568 768Z"/>
+    </g>
+    <g data-d=".34" fill="#1B1B1B">
+      <rect x="-200" y="928" width="2000" height="5"/>
+      <rect x="-200" y="976" width="2000" height="40"/>
+      <g id="balus"></g>
+      <g>
+        <rect x="358" y="842" width="5" height="90"/><circle cx="360.5" cy="836" r="11" fill="#EFE4D2" stroke="#1B1B1B" stroke-width="3"/>
+        <rect x="798" y="842" width="5" height="90"/><circle cx="800.5" cy="836" r="11" fill="#EFE4D2" stroke="#1B1B1B" stroke-width="3"/>
+        <rect x="1238" y="842" width="5" height="90"/><circle cx="1240.5" cy="836" r="11" fill="#EFE4D2" stroke="#1B1B1B" stroke-width="3"/>
+      </g>
+    </g>
+  </svg>
+  <div class="frame"></div>
+
+  <nav class="nav">
+    <a class="mono" href="#top" aria-label="Фралова — наверх">Ф</a>
+    <div class="links"><a href="#character">Характер</a><a href="#ba">До / после</a><a href="#price">Прайс</a><a href="#works">Работы</a><a href="#contacts">Контакты</a></div>
+    <button class="btn" data-book>Записаться</button>
+  </nav>
+
+  <div class="hero-text">
+    <div class="kicker"><span>Ялта</span><i></i><span>салон бровей и ресниц</span></div>
+    <svg class="logo-brow" id="logoBrow" viewBox="0 0 300 70" aria-hidden="true">
+      <path class="lb-fill" d="M8 58 C70 27 140 5 205 7 C248 8 278 25 296 47 C272 33 245 21 205 21 C140 21 72 40 8 58Z"/>
+      <path class="lb-stroke" id="logoStroke" pathLength="1" d="M8 58 C70 30 140 10 205 12 C245 13 275 28 294 46"/>
+    </svg>
+    <h1 aria-label="Фралова"><span>Ф</span><span>Р</span><span>А</span><span>Л</span><span>О</span><span>В</span><span>А</span></h1>
+    <p class="sub">брови · ресницы · Ялта</p>
+  </div>
+
+  <div class="hero-foot">
+    <div class="plaque"><b>Киевская, 24Б</b><span>ежедневно 10:00 — 20:00</span></div>
+    <div class="hero-cta">
+      <button class="btn" data-book>Записаться <span class="arr">→</span></button>
+      <a class="btn ghost" href="#price">Прайс</a>
+    </div>
+    <a class="rating" href="https://yandex.ru/maps/org/165762681561/" target="_blank" rel="noopener"><b>5,0<small>★</small></b>70 отзывов<br>на Яндекс Картах</a>
+  </div>
+</header>
+
+<div class="ticker" aria-hidden="true"><div>
+  <span>брови</span><span>ресницы</span><span>Ялта, Киевская 24Б</span><span>ежедневно 10—20</span><span>5,0 на Яндекс Картах</span><span>брови</span><span>ресницы</span><span>Ялта, Киевская 24Б</span><span>ежедневно 10—20</span><span>5,0 на Яндекс Картах</span>
+</div></div>
+
+<section class="sec intro rv" data-side="l">
+  <div class="caps">Фралова Брови<br>салон бровей<br>и ресниц</div>
+  <p class="big">Бровь — это <em>линия</em>. Коррекция, окрашивание, долговременная укладка и <span class="ul">ламинирование ресниц</span> — в Ялте, на Киевской.</p>
+</section>
+
+<!-- ============ ТРИ ХАРАКТЕРА ============ -->
+<section class="sec" id="character" data-side="r">
+  <div class="label rv"><b>01</b>характер</div>
+  <h2 class="h2 rv">Какой характер<br>бровей — <em>ваш?</em></h2>
+  <div class="char-grid">
+    <div class="stage rv">
+      <svg id="brow" viewBox="0 0 520 280" aria-label="Бровь из отдельных волосков">
+        <g id="browMap">
+          <line x1="120" y1="276" x2="38" y2="20"/><line x1="120" y1="276" x2="358" y2="14"/><line x1="120" y1="276" x2="512" y2="62"/>
+          <text x="44" y="20">начало</text><text x="364" y="20">излом</text><text x="506" y="76" text-anchor="end">кончик</text>
+        </g>
+        <path id="browShape"/>
+        <g id="hairs" stroke-linecap="round" fill="none"></g>
+      </svg>
+      <span class="tag tl">прямо сейчас · <span id="hairCount">0</span> волосков</span>
+      <span class="tag br">потяните ползунок</span>
+    </div>
+    <div class="char-ctrl rv">
+      <div class="seg" role="group" aria-label="Характер бровей">
+        <button data-v="0" class="on">Натуральные</button><button data-v="1">Графичные</button><button data-v="2">Яркие</button>
+      </div>
+      <input class="range" id="charRange" type="range" min="0" max="2" step="0.001" value="0" aria-label="Плавный переход между характерами">
+      <div class="scale"><span>мягко</span><span>чётко</span><span>плотно</span></div>
+      <p class="char-desc" id="charDesc"></p>
+      <dl class="meters">
+        <div><dt>Плотность</dt><dd><i id="mD"></i></dd></div>
+        <div><dt>Контур</dt><dd><i id="mC"></i></dd></div>
+        <div><dt>Тон</dt><dd><i id="mT"></i></dd></div>
+      </dl>
+      <p class="price-note"><b>1300 ₽</b><span>Оформление — выберем вместе на приёме</span></p>
+      <button class="btn" data-book="Коррекция и окрашивание — 1300 ₽">Записаться <span class="arr">→</span></button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ДО / ПОСЛЕ ============ -->
+<section class="sec" id="ba" data-side="l">
+  <div class="ba-side">
+    <div class="label rv"><b>02</b>до / после</div>
+    <h2 class="h2 rv">Одна<br>линия <em>разницы</em></h2>
+    <p class="rv">Проведите шторку. Это фото работ студии с Яндекс Карт — мы обрезали кадр до брови и глаза, чтобы было видно только работу.</p>
+    <div class="ba-tabs rv" role="group" aria-label="Пример работы">
+      <button class="on" data-pair="0">Брови</button><button data-pair="1">Ресницы</button>
+    </div>
+  </div>
+  <div class="ba-wrap rv">
+    <div class="ba" id="baBox">
+      <div class="im before crop"></div>
+      <div class="im after crop"></div>
+      <div class="bar"><span class="knob"><svg viewBox="0 0 30 14" fill="none" stroke="#1B1B1B" stroke-width="1.8" stroke-linecap="round"><path d="M9 2 L3 7 L9 12M21 2 L27 7 L21 12"/></svg></span></div>
+      <span class="t l">до</span><span class="t r">после</span>
+      <input type="range" min="0" max="100" value="50" step="0.1" aria-label="Шторка до и после">
+    </div>
+    <div class="ba-cap" id="baCap">Коррекция и окрашивание бровей · работа студии</div>
+  </div>
+</section>
+
+<!-- ============ ПРАЙС ============ -->
+<section class="sec" id="price" data-side="r">
+  <div class="price-head">
+    <div>
+      <div class="label rv"><b>03</b>прейскурант</div>
+      <h2 class="h2 rv">Курортный<br><em>прейскурант</em></h2>
+    </div>
+    <p class="rv">Шесть талонов — это весь прайс студии. Нажмите на талон, и мы откроем запись сразу на эту услугу.</p>
+  </div>
+  <div class="tickets">
+    <h3>Брови</h3>
+    <button class="ticket" style="--r:-1.2deg" data-book="Коррекция бровей — 700 ₽">
+      <span class="stub"><span class="no">01</span><span class="vert">серия БР · контроль</span></span>
+      <span class="tmain"><span class="cat"><span>брови</span><span>№ 000701</span></span>
+        <span class="tt">Коррекция бровей</span><span class="ds">Воск или пинцет — на выбор.</span>
+        <span class="bot"><span class="pr">700<small>₽</small></span><span class="go">оторвать<br>и записаться</span></span>
+        <span class="stamp">ФРАЛОВА<br>ЯЛТА</span></span>
+    </button>
+    <button class="ticket terra" style="--r:1.4deg" data-book="Коррекция и окрашивание — 1300 ₽">
+      <span class="stub"><span class="no">02</span><span class="vert">серия БР · контроль</span></span>
+      <span class="tmain"><span class="cat"><span>брови</span><span>№ 001302</span></span>
+        <span class="tt">Коррекция и окрашивание</span><span class="ds">Натуральное, графичное или яркое оформление, прореживание.</span>
+        <span class="bot"><span class="pr">1300<small>₽</small></span><span class="go">оторвать<br>и записаться</span></span>
+        <span class="stamp">ФРАЛОВА<br>ЯЛТА</span></span>
+    </button>
+    <button class="ticket sea" style="--r:-.6deg" data-book="Долговременная укладка + коррекция + окрашивание — 1800 ₽">
+      <span class="stub"><span class="no">03</span><span class="vert">серия БР · контроль</span></span>
+      <span class="tmain"><span class="cat"><span>брови</span><span>№ 001803</span></span>
+        <span class="tt">Долговременная укладка + коррекция + окрашивание</span><span class="ds">Лами бровей с сохранением здоровья волосков, питательный уход входит.</span>
+        <span class="bot"><span class="pr">1800<small>₽</small></span><span class="go">оторвать<br>и записаться</span></span>
+        <span class="stamp">ФРАЛОВА<br>ЯЛТА</span></span>
+    </button>
+    <h3>Ресницы и прочее</h3>
+    <button class="ticket ink" style="--r:1deg" data-book="Ламинирование ресниц + питательный уход — 1900 ₽">
+      <span class="stub"><span class="no">04</span><span class="vert">серия РС · контроль</span></span>
+      <span class="tmain"><span class="cat"><span>ресницы</span><span>№ 001904</span></span>
+        <span class="tt">Ламинирование ресниц + питательный уход</span><span class="ds">Окрашивание верхних ресниц и увлажняющий уход входят.</span>
+        <span class="bot"><span class="pr">1900<small>₽</small></span><span class="go">оторвать<br>и записаться</span></span>
+        <span class="stamp">ФРАЛОВА<br>ЯЛТА</span></span>
+    </button>
+    <button class="ticket" style="--r:-1.6deg" data-book="Окрашивание ресниц — 400 ₽">
+      <span class="stub"><span class="no">05</span><span class="vert">серия РС · контроль</span></span>
+      <span class="tmain"><span class="cat"><span>ресницы</span><span>№ 000405</span></span>
+        <span class="tt">Окрашивание ресниц</span><span class="ds">Levissime: иссиня-чёрный или коричневый.</span>
+        <span class="bot"><span class="pr">400<small>₽</small></span><span class="go">оторвать<br>и записаться</span></span>
+        <span class="stamp">ФРАЛОВА<br>ЯЛТА</span></span>
+    </button>
+    <button class="ticket terra" style="--r:.8deg" data-book="Удаление нежелательных волосков — 200 ₽">
+      <span class="stub"><span class="no">06</span><span class="vert">серия ПР · контроль</span></span>
+      <span class="tmain"><span class="cat"><span>прочее</span><span>№ 000206</span></span>
+        <span class="tt">Удаление нежелательных волосков</span><span class="ds">Аккуратно и быстро.</span>
+        <span class="bot"><span class="pr">200<small>₽</small></span><span class="go">оторвать<br>и записаться</span></span>
+        <span class="stamp">ФРАЛОВА<br>ЯЛТА</span></span>
+    </button>
+  </div>
+  <p class="price-foot">Не знаете, что выбрать? Запишитесь — подберём на месте.</p>
+</section>
+
+<!-- ============ ОТКРЫТКИ ============ -->
+<section class="sec" id="works" data-side="l">
+  <div class="works-head">
+    <div>
+      <div class="label rv"><b>04</b>открытки</div>
+      <h2 class="h2 rv">Привет<br><em>из Ялты</em></h2>
+    </div>
+    <p class="rv">Работы студии вперемешку с открытками — листайте, и они сами разложатся по столу.</p>
+  </div>
+  <div class="cards" id="cards">
+    <figure class="card"><div class="pic"><img src="https://avatars.mds.yandex.net/get-altay/16055577/2a00000198e57a4f40d9657d846272d53448/XXL" alt="Оформленная бровь крупным планом" loading="lazy"></div><figcaption>Брови<small>работа студии</small></figcaption></figure>
+    <figure class="card"><div class="pic">
+      <svg viewBox="0 0 400 500" aria-label="Открытка «Привет из Ялты»"><rect width="400" height="500" fill="#EFE4D2"/><circle cx="250" cy="290" r="96" fill="#B5573A"/><rect y="300" width="400" height="10" fill="#EFE4D2"/><rect y="322" width="400" height="12" fill="#EFE4D2"/><path d="M0 330 L60 300 L130 285 L168 272 L174 250 L180 268 L186 244 L192 266 L198 252 L204 274 L260 282 L400 320 V500 H0Z" fill="#8C9AA3"/><path d="M0 360 C80 330 160 336 230 356 S350 352 400 346 V500 H0Z" fill="#4C6579"/><rect y="372" width="400" height="128" fill="#12324A"/><g stroke="#CE7656" stroke-width="4"><line x1="210" y1="392" x2="290" y2="392"/><line x1="196" y1="414" x2="304" y2="414"/><line x1="220" y1="438" x2="280" y2="438"/></g><text x="200" y="88" text-anchor="middle" font-family="Playfair Display" font-weight="900" font-size="62" fill="#12324A">ЯЛТА</text><text x="200" y="128" text-anchor="middle" font-family="Cormorant Garamond" font-style="italic" font-size="30" fill="#B5573A">привет с набережной</text><path d="M110 170 C150 150 210 140 250 142 C270 143 284 150 292 160" fill="none" stroke="#B5573A" stroke-width="3" stroke-linecap="round"/></svg>
+    </div><figcaption>Привет из Ялты<small>открытка</small></figcaption></figure>
+    <figure class="card"><div class="pic"><img src="https://avatars.mds.yandex.net/get-altay/15408870/2a00000198e57a4c059cdc927de9ce85d839/XXL" alt="Ресницы после ламинирования крупным планом" loading="lazy"></div><figcaption>Ресницы<small>работа студии</small></figcaption></figure>
+    <figure class="card"><div class="pic wide crop" data-crop="p6a"></div><figcaption>Оформление<small>работа студии</small></figcaption></figure>
+    <figure class="card"><div class="pic wide">
+      <svg viewBox="0 0 400 300" aria-label="Открытка с адресом"><rect width="400" height="300" fill="#12324A"/><rect x="14" y="14" width="372" height="272" fill="none" stroke="#EFE4D2" stroke-opacity=".5"/><g fill="none" stroke="#CE7656" stroke-width="2"><circle cx="318" cy="82" r="46"/><circle cx="318" cy="82" r="38" stroke-dasharray="3 4"/></g><text x="318" y="78" text-anchor="middle" font-family="Unbounded" font-size="11" letter-spacing="2" fill="#CE7656">ЯЛТА</text><text x="318" y="96" text-anchor="middle" font-family="Unbounded" font-size="8" letter-spacing="1" fill="#CE7656">10—20</text><text x="36" y="150" font-family="Playfair Display" font-style="italic" font-weight="700" font-size="40" fill="#EFE4D2">Киевская, 24Б</text><text x="36" y="190" font-family="Unbounded" font-size="11" letter-spacing="3" fill="#EFE4D2" fill-opacity=".7">ЕЖЕДНЕВНО 10:00 — 20:00</text><g stroke="#EFE4D2" stroke-opacity=".35"><line x1="36" y1="226" x2="364" y2="226"/><line x1="36" y1="254" x2="364" y2="254"/></g></svg>
+    </div><figcaption>Ждём вас<small>адрес</small></figcaption></figure>
+    <figure class="card"><div class="pic wide crop" data-crop="p2a"></div><figcaption>Ламинирование<small>работа студии</small></figcaption></figure>
+  </div>
+</section>
+
+<!-- ============ КОНТАКТЫ ============ -->
+<section class="sec" id="contacts" data-side="r">
+  <div class="label rv"><b>05</b>адрес</div>
+  <h2 class="h2 rv">Ждём на<br><em>Киевской, 24Б</em></h2>
+  <div class="ct-grid">
+    <div class="mapbox rv"><iframe title="Фралова Брови на карте" src="https://yandex.ru/map-widget/v1/?text=%D0%AF%D0%BB%D1%82%D0%B0%2C%20%D0%9A%D0%B8%D0%B5%D0%B2%D1%81%D0%BA%D0%B0%D1%8F%20%D1%83%D0%BB%D0%B8%D1%86%D0%B0%2C%2024%D0%91&z=16" loading="lazy" allowfullscreen></iframe></div>
+    <div class="ct-info rv">
+      <div class="row"><span class="caps">Часы</span><span class="v">Ежедневно 10:00 — 20:00</span></div>
+      <div class="row"><span class="caps">Телефон</span><a class="v" href="tel:+79788809224">+7 978 880-92-24</a></div>
+      <div class="row"><span class="caps">Яндекс Карты</span><a class="v" href="https://yandex.ru/maps/org/165762681561/" target="_blank" rel="noopener">5,0 ★ · 70 отзывов</a></div>
+      <div class="ct-btns">
+        <button class="btn" data-book>Записаться <span class="arr">→</span></button>
+        <a class="btn ghost" href="https://dikidi.net/488999" target="_blank" rel="noopener">Онлайн-запись Dikidi <span class="arr">↗</span></a>
+        <a class="btn ghost" href="https://t.me/Fralova_D" target="_blank" rel="noopener">Telegram <span class="arr">↗</span></a>
+        <a class="btn ghost" href="tel:+79788809224">Позвонить <span class="arr">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span><b>ФРАЛОВА</b>&nbsp;&nbsp; Брови · ресницы · Ялта, Киевская ул., 24Б</span>
+  <span>Демонстрационный набросок. Данные взяты из открытых источников (Яндекс Карты).</span>
+</footer>
+
+<div class="sticky">
+  <button class="btn" data-book>Записаться</button>
+  <a class="tel" href="tel:+79788809224" aria-label="Позвонить"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2"/></svg></a>
+</div>
+
+<!-- ============ ЗАПИСЬ ============ -->
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="mTitle">
+  <div class="sheet" id="sheet">
+    <button class="x" id="mClose" aria-label="Закрыть">×</button>
+    <div class="caps" style="color:var(--terra)">талон на запись</div>
+    <h3 id="mTitle">Запишем <em>на линию</em></h3>
+    <p class="lead">Оставьте контакты — студия перезвонит и подтвердит время.</p>
+    <form class="f" id="form" novalidate>
+      <label>Имя<input name="name" required autocomplete="given-name" placeholder="Как к вам обращаться"></label>
+      <label>Телефон<input name="phone" type="tel" required autocomplete="tel" placeholder="+7 ___ ___-__-__"></label>
+      <label>Услуга<select name="service" id="svc">
+        <option>Коррекция бровей — 700 ₽</option>
+        <option>Коррекция и окрашивание — 1300 ₽</option>
+        <option>Долговременная укладка + коррекция + окрашивание — 1800 ₽</option>
+        <option>Ламинирование ресниц + питательный уход — 1900 ₽</option>
+        <option>Окрашивание ресниц — 400 ₽</option>
+        <option>Удаление нежелательных волосков — 200 ₽</option>
+        <option>Пока не знаю — подскажите</option>
+      </select></label>
+      <div class="two">
+        <label>День<input name="date" type="date" id="date"></label>
+        <label>Время<select name="time"><option>Утро · 10–13</option><option>День · 13–17</option><option>Вечер · 17–20</option><option>Любое</option></select></label>
+      </div>
+      <button class="btn" type="submit">Отправить заявку <span class="arr">→</span></button>
+    </form>
+    <div class="done">
+      <svg viewBox="0 0 300 70"><path pathLength="1" d="M8 58 C70 30 140 10 205 12 C245 13 275 28 294 46"/></svg>
+      <p>Спасибо!</p>
+      <div>Это демо. В рабочей версии заявка сразу придёт вам в Telegram.</div>
+    </div>
+    <div class="alt">
+      <a class="btn ghost" href="tel:+79788809224">Позвонить</a>
+      <a class="btn ghost" href="https://t.me/Fralova_D" target="_blank" rel="noopener">Написать в Telegram</a>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+var $=function(s,r){return (r||document).querySelector(s)}, $$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
+var lerp=function(a,b,t){return a+(b-a)*t}, clamp=function(v,a,b){return Math.max(a,Math.min(b,v))};
+var easeIO=function(t){return t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2};
+/* F — сколько «кадров 60 fps» прошло; A(k) — сглаживание, не зависящее от частоты кадров */
+var F=1,A=function(k){return 1-Math.pow(1-k,F)};
+var IMG={
+  p6:'https://avatars.mds.yandex.net/get-altay/15386533/2a00000195b49115ff7942ed036cf9980613/XXL',
+  p2:'https://avatars.mds.yandex.net/get-altay/16403814/2a00000198523f0da247f84cda855e7fd354/XXL'
+};
+/* кадрирование фото до брови: координаты в пикселях исходника L (p6 500×500, p2 400×500) */
+var CROPS={
+  p6b:{u:IMG.p6,w:500,h:500,cx:300,cy:84,cw:190},
+  p6a:{u:IMG.p6,w:500,h:500,cx:324,cy:328,cw:190},
+  p2b:{u:IMG.p2,w:400,h:500,cx:298,cy:168,cw:200},
+  p2a:{u:IMG.p2,w:400,h:500,cx:304,cy:408,cw:200}
+};
+function applyCrop(el,key){
+  var c=CROPS[key]; if(!c)return;
+  var W=el.clientWidth,H=el.clientHeight; if(!W)return;
+  var s=W/c.cw, ch=H/s;
+  el.style.backgroundImage='url("'+c.u+'")';
+  el.style.backgroundSize=(c.w*s).toFixed(1)+'px '+(c.h*s).toFixed(1)+'px';
+  el.style.backgroundPosition=(-(c.cx-c.cw/2)*s).toFixed(1)+'px '+(-(c.cy-ch/2)*s).toFixed(1)+'px';
+}
+
+/* ---------- первый экран ---------- */
+$$('.hero h1 span').forEach(function(s,i){s.style.animationDelay=(.15+i*.07)+'s'});
+var bal=$('#balus'),bh='';
+for(var x=-200;x<1800;x+=22) bh+='<rect x="'+x+'" y="933" width="6" height="43" rx="3"/>';
+bal.innerHTML=bh;
+var layers=$$('.poster [data-d]').map(function(el){return {el:el,d:+el.dataset.d}});
+var vw=innerWidth,vh=innerHeight,sy=scrollY,mx=0,my=0,tmx=0,tmy=0;
+addEventListener('pointermove',function(e){if(e.pointerType!=='mouse')return;tmx=e.clientX/vw-.5;tmy=e.clientY/vh-.5},{passive:true});
+addEventListener('scroll',function(){sy=scrollY},{passive:true});
+var heroKey='';
+function hero(){
+  mx=lerp(mx,tmx,A(.07));my=lerp(my,tmy,A(.07));
+  if(sy>vh*1.3)return;
+  var key=mx.toFixed(4)+'|'+my.toFixed(4)+'|'+sy.toFixed(1);if(key===heroKey)return;heroKey=key;
+  for(var i=0;i<layers.length;i++){var l=layers[i];
+    l.el.setAttribute('transform','translate('+(-mx*l.d*700).toFixed(2)+' '+(-my*l.d*260+sy*l.d*1.6).toFixed(2)+')');}
+}
+
+/* ---------- появление ---------- */
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.15});
+$$('.rv').forEach(function(el){io.observe(el)});
+
+/* ---------- нить через всю страницу ---------- */
+var tSvg=$('#thread'),tPath=$('#threadPath'),tTip=$('#threadTip'),samples=[],drawn=0,tTotal=0,logoDone=false;
+setTimeout(function(){logoDone=true},2000);
+function pageXY(svg,x,y){var p=svg.createSVGPoint();p.x=x;p.y=y;var m=svg.getScreenCTM();p=p.matrixTransform(m);return {x:p.x+scrollX,y:p.y+scrollY}}
+function buildThread(){
+  var de=document.documentElement,W=de.clientWidth,H=Math.max(document.body.scrollHeight,de.scrollHeight);
+  tSvg.style.height=H+'px';tSvg.setAttribute('viewBox','0 0 '+W+' '+H);
+  var m=W<760?7:Math.max(22,W*.022);
+  var start=pageXY($('#logoBrow'),294,46);
+  var secs=$$('[data-side]');
+  var pts=[];
+  secs.forEach(function(s,i){
+    var r=s.getBoundingClientRect(),top=r.top+scrollY,bot=r.bottom+scrollY,x=s.dataset.side==='l'?m:W-m;
+    var y0=i===0?top+r.height*.5:top+70,y1=bot-70;
+    var n=Math.max(1,Math.round((y1-y0)/380));
+    for(var k=0;k<=n;k++){var yy=lerp(y0,y1,k/n);pts.push({x:x+(k%2?(s.dataset.side==='l'?1:-1)*(W<760?3:14):0),y:yy})}
+  });
+  var d='M'+start.x.toFixed(1)+' '+start.y.toFixed(1);
+  var p0=pts[0];
+  d+=' C'+(start.x+90)+' '+(start.y+50)+' '+p0.x+' '+(p0.y-160)+' '+p0.x+' '+p0.y;
+  for(var i=1;i<pts.length;i++){var a=pts[i-1],b=pts[i],k=(b.y-a.y)*.5;
+    d+=' C'+a.x.toFixed(1)+' '+(a.y+k).toFixed(1)+' '+b.x.toFixed(1)+' '+(b.y-k).toFixed(1)+' '+b.x.toFixed(1)+' '+b.y.toFixed(1);}
+  /* финальный росчерк — бровь */
+  var last=pts[pts.length-1],cx=W/2,fy=last.y+20;
+  d+=' C'+last.x+' '+(fy-10)+' '+(cx+W*.18)+' '+(fy+10)+' '+(cx+W*.12)+' '+(fy+18);
+  d+=' C'+(cx+W*.05)+' '+(fy-8)+' '+(cx-W*.1)+' '+(fy-14)+' '+(cx-W*.2)+' '+(fy+18);
+  tPath.setAttribute('d',d);
+  tTotal=tPath.getTotalLength();
+  tPath.style.strokeDasharray=tTotal;
+  samples=[];var ymax=-1e9;
+  for(var l=0;l<=tTotal;l+=6){var p=tPath.getPointAtLength(l);ymax=Math.max(ymax,p.y);samples.push({l:l,x:p.x,y:p.y,ym:ymax})}
+}
+function thread(){
+  if(!samples.length)return;
+  var target=logoDone?sy+vh*.72:0,lo=0,hi=samples.length-1;
+  if(!logoDone){tPath.style.strokeDashoffset=tTotal;tTip.style.opacity=0;return}
+  while(lo<hi){var mid=(lo+hi)>>1;if(samples[mid].ym<target)lo=mid+1;else hi=mid}
+  var goal=samples[lo].l;if(sy+vh>=document.documentElement.scrollHeight-4)goal=tTotal;
+  if(Math.abs(goal-drawn)<.3)return;
+  drawn=lerp(drawn,goal,A(.09));
+  tPath.style.strokeDashoffset=(tTotal-drawn).toFixed(1);
+  var s=samples[Math.min(samples.length-1,Math.round(drawn/6))];
+  tTip.setAttribute('cx',s.x);tTip.setAttribute('cy',s.y);tTip.style.opacity=drawn>4?1:0;
+}
+
+/* ---------- три характера: бровь из волосков ---------- */
+var CH=[
+  {d:.52,sp:1.22,j:.42,len:1,cu:.9,hw:1.05,c:[150,116,88],op:.78,ol:0,ws:.9},
+  {d:.8,sp:.9,j:.08,len:.9,cu:.5,hw:1.25,c:[84,58,42],op:.95,ol:1,ws:1},
+  {d:1.01,sp:1.02,j:.18,len:1.12,cu:.6,hw:1.8,c:[34,22,15],op:1,ol:.3,ws:1.14}
+];
+var DESC=['Натуральные — мягкие, чуть разреженные волоски, будто так и было от природы.','Графичные — чёткий контур и выверенная форма, аккуратная линия без лишнего.','Яркие — плотные и насыщенные, выразительный акцент на лице.'];
+var P0={x:40,y:160},P1={x:160,y:86},P2={x:350,y:42},P3={x:494,y:126};
+function bz(t){var u=1-t;return{x:u*u*u*P0.x+3*u*u*t*P1.x+3*u*t*t*P2.x+t*t*t*P3.x,y:u*u*u*P0.y+3*u*u*t*P1.y+3*u*t*t*P2.y+t*t*t*P3.y}}
+function bzd(t){var u=1-t;var x=3*u*u*(P1.x-P0.x)+6*u*t*(P2.x-P1.x)+3*t*t*(P3.x-P2.x),y=3*u*u*(P1.y-P0.y)+6*u*t*(P2.y-P1.y)+3*t*t*(P3.y-P2.y),l=Math.hypot(x,y);return{x:x/l,y:y/l}}
+function bw(t){return 58*Math.pow(1-t,.6)*Math.min(1,.45+t/.07)}
+var hairsG=$('#hairs'),shape=$('#browShape'),NS='http://www.w3.org/2000/svg',hairs=[],N=innerWidth<760?300:420;
+function rnd(a){a=a|0;return function(){a=a+0x6D2B79F5|0;var t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+var R=rnd(24),frag=document.createDocumentFragment();
+for(var i=0;i<N;i++){
+  var t=Math.pow(R(),.85);
+  var h={t:t,s:R()*2-1,r:R(),j:(R()+R()+R()-1.5)/1.5,lr:.75+R()*.5,cv:R()<.5?1:-1,el:document.createElementNS(NS,'path')};
+  hairs.push(h);frag.appendChild(h.el);
+}
+hairsG.appendChild(frag);
+hairs.sort(function(a,b){return a.t-b.t});
+var vCur=0,vTarget=0,grow=0,growOn=false,browDirty=true;
+function params(v){var a=v<=1?CH[0]:CH[1],b=v<=1?CH[1]:CH[2],k=v<=1?v:v-1;k=easeIO(k);var o={};for(var key in a){o[key]=Array.isArray(a[key])?a[key].map(function(x,i){return lerp(x,b[key][i],k)}):lerp(a[key],b[key],k)}return o}
+function renderBrow(){
+  var p=params(vCur),col='rgb('+p.c.map(Math.round).join(',')+')',vis=0;
+  hairsG.setAttribute('stroke',col);hairsG.setAttribute('stroke-width',p.hw.toFixed(2));
+  for(var i=0;i<hairs.length;i++){
+    var h=hairs[i],c=bz(h.t),tg=bzd(h.t),nx=tg.y,ny=-tg.x,w=bw(h.t)*p.ws/2,s=h.s*p.sp;
+    var bx=c.x+nx*s*w,by=c.y+ny*s*w;
+    var a0=Math.atan2(tg.y,tg.x),body=a0+h.s*.26-.06,head=-1.25+h.s*.12,hz=clamp((.2-h.t)/.2,0,1);
+    var ang=lerp(body,head,hz*hz)+h.j*p.j;
+    var g=clamp(grow*1.6-h.t*.6,0,1);
+    var L=26*p.len*h.lr*(1-.45*h.t)*g;
+    var ex=bx+Math.cos(ang)*L,ey=by+Math.sin(ang)*L;
+    var qx=(bx+ex)/2-Math.sin(ang)*L*.12*p.cu*h.cv,qy=(by+ey)/2+Math.cos(ang)*L*.12*p.cu*Math.abs(h.cv);
+    var op=clamp((p.d-h.r)/.12,0,1)*p.op;
+    if(Math.abs(s)>1)op*=clamp(1.6-Math.abs(s),0,1);
+    if(op>.05&&g>0)vis++;
+    h.el.setAttribute('d','M'+bx.toFixed(1)+' '+by.toFixed(1)+'Q'+qx.toFixed(1)+' '+qy.toFixed(1)+' '+ex.toFixed(1)+' '+ey.toFixed(1));
+    h.el.setAttribute('stroke-opacity',op.toFixed(2));
+  }
+  var up='',dn='',k;
+  for(k=0;k<=40;k++){var t=k/40,c2=bz(t),tg2=bzd(t),w2=bw(t)*p.ws*.47;up+=(k?'L':'M')+(c2.x-tg2.y*w2).toFixed(1)+' '+(c2.y+tg2.x*w2+2).toFixed(1)}
+  for(k=40;k>=0;k--){var t3=k/40,c3=bz(t3),tg3=bzd(t3),w3=bw(t3)*p.ws*.47;dn+='L'+(c3.x+tg3.y*w3).toFixed(1)+' '+(c3.y-tg3.x*w3+4).toFixed(1)}
+  shape.setAttribute('d',up+dn+'Z');
+  shape.setAttribute('fill',col);shape.setAttribute('fill-opacity',(p.ol*.16*grow).toFixed(3));
+  shape.setAttribute('stroke',col);shape.setAttribute('stroke-opacity',(p.ol*.55*grow).toFixed(3));shape.setAttribute('stroke-width','.8');
+  $('#hairCount').textContent=vis;
+  $('#mD').style.width=(p.d*100)+'%';$('#mC').style.width=(p.ol*85+(1-p.j)*15)+'%';$('#mT').style.width=(100-(p.c[0]-30)/1.3)+'%';
+}
+var range=$('#charRange'),segB=$$('.seg button'),desc=$('#charDesc'),lastIdx=-1,dragging=false;
+function setUI(v){var idx=Math.round(v);segB.forEach(function(b,i){b.classList.toggle('on',i===idx)});if(idx!==lastIdx){desc.textContent=DESC[idx];lastIdx=idx}}
+segB.forEach(function(b){b.addEventListener('click',function(){vTarget=+b.dataset.v;setUI(vTarget)})});
+range.addEventListener('input',function(){vTarget=+range.value;setUI(vTarget)});
+setUI(0);
+new IntersectionObserver(function(es){if(es[0].isIntersecting)growOn=true},{threshold:.3}).observe($('.stage'));
+function brow(){
+  var ch=false;
+  if(growOn&&grow<1){grow=Math.min(1,grow+.012*F);ch=true}
+  if(Math.abs(vTarget-vCur)>.0005){vCur=lerp(vCur,vTarget,A(.08));ch=true;if(document.activeElement!==range)range.value=vCur}
+  if(ch||browDirty){renderBrow();browDirty=false}
+}
+
+/* ---------- до / после ---------- */
+var baBox=$('#baBox'),baIn=$('input',baBox),baB=$('.before',baBox),baA=$('.after',baBox),pair=0,baP=50,baT=50,baTouched=false;
+var PAIRS=[['p6b','p6a','Коррекция и окрашивание бровей · работа студии'],['p2b','p2a','Ламинирование ресниц · работа студии']];
+function setPair(i){pair=i;applyCrop(baB,PAIRS[i][0]);applyCrop(baA,PAIRS[i][1]);$('#baCap').textContent=PAIRS[i][2];
+  $$('.ba-tabs button').forEach(function(b,k){b.classList.toggle('on',k===i)})}
+$$('.ba-tabs button').forEach(function(b){b.addEventListener('click',function(){setPair(+b.dataset.pair);baT=50;baP=20;baTouched=false;baHint=0})});
+baIn.addEventListener('input',function(){baT=+baIn.value;baTouched=true});
+var baHint=0,baSeen=false;
+new IntersectionObserver(function(es){if(es[0].isIntersecting)baSeen=true},{threshold:.5}).observe(baBox);
+function ba(){
+  if(baSeen&&!baTouched&&baHint<1){baHint=Math.min(1,baHint+.006*F);baT=50+Math.sin(baHint*Math.PI*2)*28}
+  baP=lerp(baP,baT,A(.15));baBox.style.setProperty('--p',baP.toFixed(2)+'%');
+}
+
+/* ---------- открытки на столе ---------- */
+var cards=$$('#cards .card'),cardsSec=$('#works'),scat=[];
+var R2=rnd(7);
+cards.forEach(function(c,i){scat.push({x:(R2()-.5),y:(R2()-.5),r:(R2()-.5)*36,f:(R2()-.5)*5})});
+var tableP=-1;
+function table(){
+  var r=cardsSec.getBoundingClientRect();if(r.bottom<0||r.top>vh)return;
+  var p=clamp((vh*.95-r.top)/(vh*.85),0,1);if(Math.abs(p-tableP)<.0005)return;tableP=p;
+  var e=1-easeIO(p),W=vw<760?vw*.35:vw*.32;
+  cards.forEach(function(c,i){var s=scat[i];c.style.transform='translate3d('+(s.x*W*e).toFixed(1)+'px,'+(s.y*300*e+e*80).toFixed(1)+'px,0) rotate('+(s.r*e+s.f).toFixed(2)+'deg)'});
+}
+
+/* ---------- кадрирование ---------- */
+function crops(){$$('[data-crop]').forEach(function(el){applyCrop(el,el.dataset.crop)});setPair(pair)}
+
+/* ---------- запись ---------- */
+var modal=$('#modal'),sheet=$('#sheet'),svc=$('#svc'),form=$('#form'),lastFocus=null;
+var d=new Date(),iso=d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+$('#date').min=iso;$('#date').value=iso;
+function openM(service){
+  lastFocus=document.activeElement;sheet.classList.remove('ok');form.reset();$('#date').value=iso;
+  if(service){for(var i=0;i<svc.options.length;i++)if(svc.options[i].text===service)svc.selectedIndex=i}
+  modal.classList.add('open');setTimeout(function(){$('input[name=name]').focus()},300);
+}
+function closeM(){modal.classList.remove('open');if(lastFocus)lastFocus.focus()}
+document.addEventListener('click',function(e){var b=e.target.closest('[data-book]');if(b){e.preventDefault();openM(b.dataset.book)}});
+$('#mClose').addEventListener('click',closeM);
+modal.addEventListener('click',function(e){if(e.target===modal)closeM()});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&modal.classList.contains('open'))closeM()});
+form.addEventListener('submit',function(e){e.preventDefault();
+  var fn=form.elements['name'],fp=form.elements['phone'],n=fn.value.trim(),ph=fp.value.replace(/\D/g,'');
+  fn.style.borderColor=n?'':'var(--terra)';fp.style.borderColor=ph.length>=10?'':'var(--terra)';
+  if(!n||ph.length<10)return;
+  sheet.classList.add('ok');
+});
+
+/* ---------- плавная прокрутка колесом (инерция), на тач-экранах — родная ---------- */
+var ss={on:matchMedia('(pointer:fine)').matches,y:scrollY,t:scrollY,active:false};
+function maxY(){return document.documentElement.scrollHeight-innerHeight}
+function scrollToY(y){ss.y=ss.active?ss.y:scrollY;ss.t=clamp(y,0,maxY());ss.active=true}
+addEventListener('wheel',function(e){
+  if(!ss.on||e.ctrlKey||modal.classList.contains('open')||Math.abs(e.deltaX)>Math.abs(e.deltaY))return;
+  e.preventDefault();
+  var dy=e.deltaY*(e.deltaMode===1?40:e.deltaMode===2?innerHeight:1);
+  scrollToY((ss.active?ss.t:scrollY)+dy);
+},{passive:false});
+/* если прокрутили иначе (ползунок, клавиши, тач) — отдаём управление браузеру */
+['mousedown','keydown','touchstart'].forEach(function(ev){addEventListener(ev,function(e){if(ev!=='keydown'||!e.target.closest('input,select'))ss.active=false},{passive:true})});
+document.addEventListener('click',function(e){
+  var a=e.target.closest('a[href^="#"]');if(!a)return;
+  var el=a.getAttribute('href')==='#top'?document.body:$(a.getAttribute('href'));if(!el)return;
+  e.preventDefault();
+  var y=el===document.body?0:el.getBoundingClientRect().top+scrollY;
+  if(ss.on)scrollToY(y);else scrollTo({top:y,behavior:'smooth'});
+});
+function smooth(){
+  if(!ss.active)return;
+  ss.y=lerp(ss.y,ss.t,A(.085));
+  if(Math.abs(ss.t-ss.y)<.4){ss.y=ss.t;ss.active=false}
+  scrollTo({top:ss.y,behavior:'instant'});sy=ss.y;
+}
+
+/* ---------- цикл ---------- */
+var last=performance.now();
+function loop(now){F=clamp((now-last)/16.67,.2,6);last=now;smooth();hero();thread();brow();ba();table();requestAnimationFrame(loop)}
+var rt;function relayout(){clearTimeout(rt);rt=setTimeout(function(){vw=innerWidth;vh=innerHeight;heroKey='';tableP=-1;buildThread();crops()},120)}
+addEventListener('resize',relayout);
+new ResizeObserver(relayout).observe(document.body);
+addEventListener('load',relayout);
+if(document.fonts&&document.fonts.ready)document.fonts.ready.then(relayout);
+buildThread();crops();requestAnimationFrame(loop);
+})();
+</script>
+</body>
+</html>
