@@ -1,0 +1,765 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Patchouli Team — салон красоты в Севастополе · онлайн-запись</title>
+<meta name="description" content="Patchouli Team — салон красоты в Севастополе: ногтевой сервис, брови и ресницы, массаж, парикмахер и барбер. Ул. Тараса Шевченко, 49. Ежедневно 10:00–20:00.">
+<meta name="theme-color" content="#1d1f17">
+<link rel="icon" href="https://avatars.mds.yandex.net/get-altay/20840442/2a0000019fa35621b4e71c74e47db8ad98ad/XXL">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1d1f17;
+  --ink-2:#272a1f;
+  --ink-3:#33372a;
+  --gold:#b8955a;
+  --gold-2:#d2b27a;
+  --cream:#f3ece0;
+  --cream-2:#ebe2d2;
+  --paper:#faf6ef;
+  --sage:#7c8a6a;
+  --sage-2:#a3ae93;
+  --text:#2a2b24;
+  --muted:#6b6c60;
+  --line:rgba(29,31,23,.12);
+  --line-dark:rgba(243,236,224,.14);
+  --radius:22px;
+  --radius-sm:14px;
+  --serif:"Cormorant Garamond",Georgia,"Times New Roman",serif;
+  --sans:"Manrope",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --wrap:1180px;
+  --shadow:0 18px 40px -22px rgba(29,31,23,.45);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--cream);color:var(--text);font:400 16px/1.6 var(--sans);overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+button,input,select{font:inherit;color:inherit}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.08;margin:0;letter-spacing:.005em}
+p{margin:0}
+.wrap{width:100%;max-width:var(--wrap);margin:0 auto;padding:0 20px}
+section{scroll-margin-top:72px}
+
+/* ---------- buttons ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5em;min-height:48px;padding:0 26px;border-radius:999px;border:1px solid transparent;font-weight:600;font-size:15px;text-decoration:none;cursor:pointer;transition:background .2s,color .2s,border-color .2s,transform .2s;white-space:nowrap}
+.btn:active{transform:translateY(1px)}
+.btn-gold{background:var(--gold);color:var(--ink)}
+.btn-gold:hover{background:var(--gold-2)}
+.btn-ghost{border-color:rgba(243,236,224,.35);color:var(--cream);background:transparent}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold-2)}
+.btn-dark{background:var(--ink);color:var(--cream)}
+.btn-dark:hover{background:var(--ink-3)}
+.btn-sm{min-height:40px;padding:0 18px;font-size:14px}
+
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--sage)}
+.eyebrow::before{content:"";width:28px;height:1px;background:currentColor}
+.sec-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px 40px;margin-bottom:36px}
+.sec-head h2{font-size:clamp(34px,5vw,54px);margin-top:12px;color:var(--ink)}
+.sec-head p{max-width:420px;color:var(--muted)}
+
+/* ---------- header ---------- */
+.hdr{position:sticky;top:0;z-index:50;background:rgba(29,31,23,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line-dark);color:var(--cream)}
+.hdr .wrap{display:flex;align-items:center;gap:24px;height:68px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;flex-shrink:0}
+.brand img{width:42px;height:42px;border-radius:50%;object-fit:cover;border:1px solid rgba(184,149,90,.5)}
+.brand b{font-family:var(--serif);font-size:24px;font-weight:600;letter-spacing:.02em;line-height:1}
+.brand b span{color:var(--gold)}
+.nav{display:flex;gap:28px;margin-left:auto}
+.nav a{text-decoration:none;font-size:15px;opacity:.82;transition:opacity .2s,color .2s}
+.nav a:hover{opacity:1;color:var(--gold-2)}
+.hdr .btn{margin-left:8px}
+.burger{display:none;margin-left:auto;width:44px;height:44px;border-radius:50%;border:1px solid var(--line-dark);background:transparent;cursor:pointer;align-items:center;justify-content:center}
+.burger i,.burger i::before,.burger i::after{display:block;width:18px;height:1.5px;background:var(--cream);position:relative;transition:transform .25s,background .25s}
+.burger i::before,.burger i::after{content:"";position:absolute;left:0}
+.burger i::before{top:-6px}.burger i::after{top:6px}
+.hdr.open .burger i{background:transparent}
+.hdr.open .burger i::before{transform:translateY(6px) rotate(45deg)}
+.hdr.open .burger i::after{transform:translateY(-6px) rotate(-45deg)}
+
+/* ---------- hero ---------- */
+.hero{position:relative;background:var(--ink);color:var(--cream);overflow:hidden;padding:72px 0 96px}
+.hero::after{content:"";position:absolute;inset:auto -10% -1px;height:120px;background:radial-gradient(60% 100% at 50% 100%,rgba(124,138,106,.18),transparent)}
+.hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.hero h1{font-size:clamp(42px,6.4vw,82px);font-weight:500;margin:18px 0 22px}
+.hero h1 em{font-style:italic;color:var(--gold-2)}
+.hero .lead{font-size:17px;color:rgba(243,236,224,.78);max-width:520px}
+.hero .eyebrow{color:var(--sage-2)}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin:32px 0 28px}
+.rating{display:inline-flex;align-items:center;flex-wrap:wrap;gap:4px 10px;padding:10px 18px;border-radius:999px;background:rgba(243,236,224,.06);border:1px solid rgba(184,149,90,.35);text-decoration:none;font-size:14px;transition:background .2s,border-color .2s}
+.rating:hover{background:rgba(184,149,90,.12);border-color:var(--gold)}
+.rating .star{color:var(--gold-2);font-weight:700}
+.rating .go{color:var(--gold-2)}
+.sprig{position:absolute;pointer-events:none;color:var(--gold);opacity:.35}
+.sprig-hero{right:-40px;top:20px;width:340px;height:auto}
+.collage{position:relative;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto;gap:14px}
+.collage figure{margin:0;overflow:hidden;border-radius:var(--radius);background:var(--ink-3)}
+.collage img{width:100%;height:100%;object-fit:cover}
+.collage .c1{grid-row:span 2;aspect-ratio:3/4.6;border-radius:180px 180px var(--radius) var(--radius)}
+.collage .c2{aspect-ratio:1/1}
+.collage .c3{aspect-ratio:1/1}
+.collage .tag{position:absolute;left:-18px;bottom:28px;background:var(--cream);color:var(--ink);border-radius:999px;padding:10px 18px;font-size:13px;font-weight:600;box-shadow:var(--shadow);display:flex;align-items:center;gap:8px}
+.collage .tag::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--sage)}
+
+/* ---------- directions ---------- */
+.dirs{padding:96px 0 40px}
+.dir-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.dir{position:relative;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:28px 24px 24px;display:flex;flex-direction:column;gap:12px;transition:transform .25s,box-shadow .25s,border-color .25s;text-decoration:none;color:inherit;cursor:pointer}
+.dir:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:rgba(184,149,90,.5)}
+.dir .ic{width:52px;height:52px;border-radius:50%;background:var(--cream-2);display:grid;place-items:center;color:var(--sage)}
+.dir .ic svg{width:26px;height:26px}
+.dir h3{font-size:27px;color:var(--ink)}
+.dir p{color:var(--muted);font-size:15px;flex:1}
+.dir .from{font-size:14px;font-weight:600;color:var(--ink);display:flex;justify-content:space-between;align-items:center;padding-top:14px;border-top:1px dashed var(--line)}
+.dir .from span{color:var(--gold)}
+
+/* ---------- prices ---------- */
+.prices{padding:72px 0 96px}
+.tabs{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding:4px;margin:0 -4px 28px;-webkit-overflow-scrolling:touch}
+.tabs::-webkit-scrollbar{display:none}
+.tab{flex-shrink:0;min-height:44px;padding:0 20px;border-radius:999px;border:1px solid var(--line);background:transparent;cursor:pointer;font-weight:600;font-size:14px;color:var(--ink);transition:background .2s,color .2s,border-color .2s;display:inline-flex;align-items:center;gap:8px}
+.tab small{font-weight:500;opacity:.55;font-size:12px}
+.tab:hover{border-color:var(--gold)}
+.tab[aria-selected="true"]{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+.tab[aria-selected="true"] small{color:var(--gold-2);opacity:1}
+.price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.pcard{position:relative;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:22px 22px 18px;display:flex;flex-direction:column;gap:14px;min-height:150px;animation:rise .45s both}
+.pcard h3{font-family:var(--sans);font-size:16px;font-weight:600;line-height:1.35;color:var(--ink)}
+.pcard .note{font-size:13px;color:var(--muted);margin-top:-8px}
+.pcard .row{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.pcard .price{font-family:var(--serif);font-size:30px;font-weight:600;color:var(--ink);line-height:1;white-space:nowrap}
+.pcard .price small{font-family:var(--sans);font-size:13px;font-weight:500;color:var(--muted);margin-left:2px}
+.pcard .add{width:42px;height:42px;flex-shrink:0;border-radius:50%;border:1px solid var(--line);background:transparent;cursor:pointer;display:grid;place-items:center;color:var(--ink);transition:background .2s,color .2s,border-color .2s}
+.pcard .add:hover{background:var(--gold);border-color:var(--gold)}
+.pcard .add svg{width:16px;height:16px}
+.price-foot{margin-top:22px;font-size:14px;color:var(--muted)}
+@keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+/* ---------- gallery ---------- */
+.works{background:var(--ink);color:var(--cream);padding:96px 0;position:relative;overflow:hidden}
+.works .sec-head h2{color:var(--cream)}
+.works .sec-head p{color:rgba(243,236,224,.65)}
+.works .eyebrow{color:var(--sage-2)}
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:220px;grid-auto-flow:dense;gap:12px}
+.gallery button{padding:0;border:0;border-radius:var(--radius-sm);overflow:hidden;cursor:zoom-in;background:var(--ink-3);position:relative}
+.gallery img{width:100%;height:100%;object-fit:cover;transition:transform .6s,filter .3s}
+.gallery button:hover img{transform:scale(1.05)}
+.gallery .tall{grid-row:span 2}
+.gallery .wide{grid-column:span 2}
+.lb{position:fixed;inset:0;z-index:100;background:rgba(15,16,12,.94);display:none;align-items:center;justify-content:center;padding:60px 16px}
+.lb.on{display:flex}
+.lb img{max-width:100%;max-height:100%;border-radius:12px;object-fit:contain}
+.lb button{position:absolute;width:48px;height:48px;border-radius:50%;border:1px solid var(--line-dark);background:rgba(29,31,23,.7);color:var(--cream);cursor:pointer;font-size:22px;display:grid;place-items:center}
+.lb .x{top:14px;right:14px}
+.lb .pv{left:14px;top:50%;transform:translateY(-50%)}
+.lb .nx{right:14px;top:50%;transform:translateY(-50%)}
+.lb .cnt{position:absolute;bottom:18px;left:0;right:0;text-align:center;font-size:13px;color:rgba(243,236,224,.6)}
+
+/* ---------- booking ---------- */
+.book{padding:96px 0;position:relative}
+.book-card{display:grid;grid-template-columns:.8fr 1.2fr;background:var(--paper);border:1px solid var(--line);border-radius:28px;overflow:hidden;box-shadow:var(--shadow)}
+.book-side{background:var(--ink-2);color:var(--cream);padding:40px 36px;position:relative;overflow:hidden;display:flex;flex-direction:column;gap:18px}
+.book-side h2{font-size:clamp(34px,4.4vw,48px)}
+.book-side p{color:rgba(243,236,224,.72);font-size:15px}
+.book-side .eyebrow{color:var(--sage-2)}
+.sum{margin-top:auto;border-top:1px solid var(--line-dark);padding-top:18px;display:grid;gap:10px;font-size:14px}
+.sum div{display:flex;justify-content:space-between;gap:14px}
+.sum span{color:rgba(243,236,224,.55)}
+.sum b{font-weight:600;text-align:right}
+.sum .total b{color:var(--gold-2);font-family:var(--serif);font-size:24px;line-height:1}
+.book-form{padding:36px;display:flex;flex-direction:column;gap:26px;min-width:0}
+.step{min-width:0}
+.step-t{display:flex;align-items:center;gap:12px;font-weight:600;color:var(--ink);margin-bottom:12px;font-size:15px}
+.step-t i{font-style:normal;width:28px;height:28px;border-radius:50%;border:1px solid var(--gold);color:var(--gold);display:grid;place-items:center;font-size:13px;flex-shrink:0}
+.step.done .step-t i{background:var(--gold);color:var(--ink)}
+.select,.input{width:100%;min-height:52px;border-radius:16px;border:1px solid var(--line);background:#fff;padding:0 18px;font-size:16px;outline:none;transition:border-color .2s,box-shadow .2s}
+.select{appearance:none;-webkit-appearance:none;padding-right:44px;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%231d1f17' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") no-repeat right 18px center;text-overflow:ellipsis}
+.select:focus,.input:focus{border-color:var(--gold);box-shadow:0 0 0 4px rgba(184,149,90,.18)}
+.input.err{border-color:#b5523b;box-shadow:0 0 0 4px rgba(181,82,59,.12)}
+.days{display:grid;grid-template-columns:repeat(7,1fr);gap:8px}
+.day{border:1px solid var(--line);background:#fff;border-radius:16px;padding:10px 4px;cursor:pointer;text-align:center;line-height:1.2;transition:background .2s,border-color .2s,color .2s;min-width:0}
+.day small{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.day b{display:block;font-family:var(--serif);font-size:24px;font-weight:600;margin:2px 0}
+.day span{display:block;font-size:11px;color:var(--muted)}
+.day:hover{border-color:var(--gold)}
+.day.on{background:var(--ink);border-color:var(--ink);color:var(--cream)}
+.day.on small,.day.on span{color:var(--gold-2)}
+.times{display:grid;grid-template-columns:repeat(auto-fill,minmax(74px,1fr));gap:8px}
+.time{min-height:42px;border-radius:999px;border:1px solid var(--line);background:#fff;cursor:pointer;font-size:14px;font-weight:600;transition:background .2s,border-color .2s,color .2s}
+.time:hover:not(:disabled){border-color:var(--gold)}
+.time.on{background:var(--gold);border-color:var(--gold);color:var(--ink)}
+.time:disabled{opacity:.35;cursor:not-allowed;text-decoration:line-through}
+.hint{font-size:13px;color:var(--muted)}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.book-form .btn{width:100%;min-height:56px;font-size:16px}
+.form-err{color:#b5523b;font-size:14px;min-height:1em;margin-top:-14px}
+.done-box{display:none;flex-direction:column;align-items:flex-start;gap:16px;padding:36px}
+.done-box .ok{width:60px;height:60px;border-radius:50%;background:var(--sage);color:#fff;display:grid;place-items:center}
+.done-box .ok svg{width:28px;height:28px}
+.done-box h3{font-size:36px;color:var(--ink)}
+.demo-note{background:var(--cream);border:1px dashed var(--gold);border-radius:var(--radius-sm);padding:16px 18px;font-size:15px}
+.tg-mock{width:100%;max-width:380px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px;font-size:14px;box-shadow:0 10px 30px -18px rgba(0,0,0,.4)}
+.tg-mock .tg-h{display:flex;align-items:center;gap:10px;font-weight:700;margin-bottom:10px}
+.tg-mock .tg-h img{width:32px;height:32px;border-radius:50%}
+.tg-mock pre{margin:0;white-space:pre-wrap;font:inherit;line-height:1.55}
+.tg-btns{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:12px}
+.tg-btns span{text-align:center;padding:9px;border-radius:10px;background:#eef2ea;color:#4d5a3e;font-weight:600;font-size:13px}
+.book-card.sent .book-form{display:none}
+.book-card.sent .done-box{display:flex}
+
+/* ---------- contacts ---------- */
+.contacts{background:var(--ink);color:var(--cream);padding:96px 0 0;position:relative;overflow:hidden}
+.contacts .sec-head h2{color:var(--cream)}
+.contacts .eyebrow{color:var(--sage-2)}
+.ct-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:28px;align-items:stretch}
+.ct-list{display:grid;gap:12px;align-content:start}
+.ct{display:flex;gap:16px;align-items:flex-start;padding:18px 20px;border-radius:var(--radius);background:rgba(243,236,224,.04);border:1px solid var(--line-dark);text-decoration:none;transition:border-color .2s,background .2s}
+a.ct:hover{border-color:var(--gold);background:rgba(184,149,90,.08)}
+.ct .ic{width:44px;height:44px;border-radius:50%;background:rgba(184,149,90,.14);color:var(--gold-2);display:grid;place-items:center;flex-shrink:0}
+.ct .ic svg{width:20px;height:20px}
+.ct small{display:block;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:rgba(243,236,224,.5)}
+.ct b{font-weight:600;font-size:17px}
+.socials{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.feats{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.feats span{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;border:1px solid rgba(124,138,106,.5);color:var(--sage-2);font-size:13px;font-weight:500}
+.feats svg{width:15px;height:15px}
+.map{border-radius:var(--radius);overflow:hidden;border:1px solid var(--line-dark);min-height:460px;background:var(--ink-3)}
+.map iframe{display:block;width:100%;height:100%;min-height:460px;border:0}
+.ftr{margin-top:80px;border-top:1px solid var(--line-dark);padding:26px 0 30px;font-size:14px;color:rgba(243,236,224,.55)}
+.ftr .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
+.ftr a{text-decoration:none}
+.ftr a:hover{color:var(--gold-2)}
+
+/* ---------- sticky mobile CTA ---------- */
+.m-cta{display:none}
+
+/* ---------- responsive ---------- */
+@media (max-width:1080px){
+  .dir-grid{grid-template-columns:repeat(2,1fr)}
+  .price-grid{grid-template-columns:repeat(2,1fr)}
+  .gallery{grid-template-columns:repeat(3,1fr)}
+}
+@media (max-width:920px){
+  .nav,.hdr .wrap>.btn{display:none}
+  .burger{display:flex}
+  .hdr.open .nav{display:flex;position:absolute;top:68px;left:0;right:0;flex-direction:column;gap:0;background:var(--ink);border-bottom:1px solid var(--line-dark);padding:8px 20px 18px}
+  .hdr.open .nav a{padding:14px 0;border-bottom:1px solid var(--line-dark);font-size:17px;opacity:1}
+  .hero .wrap{grid-template-columns:1fr;gap:44px}
+  .book-card{grid-template-columns:1fr}
+  .ct-grid{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  body{font-size:15px;padding-bottom:84px}
+  .wrap{padding:0 16px}
+  section{scroll-margin-top:64px}
+  .hdr .wrap{height:62px}
+  .hdr.open .nav{top:62px}
+  .brand b{font-size:21px}
+  .brand img{width:38px;height:38px}
+  .hero{padding:44px 0 64px}
+  .hero h1{margin:14px 0 16px}
+  .hero .lead{font-size:16px}
+  .hero-cta{margin:26px 0 22px}
+  .hero-cta .btn{flex:1 1 140px}
+  .rating{font-size:13px;padding:10px 16px;border-radius:18px}
+  .sprig-hero{width:220px;right:-70px;top:auto;bottom:40px;opacity:.25}
+  .collage{gap:10px}
+  .collage .tag{left:10px;bottom:12px;font-size:12px;padding:8px 14px}
+  .dirs{padding:64px 0 24px}
+  .dir-grid{grid-template-columns:1fr 1fr;gap:10px}
+  .dir{padding:18px 16px 16px;gap:8px;border-radius:18px}
+  .dir .ic{width:42px;height:42px}
+  .dir .ic svg{width:21px;height:21px}
+  .dir h3{font-size:22px}
+  .dir p{font-size:13px}
+  .dir .from{font-size:12px;flex-direction:column;align-items:flex-start;gap:2px;padding-top:10px}
+  .prices,.book,.works{padding:64px 0}
+  .contacts{padding-top:64px}
+  .sec-head{margin-bottom:24px}
+  .tabs{margin:0 -16px 20px;padding:4px 16px}
+  .price-grid{grid-template-columns:1fr;gap:10px}
+  .pcard{min-height:0;padding:18px;flex-direction:row;align-items:center;gap:14px;border-radius:18px}
+  .pcard .body{flex:1;min-width:0}
+  .pcard h3{font-size:15px}
+  .pcard .note{margin-top:2px}
+  .pcard .row{margin-top:0;flex-direction:column;align-items:flex-end;gap:8px}
+  .pcard .price{font-size:24px}
+  .pcard .add{width:36px;height:36px}
+  .gallery{grid-template-columns:repeat(2,1fr);grid-auto-rows:150px;gap:8px}
+  .gallery .wide{grid-column:span 2}
+  .book-side{padding:28px 20px}
+  .book-form{padding:24px 16px}
+  .done-box{padding:28px 18px}
+  .days{display:flex;overflow-x:auto;scrollbar-width:none;margin:0 -16px;padding:0 16px 4px}
+  .days::-webkit-scrollbar{display:none}
+  .day{flex:0 0 66px}
+  .times{grid-template-columns:repeat(4,1fr);gap:6px}
+  .time{font-size:13px;min-height:40px}
+  .fields{grid-template-columns:1fr}
+  .socials{grid-template-columns:1fr}
+  .map,.map iframe{min-height:340px}
+  .ftr{margin-top:56px}
+  .m-cta{display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:60;gap:8px;transition:transform .3s,opacity .3s}
+  .m-cta .btn{flex:1;min-height:54px;box-shadow:0 12px 30px -10px rgba(0,0,0,.55);font-size:16px}
+  .m-cta .call{flex:0 0 54px;padding:0;background:var(--ink);color:var(--gold-2);border:1px solid rgba(184,149,90,.4)}
+  .m-cta .call svg{width:22px;height:22px}
+  .m-cta.hide{transform:translateY(120%);opacity:0;pointer-events:none}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+<script>(new Function(decodeURIComponent(escape(atob("KGZ1bmN0aW9uKCl7CnZhciBvaz1bJ2RlZmFsbS5iZWdldC50ZWNoJywnYW5kcmV0MzkuYmVnZXQudGVjaCcsJ2xvY2FsaG9zdCcsJzEyNy4wLjAuMSddOwp2YXIgaD1sb2NhdGlvbi5ob3N0bmFtZTsKaWYobG9jYXRpb24ucHJvdG9jb2whPT0nZmlsZTonJiZvay5pbmRleE9mKGgpPDAmJiEvXC5naXRodWJcLmlvJHxcLm5ldGxpZnlcLmFwcCQvLnRlc3QoaCkpewpkb2N1bWVudC5kb2N1bWVudEVsZW1lbnQuaW5uZXJIVE1MPSc8Ym9keSBzdHlsZT0ibWFyZ2luOjA7bWluLWhlaWdodDoxMDB2aDtkaXNwbGF5OmdyaWQ7cGxhY2UtaXRlbXM6Y2VudGVyO2JhY2tncm91bmQ6IzJlMjIxYjtjb2xvcjojZjRlOWRhO2ZvbnQ6MThweC8xLjYgR2VvcmdpYSxzZXJpZjt0ZXh0LWFsaWduOmNlbnRlcjtwYWRkaW5nOjMwcHgiPjxkaXY+PGRpdiBzdHlsZT0iZm9udC1zaXplOjEzcHg7bGV0dGVyLXNwYWNpbmc6LjNlbTtvcGFjaXR5Oi42Ij7QlNCV0JzQni3QndCQ0JHQoNCe0KHQntCaPC9kaXY+PGgxIHN0eWxlPSJmb250LXdlaWdodDozMDA7Zm9udC1zaXplOjQwcHg7bWFyZ2luOjE0cHggMCI+0K3RgtC+0YIg0YHQsNC50YIg0L/RgNC40L3QsNC00LvQtdC20LjRgiDQsNCy0YLQvtGA0YM8L2gxPjxwPtCa0L7Qv9C40YDQvtCy0LDQvdC40LUg0Lgg0YDQsNC30LzQtdGJ0LXQvdC40LUg0LHQtdC3INGA0LDQt9GA0LXRiNC10L3QuNGPINC30LDQv9GA0LXRidC10L3Qvi48YnI+0JDQstGC0L7RgDog0JDQvdC00YDQtdC5IOKAlCA8YSBzdHlsZT0iY29sb3I6I2Q2YWQ3MiIgaHJlZj0iaHR0cHM6Ly90Lm1lL0RlZmFsbWVvIj5ARGVmYWxtZW88L2E+PC9wPjwvZGl2PjwvYm9keT4nOwpyZXR1cm47fQp2YXIgYj1mdW5jdGlvbihlKXtlLnByZXZlbnREZWZhdWx0KCk7cmV0dXJuIGZhbHNlfTsKZG9jdW1lbnQuYWRkRXZlbnRMaXN0ZW5lcignY29udGV4dG1lbnUnLGIpOwpkb2N1bWVudC5hZGRFdmVudExpc3RlbmVyKCdkcmFnc3RhcnQnLGZ1bmN0aW9uKGUpe2lmKGUudGFyZ2V0LnRhZ05hbWU9PT0nSU1HJyliKGUpfSk7CmRvY3VtZW50LmFkZEV2ZW50TGlzdGVuZXIoJ2NvcHknLGIpO2RvY3VtZW50LmFkZEV2ZW50TGlzdGVuZXIoJ2N1dCcsYik7CmRvY3VtZW50LmFkZEV2ZW50TGlzdGVuZXIoJ2tleWRvd24nLGZ1bmN0aW9uKGUpe3ZhciBrPShlLmtleXx8JycpLnRvTG93ZXJDYXNlKCk7CmlmKGUua2V5PT09J0YxMid8fCgoZS5jdHJsS2V5fHxlLm1ldGFLZXkpJiZbJ3UnLCdzJywncCcsJ2MnXS5pbmRleE9mKGspPi0xKXx8KChlLmN0cmxLZXl8fGUubWV0YUtleSkmJmUuc2hpZnRLZXkmJlsnaScsJ2onLCdjJ10uaW5kZXhPZihrKT4tMSkpe2IoZSl9fSk7CnZhciBzdD1kb2N1bWVudC5jcmVhdGVFbGVtZW50KCdzdHlsZScpO3N0LnRleHRDb250ZW50PSdib2R5ey13ZWJraXQtdXNlci1zZWxlY3Q6bm9uZTt1c2VyLXNlbGVjdDpub25lOy13ZWJraXQtdG91Y2gtY2FsbG91dDpub25lfWltZ3std2Via2l0LXVzZXItZHJhZzpub25lO3BvaW50ZXItZXZlbnRzOmF1dG99aW5wdXQsdGV4dGFyZWF7dXNlci1zZWxlY3Q6dGV4dH0nO2RvY3VtZW50LmhlYWQuYXBwZW5kQ2hpbGQoc3QpOwpjb25zb2xlLmxvZygnJWPCqSDQkNC90LTRgNC10LkgKEBEZWZhbG1lbykuINCU0LXQvNC+LdC90LDQsdGA0L7RgdC+0LouINCa0L7Qv9C40YDQvtCy0LDQvdC40LUg0LfQsNC/0YDQtdGJ0LXQvdC+LicsJ2ZvbnQ6MTZweCBzZXJpZjtjb2xvcjojYzI3YTRmJyk7Cn0pKCk7")))))()</script>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="sprig" viewBox="0 0 200 320" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round">
+      <path d="M100 318C98 250 104 170 128 92 138 60 150 34 160 8"/>
+      <path d="M101 270c-22-6-44-22-52-48 24 2 44 18 52 48z"/>
+      <path d="M102 232c22-8 40-26 44-52-22 6-40 24-44 52z"/>
+      <path d="M106 190c-22-4-42-18-52-42 24 0 44 14 52 42z"/>
+      <path d="M112 150c20-10 34-28 36-52-20 8-34 26-36 52z"/>
+      <path d="M120 116c-18-2-36-14-46-34 22-2 40 12 46 34z"/>
+      <path d="M130 84c16-10 26-26 26-46-16 8-26 24-26 46z"/>
+      <path d="M140 58c-14 0-28-8-36-22 16-2 30 6 36 22z"/>
+    </symbol>
+  </defs>
+</svg>
+
+<header class="hdr" id="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Patchouli Team — на главную">
+      <img src="https://avatars.mds.yandex.net/get-altay/20840442/2a0000019fa35621b4e71c74e47db8ad98ad/XXL" alt="Логотип Patchouli Team" referrerpolicy="no-referrer">
+      <b>Patchouli <span>Team</span></b>
+    </a>
+    <nav class="nav" id="nav">
+      <a href="#prices">Услуги</a>
+      <a href="#works">Работы</a>
+      <a href="#booking">Запись</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <a class="btn btn-gold btn-sm" href="#booking">Записаться</a>
+    <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="nav"><i></i></button>
+  </div>
+</header>
+
+<main>
+<!-- HERO -->
+<section class="hero">
+  <svg class="sprig sprig-hero" aria-hidden="true"><use href="#sprig"/></svg>
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">Салон красоты · Севастополь</span>
+      <h1>Красота с&nbsp;тёплым, <em>травяным</em> характером</h1>
+      <p class="lead">Patchouli Team на ул. Тараса Шевченко, 49 — ногтевой сервис, брови и ресницы, массаж, парикмахер и барбер. Работаем ежедневно с 10:00 до 20:00.</p>
+      <div class="hero-cta">
+        <a class="btn btn-gold" href="#booking">Записаться</a>
+        <a class="btn btn-ghost" href="#prices">Цены</a>
+      </div>
+      <a class="rating" href="https://yandex.ru/maps/org/178983073578/reviews/" target="_blank" rel="noopener">
+        <span class="star">★ 5,0</span><span>· 206 оценок на Яндекс Картах —</span><span class="go">читать отзывы →</span>
+      </a>
+    </div>
+    <div class="collage">
+      <figure class="c1"><img src="https://avatars.mds.yandex.net/get-altay/10768923/2a0000018a64553e8f70c6545f8829037f8f/XXL" alt="Маникюр в Patchouli Team" referrerpolicy="no-referrer"></figure>
+      <figure class="c2"><img src="https://avatars.mds.yandex.net/get-altay/4265086/2a00000187a49fdbc03924fb3f6f9eb4ef8f/XXL" alt="Ламинирование ресниц" referrerpolicy="no-referrer"></figure>
+      <figure class="c3"><img src="https://avatars.mds.yandex.net/get-altay/15383884/2a00000198454e679f78f869b7f5af336949/XXL" alt="Работа мастера ногтевого сервиса" referrerpolicy="no-referrer"></figure>
+      <div class="tag">Ежедневно 10:00–20:00</div>
+    </div>
+  </div>
+</section>
+
+<!-- DIRECTIONS -->
+<section class="dirs" id="services">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="eyebrow">Направления</span><h2>Всё для ухода — в одном месте</h2></div>
+      <p>Четыре направления под одной крышей: можно совместить маникюр, брови и стрижку в один визит.</p>
+    </div>
+    <div class="dir-grid">
+      <a class="dir" href="#prices" data-tab="0">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M8 21V10a4 4 0 0 1 8 0v11"/><path d="M10 9.5a2 2 0 0 1 4 0V13h-4z"/><path d="M6 21h12"/></svg></div>
+        <h3>Ногти</h3>
+        <p>Маникюр и педикюр: гигиенический, японский, гель-лак, френч, наращивание, IBX.</p>
+        <div class="from">Маникюр и педикюр <span>от 1 000 ₽</span></div>
+      </a>
+      <a class="dir" href="#prices" data-tab="2">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M2 13s4-6 10-6 10 6 10 6-4 6-10 6-10-6-10-6z"/><circle cx="12" cy="13" r="3"/><path d="M4 6c3-2 6-2.6 8-2.6M20 6c-2-1.4-4-2-6-2.4"/></svg></div>
+        <h3>Брови и ресницы</h3>
+        <p>Коррекция, окрашивание хной, долговременная укладка, ламинирование ресниц.</p>
+        <div class="from">Брови и ресницы <span>от 500 ₽</span></div>
+      </a>
+      <a class="dir" href="#prices" data-tab="3">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M12 21c-5 0-8-4-8-8 4 0 8 3 8 8zM12 21c5 0 8-4 8-8-4 0-8 3-8 8z"/><path d="M12 21V11"/><path d="M12 11c-2-2-2-5 0-8 2 3 2 6 0 8z"/></svg></div>
+        <h3>Массаж</h3>
+        <p>Расслабляющий, испанский, медовый, антицеллюлитный массаж и обёртывания.</p>
+        <div class="from">Массаж и тело <span>от 700 ₽</span></div>
+      </a>
+      <a class="dir" href="#prices" data-tab="4">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="6" cy="18" r="3"/><circle cx="18" cy="18" r="3"/><path d="M8.2 16 19 3M15.8 16 5 3"/></svg></div>
+        <h3>Волосы и барбер</h3>
+        <p>Женские, мужские и детские стрижки, борода, коллагенирование и уход.</p>
+        <div class="from">Стрижки и уход <span>от 500 ₽</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- PRICES -->
+<section class="prices" id="prices">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="eyebrow">Услуги и цены</span><h2>Прайс без сюрпризов</h2></div>
+      <p>Выберите направление и нажмите «+» у услуги — она сразу подставится в форму записи.</p>
+    </div>
+    <div class="tabs" role="tablist" id="tabs"></div>
+    <div class="price-grid" id="priceGrid" role="tabpanel"></div>
+    <p class="price-foot">Цены указаны по данным Яндекс Карт. Точную стоимость мастер подтвердит при записи.</p>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="works" id="works">
+  <svg class="sprig" style="left:-60px;bottom:-40px;width:260px;height:416px;transform:scaleX(-1)" aria-hidden="true"><use href="#sprig"/></svg>
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="eyebrow">Работы</span><h2>Из нашего портфолио</h2></div>
+      <p>Маникюр, педикюр и ресницы — нажмите на фото, чтобы рассмотреть ближе.</p>
+    </div>
+    <div class="gallery" id="gallery"></div>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section class="book" id="booking">
+  <div class="wrap">
+    <div class="book-card" id="bookCard">
+      <div class="book-side">
+        <svg class="sprig" style="right:-50px;bottom:-30px;width:200px;height:320px;opacity:.18" aria-hidden="true"><use href="#sprig"/></svg>
+        <span class="eyebrow">Онлайн-запись</span>
+        <h2>Запишитесь за минуту</h2>
+        <p>Выберите услугу, день и удобное время. Администратор подтвердит запись.</p>
+        <div class="sum">
+          <div><span>Услуга</span><b id="sService">—</b></div>
+          <div><span>Дата</span><b id="sDay">—</b></div>
+          <div><span>Время</span><b id="sTime">—</b></div>
+          <div class="total"><span>Стоимость</span><b id="sPrice">—</b></div>
+        </div>
+      </div>
+
+      <form class="book-form" id="bookForm" novalidate>
+        <div class="step" id="st1">
+          <div class="step-t"><i>1</i>Услуга</div>
+          <select class="select" id="fService" aria-label="Услуга"><option value="">Выберите услугу</option></select>
+        </div>
+        <div class="step" id="st2">
+          <div class="step-t"><i>2</i>День</div>
+          <div class="days" id="days"></div>
+        </div>
+        <div class="step" id="st3">
+          <div class="step-t"><i>3</i>Время</div>
+          <div class="times" id="times"></div>
+          <p class="hint" id="timesHint" style="margin-top:8px"></p>
+        </div>
+        <div class="step" id="st4">
+          <div class="step-t"><i>4</i>Ваши контакты</div>
+          <div class="fields">
+            <input class="input" id="fName" type="text" placeholder="Имя" autocomplete="given-name" maxlength="40">
+            <input class="input" id="fPhone" type="tel" placeholder="+7 (___) ___-__-__" autocomplete="tel" inputmode="tel">
+          </div>
+        </div>
+        <p class="form-err" id="formErr" role="alert"></p>
+        <button class="btn btn-dark" type="submit">Записаться</button>
+      </form>
+
+      <div class="done-box" id="doneBox" aria-live="polite">
+        <div class="ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="m5 12.5 4.5 4.5L19 7"/></svg></div>
+        <h3>Заявка сформирована</h3>
+        <p class="demo-note">Это демо. В рабочей версии заявка сразу придёт вам в Telegram с кнопками „Подтвердить / Отменить“.</p>
+        <div class="tg-mock" aria-hidden="true">
+          <div class="tg-h"><img src="https://avatars.mds.yandex.net/get-altay/20840442/2a0000019fa35621b4e71c74e47db8ad98ad/XXL" alt="" referrerpolicy="no-referrer">Patchouli Team · заявки</div>
+          <pre id="tgText"></pre>
+          <div class="tg-btns"><span>✅ Подтвердить</span><span>✖️ Отменить</span></div>
+        </div>
+        <button class="btn btn-gold btn-sm" type="button" id="again">Новая запись</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTS -->
+<section class="contacts" id="contacts">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="eyebrow">Контакты</span><h2>Ждём вас в гости</h2></div>
+    </div>
+    <div class="ct-grid">
+      <div class="ct-list">
+        <div class="ct">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></div>
+          <div><small>Адрес</small><b>Севастополь, ул. Тараса Шевченко, 49</b></div>
+        </div>
+        <a class="ct" href="tel:+79781116338">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></div>
+          <div><small>Телефон</small><b>+7 (978) 111-63-38</b></div>
+        </a>
+        <div class="ct">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+          <div><small>Часы работы</small><b>Ежедневно 10:00–20:00</b></div>
+        </div>
+        <div class="socials">
+          <a class="ct" href="https://t.me/patchouliteam" target="_blank" rel="noopener">
+            <div class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.4 4.2 2.9 11.3c-1.3.5-1.2 1.2-.2 1.5l4.7 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.4l2.3-2.2 4.7 3.5c.9.5 1.5.2 1.7-.8L22.8 5.6c.3-1.3-.5-1.9-1.4-1.4zM9.3 14.1l9-5.7c.4-.3.8-.1.5.2l-7.6 6.9-.3 3.2z"/></svg></div>
+            <div><small>Telegram</small><b>@patchouliteam</b></div>
+          </a>
+          <a class="ct" href="https://vk.ru/patchouliteam" target="_blank" rel="noopener">
+            <div class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.8 18C6.1 18 2.3 13.4 2.1 5.8h3.4c.1 5.6 2.6 7.9 4.5 8.4V5.8h3.2v4.8c1.9-.2 3.9-2.4 4.5-4.8H21c-.5 3-2.7 5.2-4.2 6.1 1.5.7 4 2.6 4.9 6.1H18c-.7-2.3-2.6-4.1-5-4.4V18z"/></svg></div>
+            <div><small>ВКонтакте</small><b>patchouliteam</b></div>
+          </a>
+        </div>
+        <div class="feats">
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="5" cy="10" r="2"/><circle cx="9" cy="5" r="2"/><circle cx="15" cy="5" r="2"/><circle cx="19" cy="10" r="2"/><path d="M12 11c3 0 6 5 5 7-1 2-3 1-5 1s-4 1-5-1c-1-2 2-7 5-7z"/></svg>Можно с животными</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="3" width="16" height="18" rx="3"/><path d="M10 17V7h3a3 3 0 0 1 0 6h-3"/></svg>Парковка</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M2 9a15 15 0 0 1 20 0M5 12.5a10 10 0 0 1 14 0M8.5 16a5 5 0 0 1 7 0"/><circle cx="12" cy="19.5" r=".8" fill="currentColor"/></svg>Wi-Fi</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M2.5 10h19"/></svg>Оплата картой</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="16" rx="2.5"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Онлайн-запись</span>
+        </div>
+      </div>
+      <div class="map">
+        <iframe src="https://yandex.ru/map-widget/v1/?ll=33.460672%2C44.571077&z=16&oid=178983073578&ol=biz" title="Patchouli Team на Яндекс Картах" loading="lazy" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+  <footer class="ftr">
+    <div class="wrap">
+      <span>© 2026 Patchouli Team · Севастополь</span>
+      <a href="tel:+79781116338">+7 (978) 111-63-38</a>
+    </div>
+  </footer>
+</section>
+</main>
+
+<div class="m-cta" id="mCta">
+  <a class="btn btn-gold" href="#booking">Записаться</a>
+  <a class="btn call" href="tel:+79781116338" aria-label="Позвонить"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></a>
+</div>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Просмотр фото">
+  <button class="x" type="button" aria-label="Закрыть">✕</button>
+  <button class="pv" type="button" aria-label="Предыдущее">‹</button>
+  <img id="lbImg" alt="" referrerpolicy="no-referrer">
+  <button class="nx" type="button" aria-label="Следующее">›</button>
+  <div class="cnt" id="lbCnt"></div>
+</div>
+
+<script>
+(function(){
+  var SERVICES = [
+    {tab:"Маникюр", items:[
+      ["Маникюр гигиенический",1500],["Японский маникюр",1500],["Снятие + маникюр гигиенический",1300],
+      ["Маникюр с покрытием гель-лак",2500,"топ-мастер"],["Маникюр Френч с гель-лаком",2500],
+      ["Коррекция наращивания",2700],["Наращивание, выкладной френч",4000,"ведущий мастер"],
+      ["Система восстановления ногтей IBX",1700],["Маникюр мужской",1600]]},
+    {tab:"Педикюр", items:[
+      ["Педикюр гигиенический",1700],["Японский педикюр",1700],["Педикюр пальчики",2000],
+      ["Педикюр с гель-лаком",2500],["Педикюр Френч",2700],["Обработка стоп",1000],["Педикюр мужской",1700]]},
+    {tab:"Брови и ресницы", items:[
+      ["Коррекция бровей",800],["Окрашивание краской / хной",1000],["Оформление + окрашивание",1500],
+      ["Долговременная укладка",1700],["Укладка + окрашивание + коррекция",2000],
+      ["Ламинирование ресниц + ботокс",2200],["Удаление волосков с лица",500]]},
+    {tab:"Массаж и тело", items:[
+      ["Расслабляющий массаж",1800,"1 зона — 900 ₽"],["Испанский массаж",2500],["Медовый массаж",1800],
+      ["Антицеллюлитный массаж",1500,"1 зона — 700 ₽"],["Горячее / холодное обёртывание",1800]]},
+    {tab:"Волосы и барбер", items:[
+      ["Женская стрижка с моделированием чёлки",1200],["Мужская стрижка",800],["Стрижка + борода",1300],
+      ["Моделирование бороды",800],["Коллагенирование волос",3000],["Салонный уход",3000],
+      ["Пилинг кожи головы",1500],["Детская стрижка (до 3 лет)",500]]}
+  ];
+  var PHOTOS = [
+    "467304/2a00000187c64e4358b0d74bba058ed79bcd","10768923/2a0000018a64553e8f70c6545f8829037f8f",
+    "1001354/2a00000187c648bf1e086037c5c4bf4a8667","15383884/2a00000198454e679f78f869b7f5af336949",
+    "11420721/2a0000018e47127c9d78838450995f82ba05","4265086/2a00000187a49fdbc03924fb3f6f9eb4ef8f",
+    "19619196/2a0000019ce29fac96800a5cc4f5f3a93be3","5298780/2a0000018e47125e02eeebe558848035a0a3",
+    "10470901/2a00000191f129ad96751581dabad8cd01bd","9954022/2a00000187c64eef4b8ea69b0315b29d29fa",
+    "1032555/2a00000187c64cc8dbcc790bfdabb98c5d2c","7186075/2a00000187c64e42beba155ede10f892d4eb",
+    "902116/2a00000187b3babf61cae1e50578179b9f99","7659180/2a00000187c64f7d7eab74e9ce61b89e701e"
+  ].map(function(p){return "https://avatars.mds.yandex.net/get-altay/"+p+"/XXL"});
+  var LAYOUT = ["tall","","","wide","","tall","","","","tall","wide","","",""];
+
+  var $ = function(id){return document.getElementById(id)};
+  var fmt = function(n){return n.toLocaleString("ru-RU").replace(/\s/g," ")+" ₽"};
+  var esc = function(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})};
+
+  /* ---- header / burger ---- */
+  var hdr = document.querySelector(".hdr"), burger = $("burger");
+  burger.addEventListener("click", function(){
+    var o = hdr.classList.toggle("open"); burger.setAttribute("aria-expanded", o);
+  });
+  $("nav").addEventListener("click", function(e){ if(e.target.tagName==="A"){hdr.classList.remove("open");burger.setAttribute("aria-expanded",false)} });
+
+  /* ---- price tabs ---- */
+  var tabs = $("tabs"), grid = $("priceGrid");
+  SERVICES.forEach(function(g,i){
+    var b = document.createElement("button");
+    b.className="tab"; b.type="button"; b.setAttribute("role","tab");
+    b.innerHTML = esc(g.tab)+" <small>"+g.items.length+"</small>";
+    b.addEventListener("click", function(){ showTab(i) });
+    tabs.appendChild(b);
+  });
+  function showTab(i){
+    [].forEach.call(tabs.children, function(b,j){ b.setAttribute("aria-selected", j===i) });
+    grid.innerHTML = SERVICES[i].items.map(function(it,j){
+      return '<article class="pcard" style="animation-delay:'+(j*35)+'ms"><div class="body"><h3>'+esc(it[0])+'</h3>'+
+        (it[2]?'<p class="note">'+esc(it[2])+'</p>':'')+'</div><div class="row"><span class="price">'+fmt(it[1])+'</span>'+
+        '<button class="add" type="button" data-s="'+i+'-'+j+'" aria-label="Записаться: '+esc(it[0])+'"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button></div></article>';
+    }).join("");
+    var act = tabs.children[i];
+    tabs.scrollTo({left: act.offsetLeft - 16, behavior:"smooth"});
+  }
+  showTab(0);
+  grid.addEventListener("click", function(e){
+    var b = e.target.closest(".add"); if(!b) return;
+    sel.value = b.getAttribute("data-s"); sel.dispatchEvent(new Event("change"));
+    $("booking").scrollIntoView({behavior:"smooth"});
+  });
+  [].forEach.call(document.querySelectorAll(".dir[data-tab]"), function(a){
+    a.addEventListener("click", function(){ showTab(+a.getAttribute("data-tab")) });
+  });
+
+  /* ---- gallery + lightbox ---- */
+  var gal = $("gallery");
+  gal.innerHTML = PHOTOS.map(function(src,i){
+    return '<button type="button" class="'+(LAYOUT[i]||"")+'" data-i="'+i+'" aria-label="Открыть фото '+(i+1)+'"><img src="'+src+'" alt="Работа Patchouli Team, фото '+(i+1)+'" loading="lazy" referrerpolicy="no-referrer"></button>';
+  }).join("");
+  var lb = $("lb"), lbImg = $("lbImg"), cur = 0;
+  function openLb(i){ cur=(i+PHOTOS.length)%PHOTOS.length; lbImg.src=PHOTOS[cur]; $("lbCnt").textContent=(cur+1)+" / "+PHOTOS.length; lb.classList.add("on"); document.body.style.overflow="hidden" }
+  function closeLb(){ lb.classList.remove("on"); document.body.style.overflow="" }
+  gal.addEventListener("click", function(e){ var b=e.target.closest("button"); if(b) openLb(+b.getAttribute("data-i")) });
+  lb.querySelector(".x").onclick = closeLb;
+  lb.querySelector(".pv").onclick = function(){ openLb(cur-1) };
+  lb.querySelector(".nx").onclick = function(){ openLb(cur+1) };
+  lb.addEventListener("click", function(e){ if(e.target===lb) closeLb() });
+  document.addEventListener("keydown", function(e){
+    if(!lb.classList.contains("on")) return;
+    if(e.key==="Escape") closeLb(); if(e.key==="ArrowLeft") openLb(cur-1); if(e.key==="ArrowRight") openLb(cur+1);
+  });
+  var tx=null;
+  lb.addEventListener("touchstart", function(e){ tx=e.touches[0].clientX },{passive:true});
+  lb.addEventListener("touchend", function(e){ if(tx===null) return; var d=e.changedTouches[0].clientX-tx; if(Math.abs(d)>50) openLb(cur+(d<0?1:-1)); tx=null });
+
+  /* ---- booking ---- */
+  var sel = $("fService"), state = {s:null, d:null, t:null};
+  SERVICES.forEach(function(g,i){
+    var og = document.createElement("optgroup"); og.label = g.tab;
+    g.items.forEach(function(it,j){
+      var o = document.createElement("option"); o.value=i+"-"+j; o.textContent=it[0]+" — "+fmt(it[1]); og.appendChild(o);
+    });
+    sel.appendChild(og);
+  });
+  sel.addEventListener("change", function(){
+    if(!sel.value){ state.s=null } else { var p=sel.value.split("-"); state.s=SERVICES[+p[0]].items[+p[1]] }
+    render();
+  });
+
+  var WD = ["вс","пн","вт","ср","чт","пт","сб"];
+  var MON = ["янв","фев","мар","апр","мая","июн","июл","авг","сен","окт","ноя","дек"];
+  var MONF = ["января","февраля","марта","апреля","мая","июня","июля","августа","сентября","октября","ноября","декабря"];
+  var today = new Date(); today.setHours(0,0,0,0);
+  var DAYS = [];
+  for(var k=0;k<7;k++){ var d=new Date(today); d.setDate(today.getDate()+k); DAYS.push(d) }
+  var daysEl = $("days"), timesEl = $("times");
+  daysEl.innerHTML = DAYS.map(function(d,i){
+    return '<button type="button" class="day" data-d="'+i+'"><small>'+(i===0?"сегодня":i===1?"завтра":WD[d.getDay()])+'</small><b>'+d.getDate()+'</b><span>'+MON[d.getMonth()]+'</span></button>';
+  }).join("");
+  daysEl.addEventListener("click", function(e){
+    var b=e.target.closest(".day"); if(!b) return;
+    state.d=+b.getAttribute("data-d"); state.t=null; render();
+  });
+  var SLOTS=[]; for(var h=10;h<20;h++){ SLOTS.push(h+":00"); SLOTS.push(h+":30") }
+  timesEl.addEventListener("click", function(e){
+    var b=e.target.closest(".time"); if(!b||b.disabled) return;
+    state.t=b.getAttribute("data-t"); render();
+  });
+
+  function slotPast(dayIdx, slot){
+    if(dayIdx!==0) return false;
+    var now=new Date(), p=slot.split(":");
+    return (+p[0])*60+(+p[1]) <= now.getHours()*60+now.getMinutes()+30;
+  }
+  function dayLabel(i){ var d=DAYS[i]; return d.getDate()+" "+MONF[d.getMonth()]+", "+["воскресенье","понедельник","вторник","среда","четверг","пятница","суббота"][d.getDay()] }
+
+  function render(){
+    [].forEach.call(daysEl.children, function(b,i){ b.classList.toggle("on", i===state.d) });
+    if(state.d===null){
+      timesEl.innerHTML=""; $("timesHint").textContent="Сначала выберите день";
+    } else {
+      var free=0;
+      timesEl.innerHTML = SLOTS.map(function(t){
+        var past=slotPast(state.d,t); if(!past) free++;
+        return '<button type="button" class="time'+(state.t===t?" on":"")+'" data-t="'+t+'"'+(past?" disabled":"")+'>'+t+'</button>';
+      }).join("");
+      $("timesHint").textContent = free ? "" : "На сегодня свободного времени уже нет — выберите другой день";
+    }
+    $("st1").classList.toggle("done", !!state.s);
+    $("st2").classList.toggle("done", state.d!==null);
+    $("st3").classList.toggle("done", !!state.t);
+    $("sService").textContent = state.s ? state.s[0] : "—";
+    $("sDay").textContent = state.d!==null ? dayLabel(state.d) : "—";
+    $("sTime").textContent = state.t || "—";
+    $("sPrice").textContent = state.s ? fmt(state.s[1]) : "—";
+  }
+  render();
+
+  var phone = $("fPhone");
+  phone.addEventListener("input", function(){
+    var d = phone.value.replace(/\D/g,"");
+    if(d[0]==="8") d="7"+d.slice(1);
+    if(d && d[0]!=="7") d="7"+d;
+    d = d.slice(0,11);
+    var r = d ? "+7" : "";
+    if(d.length>1) r+=" ("+d.slice(1,4);
+    if(d.length>=4) r+=")";
+    if(d.length>4) r+=" "+d.slice(4,7);
+    if(d.length>7) r+="-"+d.slice(7,9);
+    if(d.length>9) r+="-"+d.slice(9,11);
+    phone.value = r; phone.classList.remove("err");
+  });
+  $("fName").addEventListener("input", function(){ this.classList.remove("err") });
+
+  $("bookForm").addEventListener("submit", function(e){
+    e.preventDefault();
+    var err = $("formErr"), name=$("fName").value.trim(), digits=phone.value.replace(/\D/g,"");
+    var msg = !state.s ? "Выберите услугу" : state.d===null ? "Выберите день" : !state.t ? "Выберите время" :
+              name.length<2 ? "Укажите имя" : digits.length!==11 ? "Проверьте номер телефона" : "";
+    if(!state.s) sel.focus();
+    if(name.length<2 && state.t) $("fName").classList.add("err");
+    if(digits.length!==11 && state.t && name.length>=2) phone.classList.add("err");
+    err.textContent = msg;
+    if(msg) return;
+    $("tgText").textContent = "🌿 Новая запись\n"+state.s[0]+" — "+fmt(state.s[1])+"\n📅 "+dayLabel(state.d)+", "+state.t+"\n👤 "+name+"\n📞 "+phone.value;
+    $("bookCard").classList.add("sent");
+    $("booking").scrollIntoView({behavior:"smooth"});
+  });
+  $("again").addEventListener("click", function(){
+    state={s:null,d:null,t:null}; sel.value=""; $("fName").value=""; phone.value=""; $("formErr").textContent="";
+    $("bookCard").classList.remove("sent"); render();
+  });
+
+  /* ---- sticky mobile CTA: hide over booking & contacts ---- */
+  var cta = $("mCta");
+  if("IntersectionObserver" in window){
+    var vis = {};
+    var io = new IntersectionObserver(function(en){
+      en.forEach(function(x){ vis[x.target.id]=x.isIntersecting });
+      cta.classList.toggle("hide", !!(vis.booking));
+    },{threshold:.15});
+    io.observe($("booking"));
+  }
+})();
+</script>
+</body>
+</html>

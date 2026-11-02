@@ -1,0 +1,648 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BodyLotos — спа-салон и массаж в Перми</title>
+<meta name="description" content="BodyLotos — спа-салон в Перми на Екатерининской, 122. Массаж, кедровая бочка, обёртывания, SPA-программы для двоих, подарочные сертификаты. Рейтинг 5.0 на Яндекс Картах. Онлайн-запись.">
+<meta property="og:title" content="BodyLotos — спа-салон и массаж в Перми">
+<meta property="og:description" content="Массаж, кедровая бочка и SPA-программы. −20% на первое посещение. Запись онлайн.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 10c7 8 9 18 0 34-9-16-7-26 0-34z' fill='%23b4536f'/%3E%3Cpath d='M32 44C22 40 12 30 10 20c10 1 19 9 22 24zM32 44c10-4 20-14 22-24-10 1-19 9-22 24z' fill='%23d98aa0'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#faf5ef;
+  --sand:#f1e7dc;
+  --blush:#f3dfe1;
+  --rose:#d98aa0;
+  --lotus:#b4536f;
+  --plum:#4a2a3a;
+  --ink:#2b1d24;
+  --muted:#7b6a71;
+  --sage:#8fa595;
+  --white:#fffdfb;
+  --radius:28px;
+  --shadow:0 20px 60px -25px rgba(74,42,58,.35);
+  --serif:'Cormorant Garamond', Georgia, serif;
+  --sans:'Manrope', system-ui, -apple-system, Segoe UI, sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--ink);background:var(--cream);line-height:1.6;font-size:16px;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.05;color:var(--plum)}
+h2{font-size:clamp(38px,5vw,60px);margin-bottom:18px}
+h2 em,h1 em{font-style:italic;color:var(--lotus)}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--lotus);font-weight:600;margin-bottom:18px}
+.eyebrow::before{content:"";width:28px;height:1px;background:currentColor}
+.lead{color:var(--muted);font-size:18px;max-width:560px}
+section{padding:110px 0;position:relative}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:17px 32px;border-radius:100px;font-weight:600;font-size:15px;transition:transform .25s, box-shadow .25s, background .25s}
+.btn-primary{background:var(--lotus);color:#fff;box-shadow:0 14px 30px -12px rgba(180,83,111,.7)}
+.btn-primary:hover{transform:translateY(-2px);background:#a1465f;box-shadow:0 18px 36px -12px rgba(180,83,111,.8)}
+.btn-ghost{border:1px solid rgba(74,42,58,.25);color:var(--plum)}
+.btn-ghost:hover{background:var(--plum);color:#fff;border-color:var(--plum)}
+
+/* header */
+header{position:fixed;inset:0 0 auto 0;z-index:50;transition:background .3s, box-shadow .3s, padding .3s;padding:22px 0}
+header.scrolled{background:rgba(250,245,239,.88);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 1px 0 rgba(74,42,58,.08);padding:12px 0}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:24px}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-size:28px;font-weight:600;color:var(--plum);letter-spacing:.01em}
+.logo b{font-weight:600}
+.logo span{font-style:italic;color:var(--lotus);font-weight:500}
+.logo svg{width:34px;height:34px}
+.menu{display:flex;gap:34px;font-size:14px;font-weight:500}
+.menu a{position:relative;color:var(--plum)}
+.menu a::after{content:"";position:absolute;left:0;bottom:-4px;height:1px;width:0;background:var(--lotus);transition:width .3s}
+.menu a:hover::after{width:100%}
+.nav-right{display:flex;align-items:center;gap:20px}
+.phone{font-weight:600;font-size:15px;color:var(--plum)}
+.nav .btn{padding:12px 22px;font-size:14px}
+.burger{display:none;width:44px;height:44px;border-radius:50%;background:var(--white);box-shadow:var(--shadow);position:relative}
+.burger i{position:absolute;left:13px;right:13px;height:2px;background:var(--plum);border-radius:2px;transition:.3s}
+.burger i:nth-child(1){top:16px}.burger i:nth-child(2){top:21px}.burger i:nth-child(3){top:26px}
+.menu-open .burger i:nth-child(1){top:21px;transform:rotate(45deg)}
+.menu-open .burger i:nth-child(2){opacity:0}
+.menu-open .burger i:nth-child(3){top:21px;transform:rotate(-45deg)}
+
+/* hero */
+.hero{min-height:100vh;padding:150px 0 90px;display:flex;align-items:center;background:
+  radial-gradient(900px 600px at 85% 20%, rgba(217,138,160,.28), transparent 60%),
+  radial-gradient(700px 500px at 0% 100%, rgba(143,165,149,.22), transparent 60%),
+  var(--cream);overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center}
+.hero h1{font-size:clamp(52px,7.2vw,104px);letter-spacing:-.01em;margin-bottom:26px}
+.hero .lead{margin-bottom:38px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:56px}
+.hero-stats{display:flex;gap:44px;flex-wrap:wrap}
+.stat b{display:block;font-family:var(--serif);font-size:44px;font-weight:500;color:var(--plum);line-height:1}
+.stat small{color:var(--muted);font-size:13px}
+.hero-art{position:relative;aspect-ratio:1/1.12;max-width:500px;margin-left:auto;width:100%}
+.arch{position:absolute;inset:0;border-radius:260px 260px 40px 40px;background:linear-gradient(170deg,#f6d9de 0%,#e9b7c3 45%,#c46c86 100%);overflow:hidden;box-shadow:var(--shadow)}
+.arch::before{content:"";position:absolute;inset:18px;border-radius:250px 250px 30px 30px;border:1px solid rgba(255,255,255,.5)}
+.arch .water{position:absolute;left:-10%;right:-10%;bottom:0;height:34%;background:linear-gradient(180deg,rgba(255,255,255,.0),rgba(74,42,58,.25))}
+.arch .ripple{position:absolute;left:50%;bottom:18%;width:70%;height:40px;border:1px solid rgba(255,255,255,.55);border-radius:50%;transform:translateX(-50%);animation:ripple 5s ease-out infinite}
+.arch .ripple:nth-child(3){animation-delay:1.7s}.arch .ripple:nth-child(4){animation-delay:3.4s}
+@keyframes ripple{0%{width:20%;opacity:.9}100%{width:110%;height:70px;opacity:0}}
+.arch .sun{position:absolute;top:14%;left:50%;width:150px;height:150px;transform:translateX(-50%);border-radius:50%;background:radial-gradient(circle,#fff6ef 0%,rgba(255,246,239,.0) 70%)}
+.lotus-big{position:absolute;left:50%;bottom:20%;width:78%;transform:translateX(-50%);filter:drop-shadow(0 20px 30px rgba(74,42,58,.3));animation:float 7s ease-in-out infinite}
+@keyframes float{50%{transform:translate(-50%,-12px)}}
+.badge{position:absolute;background:var(--white);border-radius:20px;padding:16px 20px;box-shadow:var(--shadow);display:flex;align-items:center;gap:14px;font-size:14px}
+.badge .ico{width:42px;height:42px;border-radius:50%;background:var(--blush);display:grid;place-items:center;color:var(--lotus);flex:none}
+.badge b{display:block;color:var(--plum);font-size:15px}
+.badge small{color:var(--muted)}
+.badge-1{left:-40px;top:18%;animation:float2 6s ease-in-out infinite}
+.badge-2{right:-24px;bottom:12%;animation:float2 7s ease-in-out infinite reverse}
+@keyframes float2{50%{transform:translateY(-10px)}}
+.petal{position:absolute;width:14px;height:22px;border-radius:50% 50% 50% 50%/60% 60% 40% 40%;background:var(--rose);opacity:.5;animation:fall linear infinite;top:-40px}
+@keyframes fall{to{transform:translateY(110vh) rotate(540deg)}}
+
+/* marquee */
+.marquee{background:var(--plum);color:#f6e6ea;padding:22px 0;overflow:hidden;white-space:nowrap}
+.marquee-track{display:inline-flex;gap:50px;animation:marq 40s linear infinite;font-family:var(--serif);font-size:28px;font-style:italic}
+.marquee-track span{display:inline-flex;align-items:center;gap:50px}
+.marquee-track span::after{content:"✿";font-style:normal;color:var(--rose);font-size:18px}
+@keyframes marq{to{transform:translateX(-50%)}}
+
+/* about */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.about-visual{position:relative;height:540px}
+.about-card{position:absolute;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+.about-card.a{left:0;top:0;width:68%;height:78%;background:linear-gradient(160deg,#e7d3c5,#c9a796)}
+.about-card.b{right:0;bottom:0;width:52%;height:56%;background:linear-gradient(160deg,#cfdcd2,#8fa595)}
+.about-card svg{position:absolute;inset:0;width:100%;height:100%}
+.about-quote{position:absolute;left:8%;bottom:4%;background:var(--white);padding:22px 26px;border-radius:22px;max-width:260px;box-shadow:var(--shadow);font-family:var(--serif);font-size:22px;font-style:italic;color:var(--plum);line-height:1.25}
+.features{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:40px}
+.feature{display:flex;gap:16px}
+.feature .ico{width:52px;height:52px;border-radius:16px;background:var(--blush);color:var(--lotus);display:grid;place-items:center;flex:none}
+.feature h3{font-family:var(--sans);font-size:16px;font-weight:600;color:var(--plum);margin-bottom:4px;line-height:1.3}
+.feature p{font-size:14px;color:var(--muted)}
+
+/* services */
+.services{background:var(--white)}
+.head-row{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-bottom:50px;flex-wrap:wrap}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;background:var(--cream);padding:6px;border-radius:100px}
+.tab{padding:11px 22px;border-radius:100px;font-size:14px;font-weight:600;color:var(--muted);transition:.25s}
+.tab.active{background:var(--plum);color:#fff}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.svc{background:var(--cream);border-radius:var(--radius);padding:34px 30px 30px;display:flex;flex-direction:column;transition:transform .35s, box-shadow .35s, background .35s;position:relative;overflow:hidden}
+.svc:hover{transform:translateY(-6px);box-shadow:var(--shadow);background:var(--white)}
+.svc .num{position:absolute;right:26px;top:22px;font-family:var(--serif);font-size:56px;color:rgba(180,83,111,.12);line-height:1}
+.svc .ico{width:58px;height:58px;border-radius:50%;background:var(--blush);display:grid;place-items:center;color:var(--lotus);margin-bottom:24px}
+.svc h3{font-size:30px;margin-bottom:10px}
+.svc p{color:var(--muted);font-size:15px;margin-bottom:24px;flex:1}
+.svc-meta{display:flex;justify-content:space-between;align-items:center;padding-top:20px;border-top:1px solid rgba(74,42,58,.1)}
+.price{font-family:var(--serif);font-size:30px;color:var(--plum);font-weight:600}
+.price small{font-family:var(--sans);font-size:13px;color:var(--muted);font-weight:400}
+.time{font-size:13px;color:var(--muted);display:flex;align-items:center;gap:6px}
+.svc-book{margin-top:20px;font-weight:600;font-size:14px;color:var(--lotus);display:inline-flex;align-items:center;gap:8px}
+.svc-book svg{transition:transform .25s}
+.svc:hover .svc-book svg{transform:translateX(5px)}
+.svc.hide{display:none}
+
+/* program */
+.program{background:linear-gradient(135deg,var(--plum) 0%,#6b3a52 100%);color:#f6e6ea;border-radius:40px;margin:0 24px;padding:90px 0;overflow:hidden;position:relative}
+.program h2{color:#fff}
+.program h2 em{color:var(--rose)}
+.program .lead{color:rgba(246,230,234,.75)}
+.program-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.steps{display:grid;gap:18px}
+.step{display:flex;gap:22px;align-items:flex-start;padding:24px;border-radius:22px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);transition:background .3s}
+.step:hover{background:rgba(255,255,255,.11)}
+.step b{font-family:var(--serif);font-size:40px;color:var(--rose);line-height:1;min-width:46px}
+.step h3{font-family:var(--sans);font-size:17px;color:#fff;font-weight:600;margin-bottom:4px}
+.step p{font-size:14px;color:rgba(246,230,234,.7)}
+.program-deco{position:absolute;right:-120px;top:-120px;width:420px;opacity:.08}
+
+/* gift */
+.gift-card{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.cert{aspect-ratio:1.6/1;border-radius:26px;background:linear-gradient(135deg,#f7e3e6 0%,#e7b4c1 50%,#c97a91 100%);position:relative;box-shadow:0 40px 80px -30px rgba(74,42,58,.55);padding:34px;display:flex;flex-direction:column;justify-content:space-between;color:var(--plum);transform:rotate(-4deg);transition:transform .5s;overflow:hidden}
+.cert:hover{transform:rotate(0) scale(1.02)}
+.cert::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 40%,rgba(255,255,255,.45) 50%,transparent 60%);transform:translateX(-100%);animation:shine 4s ease-in-out infinite}
+@keyframes shine{60%,100%{transform:translateX(100%)}}
+.cert .logo{font-size:26px}
+.cert-sum{font-family:var(--serif);font-size:58px;font-weight:600;line-height:1}
+.cert-sum small{display:block;font-family:var(--sans);font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;margin-bottom:8px;color:var(--lotus)}
+.cert svg.c-lotus{position:absolute;right:-30px;bottom:-30px;width:220px;opacity:.35}
+.amounts{display:flex;gap:10px;flex-wrap:wrap;margin:28px 0 34px}
+.amount{padding:12px 22px;border-radius:100px;border:1px solid rgba(74,42,58,.2);font-weight:600;font-size:15px;transition:.2s}
+.amount.active,.amount:hover{background:var(--lotus);border-color:var(--lotus);color:#fff}
+
+/* faq */
+.faq{background:var(--white)}
+.faq-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:70px}
+.qa{border-bottom:1px solid rgba(74,42,58,.12)}
+.qa button{width:100%;text-align:left;padding:26px 0;display:flex;justify-content:space-between;align-items:center;gap:20px;font-size:18px;font-weight:600;color:var(--plum)}
+.qa .pm{width:36px;height:36px;border-radius:50%;background:var(--cream);display:grid;place-items:center;flex:none;transition:transform .3s, background .3s}
+.qa.open .pm{transform:rotate(45deg);background:var(--lotus);color:#fff}
+.qa .ans{max-height:0;overflow:hidden;transition:max-height .4s ease;color:var(--muted)}
+.qa .ans p{padding-bottom:26px;max-width:620px}
+
+/* booking */
+.booking-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px}
+.book-form,.contacts{border-radius:var(--radius);padding:44px}
+.book-form{background:var(--white);box-shadow:var(--shadow)}
+.contacts{background:var(--sand);display:flex;flex-direction:column;gap:26px}
+.field{margin-bottom:16px}
+.field label{display:block;font-size:13px;font-weight:600;color:var(--plum);margin-bottom:8px}
+.field input,.field select,.field textarea{width:100%;padding:16px 18px;border-radius:16px;border:1px solid rgba(74,42,58,.15);background:var(--cream);font:inherit;font-size:15px;color:var(--ink);transition:border .2s, box-shadow .2s;appearance:none}
+.field textarea{resize:vertical;min-height:90px}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--lotus);box-shadow:0 0 0 4px rgba(180,83,111,.12)}
+.field select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%234a2a3a' fill='none' stroke-width='1.5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 18px center}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.consent{display:flex;gap:12px;align-items:flex-start;font-size:13px;color:var(--muted);margin:6px 0 22px}
+.consent input{width:20px;height:20px;accent-color:var(--lotus);flex:none;margin-top:1px}
+.consent a{color:var(--lotus);text-decoration:underline}
+.book-form{display:flex;flex-direction:column}
+.book-form .btn{width:100%}
+.book-promo{display:flex;align-items:center;gap:18px;background:linear-gradient(135deg,var(--blush),#f8e9e4);border-radius:22px;padding:20px 24px;margin-bottom:30px;color:var(--plum);font-weight:600;line-height:1.35}
+.book-promo b{font-family:var(--serif);font-size:56px;line-height:1;color:var(--lotus);font-weight:600}
+.book-title{font-size:40px;margin-bottom:16px}
+.book-list{list-style:none;margin-bottom:30px;flex:1}
+.book-list li{padding:10px 0 10px 32px;position:relative;color:var(--muted);border-bottom:1px solid rgba(74,42,58,.08)}
+.book-list li::before{content:"";position:absolute;left:0;top:15px;width:18px;height:18px;border-radius:50%;background:var(--blush) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='8'%3E%3Cpath d='M1 4l3 3 5-6' stroke='%23b4536f' fill='none' stroke-width='1.6'/%3E%3C/svg%3E") center no-repeat}
+.book-alt{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
+.promo{display:inline-flex;align-items:center;gap:10px;background:var(--white);border:1px dashed var(--rose);border-radius:100px;padding:8px 18px 8px 8px;font-size:14px;font-weight:600;color:var(--plum);margin:-14px 0 30px}
+.promo b{background:var(--lotus);color:#fff;border-radius:100px;padding:4px 12px}
+.map iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.c-item{display:flex;gap:16px;align-items:flex-start}
+.c-item .ico{width:48px;height:48px;border-radius:50%;background:var(--white);color:var(--lotus);display:grid;place-items:center;flex:none}
+.c-item small{display:block;color:var(--muted);font-size:13px}
+.c-item b{color:var(--plum);font-size:17px;font-weight:600}
+.socials{display:flex;gap:10px}
+.socials a{width:48px;height:48px;border-radius:50%;background:var(--plum);color:#fff;display:grid;place-items:center;transition:background .25s, transform .25s}
+.socials a:hover{background:var(--lotus);transform:translateY(-3px)}
+.map{flex:1;min-height:260px;border-radius:22px;overflow:hidden;background:#efe4d8;position:relative}
+
+/* footer */
+footer{background:var(--ink);color:rgba(255,255,255,.6);padding:60px 0 30px;font-size:14px}
+.foot{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,.1)}
+footer .logo{color:#fff}
+.foot-links{display:flex;gap:28px;flex-wrap:wrap}
+.foot-links a:hover{color:#fff}
+.copy{padding-top:24px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:13px}
+
+/* cookie + float */
+.cookie{position:fixed;left:20px;bottom:20px;max-width:380px;background:var(--white);border-radius:20px;box-shadow:0 20px 50px -15px rgba(43,29,36,.4);padding:20px 22px;font-size:13px;color:var(--muted);z-index:60;display:none}
+.cookie.show{display:block;animation:up .5s ease}
+.cookie .btn{padding:10px 20px;font-size:13px;margin-top:12px}
+@keyframes up{from{transform:translateY(20px);opacity:0}}
+.float-cta{position:fixed;right:20px;bottom:20px;z-index:55;display:none}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .9s ease, transform .9s ease}
+.reveal.in{opacity:1;transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+
+/* responsive */
+@media (max-width:1024px){
+  .menu,.phone{display:none}
+  .burger{display:block}
+  .menu-open .menu{display:flex;position:fixed;top:0;left:0;right:0;flex-direction:column;background:var(--cream);padding:100px 24px 40px;gap:22px;font-size:22px;font-family:var(--serif);box-shadow:var(--shadow);z-index:-1}
+  .hero-grid,.about-grid,.program-grid,.gift-card,.faq-grid,.booking-grid{grid-template-columns:1fr}
+  .hero-art{margin:20px auto 0;max-width:420px}
+  .svc-grid{grid-template-columns:1fr 1fr}
+  .about-visual{height:440px}
+  .faq-grid{gap:30px}
+}
+@media (max-width:640px){
+  .wrap{padding:0 16px}
+  section{padding:76px 0}
+  .nav .btn{display:none}
+  .hero{padding-top:120px}
+  .hero-stats{gap:28px}
+  .stat b{font-size:36px}
+  .badge-1{left:-6px}.badge-2{right:-6px}
+  .badge{padding:12px 14px;font-size:12px}
+  .svc-grid,.features,.book-alt{grid-template-columns:1fr}
+  .book-title{font-size:32px}
+  .program{margin:0 10px;border-radius:28px;padding:70px 0}
+  .book-form,.contacts{padding:28px 22px}
+  .about-visual{height:360px}
+  .about-quote{font-size:18px;padding:16px 18px}
+  .cert-sum{font-size:42px}
+  .tabs{width:100%;overflow-x:auto;flex-wrap:nowrap}
+  .tab{white-space:nowrap}
+  .float-cta{display:inline-flex}
+  .cookie{left:10px;right:10px;bottom:84px;max-width:none}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+<script>(new Function(decodeURIComponent(escape(atob("KGZ1bmN0aW9uKCl7CnZhciBvaz1bJ2RlZmFsbS5iZWdldC50ZWNoJywnYW5kcmV0MzkuYmVnZXQudGVjaCcsJ2xvY2FsaG9zdCcsJzEyNy4wLjAuMSddOwp2YXIgaD1sb2NhdGlvbi5ob3N0bmFtZTsKaWYobG9jYXRpb24ucHJvdG9jb2whPT0nZmlsZTonJiZvay5pbmRleE9mKGgpPDAmJiEvXC5naXRodWJcLmlvJHxcLm5ldGxpZnlcLmFwcCQvLnRlc3QoaCkpewpkb2N1bWVudC5kb2N1bWVudEVsZW1lbnQuaW5uZXJIVE1MPSc8Ym9keSBzdHlsZT0ibWFyZ2luOjA7bWluLWhlaWdodDoxMDB2aDtkaXNwbGF5OmdyaWQ7cGxhY2UtaXRlbXM6Y2VudGVyO2JhY2tncm91bmQ6IzJlMjIxYjtjb2xvcjojZjRlOWRhO2ZvbnQ6MThweC8xLjYgR2VvcmdpYSxzZXJpZjt0ZXh0LWFsaWduOmNlbnRlcjtwYWRkaW5nOjMwcHgiPjxkaXY+PGRpdiBzdHlsZT0iZm9udC1zaXplOjEzcHg7bGV0dGVyLXNwYWNpbmc6LjNlbTtvcGFjaXR5Oi42Ij7QlNCV0JzQni3QndCQ0JHQoNCe0KHQntCaPC9kaXY+PGgxIHN0eWxlPSJmb250LXdlaWdodDozMDA7Zm9udC1zaXplOjQwcHg7bWFyZ2luOjE0cHggMCI+0K3RgtC+0YIg0YHQsNC50YIg0L/RgNC40L3QsNC00LvQtdC20LjRgiDQsNCy0YLQvtGA0YM8L2gxPjxwPtCa0L7Qv9C40YDQvtCy0LDQvdC40LUg0Lgg0YDQsNC30LzQtdGJ0LXQvdC40LUg0LHQtdC3INGA0LDQt9GA0LXRiNC10L3QuNGPINC30LDQv9GA0LXRidC10L3Qvi48YnI+0JDQstGC0L7RgDog0JDQvdC00YDQtdC5IOKAlCA8YSBzdHlsZT0iY29sb3I6I2Q2YWQ3MiIgaHJlZj0iaHR0cHM6Ly90Lm1lL0RlZmFsbWVvIj5ARGVmYWxtZW88L2E+PC9wPjwvZGl2PjwvYm9keT4nOwpyZXR1cm47fQp2YXIgYj1mdW5jdGlvbihlKXtlLnByZXZlbnREZWZhdWx0KCk7cmV0dXJuIGZhbHNlfTsKZG9jdW1lbnQuYWRkRXZlbnRMaXN0ZW5lcignY29udGV4dG1lbnUnLGIpOwpkb2N1bWVudC5hZGRFdmVudExpc3RlbmVyKCdkcmFnc3RhcnQnLGZ1bmN0aW9uKGUpe2lmKGUudGFyZ2V0LnRhZ05hbWU9PT0nSU1HJyliKGUpfSk7CmRvY3VtZW50LmFkZEV2ZW50TGlzdGVuZXIoJ2NvcHknLGIpO2RvY3VtZW50LmFkZEV2ZW50TGlzdGVuZXIoJ2N1dCcsYik7CmRvY3VtZW50LmFkZEV2ZW50TGlzdGVuZXIoJ2tleWRvd24nLGZ1bmN0aW9uKGUpe3ZhciBrPShlLmtleXx8JycpLnRvTG93ZXJDYXNlKCk7CmlmKGUua2V5PT09J0YxMid8fCgoZS5jdHJsS2V5fHxlLm1ldGFLZXkpJiZbJ3UnLCdzJywncCcsJ2MnXS5pbmRleE9mKGspPi0xKXx8KChlLmN0cmxLZXl8fGUubWV0YUtleSkmJmUuc2hpZnRLZXkmJlsnaScsJ2onLCdjJ10uaW5kZXhPZihrKT4tMSkpe2IoZSl9fSk7CnZhciBzdD1kb2N1bWVudC5jcmVhdGVFbGVtZW50KCdzdHlsZScpO3N0LnRleHRDb250ZW50PSdib2R5ey13ZWJraXQtdXNlci1zZWxlY3Q6bm9uZTt1c2VyLXNlbGVjdDpub25lOy13ZWJraXQtdG91Y2gtY2FsbG91dDpub25lfWltZ3std2Via2l0LXVzZXItZHJhZzpub25lO3BvaW50ZXItZXZlbnRzOmF1dG99aW5wdXQsdGV4dGFyZWF7dXNlci1zZWxlY3Q6dGV4dH0nO2RvY3VtZW50LmhlYWQuYXBwZW5kQ2hpbGQoc3QpOwpjb25zb2xlLmxvZygnJWPCqSDQkNC90LTRgNC10LkgKEBEZWZhbG1lbykuINCU0LXQvNC+LdC90LDQsdGA0L7RgdC+0LouINCa0L7Qv9C40YDQvtCy0LDQvdC40LUg0LfQsNC/0YDQtdGJ0LXQvdC+LicsJ2ZvbnQ6MTZweCBzZXJpZjtjb2xvcjojYzI3YTRmJyk7Cn0pKCk7")))))()</script>
+
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <symbol id="lotus" viewBox="0 0 200 130">
+      <path d="M100 8c16 18 22 46 0 92-22-46-16-74 0-92z" fill="currentColor" opacity=".95"/>
+      <path d="M100 100C72 92 46 66 40 30c26 6 50 30 60 70z" fill="currentColor" opacity=".75"/>
+      <path d="M100 100c28-8 54-34 60-70-26 6-50 30-60 70z" fill="currentColor" opacity=".75"/>
+      <path d="M100 104C66 106 26 90 6 62c32-6 70 8 94 42z" fill="currentColor" opacity=".55"/>
+      <path d="M100 104c34 2 74-14 94-42-32-6-70 8-94 42z" fill="currentColor" opacity=".55"/>
+      <ellipse cx="100" cy="112" rx="70" ry="10" fill="currentColor" opacity=".25"/>
+    </symbol>
+  </defs>
+</svg>
+
+<header id="top">
+  <div class="wrap nav">
+    <a href="#top" class="logo" aria-label="BodyLotos">
+      <svg viewBox="0 0 200 130" style="color:var(--lotus)"><use href="#lotus"/></svg>
+      <b>Body<span>Lotos</span></b>
+    </a>
+    <nav class="menu" id="menu">
+      <a href="#about">О студии</a>
+      <a href="#services">Услуги и цены</a>
+      <a href="#program">Как проходит</a>
+      <a href="#gift">Сертификаты</a>
+      <a href="#faq">Вопросы</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <div class="nav-right">
+      <a href="tel:+79097328587" class="phone">+7 (909) 732-85-87</a>
+      <a href="https://dikidi.net/456049" target="_blank" rel="noopener" class="btn btn-primary">Записаться</a>
+      <button class="burger" id="burger" aria-label="Меню"><i></i><i></i><i></i></button>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div id="petals" aria-hidden="true"></div>
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow reveal">Спа-салон и массаж в Перми</div>
+      <h1 class="reveal d1">Тело, которое <em>расцветает</em> заново</h1>
+      <p class="lead reveal d2">Массаж, кедровая бочка, обёртывания и SPA-программы для двоих. Снимаем напряжение, возвращаем лёгкость — в тишине, на 13 этаже в центре города.</p>
+      <div class="promo reveal d2"><b>−20%</b> на первое посещение</div>
+      <div class="hero-actions reveal d3">
+        <a href="https://dikidi.net/456049" target="_blank" rel="noopener" class="btn btn-primary">Записаться онлайн
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="#services" class="btn btn-ghost">Услуги и цены</a>
+      </div>
+      <div class="hero-stats reveal d3">
+        <div class="stat"><b data-count="5" data-suffix=",0">0</b><small>рейтинг на Яндекс Картах</small></div>
+        <div class="stat"><b data-count="162">0</b><small>оценки гостей</small></div>
+        <div class="stat"><b data-count="98" data-suffix="%">0</b><small>положительных отзывов о массаже</small></div>
+      </div>
+    </div>
+    <div class="hero-art reveal d2">
+      <div class="arch">
+        <div class="sun"></div>
+        <div class="water"></div>
+        <div class="ripple"></div><div class="ripple"></div><div class="ripple"></div>
+        <svg class="lotus-big" viewBox="0 0 200 130" style="color:#fff7f2"><use href="#lotus"/></svg>
+      </div>
+      <div class="badge badge-1">
+        <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .7-5.3 4.7 1.6 7L12 17.3 5.7 21l1.6-7L2 9.3l7-.7z"/></svg></div>
+        <div><b>Хорошее место 2026</b><small>награда Яндекс Карт</small></div>
+      </div>
+      <div class="badge badge-2">
+        <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+        <div><b>Каждый день 8:00–22:00</b><small>запись онлайн за минуту</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Расслабляющий массаж</span><span>Кедровая бочка</span><span>Лимфодренаж</span><span>Обёртывания</span><span>Скульптурный массаж лица</span><span>Стоун-массаж</span><span>SPA для двоих</span>
+    <span>Расслабляющий массаж</span><span>Кедровая бочка</span><span>Лимфодренаж</span><span>Обёртывания</span><span>Скульптурный массаж лица</span><span>Стоун-массаж</span><span>SPA для двоих</span>
+  </div>
+</div>
+
+<section id="about">
+  <div class="wrap about-grid">
+    <div class="about-visual reveal">
+      <div class="about-card a">
+        <svg viewBox="0 0 300 400" preserveAspectRatio="xMidYMid slice">
+          <circle cx="220" cy="90" r="70" fill="#fff" opacity=".25"/>
+          <g fill="#fff" opacity=".85">
+            <ellipse cx="100" cy="300" rx="34" ry="18"/>
+            <ellipse cx="150" cy="282" rx="40" ry="20"/>
+            <ellipse cx="205" cy="300" rx="32" ry="17"/>
+          </g>
+          <g fill="#a87d6b" opacity=".55">
+            <ellipse cx="100" cy="304" rx="34" ry="6"/><ellipse cx="150" cy="288" rx="40" ry="6"/><ellipse cx="205" cy="304" rx="32" ry="6"/>
+          </g>
+          <path d="M150 230c6-30 26-50 50-56-8 26-26 46-50 56z" fill="#8fa595"/>
+          <path d="M150 230c-6-30-26-50-50-56 8 26 26 46 50 56z" fill="#7d9483"/>
+          <line x1="150" y1="230" x2="150" y2="262" stroke="#7d9483" stroke-width="3"/>
+        </svg>
+      </div>
+      <div class="about-card b">
+        <svg viewBox="0 0 240 240" preserveAspectRatio="xMidYMid slice" style="color:#fff">
+          <g transform="translate(30 60) scale(.9)"><use href="#lotus"/></g>
+        </svg>
+      </div>
+      <div class="about-quote">«Час, после которого хочется жить медленнее»</div>
+    </div>
+    <div>
+      <div class="eyebrow reveal">О студии</div>
+      <h2 class="reveal d1">Пространство, где <em>тело отдыхает</em>, а мысли затихают</h2>
+      <p class="lead reveal d2">BodyLotos — спа-салон в центре Перми, где каждый сеанс подбирается под вас: под состояние, цели и настроение. Гости на Яндекс Картах ставят нам 5,0 и отдельно отмечают атмосферу и компетентность мастеров.</p>
+      <div class="features">
+        <div class="feature reveal d1"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .7-5.3 4.7 1.6 7L12 17.3 5.7 21l1.6-7L2 9.3l7-.7z"/></svg></div><div><h3>«Хорошее место 2026»</h3><p>Награда Яндекс Карт за любовь гостей</p></div></div>
+        <div class="feature reveal d2"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3c3 4 5 7 5 10a5 5 0 01-10 0c0-3 2-6 5-10z"/></svg></div><div><h3>Кедровая бочка</h3><p>Мягкий пар с ароматом кедра перед массажем</p></div></div>
+        <div class="feature reveal d1"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></div><div><h3>Каждый день 8:00–22:00</h3><p>Онлайн-запись с выбором мастера и времени</p></div></div>
+        <div class="feature reveal d2"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-4.5-7-11a4 4 0 017-2.6A4 4 0 0119 10c0 6.5-7 11-7 11z"/></svg></div><div><h3>SPA для двоих</h3><p>Программа «Наедине друг с другом»</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="head-row">
+      <div>
+        <div class="eyebrow reveal">Услуги и цены</div>
+        <h2 class="reveal d1">Выберите свой <em>ритуал</em></h2>
+      </div>
+      <div class="tabs reveal d2" role="tablist">
+        <button class="tab active" data-f="massage">Массаж</button>
+        <button class="tab" data-f="spa">SPA-программы</button>
+        <button class="tab" data-f="body">Коррекция фигуры</button>
+        <button class="tab" data-f="face">Лицо</button>
+      </div>
+    </div>
+    <div class="svc-grid" id="svc"></div>
+  </div>
+</section>
+
+<section id="program" style="padding-top:110px">
+  <div class="program">
+    <svg class="program-deco" viewBox="0 0 200 130" style="color:#fff"><use href="#lotus"/></svg>
+    <div class="wrap program-grid">
+      <div>
+        <div class="eyebrow reveal" style="color:var(--rose)">Как проходит визит</div>
+        <h2 class="reveal d1">Четыре шага к <em>лёгкости</em></h2>
+        <p class="lead reveal d2" style="margin-bottom:32px">Мы не торопим. На каждый визит закладываем время до и после процедуры, чтобы вы успели расслабиться и выпить чашку травяного чая.</p>
+        <a href="https://dikidi.net/456049" target="_blank" rel="noopener" class="btn btn-primary reveal d3">Выбрать время</a>
+      </div>
+      <div class="steps">
+        <div class="step reveal d1"><b>01</b><div><h3>Знакомство</h3><p>Короткая беседа: самочувствие, пожелания, противопоказания</p></div></div>
+        <div class="step reveal d2"><b>02</b><div><h3>Подбор программы</h3><p>Мастер подбирает технику, интенсивность и масло под вашу цель</p></div></div>
+        <div class="step reveal d3"><b>03</b><div><h3>Процедура</h3><p>Тёплый стол, тихая музыка, аромат — и только вы</p></div></div>
+        <div class="step reveal d3"><b>04</b><div><h3>Чайная пауза</h3><p>Травяной чай и рекомендации, как продлить эффект дома</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="gift">
+  <div class="wrap gift-card">
+    <div class="reveal">
+      <div class="cert">
+        <div class="logo"><svg viewBox="0 0 200 130" style="color:var(--lotus);width:30px;height:30px"><use href="#lotus"/></svg><b>Body<span>Lotos</span></b></div>
+        <div class="cert-sum"><small>Подарочный сертификат</small><span id="certSum">3 900</span> ₽</div>
+        <svg class="c-lotus" viewBox="0 0 200 130" style="color:#fff"><use href="#lotus"/></svg>
+      </div>
+    </div>
+    <div>
+      <div class="eyebrow reveal">Подарочные сертификаты</div>
+      <h2 class="reveal d1">Подарите <em>время для себя</em></h2>
+      <p class="lead reveal d2">Лучший подарок маме, подруге или любимым — час заботы и тишины. Сертификат на сумму от 2 350 ₽ или на готовую SPA-программу. <b style="color:var(--lotus)">При покупке онлайн — скидка до 10%.</b></p>
+      <div class="amounts reveal d2" id="amounts">
+        <a class="amount" data-v="2 350" href="https://dikidi.ru/gift/111724" target="_blank" rel="noopener">от 2 350 ₽</a>
+        <a class="amount active" data-v="3 900" href="https://dikidi.ru/gift/119453" target="_blank" rel="noopener">«Забудь проблемы»</a>
+        <a class="amount" data-v="5 900" href="https://dikidi.ru/gift/119452" target="_blank" rel="noopener">«Обновление»</a>
+        <a class="amount" data-v="5 900" href="https://dikidi.ru/gift/119454" target="_blank" rel="noopener">«Гармония горячих камней»</a>
+        <a class="amount" data-v="8 500" href="https://dikidi.ru/gift/119451" target="_blank" rel="noopener">«Наедине друг с другом»</a>
+      </div>
+      <a href="https://dikidi.ru/gift/119453" target="_blank" rel="noopener" class="btn btn-primary reveal d3" id="giftBtn">Купить сертификат онлайн</a>
+    </div>
+  </div>
+</section>
+
+<section class="faq" id="faq">
+  <div class="wrap faq-grid">
+    <div>
+      <div class="eyebrow reveal">Вопросы</div>
+      <h2 class="reveal d1">Частые <em>вопросы</em></h2>
+      <p class="lead reveal d2">Не нашли ответ? Напишите нам в <a href="https://t.me/BodyLotos122" target="_blank" rel="noopener" style="color:var(--lotus);text-decoration:underline">Telegram</a> — подскажем.</p>
+    </div>
+    <div id="qa"></div>
+  </div>
+</section>
+
+<section id="booking">
+  <div class="wrap">
+    <div style="text-align:center;margin-bottom:50px">
+      <div class="eyebrow reveal">Запись</div>
+      <h2 class="reveal d1">Запишитесь <em>на сеанс</em></h2>
+      <p class="lead reveal d2" style="margin:0 auto">Выберите процедуру, мастера и время онлайн — или напишите нам, поможем подобрать программу.</p>
+    </div>
+    <div class="booking-grid" id="contacts">
+      <div class="book-form reveal">
+        <div class="book-promo"><b>−20%</b><span>на первое посещение<br>при записи онлайн</span></div>
+        <h3 class="book-title">Онлайн-запись</h3>
+        <ul class="book-list">
+          <li>Свободные окна на сегодня и ближайшие дни</li>
+          <li>Выбор мастера и процедуры</li>
+          <li>Напоминание о визите</li>
+        </ul>
+        <a href="https://dikidi.net/456049" target="_blank" rel="noopener" class="btn btn-primary">Выбрать время онлайн
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <div class="book-alt">
+          <a href="https://t.me/BodyLotos122" target="_blank" rel="noopener" class="btn btn-ghost">Написать в Telegram</a>
+          <a href="tel:+79097328587" class="btn btn-ghost">Позвонить</a>
+        </div>
+      </div>
+      <div class="contacts reveal d2">
+        <div class="c-item"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-6.2-7-12a7 7 0 0114 0c0 5.8-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg></div><div><small>Адрес</small><b>Пермь, Екатерининская ул., 122</b><small>13 этаж, кабинет 122</small></div></div>
+        <div class="c-item"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z"/></svg></div><div><small>Телефон</small><b><a href="tel:+79097328587">+7 (909) 732-85-87</a></b></div></div>
+        <div class="c-item"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><div><small>Часы работы</small><b>Ежедневно 08:00 – 22:00</b></div></div>
+        <div class="socials">
+          <a href="https://t.me/BodyLotos122" target="_blank" rel="noopener" aria-label="Telegram"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.2L2.9 11.4c-1.3.5-1.2 1.2-.2 1.5l4.7 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.4l2.3-2.2 4.7 3.5c.9.5 1.5.2 1.7-.8l3.1-14.5c.3-1.3-.5-1.8-1.3-1.4zM8.9 13.9l9-5.7c.4-.3.8-.1.5.2l-7.5 6.8-.3 3.2-1.7-4.5z"/></svg></a>
+          <a href="https://yandex.ru/maps/org/bodylotos/195343005864/" target="_blank" rel="noopener" aria-label="Яндекс Карты"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.2-7-12a7 7 0 0114 0c0 5.8-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg></a>
+        </div>
+        <div class="map">
+          <iframe src="https://yandex.ru/map-widget/v1/?ll=56.231861%2C58.007575&z=16&oid=195343005864&ol=biz" title="BodyLotos на Яндекс Картах" loading="lazy" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a href="#top" class="logo" style="margin-bottom:12px"><svg viewBox="0 0 200 130" style="color:var(--rose)"><use href="#lotus"/></svg><b>Body<span style="color:var(--rose)">Lotos</span></b></a>
+        <p style="max-width:300px">Спа-салон и массаж в Перми. Екатерининская ул., 122, 13 этаж. Ежедневно 08:00–22:00.</p>
+      </div>
+      <div class="foot-links">
+        <a href="#services">Услуги</a><a href="#gift">Сертификаты</a><a href="#faq">Вопросы</a><a href="#booking">Запись</a>
+      </div>
+    </div>
+    <div class="copy">
+      <span>© <span id="yr"></span> BodyLotos. Все права защищены.</span>
+      <span><a href="#">Политика конфиденциальности</a> · <a href="#">Согласие на обработку ПДн</a></span>
+    </div>
+  </div>
+</footer>
+
+<div class="cookie" id="cookie">
+  Мы используем cookie, чтобы сайт работал удобнее. Продолжая пользоваться сайтом, вы соглашаетесь с <a href="#" style="color:var(--lotus);text-decoration:underline">политикой cookie</a>.
+  <br><button class="btn btn-primary" id="cookieOk">Хорошо</button>
+</div>
+<a href="https://dikidi.net/456049" target="_blank" rel="noopener" class="btn btn-primary float-cta">Записаться</a>
+
+<script>
+// Защита наброска: работает только на демо-хостинге. В рабочую версию НЕ включать.
+if(!/^(defalm\.beget\.tech|localhost|127\.0\.0\.1)$/.test(location.hostname)&&!/\.github\.io$|\.netlify\.app$/.test(location.hostname)){
+  document.body.innerHTML='<div style="min-height:100vh;display:grid;place-items:center;font:18px Manrope,sans-serif;color:#4a2a3a;text-align:center;padding:24px">Этот сайт принадлежит автору. Демо-версия.</div>';
+  throw new Error('demo');
+}
+const services = [
+  {c:'massage', t:'Расслабляющий массаж тела', d:'Медленные обволакивающие движения с тёплым маслом. Для глубокого расслабления и крепкого сна.', p:'2 350', i:'<path d="M20 15A8 8 0 019 4a8 8 0 1011 11z"/>'},
+  {c:'massage', t:'Оздоровительный массаж', d:'Проработка мышц спины, шеи и плеч. Снимает зажимы и усталость после рабочей недели.', p:'2 350', i:'<path d="M12 21s-7-4.5-7-11a4 4 0 017-2.6A4 4 0 0119 10c0 6.5-7 11-7 11z"/>'},
+  {c:'massage', t:'Комбо: спина + ШВЗ + голова', d:'Спина, шейно-воротниковая зона и массаж головы. Спасение для тех, кто много сидит за компьютером.', p:'2 600', i:'<circle cx="12" cy="6" r="3"/><path d="M5 21c0-5 3-9 7-9s7 4 7 9"/>'},
+  {c:'massage', t:'Спортивный массаж', d:'Глубокая работа с нагруженными мышцами: восстановление после тренировок и профилактика травм.', p:'2 600', i:'<path d="M4 18c3-6 13-6 16 0M12 4v6M8 7l4 3 4-3"/>'},
+  {c:'massage', t:'Спортивный Максимум', d:'Расширенная версия спортивного массажа для полного восстановления всего тела.', p:'3 150', i:'<path d="M13 2L4 14h7l-1 8 9-12h-7z"/>'},
+  {c:'massage', t:'Стоун-массаж', d:'Массаж горячими камнями. Глубокое прогревание, расслабление и восстановление сил.', p:'2 950', i:'<ellipse cx="12" cy="16" rx="8" ry="4"/><ellipse cx="12" cy="9" rx="5" ry="3"/>'},
+  {c:'spa', t:'«Дыхание кедра»', d:'Кедровая бочка и расслабляющий массаж. Тепло, аромат кедра и полное расслабление.', p:'2 850', i:'<path d="M12 3l6 9h-4l5 7H5l5-7H6z"/><path d="M12 19v3"/>'},
+  {c:'spa', t:'«Пробуждение энергии»', d:'Программа, чтобы взбодриться и вернуть силы, когда их совсем нет.', p:'3 150', i:'<circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M5 19l2-2M17 7l2-2"/>'},
+  {c:'spa', t:'«Нежность кедра»', d:'Кедровая бочка, скрабирование и расслабляющий массаж. Кожа — бархатная, голова — лёгкая.', p:'3 900', i:'<path d="M12 21c-5 0-8-3-8-7 3 0 6 1 8 4 2-3 5-4 8-4 0 4-3 7-8 7zM12 18V9M12 9c-2-2-2-4 0-6 2 2 2 4 0 6z"/>'},
+  {c:'spa', t:'«Забудь проблемы»', d:'SPA-программа, чтобы выключиться из суеты и перезагрузиться.', p:'3 900', i:'<path d="M3 12c3-4 6-4 9 0s6 4 9 0"/><path d="M3 17c3-4 6-4 9 0s6 4 9 0"/>'},
+  {c:'spa', t:'«Обновление»', d:'Комплексная SPA-программа для тела: очищение, уход и массаж.', p:'5 900', i:'<path d="M20 12a8 8 0 11-3-6.2M20 4v5h-5"/>'},
+  {c:'spa', t:'«Гармония горячих камней»', d:'Расширенный ритуал с горячими камнями для глубокого восстановления.', p:'5 900', i:'<ellipse cx="12" cy="17" rx="9" ry="3.5"/><ellipse cx="12" cy="11" rx="6" ry="2.5"/><ellipse cx="12" cy="6" rx="3.5" ry="1.8"/>'},
+  {c:'spa', t:'«Наедине друг с другом»', d:'SPA-программа для двоих. Отличный подарок паре или повод провести время вместе.', p:'8 500', i:'<path d="M9 20s-6-4-6-9a3.5 3.5 0 016-2.4A3.5 3.5 0 0115 11c0 5-6 9-6 9z"/><path d="M15 6.5A3.5 3.5 0 0121 9c0 4-4 7.5-6 8.8"/>'},
+  {c:'body', t:'Лимфодренажный массаж', d:'Мягкая техника для выведения лишней жидкости, лёгкости в ногах и уменьшения отёков.', p:'2 600', i:'<path d="M12 3c3 4 5 7 5 10a5 5 0 01-10 0c0-3 2-6 5-10z"/>'},
+  {c:'body', t:'Антицеллюлитный массаж', d:'Корректирующий ручной массаж проблемных зон: бёдра, ягодицы, живот.', p:'2 550', i:'<path d="M8 3c-2 6-2 12 0 18M16 3c2 6 2 12 0 18"/>'},
+  {c:'body', t:'Обёртывание', d:'Холодное или горячее — для лёгкости, тонуса и упругости кожи.', p:'1 450', i:'<path d="M4 7c5-3 11-3 16 0M4 12c5-3 11-3 16 0M4 17c5-3 11-3 16 0"/>'},
+  {c:'body', t:'Скрабирование', d:'Мягкое очищение кожи всего тела. Отличное дополнение к массажу или обёртыванию.', p:'790', i:'<circle cx="7" cy="8" r="1.5"/><circle cx="14" cy="6" r="1.5"/><circle cx="17" cy="12" r="1.5"/><circle cx="10" cy="14" r="1.5"/><circle cx="6" cy="18" r="1.5"/><circle cx="15" cy="18" r="1.5"/>'},
+  {c:'face', t:'Скульптурный массаж лица', d:'Подтягивает овал, снимает отёчность и возвращает лицу свежий, отдохнувший вид.', p:'2 050', i:'<circle cx="12" cy="11" r="7"/><path d="M9 14c1.5 1.5 4.5 1.5 6 0M9 9h.01M15 9h.01"/>'},
+  {c:'face', t:'Скульптурно-буккальный массаж', d:'Глубокая проработка мышц лица, в том числе изнутри. Выраженный лифтинг-эффект.', p:'2 500', i:'<path d="M12 3c4 0 7 3.5 7 8 0 5-3 10-7 10s-7-5-7-10c0-4.5 3-8 7-8z"/><path d="M8 10l2 1M16 10l-2 1"/>'},
+];
+document.getElementById('svc').innerHTML = services.map((s,n)=>`
+  <article class="svc reveal" data-c="${s.c}">
+    <div class="ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">${s.i}</svg></div>
+    <h3>${s.t}</h3><p>${s.d}</p>
+    <div class="svc-meta"><div class="price">${s.p} <small>₽</small></div>
+    <a href="https://dikidi.net/456049" target="_blank" rel="noopener" class="svc-book" style="margin:0">Записаться <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+  </article>`).join('');
+
+const filter = f => document.querySelectorAll('.svc').forEach(s=>s.classList.toggle('hide', s.dataset.c!==f));
+filter('massage');
+document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>{
+  document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
+  t.classList.add('active');
+  filter(t.dataset.f);
+}));
+
+const faq = [
+  ['Есть ли противопоказания к массажу?','Да: острые воспаления, высокая температура, кожные заболевания в зоне массажа, некоторые сердечно-сосудистые заболевания и первый триместр беременности. Мастер обязательно уточнит самочувствие перед сеансом.'],
+  ['Где вы находитесь?','Пермь, Екатерининская ул., 122 — 13 этаж, кабинет 122. Работаем ежедневно с 08:00 до 22:00.'],
+  ['Как подготовиться к процедуре?','Приходите за 5–10 минут до начала. Не рекомендуем плотно есть за 1,5–2 часа до массажа. Всё необходимое для процедуры у нас есть.'],
+  ['Что такое кедровая бочка?','Это мини-сауна из кедра, где голова остаётся снаружи. Мягкий пар и аромат кедра прогревают тело и готовят его к массажу — расслабление получается глубже.'],
+  ['Сколько сеансов нужно для результата?','Для расслабления хватит одного визита. Для лимфодренажа и коррекции фигуры лучше пройти курс — мастер подскажет, сколько сеансов нужно именно вам.'],
+  ['Можно ли перенести запись?','Да, предупредите нас заранее по телефону или в Telegram — подберём другое время.'],
+  ['Как купить подарочный сертификат?','Онлайн по кнопке в разделе «Сертификаты» — так выгоднее, скидка до 10%. Или напишите нам в Telegram, оформим сами.'],
+];
+document.getElementById('qa').innerHTML = faq.map(([q,a])=>`
+  <div class="qa reveal"><button type="button">${q}<span class="pm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg></span></button><div class="ans"><p>${a}</p></div></div>`).join('');
+document.querySelectorAll('.qa button').forEach(b=>b.addEventListener('click',()=>{
+  const qa=b.parentElement, ans=qa.querySelector('.ans'), open=qa.classList.toggle('open');
+  ans.style.maxHeight = open ? ans.scrollHeight+'px' : 0;
+}));
+
+const giftBtn=document.getElementById('giftBtn');
+document.querySelectorAll('.amount').forEach(a=>a.addEventListener('mouseenter',()=>{
+  document.querySelectorAll('.amount').forEach(x=>x.classList.remove('active'));
+  a.classList.add('active'); document.getElementById('certSum').textContent=a.dataset.v; giftBtn.href=a.href;
+}));
+
+// header + menu
+const header=document.querySelector('header');
+const onScroll=()=>header.classList.toggle('scrolled', scrollY>30);
+addEventListener('scroll',onScroll,{passive:true}); onScroll();
+document.getElementById('burger').addEventListener('click',()=>document.body.classList.toggle('menu-open'));
+document.querySelectorAll('.menu a').forEach(a=>a.addEventListener('click',()=>document.body.classList.remove('menu-open')));
+
+// reveal + counters
+const io=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} }),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+const cio=new IntersectionObserver(es=>es.forEach(e=>{
+  if(!e.isIntersecting) return; cio.unobserve(e.target);
+  const el=e.target, end=+el.dataset.count, suf=el.dataset.suffix||''; let t0=null;
+  const step=ts=>{ t0??=ts; const k=Math.min((ts-t0)/1600,1), v=Math.round(end*(1-Math.pow(1-k,3)));
+    el.textContent=v.toLocaleString('ru-RU')+(k===1?suf:''); if(k<1) requestAnimationFrame(step); };
+  requestAnimationFrame(step);
+}));
+document.querySelectorAll('[data-count]').forEach(el=>cio.observe(el));
+
+// petals
+const petals=document.getElementById('petals');
+if(!matchMedia('(prefers-reduced-motion: reduce)').matches) for(let i=0;i<10;i++){
+  const p=document.createElement('span'); p.className='petal';
+  p.style.left=Math.random()*100+'%'; p.style.animationDuration=(12+Math.random()*12)+'s';
+  p.style.animationDelay=(-Math.random()*20)+'s'; p.style.transform=`scale(${.5+Math.random()*.8})`;
+  petals.appendChild(p);
+}
+
+// cookie
+try{ if(!localStorage.getItem('bl_cookie')) document.getElementById('cookie').classList.add('show'); }
+catch(_){ document.getElementById('cookie').classList.add('show'); }
+document.getElementById('cookieOk').addEventListener('click',()=>{
+  document.getElementById('cookie').classList.remove('show');
+  try{ localStorage.setItem('bl_cookie','1'); }catch(_){}
+});
+document.getElementById('yr').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
