@@ -1,0 +1,174 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>«ТЬМА» — хоррор-квесты с актёрами в Ялте</title><meta name="description" content="Хоррор-квесты с живыми актёрами в Ялте, ул. Дзержинского, 21Б. Онлайн-бронирование. Чт–Вс, 12:00–00:00."><meta name="theme-color" content="#070606">
+<meta name="robots" content="noindex,nofollow"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23070606'/%3E%3Ctext x='16' y='24' font-size='22' text-anchor='middle' fill='%23ff2d3a' font-family='Impact,sans-serif'%3ET%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/style.css?v=2"></head><body>
+<header class="hd"><div class="wrap"><a class="logo" href="./">Т<b>Ь</b>МА</a>
+<nav class="nav"><a href="./#quests">Квесты</a><a href="./#kino">Кинопросмотр</a><a href="./#how">Как проходит</a><a href="./#contacts">Контакты</a></nav>
+<a class="btn" href="booking.html">Забронировать</a></div></header>
+<link rel="stylesheet" href="assets/home.css?v=3">
+<canvas id="grain" aria-hidden="true"></canvas>
+<main class="home">
+
+<!-- 1. Первый экран: фонарик -->
+<section class="hero" id="hero">
+  <div class="scrawl" aria-hidden="true">
+    <span style="left:6%;top:16%;--r:-8deg">не оборачивайся</span>
+    <span style="left:62%;top:12%;--r:6deg">ты не один</span>
+    <span style="left:10%;top:70%;--r:4deg">выпусти нас</span>
+    <span style="left:58%;top:78%;--r:-5deg">60 минут</span>
+    <span style="left:76%;top:44%;--r:90deg" class="sm">оно видит тебя</span>
+    <svg class="hand" style="left:30%;top:58%" viewBox="0 0 60 80"><path d="M30 78c-12 0-20-8-22-20L4 36c-1-4 5-6 7-2l5 12V10c0-5 7-5 7 0v26-30c0-5 7-5 7 0v30-26c0-5 7-5 7 0v28-20c0-5 7-5 7 0v34c0 18-8 26-18 26z"/></svg>
+    <svg class="hand" style="left:80%;top:22%;--r:20deg" viewBox="0 0 60 80"><path d="M30 78c-12 0-20-8-22-20L4 36c-1-4 5-6 7-2l5 12V10c0-5 7-5 7 0v26-30c0-5 7-5 7 0v30-26c0-5 7-5 7 0v28-20c0-5 7-5 7 0v34c0 18-8 26-18 26z"/></svg>
+    <i class="scratch" style="left:14%;top:34%"></i><i class="scratch" style="left:84%;top:66%;--r:30deg"></i>
+  </div>
+  <div class="dark" id="dark" aria-hidden="true"></div>
+  <div class="eyes" aria-hidden="true">
+    <b style="left:12%;top:44%"></b><b style="left:86%;top:30%"></b><b style="left:70%;top:62%" class="s"></b><b style="left:24%;top:84%" class="s"></b><b style="left:46%;top:8%" class="s"></b>
+  </div>
+  <div class="hero-in">
+    <h1 class="glitch" data-text="ТЬМА">ТЬМА</h1>
+    <p class="sub">Хоррор-квесты <span>с актёрами</span> в Ялте</p>
+    <a class="rating" href="https://yandex.ru/maps/?text=%D0%AF%D0%BB%D1%82%D0%B0%2C%20%D1%83%D0%BB.%20%D0%94%D0%B7%D0%B5%D1%80%D0%B6%D0%B8%D0%BD%D1%81%D0%BA%D0%BE%D0%B3%D0%BE%2C%2021%D0%91" target="_blank" rel="noopener"><span class="st">★★★★★</span><b>5,0</b> 145 оценок на Яндекс Картах</a>
+    <div class="cta"><a class="btn" href="booking.html">Забронировать</a><a class="btn ghost" href="#quests">Выбрать дверь</a></div>
+  </div>
+  <p class="torch-hint" id="hint" aria-hidden="true"><span class="mouse">посветите курсором</span><span class="touch">проведите пальцем — посветите</span></p>
+</section>
+
+<!-- лента ограждения -->
+<div class="tape-wrap" aria-hidden="true"><div class="tape"><div><span>Только по предварительной записи · Чт–Вс, 12:00–00:00, только по предварительной записи · Ялта, ул. Дзержинского, 21Б · 5,0 на Яндекс Картах · </span><span>Только по предварительной записи · Чт–Вс, 12:00–00:00, только по предварительной записи · Ялта, ул. Дзержинского, 21Б · 5,0 на Яндекс Картах · </span><span>Только по предварительной записи · Чт–Вс, 12:00–00:00, только по предварительной записи · Ялта, ул. Дзержинского, 21Б · 5,0 на Яндекс Картах · </span><span>Только по предварительной записи · Чт–Вс, 12:00–00:00, только по предварительной записи · Ялта, ул. Дзержинского, 21Б · 5,0 на Яндекс Картах · </span></div></div></div>
+
+<!-- 2. Квесты-двери -->
+<section id="quests"><div class="wrap">
+  <div class="eyebrow">Квесты</div>
+  <h2>Три двери. <span class="red">Выберите одну</span></h2>
+  <p class="lead">Сеанс — 60 минут. Начало каждый час с 12:00 до 23:00, чт, пт, сб, вс. Нажмите на дверь, чтобы заглянуть.</p>
+  <div class="doors">
+      <article class="door">
+      <div class="room">
+        <div class="photo"><span>фото квеста</span></div>
+        <div class="in">
+          <h3>Валак</h3>
+          <p>Соберите страницы дневника монахини и снимите проклятие.</p>
+          <div class="chips"><span>60 мин</span><span>игроков: <span class="ph-tag">[ИГРОКОВ]</span></span><span>возраст: <span class="ph-tag">[ВОЗРАСТ]</span></span><span>от <span class="ph-tag">[ЦЕНА]</span></span></div>
+          <a class="btn" href="booking.html?s=valak">Забронировать</a>
+        </div>
+      </div>
+      <button class="leaf" type="button" aria-expanded="false" aria-label="Открыть дверь: квест «Валак»">
+        <span class="plate">№ 1</span>
+        <span class="pn p1"></span><span class="pn p2"></span>
+        <span class="nm">Валак</span>
+        <span class="knob"></span>
+        <span class="push">открыть</span>
+      </button>
+      <i class="leak" aria-hidden="true"></i>
+    </article>
+      <article class="door">
+      <div class="room">
+        <div class="photo"><span>фото квеста</span></div>
+        <div class="in">
+          <h3>Поворот не туда</h3>
+          <p>Найдите улики и выберитесь живыми.</p>
+          <div class="chips"><span>60 мин</span><span>игроков: <span class="ph-tag">[ИГРОКОВ]</span></span><span>возраст: <span class="ph-tag">[ВОЗРАСТ]</span></span><span>от <span class="ph-tag">[ЦЕНА]</span></span></div>
+          <a class="btn" href="booking.html?s=turn">Забронировать</a>
+        </div>
+      </div>
+      <button class="leaf" type="button" aria-expanded="false" aria-label="Открыть дверь: квест «Поворот не туда»">
+        <span class="plate">№ 2</span>
+        <span class="pn p1"></span><span class="pn p2"></span>
+        <span class="nm">Поворот не туда</span>
+        <span class="knob"></span>
+        <span class="push">открыть</span>
+      </button>
+      <i class="leak" aria-hidden="true"></i>
+    </article>
+      <article class="door">
+      <div class="room">
+        <div class="photo"><span>фото квеста</span></div>
+        <div class="in">
+          <h3>Арт ужасающий</h3>
+          <p>Найдите кристаллы и выберитесь.</p>
+          <div class="chips"><span>60 мин</span><span>игроков: <span class="ph-tag">[ИГРОКОВ]</span></span><span>возраст: <span class="ph-tag">[ВОЗРАСТ]</span></span><span>от <span class="ph-tag">[ЦЕНА]</span></span></div>
+          <a class="btn" href="booking.html?s=art">Забронировать</a>
+        </div>
+      </div>
+      <button class="leaf" type="button" aria-expanded="false" aria-label="Открыть дверь: квест «Арт ужасающий»">
+        <span class="plate">№ 3</span>
+        <span class="pn p1"></span><span class="pn p2"></span>
+        <span class="nm">Арт ужасающий</span>
+        <span class="knob"></span>
+        <span class="push">открыть</span>
+      </button>
+      <i class="leak" aria-hidden="true"></i>
+    </article>
+        <article class="door locked" tabindex="0" aria-label="Скоро: новая комната">
+      <div class="leaf static"><span class="plate">№ 4</span><span class="pn p1"></span><span class="pn p2"></span><span class="knob"></span></div>
+      <i class="plank a"></i><i class="plank b"></i>
+      <span class="soon">Скоро: новая комната</span>
+    </article>
+    </div>
+</div></section>
+
+<!-- 3. Кинопросмотр: плёнка -->
+<section id="kino" class="kino-s">
+  <div class="beam" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="eyebrow">Отдельная услуга</div>
+    <h2>Кинопросмотр</h2>
+    <p class="lead"><span class="ph-tag">[ЧТО ПОКАЗЫВАЕМ / ФОРМАТ КИНОПРОСМОТРА]</span></p>
+  </div>
+  <div class="film">
+    <div class="frame">
+      <div class="day">сб</div><h3>Сборные сеансы</h3>
+      <ul><li>Продажа отдельных мест</li><li>Место: <span class="ph-tag">[ЦЕНА МЕСТА]</span></li><li>Мест в зале: <span class="ph-tag">[МЕСТ]</span></li></ul>
+      <div class="tix"><a href="booking.html?s=kino">12:00</a><a href="booking.html?s=kino">14:00</a><a href="booking.html?s=kino">16:00</a><a href="booking.html?s=kino">18:00</a><a href="booking.html?s=kino">20:00</a><a href="booking.html?s=kino">22:00</a></div>
+    </div>
+    <div class="frame">
+      <div class="day">чт, пт, вс</div><h3>Приватный зал</h3>
+      <ul><li>Весь зал только для вашей компании</li><li>Зал: <span class="ph-tag">[ЦЕНА ЗАЛА]</span></li><li>До <span class="ph-tag">[МАКС. ЗРИТЕЛЕЙ В ПРИВАТНОМ ЗАЛЕ]</span> человек</li></ul>
+      <div class="tix"><a href="booking.html?s=kino">12:00</a><a href="booking.html?s=kino">14:00</a><a href="booking.html?s=kino">16:00</a><a href="booking.html?s=kino">18:00</a><a href="booking.html?s=kino">20:00</a><a href="booking.html?s=kino">22:00</a></div>
+    </div>
+  </div>
+  <div class="wrap"><div class="btns"><a class="btn" href="booking.html?s=kino">Забронировать кинопросмотр</a></div></div>
+</section>
+
+<!-- 4. Как проходит: таймер и бикфордов шнур -->
+<section id="how" class="how"><div class="wrap">
+  <div class="how-grid">
+    <div class="how-head">
+      <div class="eyebrow">Как проходит игра</div>
+      <h2>Часы уже тикают</h2>
+      <div class="timer" id="timer" aria-label="60 минут">60:00</div>
+      <p class="lead" id="timerNote">Время пошло, когда закрылась дверь.</p>
+    </div>
+    <ol class="fuse" id="fuse">
+      <li><b>Бронь онлайн</b><p>Выберите квест, день и свободный сеанс прямо на сайте. Работаем только по предварительной записи.</p></li>
+      <li><b>Подтверждение</b><p>Администратор свяжется с вами и подтвердит бронь.</p></li>
+      <li><b>Приходите</b><p>Ялта, ул. Дзержинского, 21Б. Приходите к началу сеанса.</p></li>
+      <li><b>60 минут во тьме</b><p>Живые актёры, ваша команда и задача — выбраться.</p></li>
+    </ol>
+  </div>
+</div></section>
+
+<!-- 5. Контакты -->
+<section id="contacts" style="padding-top:0"><div class="wrap">
+  <div class="eyebrow">Контакты</div>
+  <h2 class="flick">Если осмелитесь</h2>
+  <div class="ct">
+    <div>
+      <div class="li"><small>Адрес</small><b>Ялта, ул. Дзержинского, 21Б</b></div>
+      <div class="li"><small>Режим работы</small><b>Чт–Вс, 12:00–00:00, только по предварительной записи</b></div>
+      <div class="li"><small>Телефон</small><b><a href="tel:+79783113666">+7 (978) 31-13-666</a></b></div>
+      <div class="li"><small>Бронь в Telegram</small><b><a href="https://t.me/bookdarkyalta" target="_blank" rel="noopener">@bookdarkyalta</a></b></div>
+      <div class="li"><small>Канал и ВКонтакте</small><b><a href="https://t.me/darkyalta" target="_blank" rel="noopener">Telegram-канал</a> · <a href="https://vk.me/darkyalta" target="_blank" rel="noopener">Написать во ВКонтакте</a></b></div>
+      <div class="btns"><a class="btn" href="booking.html">Забронировать</a><a class="btn ghost" href="https://yandex.ru/maps/?text=%D0%AF%D0%BB%D1%82%D0%B0%2C%20%D1%83%D0%BB.%20%D0%94%D0%B7%D0%B5%D1%80%D0%B6%D0%B8%D0%BD%D1%81%D0%BA%D0%BE%D0%B3%D0%BE%2C%2021%D0%91" target="_blank" rel="noopener">Маршрут</a></div>
+    </div>
+    <a class="mapbox radar" href="https://yandex.ru/maps/?text=%D0%AF%D0%BB%D1%82%D0%B0%2C%20%D1%83%D0%BB.%20%D0%94%D0%B7%D0%B5%D1%80%D0%B6%D0%B8%D0%BD%D1%81%D0%BA%D0%BE%D0%B3%D0%BE%2C%2021%D0%91" target="_blank" rel="noopener"><i class="ring"></i><i class="ring r2"></i><i class="ring r3"></i><i class="pin"></i><b>Ялта, ул. Дзержинского, 21Б</b><span>Открыть на Яндекс Картах</span></a>
+  </div>
+</div></section>
+</main>
+<script src="assets/home.js?v=2" defer></script>
+<footer><div class="wrap"><span>© 2026 «ТЬМА» · хоррор-квесты · Ялта, ул. Дзержинского, 21Б</span>
+<div class="flinks"><a href="privacy.html">Политика обработки персональных данных</a><a href="consent.html">Согласие на обработку ПДн</a><a href="terms.html">Пользовательское соглашение</a><a href="cookies.html">Использование cookie</a><a href="privacy.html#op">Контакты оператора ПДн</a></div></div></footer>
+<div class="demo">Демо-набросок сайта · сделал Андрей</div><div class="mbar"><a class="btn" href="booking.html">Забронировать</a></div><div id="ck" role="dialog" aria-label="Уведомление о cookie"><span>Мы используем cookie, чтобы сайт работал корректно. <a href="cookies.html">Подробнее</a></span><button class="btn" id="ckok" type="button">Хорошо</button></div>
+<script>(function(){var k="tma_ck";try{if(localStorage.getItem(k))return}catch(e){}var c=document.getElementById("ck");c.classList.add("on");document.getElementById("ckok").onclick=function(){c.classList.remove("on");try{localStorage.setItem(k,"1")}catch(e){}}})();</script>
+</body></html>

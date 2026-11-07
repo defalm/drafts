@@ -1,0 +1,148 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Бронирование — «ТЬМА», хоррор-квесты в Ялте</title><meta name="description" content="Онлайн-бронирование хоррор-квестов и кинопросмотра «ТЬМА» в Ялте."><meta name="theme-color" content="#070606">
+<meta name="robots" content="noindex,nofollow"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23070606'/%3E%3Ctext x='16' y='24' font-size='22' text-anchor='middle' fill='%23ff2d3a' font-family='Impact,sans-serif'%3ET%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/style.css?v=2"></head><body>
+<header class="hd"><div class="wrap"><a class="logo" href="./">Т<b>Ь</b>МА</a>
+<nav class="nav"><a href="./#quests">Квесты</a><a href="./#kino">Кинопросмотр</a><a href="./#how">Как проходит</a><a href="./#contacts">Контакты</a></nav>
+<a class="btn" href="booking.html">Забронировать</a></div></header>
+<main class="bk"><div class="wrap">
+  <div class="eyebrow">Онлайн-бронирование</div>
+  <h1>Забронировать</h1>
+  <p class="lead">Сеансы Чт–Вс, 12:00–00:00, только по предварительной записи. Пн–Ср закрыто.</p>
+
+  <div class="bkgrid">
+  <div>
+    <div class="stp"><h4><i>01</i> Услуга</h4><div class="svc" id="svc"></div></div>
+    <div class="stp" id="st2" hidden><h4><i>02</i> Дата</h4><div class="days" id="days"></div></div>
+    <div class="stp" id="st3" hidden><h4><i>03</i> Сеанс</h4><div id="modeline"></div><div class="slots" id="slots"></div><p class="hint" id="slotHint"></p></div>
+  </div>
+  <div>
+    <div class="stp" id="st4" hidden>
+      <div id="fwrap">
+        <h4><i>04</i> Ваши данные</h4>
+        <div id="qtyBox"><p class="hint" id="qtyLabel" style="margin:0 0 8px"></p>
+          <div class="cnt" id="cnt"><button type="button" id="minus" aria-label="меньше">−</button><b id="qty">1</b><button type="button" id="plus" aria-label="больше">+</button></div></div>
+        <p class="hint" id="privNote" hidden>Приватный сеанс: бронируется весь зал для вашей компании.</p>
+        <div class="sum">
+          <div><span>Услуга</span><b id="sS">—</b></div>
+          <div><span>Дата и время</span><b id="sD">—</b></div>
+          <div><span id="sQl">Игроков</span><b id="sQ">—</b></div>
+          <div class="tot"><span>Стоимость</span><b id="sP">—</b></div>
+        </div>
+        <input class="inp" id="nm" placeholder="Ваше имя" autocomplete="name" maxlength="60">
+        <input class="inp" id="ph" placeholder="Телефон" type="tel" autocomplete="tel" inputmode="tel" maxlength="30">
+        <input class="inp" id="cm" placeholder="Комментарий (необязательно)" maxlength="300">
+        <input type="text" id="hp" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+        <label class="chk"><input type="checkbox" id="agree"><span>Даю <a href="consent.html" target="_blank">согласие на обработку персональных данных</a> и принимаю <a href="privacy.html" target="_blank">политику обработки персональных данных</a></span></label>
+        <button class="btn" style="width:100%" id="go" type="button">Отправить заявку</button>
+        <p class="err" id="err" role="alert"></p>
+        <p class="hint">После отправки администратор свяжется с вами для подтверждения брони.</p>
+      </div>
+      <div class="done" id="done">
+        <div class="eyebrow">Готово</div>
+        <div class="t" id="doneT">Заявка отправлена</div>
+        <p id="doneTxt"></p>
+        <p id="doneDemo" hidden style="font-size:14px">В рабочей версии заявка сразу приходит администратору в Telegram с кнопками «Подтвердить / Отменить», а подтверждённый сеанс закрывается на сайте.</p>
+        <p style="font-size:14px">Вопросы: <a href="tel:+79783113666">+7 (978) 31-13-666</a></p>
+        <button class="btn ghost" id="again" type="button">Новая заявка</button>
+      </div>
+    </div>
+  </div>
+  </div>
+</div></main>
+
+<script>
+/* Статическое демо: расписание считается в браузере из schedule.json, заявки никуда не отправляются. */
+(function(){
+const DN=['вс','пн','вт','ср','чт','пт','сб'],MN=['янв','фев','мар','апр','мая','июн','июл','авг','сен','окт','ноя','дек'];
+let S=null;const getS=()=>S?Promise.resolve(S):fetch('schedule.json',{cache:'no-store'}).then(r=>r.json()).then(j=>S=j);
+const num=v=>typeof v==='number'?v:(typeof v==='string'&&/^\d+$/.test(v.trim())?+v:null);
+const pad=n=>String(n).padStart(2,'0');
+/* «Сейчас» в часовом поясе клиента (Europe/Simferopol, UTC+3), независимо от пояса посетителя */
+function nowTz(tz){const p=new Intl.DateTimeFormat('en-CA',{timeZone:tz,year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hour12:false}).formatToParts(new Date());const g=t=>p.find(x=>x.type===t).value;return {d:g('year')+'-'+g('month')+'-'+g('day'),m:(+g('hour')%24)*60+(+g('minute'))}}
+function addDays(ds,i){const [y,m,d]=ds.split('-').map(Number);const t=new Date(Date.UTC(y,m-1,d+i));return t.getUTCFullYear()+'-'+pad(t.getUTCMonth()+1)+'-'+pad(t.getUTCDate())}
+const dow=ds=>{const [y,m,d]=ds.split('-').map(Number);return new Date(Date.UTC(y,m-1,d)).getUTCDay()};
+function range(a,b,step){const toM=s=>+s.slice(0,2)*60+ +s.slice(3,5);const o=[];for(let x=toM(a);x<=toM(b);x+=Math.max(15,step))o.push(pad(Math.floor(x/60)%24)+':'+pad(x%60));return o}
+function svcOf(id){if(S.cinema.id===id)return Object.assign({kind:'cinema'},S.cinema);const q=S.quests.find(q=>q.id===id);return q?Object.assign({kind:'quest'},q):null}
+function label(ds,t){const [y,m,d]=ds.split('-').map(Number);return DN[dow(ds)]+', '+d+' '+MN[m-1]+(t?', '+t:'')}
+function seats(){return num(S.cinema.seats_total)??S.demo_fallback.seats_total}
+function slots(id){const s=svcOf(id);if(!s)return {error:'service'};const n=nowTz(S.timezone||'Europe/Simferopol');const days=[];
+  for(let i=0;i<S.days_ahead;i++){const ds=addDays(n.d,i),w=dow(ds),work=S.work_days.includes(w);const mode=s.kind==='quest'?'quest':(S.cinema.group_days.includes(w)?'group':'private');
+    let times=[];if(work){const c=s.kind==='quest'?S.quest_schedule:S.cinema;times=range(c.first,c.last,+c.step_min)}
+    const sl=times.map(t=>{const tm=+t.slice(0,2)*60+ +t.slice(3,5);const past=i===0&&tm<=n.m+(+S.close_before_min);return {t,free:!past,left:mode==='group'?seats():null,past}});
+    const [y,m,d]=ds.split('-').map(Number);days.push({date:ds,dow:DN[w],day:d,mon:MN[m-1],label:label(ds),work,mode,slots:sl})}
+  return {days,seats_total:s.kind==='quest'?null:seats(),demo:true}}
+const resp=(o,code)=>new Response(JSON.stringify(o),{status:code||200,headers:{'Content-Type':'application/json'}});
+const _f=window.fetch.bind(window);
+window.fetch=function(u,o){u=String(u);
+  if(u.indexOf('api/slots')===0){const id=decodeURIComponent((u.split('s=')[1]||'').split('&')[0]);return getS().then(()=>resp(slots(id)))}
+  if(u.indexOf('api/book')===0){return getS().then(()=>{const b=JSON.parse(o.body||'{}');const d=slots(b.service).days.find(x=>x.date===b.day);const st=d&&d.slots.find(x=>x.t===b.time);
+    if(!st||!st.free)return resp({error:'Этот сеанс недоступен. Выберите другое время.',taken:true},409);
+    return new Promise(r=>setTimeout(()=>r(resp({ok:true,demo:true,id:0,label:label(b.day,b.time)})),500))})}
+  return _f(u,o)};
+})();
+</script>
+<script>
+(function(){
+const SVC={"valak":{"name":"Валак","kind":"quest","sub":"60 мин","min":1,"max":10,"price":null,"base":null,"add":null,"ph":"[ЦЕНА]"},"turn":{"name":"Поворот не туда","kind":"quest","sub":"60 мин","min":1,"max":10,"price":null,"base":null,"add":null,"ph":"[ЦЕНА]"},"art":{"name":"Арт ужасающий","kind":"quest","sub":"60 мин","min":1,"max":10,"price":null,"base":null,"add":null,"ph":"[ЦЕНА]"},"kino":{"name":"Кинопросмотр","kind":"cinema","sub":"сборный \/ приватный","seat":null,"priv":null,"phSeat":"[ЦЕНА МЕСТА]","phPriv":"[ЦЕНА ЗАЛА]"}}, PHONE="+7 (978) 31-13-666";
+const $=s=>document.querySelector(s);
+let svc=(new URLSearchParams(location.search).get('s'))||null, data=null, di=-1, slot=null, qty=1;
+const fmt=n=>n.toLocaleString('ru-RU')+' ₽';
+function day(){return data&&di>=0?data.days[di]:null}
+function mode(){const d=day();return d?d.mode:(SVC[svc]&&SVC[svc].kind==='quest'?'quest':null)}
+function maxQty(){const m=mode();if(m==='quest')return SVC[svc].max;if(m==='group'){const s=day().slots.find(x=>x.t===slot);return s?Math.max(1,s.left):data.seats_total}return 0}
+function minQty(){return mode()==='quest'?SVC[svc].min:1}
+function price(){const s=SVC[svc],m=mode();
+  if(m==='quest'){if(s.price===null)return {t:s.ph+' (уточнит администратор)'};let p=s.price;if(s.base!==null&&s.add!==null)p+=Math.max(0,qty-s.base)*s.add;return {t:fmt(p)}}
+  if(m==='group')return s.seat===null?{t:s.phSeat+' × '+qty}:{t:fmt(s.seat*qty)};
+  return s.priv===null?{t:s.phPriv}:{t:fmt(s.priv)}}
+
+function rSvc(){const el=$('#svc');el.innerHTML='';Object.entries(SVC).forEach(([id,s])=>{const b=document.createElement('button');b.type='button';if(id===svc)b.className='on';
+  b.innerHTML=(s.kind==='quest'?'Квест «'+s.name+'»':s.name)+'<small>'+s.sub+'</small>';b.onclick=()=>pick(id);el.appendChild(b)})}
+function pick(id){svc=id;slot=null;di=-1;rSvc();history.replaceState(null,'','?s='+id);$('#st2').hidden=false;$('#st3').hidden=true;$('#st4').hidden=true;load()}
+function load(){$('#days').innerHTML='<p class="hint">Загружаем расписание…</p>';const cur=svc;
+  return fetch('api/slots?s='+encodeURIComponent(cur),{cache:'no-store'}).then(r=>r.json()).then(j=>{if(cur!==svc)return;data=j;
+    if(di<0){di=data.days.findIndex(d=>d.work&&d.slots.some(s=>s.free))}rDays();if(di>=0){$('#st3').hidden=false;rSlots()}})
+  .catch(()=>{$('#days').innerHTML='<p class="err">Не удалось загрузить расписание. Позвоните нам: '+PHONE+'</p>'})}
+function rDays(){const el=$('#days');el.innerHTML='';data.days.forEach((d,i)=>{const b=document.createElement('button');b.type='button';
+  const free=d.work&&d.slots.some(s=>s.free);b.disabled=!free;b.title=d.work?(free?'':'нет свободных сеансов'):'выходной';if(i===di)b.className='on';
+  b.innerHTML='<small>'+d.dow+'</small>'+d.day+'<small>'+(d.work?d.mon:'вых')+'</small>';b.onclick=()=>{di=i;slot=null;rDays();$('#st3').hidden=false;$('#st4').hidden=true;rSlots()};el.appendChild(b)});
+  const on=el.querySelector('.on');if(on)on.scrollIntoView({block:'nearest',inline:'nearest'})}
+function rSlots(){const d=day(),el=$('#slots');el.innerHTML='';const m=d.mode;
+  $('#modeline').innerHTML=m==='group'?'<span class="mode">Сборный сеанс · продажа мест</span>':m==='private'?'<span class="mode">Приватный сеанс · весь зал</span>':'';
+  d.slots.forEach(s=>{const b=document.createElement('button');b.type='button';b.disabled=!s.free;if(s.t===slot)b.className='on';
+    b.innerHTML=s.t+'<small>'+(s.past?'закрыто':!s.free?'занято':m==='group'?'мест: '+s.left:'свободно')+'</small>';
+    b.onclick=()=>{slot=s.t;if(m!=='private')qty=Math.min(Math.max(qty,minQty()),maxQty());rSlots();form()};el.appendChild(b)});
+  $('#slotHint').textContent=m==='quest'?'Сеанс 60 минут, начало каждый час.':'Сеансы каждые 2 часа.'}
+function form(){$('#st4').hidden=false;$('#fwrap').style.display='';$('#done').style.display='none';const m=mode(),d=day(),s=SVC[svc];
+  $('#qtyBox').hidden=m==='private';$('#privNote').hidden=m!=='private';
+  $('#qtyLabel').textContent=m==='quest'?'Сколько игроков (от '+s.min+' до '+s.max+')':'Сколько мест (свободно: '+maxQty()+')';
+  $('#qty').textContent=qty;$('#sS').textContent=s.kind==='quest'?'Квест «'+s.name+'»':s.name+(m==='group'?' · сборный':' · приватный');
+  $('#sD').textContent=d.label+', '+slot;$('#sQl').textContent=m==='quest'?'Игроков':'Места';$('#sQ').textContent=m==='private'?'весь зал':qty;$('#sP').textContent=price().t;
+  if(innerWidth<900)$('#st4').scrollIntoView({behavior:'smooth',block:'start'})}
+$('#minus').onclick=()=>{qty=Math.max(minQty(),qty-1);form()};
+$('#plus').onclick=()=>{qty=Math.min(maxQty(),qty+1);form()};
+$('#again').onclick=()=>{slot=null;$('#st4').hidden=true;load()};
+$('#go').onclick=async()=>{const er=$('#err');er.textContent='';
+  const nm=$('#nm').value.trim(),ph=$('#ph').value.trim();
+  if(!slot){er.textContent='Выберите сеанс';return}
+  if(nm.length<2){er.textContent='Укажите имя';$('#nm').focus();return}
+  if(ph.replace(/\D/g,'').length<10){er.textContent='Укажите телефон';$('#ph').focus();return}
+  if(!$('#agree').checked){er.textContent='Отметьте согласие на обработку персональных данных';return}
+  const go=$('#go');go.disabled=true;go.textContent='Отправляем…';
+  try{const r=await fetch('api/book',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({service:svc,day:day().date,time:slot,qty:mode()==='private'?0:qty,name:nm,contact:ph,comment:$('#cm').value.trim(),consent:true,website:$('#hp').value})});
+    const j=await r.json().catch(()=>({}));
+    if(!r.ok||!j.ok){er.textContent=j.error||('Не получилось отправить. Позвоните нам: '+PHONE);if(j.taken){slot=null;await load()}return}
+    $('#doneT').textContent=j.demo?'Заявка отправлена (демо)':'Заявка отправлена';$('#doneDemo').hidden=!j.demo;
+    $('#doneTxt').textContent=$('#sS').textContent+' · '+j.label+(mode()==='private'?' · весь зал':' · '+qty+(mode()==='quest'?' игр.':' мест'));
+    $('#fwrap').style.display='none';$('#done').style.display='block';$('#done').scrollIntoView({behavior:'smooth',block:'center'});
+  }catch(e){er.textContent='Нет связи. Попробуйте ещё раз или позвоните: '+PHONE}
+  finally{go.disabled=false;go.textContent='Отправить заявку'}};
+rSvc();if(svc)pick(svc);
+})();
+</script>
+<footer><div class="wrap"><span>© 2026 «ТЬМА» · хоррор-квесты · Ялта, ул. Дзержинского, 21Б</span>
+<div class="flinks"><a href="privacy.html">Политика обработки персональных данных</a><a href="consent.html">Согласие на обработку ПДн</a><a href="terms.html">Пользовательское соглашение</a><a href="cookies.html">Использование cookie</a><a href="privacy.html#op">Контакты оператора ПДн</a></div></div></footer>
+<div class="demo">Демо-набросок сайта · сделал Андрей</div><div id="ck" role="dialog" aria-label="Уведомление о cookie"><span>Мы используем cookie, чтобы сайт работал корректно. <a href="cookies.html">Подробнее</a></span><button class="btn" id="ckok" type="button">Хорошо</button></div>
+<script>(function(){var k="tma_ck";try{if(localStorage.getItem(k))return}catch(e){}var c=document.getElementById("ck");c.classList.add("on");document.getElementById("ckok").onclick=function(){c.classList.remove("on");try{localStorage.setItem(k,"1")}catch(e){}}})();</script>
+</body></html>
