@@ -1,0 +1,162 @@
+/* ===== Главная «ТЬМА»: эффекты ===== */
+.red{color:var(--red2)}
+#grain{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:50;opacity:.07;image-rendering:pixelated}
+
+/* --- 1. Фонарик --- */
+.home .hero{position:relative;min-height:calc(100svh - 60px);display:flex;align-items:center;justify-content:center;padding:70px 0 90px;overflow:hidden;touch-action:pan-y;
+  background:
+    repeating-linear-gradient(90deg,rgba(255,255,255,.018) 0 2px,transparent 2px 46px),
+    radial-gradient(ellipse at 30% 20%,#2a1714,transparent 60%),
+    radial-gradient(ellipse at 80% 90%,#24100f,transparent 55%),#140d0c}
+.home .hero::after{display:none}
+.scrawl{position:absolute;inset:0;z-index:1;pointer-events:none}
+.scrawl span{position:absolute;transform:rotate(var(--r,0deg));font:clamp(22px,6vw,46px)/1 var(--head);text-transform:uppercase;letter-spacing:.06em;color:#9a0f17;
+  text-shadow:0 0 1px #5a0509,2px 3px 6px rgba(0,0,0,.6);opacity:.88;white-space:nowrap}
+.scrawl span::after{content:"";position:absolute;left:30%;top:88%;width:3px;height:26px;background:linear-gradient(#9a0f17,transparent);border-radius:2px}
+.scrawl span.sm{font-size:clamp(14px,3vw,22px)}
+.scrawl .hand{position:absolute;width:clamp(44px,9vw,70px);fill:rgba(130,10,18,.6);transform:rotate(var(--r,-12deg))}
+.scrawl .scratch{position:absolute;width:80px;height:100px;transform:rotate(var(--r,-20deg));
+  background:repeating-linear-gradient(90deg,transparent 0 14px,rgba(220,200,190,.28) 14px 16px,transparent 16px 22px);
+  -webkit-mask:linear-gradient(transparent,#000 20%,#000 70%,transparent);mask:linear-gradient(transparent,#000 20%,#000 70%,transparent)}
+.dark{position:absolute;inset:0;z-index:2;pointer-events:none;--x:50%;--y:42%;--rad:190px;
+  background:radial-gradient(circle at var(--x) var(--y),rgba(0,0,0,0) 0,rgba(0,0,0,.05) calc(var(--rad)*.3),rgba(2,1,1,.82) calc(var(--rad)*.85),#020101 var(--rad))}
+.eyes{position:absolute;inset:0;z-index:3;pointer-events:none}
+.eyes b{position:absolute;width:38px;height:10px;transition:opacity .25s,transform .25s;animation:blink 5s infinite}
+.eyes b::before,.eyes b::after{content:"";position:absolute;top:0;width:13px;height:7px;border-radius:50%;background:#ff2333;box-shadow:0 0 8px 2px rgba(255,30,45,.8);clip-path:ellipse(50% 40% at 50% 60%)}
+.eyes b::before{left:0;transform:rotate(12deg)}.eyes b::after{right:0;transform:rotate(-12deg)}
+.eyes b.s{transform:scale(.6);animation-duration:7s;animation-delay:-2s}
+.eyes b:nth-child(2){animation-delay:-1.3s}.eyes b:nth-child(3){animation-delay:-3.1s}
+.eyes b.shut{opacity:0!important;transform:scaleY(.05)}
+@keyframes blink{0%,46%,50%,100%{opacity:1}48%{opacity:0}}
+.hero-in{position:relative;z-index:4;text-align:center;padding:0 16px;pointer-events:none}
+.hero-in a{pointer-events:auto}
+.glitch{position:relative;font-family:var(--title)!important;font-size:clamp(84px,26vw,260px)!important;letter-spacing:.02em!important;line-height:1;color:#efe6e2;text-shadow:0 0 50px rgba(255,45,58,.35);animation:none!important}
+.glitch::before,.glitch::after{content:attr(data-text);position:absolute;inset:0;pointer-events:none}
+.glitch::before{color:var(--red2);animation:gl1 4.2s infinite steps(1);opacity:.85}
+.glitch::after{color:#7ee8ff;mix-blend-mode:screen;animation:gl2 4.2s infinite steps(1);opacity:.5}
+@keyframes gl1{0%,88%,100%{clip-path:inset(0 0 100% 0);transform:none}89%{clip-path:inset(12% 0 60% 0);transform:translate(-7px,0)}91%{clip-path:inset(58% 0 18% 0);transform:translate(6px,0)}93%{clip-path:inset(30% 0 46% 0);transform:translate(-4px,0)}95%{clip-path:inset(0 0 100% 0)}}
+@keyframes gl2{0%,89%,100%{clip-path:inset(0 0 100% 0);transform:none}90%{clip-path:inset(66% 0 8% 0);transform:translate(7px,0)}92%{clip-path:inset(20% 0 64% 0);transform:translate(-6px,0)}94%{clip-path:inset(0 0 100% 0)}}
+.home .hero .sub{font:clamp(20px,5.4vw,34px) var(--head);text-transform:uppercase;letter-spacing:.1em;margin:20px 0 22px}
+.home .hero .sub span{color:var(--red2)}
+.home .hero .cta{display:flex;flex-direction:column;gap:10px;max-width:340px;margin:0 auto}
+.torch-hint{position:absolute;left:0;right:0;bottom:96px;z-index:4;text-align:center;margin:0;font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:#7d6e6a;transition:opacity .6s;animation:breathe 2.4s infinite}
+.torch-hint.gone{opacity:0}
+.torch-hint .touch{display:none}
+@media (hover:none){.torch-hint .mouse{display:none}.torch-hint .touch{display:inline}}
+@keyframes breathe{50%{color:#c9b8b4}}
+
+/* --- лента ограждения --- */
+.tape-wrap{overflow:hidden;position:relative;z-index:6;margin:-34px 0 -10px;padding:34px 0 20px;pointer-events:none}
+.tape{transform:rotate(-2.4deg);margin:0 -40px;background:#e2b913;color:#120d05;border-block:5px solid #120d05;box-shadow:0 8px 30px rgba(0,0,0,.6)}
+.tape>div{display:flex;width:max-content;animation:tape 40s linear infinite}
+.tape span{font:15px/1 var(--head);text-transform:uppercase;letter-spacing:.14em;padding:9px 0;white-space:nowrap}
+@keyframes tape{to{transform:translateX(-50%)}}
+
+/* --- 2. Двери --- */
+.doors{display:grid;gap:26px;margin-top:36px}
+.door{position:relative;min-height:540px;perspective:1600px;background:#050303;border:12px solid #261812;border-bottom:0;
+  box-shadow:inset 0 0 0 2px #120a07,0 30px 40px -20px rgba(0,0,0,.9),0 0 0 1px #3a2419}
+.door::before{content:"";position:absolute;left:-12px;right:-12px;bottom:-14px;height:14px;background:linear-gradient(#1b110d,#0a0605)}
+.room{position:relative;z-index:1;display:flex;flex-direction:column;min-height:528px;background:#0f0b0b}
+.room::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(0,0,0,.85),transparent 60%);transition:opacity 1.2s .3s}
+.door.open .room::after{opacity:0}
+.room .photo{aspect-ratio:16/10;background:radial-gradient(circle at 30% 30%,#1e1515,#0b0909 70%);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+.room .photo::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(45deg,rgba(255,255,255,.02) 0 12px,transparent 12px 24px)}
+.room .photo span{position:relative;color:var(--dim);font-size:12px;letter-spacing:.3em;text-transform:uppercase;border:1px dashed #3a2c2c;padding:8px 14px}
+.room .in{padding:18px;display:flex;flex-direction:column;gap:12px;flex:1}
+.room h3{font-size:30px}.room p{margin:0;color:var(--mute)}
+.room .btn{margin-top:auto}
+.leaf{position:absolute;inset:0;z-index:2;display:block;width:100%;padding:0;border:0;cursor:pointer;transform-origin:left center;transform-style:preserve-3d;
+  transition:transform 1s cubic-bezier(.55,.05,.25,1);
+  background:
+    repeating-linear-gradient(92deg,rgba(0,0,0,.18) 0 3px,transparent 3px 11px),
+    linear-gradient(90deg,#2a150f,#3e2016 45%,#33190f 70%,#24110c);
+  box-shadow:inset 0 0 0 2px #140906,inset 0 0 70px rgba(0,0,0,.75)}
+.leaf::after{content:"";position:absolute;right:16%;top:10%;width:70px;height:90px;transform:rotate(22deg);opacity:.55;
+  background:repeating-linear-gradient(90deg,transparent 0 12px,rgba(230,210,200,.35) 12px 14px,transparent 14px 20px);
+  -webkit-mask:linear-gradient(transparent,#000 25%,#000 70%,transparent);mask:linear-gradient(transparent,#000 25%,#000 70%,transparent)}
+.door:nth-child(2) .leaf::after{right:auto;left:14%;top:58%;transform:rotate(-30deg)}
+.door:nth-child(3) .leaf::after{display:none}
+.pn{position:absolute;left:14%;right:14%;border:3px solid rgba(0,0,0,.45);box-shadow:inset 2px 2px 0 rgba(255,255,255,.05),2px 2px 0 rgba(255,255,255,.04)}
+.p1{top:15%;height:30%}.p2{top:55%;height:34%}
+.plate{position:absolute;top:5.5%;left:50%;transform:translateX(-50%);background:linear-gradient(#d2ac63,#7a5a26);color:#1c1308;font:15px var(--head);letter-spacing:.12em;padding:3px 14px;border-radius:3px;box-shadow:0 2px 4px rgba(0,0,0,.6)}
+.nm{position:absolute;left:8%;right:8%;top:46.5%;text-align:center;font:clamp(22px,6vw,28px)/1.05 var(--head);text-transform:uppercase;letter-spacing:.1em;color:#0c0403;text-shadow:0 1px 0 rgba(255,200,170,.22),0 -1px 0 rgba(0,0,0,.6)}
+.knob{position:absolute;right:9%;top:50%;width:18px;height:18px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#f1d38e,#8a6526 60%,#3b2a10);box-shadow:0 3px 6px rgba(0,0,0,.8)}
+.push{position:absolute;left:0;right:0;bottom:4%;text-align:center;font-size:11px;letter-spacing:.35em;text-transform:uppercase;color:rgba(255,215,195,.35)}
+.leak{position:absolute;z-index:3;left:6%;right:6%;bottom:-3px;height:8px;border-radius:50%;background:radial-gradient(ellipse,rgba(255,40,55,.95),rgba(255,40,55,0) 70%);filter:blur(2px);animation:leak 3s infinite;transition:opacity .4s}
+.door.open .leak{opacity:0}
+@keyframes leak{0%,100%{opacity:.55}40%{opacity:1}60%{opacity:.35}}
+.door.open .leaf{transform:rotateY(-104deg);pointer-events:none}
+.door.knock .leaf{animation:knock .6s}
+@keyframes knock{20%{transform:rotateY(-4deg)}35%{transform:none}55%{transform:rotateY(-3deg)}70%{transform:none}}
+@media (hover:hover){.door:not(.open):not(.locked):hover .leaf{transform:rotateY(-16deg)}}
+.door.locked{cursor:not-allowed}
+.door.locked .leaf{cursor:not-allowed;filter:saturate(.6) brightness(.8)}
+.plank{position:absolute;z-index:3;left:-6%;right:-6%;height:34px;background:linear-gradient(#5a3a28,#3b2518);box-shadow:0 6px 10px rgba(0,0,0,.7),inset 0 1px 0 rgba(255,255,255,.08)}
+.plank::before,.plank::after{content:"";position:absolute;top:12px;width:9px;height:9px;border-radius:50%;background:#1a1a1a;box-shadow:inset 1px 1px 0 #666}
+.plank::before{left:12%}.plank::after{right:12%}
+.plank.a{top:30%;transform:rotate(14deg)}.plank.b{top:62%;transform:rotate(-11deg)}
+.soon{position:absolute;z-index:4;left:50%;top:47%;transform:translate(-50%,-50%) rotate(-5deg);background:#ddd2bf;color:#1a1208;font:22px/1.1 var(--head);text-transform:uppercase;letter-spacing:.06em;padding:12px 18px;text-align:center;width:max-content;max-width:80%;box-shadow:0 8px 20px rgba(0,0,0,.6)}
+.soon::before{content:"";position:absolute;top:-6px;left:50%;width:10px;height:10px;margin-left:-5px;border-radius:50%;background:#9a0f17}
+.door.locked.shake{animation:shake .45s}
+@keyframes shake{20%,60%{transform:translateX(-6px)}40%,80%{transform:translateX(6px)}}
+
+/* --- 3. Кинопленка --- */
+.kino-s{position:relative;overflow:hidden;padding-top:40px}
+.beam{position:absolute;top:0;left:50%;width:160%;height:100%;transform:translateX(-50%);pointer-events:none;
+  background:linear-gradient(rgba(255,236,210,.10),rgba(255,236,210,0) 80%);clip-path:polygon(49% 0,51% 0,100% 100%,0 100%);animation:proj 3s infinite steps(1)}
+@keyframes proj{0%,100%{opacity:1}31%{opacity:.75}33%{opacity:1}71%{opacity:.85}}
+.film{position:relative;margin:34px 0 0;padding:34px 0;background:#0b0909;display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.film::-webkit-scrollbar{display:none}
+.film::before,.film::after{content:"";position:absolute;left:0;right:0;height:12px;
+  background:repeating-linear-gradient(90deg,transparent 0 9px,#3b3230 9px 23px,transparent 23px 32px);background-attachment:local}
+.film::before{top:11px}.film::after{bottom:11px}
+.frame{position:relative;flex:0 0 84%;scroll-snap-align:center;margin-left:16px;background:linear-gradient(#1a1412,#120e0d);border:1px solid #2e2522;padding:24px;overflow:hidden}
+.frame:last-child{margin-right:16px}
+.frame::after{content:"";position:absolute;top:0;bottom:0;left:28%;width:1px;background:rgba(255,255,255,.09);animation:scr 1.6s infinite steps(1)}
+@keyframes scr{0%{left:28%}25%{left:71%;opacity:.4}50%{left:12%}75%{left:55%;opacity:0}}
+.frame .day{color:var(--red2);font:14px var(--head);letter-spacing:.2em;text-transform:uppercase}
+.frame h3{margin:8px 0 12px;font-size:30px}
+.frame ul{list-style:none;padding:0;margin:0 0 18px;color:var(--mute)}.frame li{padding:6px 0;border-bottom:1px solid var(--line)}.frame li:last-child{border:0}
+.tix{display:flex;flex-wrap:wrap;gap:8px}
+.tix a{display:inline-block;background:#e6d9c6;color:#1a1208;font:18px/1 var(--head);letter-spacing:.06em;padding:9px 18px;text-decoration:none;transition:transform .2s;
+  -webkit-mask:radial-gradient(circle 6px at 0 50%,#0000 98%,#000) left/51% 100% no-repeat,radial-gradient(circle 6px at 100% 50%,#0000 98%,#000) right/51% 100% no-repeat;
+  mask:radial-gradient(circle 6px at 0 50%,#0000 98%,#000) left/51% 100% no-repeat,radial-gradient(circle 6px at 100% 50%,#0000 98%,#000) right/51% 100% no-repeat}
+.tix a:hover{transform:rotate(-4deg) translateY(-2px);background:#fff}
+.tix a:nth-child(even){background:#d9c9b2}
+
+/* --- 4. Таймер и шнур --- */
+.how{padding-top:40px}
+.how-grid{display:grid;gap:26px}
+.timer{font:700 clamp(80px,24vw,170px)/1 Consolas,"Courier New",ui-monospace,monospace;color:var(--red2);text-shadow:0 0 28px rgba(255,45,58,.55);margin:14px 0 6px;letter-spacing:-.02em}
+.timer.out{animation:alarm .5s 4}
+@keyframes alarm{50%{opacity:.15}}
+.fuse{list-style:none;position:relative;margin:0;padding:6px 0 0 40px}
+.fuse::before{content:"";position:absolute;left:10px;top:12px;bottom:12px;width:2px;background:repeating-linear-gradient(#3a2b2b 0 6px,transparent 6px 9px)}
+.fuse .burn{position:absolute;left:10px;top:12px;width:2px;height:calc((100% - 24px)*var(--p,0));background:linear-gradient(#5a0a10,var(--red2));box-shadow:0 0 8px var(--red2)}
+.fuse .spark{position:absolute;left:5px;top:calc(12px + (100% - 24px)*var(--p,0) - 6px);width:12px;height:12px;border-radius:50%;background:#ffd36b;box-shadow:0 0 10px 4px #ff7b2e,0 0 22px 8px rgba(255,45,58,.6);animation:spark .15s infinite alternate}
+.fuse.burnt .spark{display:none}
+@keyframes spark{to{transform:scale(.6);opacity:.7}}
+.fuse li{position:relative;padding:0 0 28px;opacity:.35;transition:opacity .5s}
+.fuse li::before{content:"0" counter(list-item);position:absolute;left:-40px;top:-2px;width:22px;text-align:center;font:13px var(--head);color:#6d6260;background:var(--bg);line-height:24px}
+.fuse li.lit{opacity:1}.fuse li.lit::before{color:var(--red2);text-shadow:0 0 8px var(--red2)}
+.fuse b{display:block;font:22px var(--head);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px}
+.fuse p{margin:0;color:var(--mute)}
+
+/* --- 5. Контакты --- */
+.flick{animation:flk 7s infinite}
+@keyframes flk{0%,40%,44%,100%{opacity:1}42%{opacity:.25}43%{opacity:.8}}
+.radar{position:relative;overflow:hidden;text-decoration:none}
+.radar b,.radar span{position:relative;z-index:1}.radar span{color:var(--mute);font-size:14px}
+.radar .pin{position:relative;z-index:1}
+.ring{position:absolute;left:50%;top:calc(50% - 30px);width:60px;height:60px;margin:-30px 0 0 -30px;border:1px solid var(--red2);border-radius:50%;animation:ring 3s infinite ease-out;opacity:0}
+.ring.r2{animation-delay:1s}.ring.r3{animation-delay:2s}
+@keyframes ring{0%{transform:scale(.3);opacity:.9}100%{transform:scale(6);opacity:0}}
+
+@media (min-width:640px){.doors{grid-template-columns:1fr 1fr}.home .hero .cta{flex-direction:row;justify-content:center;max-width:none}.frame{flex-basis:60%}}
+@media (min-width:900px){
+  .film{justify-content:center;overflow:visible;padding:40px 16px}.frame{flex:0 1 560px;margin:0 12px}.frame:last-child{margin-right:12px}
+  .how-grid{grid-template-columns:1fr 1.15fr;align-items:center}.torch-hint{bottom:28px}
+}
+@media (min-width:1100px){.doors{grid-template-columns:repeat(4,1fr)}.door,.room{min-height:560px}}
+@media (prefers-reduced-motion:reduce){#grain{display:none}.tape>div{animation:none}}
