@@ -23,8 +23,7 @@
     --body: "Golos Text", system-ui, -apple-system, "Segoe UI", sans-serif;
   }
   *, *::before, *::after { box-sizing: border-box; }
-  html { -webkit-text-size-adjust: 100%; scroll-padding-top: 16px; scroll-behavior: smooth; }
-  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  html { -webkit-text-size-adjust: 100%; scroll-padding-top: 16px; }
   body {
     margin: 0;
     background: var(--bg);
@@ -610,7 +609,7 @@
 
     if (!service || (needTime && !time) || name.length < 2 || digits.length < 9 || !agree) {
       var first = form.querySelector('.err:not(:empty)');
-      if (first) first.parentNode.scrollIntoView({ block: 'center' });
+      if (first) scrollToEl(first.parentNode, innerHeight / 3);
       return;
     }
     // Ничего никуда не отправляем
@@ -619,6 +618,70 @@
     done.hidden = false;
     done.focus();
   });
+
+  // ---------- Плавная прокрутка ----------
+  // Работает и при отключённых анимациях Windows (там браузер прокручивает рывком).
+  var root = document.documentElement;
+  var cur = scrollY, target = scrollY, raf = 0, anim = null;
+  function maxY() { return root.scrollHeight - innerHeight; }
+  function clamp(y) { return Math.max(0, Math.min(maxY(), y)); }
+
+  // Колесо мыши: плавное догоняние цели
+  function wheelStep() {
+    // страницу сдвинули чем-то другим — отдаём управление
+    if (Math.abs(scrollY - cur) > 4) { cur = target = scrollY; raf = 0; return; }
+    cur += (target - cur) * 0.14;
+    if (Math.abs(target - cur) < 0.5) cur = target;
+    scrollTo(0, cur);
+    raf = cur !== target ? requestAnimationFrame(wheelStep) : 0;
+  }
+  addEventListener('wheel', function (e) {
+    if (e.ctrlKey || e.defaultPrevented || Math.abs(e.deltaX) > Math.abs(e.deltaY)) return;
+    var el = e.target;
+    if (el.closest && el.closest('textarea, select')) return;
+    var d = e.deltaY * (e.deltaMode === 1 ? 40 : e.deltaMode === 2 ? innerHeight : 1);
+    // тачпад даёт мелкие шаги и сам плавный — его не трогаем
+    if (e.deltaMode === 0 && Math.abs(d) < 40) return;
+    e.preventDefault();
+    anim = null;
+    if (!raf) cur = scrollY;
+    target = clamp((raf ? target : scrollY) + d);
+    if (!raf) raf = requestAnimationFrame(wheelStep);
+  }, { passive: false });
+
+  // Если прокрутили иначе (клавиши, полоса, палец) — синхронизируемся
+  addEventListener('scroll', function () { if (!raf && !anim) { cur = target = scrollY; } }, { passive: true });
+
+  // Переход по ссылкам внутри страницы
+  function ease(t) { return t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; }
+  function animateTo(y) {
+    if (raf) { cancelAnimationFrame(raf); raf = 0; }
+    var from = scrollY, to = clamp(y), dist = Math.abs(to - from);
+    var dur = Math.min(1100, Math.max(450, dist * 0.35)), t0 = performance.now();
+    var token = anim = {};
+    (function step(now) {
+      if (anim !== token) return;
+      var p = Math.min(1, (now - t0) / dur);
+      scrollTo(0, from + (to - from) * ease(p));
+      if (p < 1) requestAnimationFrame(step); else { anim = null; cur = target = scrollY; }
+    })(t0);
+  }
+  function scrollToEl(el, offset) {
+    animateTo(el.getBoundingClientRect().top + scrollY - (offset == null ? 16 : offset));
+  }
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href^="#"]');
+    if (!a || e.defaultPrevented || e.ctrlKey || e.metaKey || e.shiftKey) return;
+    var id = a.getAttribute('href').slice(1);
+    var el = id ? document.getElementById(id) : null;
+    if (!el) return;
+    e.preventDefault();
+    if (history.pushState) history.pushState(null, '', '#' + id);
+    scrollToEl(el, id === 'top' ? 0 : 16);
+  });
+  // Пользователь сам взялся за прокрутку — анимацию ссылок прерываем
+  addEventListener('touchstart', function () { anim = null; }, { passive: true });
+  addEventListener('keydown', function () { anim = null; });
 
   // Нижняя панель на телефоне: видна, когда первый экран и форма вне экрана
   var bar = document.getElementById('bar');
