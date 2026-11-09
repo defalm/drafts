@@ -1,1 +1,272 @@
-<!doctype html><meta charset="utf-8"><meta name="robots" content="noindex"><title>Наброски</title><body style="font:16px system-ui;padding:40px;color:#444">Демо-наброски сайтов. Автор: <a href="https://t.me/Defalmeo">@Defalmeo</a></body>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sirapak — тайский массаж и спа в Ташкенте</title>
+<meta name="description" content="Sirapak — тайский массаж и спа в Ташкенте. Тайские мастера, спа для двоих, подарочные сертификаты. Ежедневно 10:00–23:00. Онлайн-запись.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--sand:#f5ede1;--sand2:#ebdfcc;--teak:#3b2a1f;--teak2:#5a4130;--leaf:#2f4a3c;--gold:#b88a4a;--gold2:#d9b27a;--ink:#2a211b;--mute:#7a6a5c;--white:#fffaf3}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+html,body{overflow-x:hidden}
+body{font:16px/1.6 Manrope,system-ui,sans-serif;color:var(--ink);background:var(--sand)}
+a{color:inherit}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px}
+.serif{font-family:"Cormorant Garamond",Georgia,serif}
+.eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:700}
+h2{font:600 clamp(32px,5vw,48px)/1.08 "Cormorant Garamond",Georgia,serif;margin:10px 0 14px}
+.lead{color:var(--mute);max-width:620px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:15px 26px;border-radius:999px;background:var(--leaf);color:var(--white);text-decoration:none;font-weight:600;border:0;cursor:pointer;font:600 15px Manrope,sans-serif;transition:.2s}
+.btn:hover{background:#243a2f}
+.btn.ghost{background:transparent;color:var(--white);border:1px solid rgba(255,250,243,.5)}
+.btn.ghost:hover{background:rgba(255,250,243,.1)}
+.btn.gold{background:var(--gold);color:var(--white)}
+header{position:fixed;inset:0 0 auto;z-index:20;transition:.3s}
+header.solid{background:rgba(59,42,31,.94);backdrop-filter:blur(8px)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:70px;color:var(--white)}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font:600 26px "Cormorant Garamond",serif;letter-spacing:.06em}
+.logo svg{width:30px;height:30px}
+.links{display:flex;gap:26px;font-size:14px}
+.links a{text-decoration:none;opacity:.85}.links a:hover{opacity:1}
+.nav .btn{padding:10px 18px;font-size:14px}
+@media(max-width:860px){.links{display:none}}
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;color:var(--white);overflow:hidden;
+ background:radial-gradient(1200px 600px at 75% 30%,rgba(217,178,122,.28),transparent 60%),radial-gradient(800px 500px at 10% 90%,rgba(47,74,60,.6),transparent 60%),linear-gradient(160deg,#2a1d15,#3b2a1f 55%,#4a3324)}
+.hero::after{content:"";position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cg fill='none' stroke='%23d9b27a' stroke-opacity='.07'%3E%3Cpath d='M80 20c14 22 14 44 0 66-14-22-14-44 0-66zM80 86c-20-8-36-4-48 12 20 8 36 4 48-12zM80 86c20-8 36-4 48 12-20 8-36 4-48-12z'/%3E%3C/g%3E%3C/svg%3E")}
+.hero .wrap{position:relative;z-index:1;padding-top:90px;padding-bottom:60px}
+.hero h1{font:500 clamp(46px,8vw,96px)/.98 "Cormorant Garamond",serif;margin:16px 0 20px;max-width:820px}
+.hero h1 em{color:var(--gold2)}
+.hero p{max-width:540px;font-size:18px;opacity:.86}
+.hero .cta{display:flex;gap:12px;flex-wrap:wrap;margin:32px 0 40px}
+.badges{display:flex;gap:28px;flex-wrap:wrap;font-size:14px;opacity:.9}
+.badges b{display:block;font:600 30px "Cormorant Garamond",serif;color:var(--gold2)}
+.lotus{position:absolute;right:-60px;bottom:-40px;width:min(560px,70vw);opacity:.16;z-index:0}
+section{padding:96px 0}
+.ritual{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:40px}
+.step{background:var(--white);border-radius:22px;padding:26px 22px;border:1px solid var(--sand2)}
+.step i{font:600 40px "Cormorant Garamond",serif;color:var(--gold);font-style:normal;display:block}
+.step h3{font-size:17px;margin:8px 0 6px}
+.step p{font-size:14px;color:var(--mute)}
+@media(max-width:900px){.ritual{grid-template-columns:1fr 1fr}}@media(max-width:520px){.ritual{grid-template-columns:1fr}}
+.dark{background:var(--teak);color:var(--white)}
+.dark .lead{color:#d6c6b2}
+.progs{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px}
+.prog{background:rgba(255,250,243,.06);border:1px solid rgba(217,178,122,.22);border-radius:22px;padding:24px;display:flex;flex-direction:column;gap:8px;transition:.2s}
+.prog:hover{border-color:var(--gold2);transform:translateY(-3px)}
+.prog .tag{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold2)}
+.prog h3{font:600 26px/1.1 "Cormorant Garamond",serif}
+.prog p{font-size:14px;color:#d6c6b2;flex:1}
+.prog .row{display:flex;justify-content:space-between;align-items:center;margin-top:8px;font-size:14px}
+.prog .price{color:var(--gold2);font-weight:600}
+.prog button{background:none;border:1px solid var(--gold2);color:var(--gold2);border-radius:999px;padding:8px 14px;font:600 13px Manrope,sans-serif;cursor:pointer}
+.prog button:hover{background:var(--gold2);color:var(--teak)}
+@media(max-width:900px){.progs{grid-template-columns:1fr 1fr}}@media(max-width:600px){.progs{grid-template-columns:1fr}}
+.gift{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center}
+.card{aspect-ratio:1.6;border-radius:22px;padding:30px;color:var(--white);position:relative;overflow:hidden;
+ background:radial-gradient(400px 200px at 80% 0%,rgba(217,178,122,.5),transparent 70%),linear-gradient(135deg,#2f4a3c,#1e3128);box-shadow:0 30px 60px -30px rgba(47,74,60,.7)}
+.card .serif{font-size:42px;line-height:1}
+.card small{display:block;letter-spacing:.2em;text-transform:uppercase;font-size:11px;color:var(--gold2);margin-bottom:10px}
+.card .csum{position:absolute;bottom:26px;left:30px;font:600 28px "Cormorant Garamond",serif;color:var(--gold2)}
+.card svg{position:absolute;right:-20px;bottom:-30px;width:220px;opacity:.25}
+.list{list-style:none;margin:18px 0 26px}
+.list li{padding:10px 0 10px 30px;border-bottom:1px solid var(--sand2);position:relative}
+.list li::before{content:"";position:absolute;left:0;top:17px;width:14px;height:14px;border-radius:50%;background:var(--gold)}
+@media(max-width:860px){.gift{grid-template-columns:1fr}}
+.book{background:var(--sand2)}
+.bk{display:grid;grid-template-columns:1.2fr 1fr;gap:26px;margin-top:36px}
+.panel{background:var(--white);border-radius:22px;padding:26px;border:1px solid #e3d5bf}
+.panel h4{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin:0 0 12px}
+.panel h4 i{color:var(--gold);font-style:normal;margin-right:6px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+.chip{border:1px solid #d9c9b0;background:var(--white);border-radius:999px;padding:9px 14px;font:500 14px Manrope,sans-serif;cursor:pointer;color:var(--ink)}
+.chip.on{background:var(--leaf);border-color:var(--leaf);color:var(--white)}
+.chip:disabled{opacity:.35;cursor:default}
+.days{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;margin-bottom:22px}
+.day{min-width:62px;text-align:center;border:1px solid #d9c9b0;border-radius:14px;padding:8px 6px;background:var(--white);cursor:pointer;font:600 18px Manrope,sans-serif;color:var(--ink)}
+.day small{display:block;font-size:11px;font-weight:500;color:var(--mute)}
+.day.on{background:var(--leaf);border-color:var(--leaf);color:var(--white)}.day.on small{color:#cfe0d6}
+.inp{width:100%;padding:13px 15px;border:1px solid #d9c9b0;border-radius:12px;font:15px Manrope,sans-serif;margin-bottom:10px;background:var(--white)}
+.sum{background:var(--sand);border-radius:14px;padding:14px 16px;margin-bottom:14px;font-size:14px}
+.sum div{display:flex;justify-content:space-between;padding:3px 0}.sum span{color:var(--mute)}
+.chk{display:flex;gap:10px;font-size:13px;color:var(--mute);margin:6px 0 14px;align-items:flex-start}
+.err{color:#a3402b;font-size:14px;min-height:20px;margin-top:8px}
+.done{display:none;text-align:center;padding:20px 6px}
+.done .serif{font-size:34px;margin:8px 0}
+.done p{color:var(--mute);font-size:14px;margin-bottom:10px}
+@media(max-width:860px){.bk{grid-template-columns:1fr}}
+.revs{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px}
+.rev{background:var(--white);border-radius:22px;padding:24px;border:1px solid var(--sand2)}
+.rev .stars{color:var(--gold);letter-spacing:2px}
+.rev p{font:500 21px/1.35 "Cormorant Garamond",serif;margin:12px 0}
+.rev small{color:var(--mute)}
+@media(max-width:860px){.revs{grid-template-columns:1fr}}
+.contacts{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:start}
+.cbox{background:var(--white);border-radius:22px;padding:28px;border:1px solid var(--sand2)}
+.cbox div{padding:12px 0;border-bottom:1px solid var(--sand2)}.cbox div:last-child{border:0}
+.cbox span{display:block;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.cbox b{font-size:18px}
+@media(max-width:860px){.contacts{grid-template-columns:1fr}}
+footer{background:var(--teak);color:#cdbba5;padding:34px 0;font-size:13px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.demo{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);background:rgba(42,33,27,.92);color:#f0e3d0;font-size:12px;padding:8px 14px;border-radius:999px;z-index:30;white-space:nowrap}
+.mbar{display:none}
+@media(max-width:860px){.mbar{display:block;position:fixed;left:12px;right:12px;bottom:48px;z-index:25}.mbar .btn{width:100%}}
+</style>
+</head>
+<body>
+
+<header id="hdr"><div class="wrap nav">
+  <a class="logo" href="#top"><svg viewBox="0 0 40 40" fill="none" stroke="#d9b27a" stroke-width="1.6"><path d="M20 6c6 8 6 16 0 24-6-8-6-16 0-24zM20 30c-7-3-13-1-17 4 7 3 13 1 17-4zM20 30c7-3 13-1 17 4-7 3-13 1-17-4z"/></svg>SIRAPAK</a>
+  <nav class="links"><a href="#ritual">Ритуал</a><a href="#programs">Программы</a><a href="#gift">Сертификаты</a><a href="#reviews">Отзывы</a><a href="#contacts">Контакты</a></nav>
+  <a class="btn gold" href="#booking">Записаться</a>
+</div></header>
+
+<section class="hero" id="top">
+  <svg class="lotus" viewBox="0 0 200 200" fill="none" stroke="#d9b27a" stroke-width="1"><path d="M100 30c22 34 22 68 0 102-22-34-22-68 0-102z"/><path d="M100 132c-30-12-56-6-76 18 30 12 56 6 76-18z"/><path d="M100 132c30-12 56-6 76 18-30 12-56 6-76-18z"/><path d="M100 132c-18-26-42-38-70-34 10 28 34 42 70 34z"/><path d="M100 132c18-26 42-38 70-34-10 28-34 42-70 34z"/></svg>
+  <div class="wrap">
+    <div class="eyebrow">Тайский массаж и спа · Ташкент</div>
+    <h1>Час тишины <em>в&nbsp;руках</em> тайских мастеров</h1>
+    <p>Настоящий тайский массаж, приглушённый свет, свечи и тайская музыка. Перед сеансом вы выбираете масло и интенсивность — мастер работает именно с вашими зонами.</p>
+    <div class="cta"><a class="btn gold" href="#booking">Записаться онлайн</a><a class="btn ghost" href="#gift">Подарочный сертификат</a></div>
+    <div class="badges">
+      <div><b>5,0</b>187 оценок на Яндекс Картах</div>
+      <div><b>10:00–23:00</b>ежедневно, без выходных</div>
+      <div><b>Тайские</b>мастера</div>
+    </div>
+  </div>
+</section>
+
+<section id="ritual"><div class="wrap">
+  <div class="eyebrow">Как проходит визит</div>
+  <h2>Ваш ритуал в Sirapak</h2>
+  <p class="lead">Мы не торопимся: каждый визит начинается с вопроса, как вы себя чувствуете и что хотите проработать.</p>
+  <div class="ritual">
+    <div class="step"><i>01</i><h3>Анкета о здоровье</h3><p>Отмечаете проблемные зоны и противопоказания — мастер учтёт их во время сеанса.</p></div>
+    <div class="step"><i>02</i><h3>Масло и интенсивность</h3><p>Выбираете аромат масла и насколько глубоко работать — от мягкого до сильного.</p></div>
+    <div class="step"><i>03</i><h3>Массаж</h3><p>Костюм для массажа, свечи, тайская музыка. Мастер уделяет больше времени вашим зонам.</p></div>
+    <div class="step"><i>04</i><h3>Растяжка</h3><p>В конце — мягкая растяжка: это часть настоящего тайского массажа.</p></div>
+  </div>
+</div></section>
+
+<section class="dark" id="programs"><div class="wrap">
+  <div class="eyebrow">Программы</div>
+  <h2>Выберите своё</h2>
+  <p class="lead">Цены в наброске не указаны — в рабочей версии здесь будет ваш актуальный прайс.</p>
+  <div class="progs" id="progs"></div>
+</div></section>
+
+<section id="gift"><div class="wrap gift">
+  <div>
+    <div class="eyebrow">Подарок, который запоминают</div>
+    <h2>Подарочный сертификат</h2>
+    <p class="lead">Многие гости впервые приходят к нам по сертификату от друзей. Оформите заявку онлайн — администратор подготовит сертификат на нужную программу.</p>
+    <ul class="list"><li>На любую программу или на сумму</li><li>Спа для двоих, девичник, мужской спа</li><li>Заявка сразу приходит администратору в Telegram</li></ul>
+    <a class="btn" href="#booking" data-pick="gift">Заказать сертификат</a>
+  </div>
+  <div class="card"><small>Подарочный сертификат</small><div class="serif">Sirapak<br>Thai Spa</div><div class="csum">на программу по выбору</div>
+    <svg viewBox="0 0 200 200" fill="none" stroke="#d9b27a" stroke-width="1.4"><path d="M100 30c22 34 22 68 0 102-22-34-22-68 0-102z"/><path d="M100 132c-30-12-56-6-76 18 30 12 56 6 76-18z"/><path d="M100 132c30-12 56-6 76 18-30 12-56 6-76-18z"/></svg></div>
+</div></section>
+
+<section class="book" id="booking"><div class="wrap">
+  <div class="eyebrow">Онлайн-запись</div>
+  <h2>Запишитесь за минуту</h2>
+  <p class="lead">Выберите программу, день и время — администратор подтвердит запись.</p>
+  <div class="bk">
+    <div class="panel">
+      <h4><i>01</i>Программа</h4><div class="chips" id="pchips"></div>
+      <h4><i>02</i>День</h4><div class="days" id="days"></div>
+      <h4><i>03</i>Время</h4><div class="chips" id="times"></div>
+    </div>
+    <div class="panel">
+      <div id="form">
+        <h4><i>04</i>Ваши данные</h4>
+        <div class="sum"><div><span>Программа</span><b id="sP">—</b></div><div><span>Когда</span><b id="sD">—</b></div></div>
+        <input class="inp" id="nm" placeholder="Ваше имя" autocomplete="name">
+        <input class="inp" id="ph" placeholder="Телефон" type="tel" autocomplete="tel" inputmode="tel">
+        <input class="inp" id="cm" placeholder="Пожелания: масло, зоны, мастер (необязательно)">
+        <label class="chk"><input type="checkbox" id="ag"><span>Согласен на обработку персональных данных для записи</span></label>
+        <button class="btn" style="width:100%" id="go">Отправить заявку</button>
+        <p class="err" id="err"></p>
+      </div>
+      <div class="done" id="done">
+        <div class="eyebrow">Готово</div>
+        <div class="serif">Заявка отправлена (демо)</div>
+        <p id="doneTxt"></p>
+        <p>В рабочей версии заявка сразу приходит администратору в Telegram с кнопками «Подтвердить / Отменить», а гость получает напоминание.</p>
+        <button class="btn" id="again" style="margin-top:6px">Новая заявка</button>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<section id="reviews"><div class="wrap">
+  <div class="eyebrow">Отзывы гостей</div>
+  <h2>5,0 на Яндекс Картах</h2>
+  <div class="revs">
+    <div class="rev"><div class="stars">★★★★★</div><p>«Очень чисто и всё продумано: свечи и настоящая тайская музыка»</p><small>гостья, Яндекс Карты</small></div>
+    <div class="rev"><div class="stars">★★★★★</div><p>«Проблемным зонам действительно уделили больше времени»</p><small>гостья, пришла по подарочному сертификату</small></div>
+    <div class="rev"><div class="stars">★★★★★</div><p>«Перед процедурой заполняешь анкету, выбираешь масло и интенсивность»</p><small>гостья, Яндекс Карты</small></div>
+  </div>
+</div></section>
+
+<section id="contacts"><div class="wrap contacts">
+  <div>
+    <div class="eyebrow">Контакты</div>
+    <h2>Ждём вас в Бешагаче</h2>
+    <p class="lead">Есть парковка. Оплата картой, наличными, переводом или по QR-коду.</p>
+    <div style="margin-top:24px;display:flex;gap:12px;flex-wrap:wrap"><a class="btn" href="#booking">Записаться</a><a class="btn" style="background:var(--gold)" href="https://yandex.ru/maps/org/sirapak/227279212068/" target="_blank" rel="noopener">Маршрут</a></div>
+  </div>
+  <div class="cbox">
+    <div><span>Адрес</span><b>Ташкент, 1-й тупик Бешагач, 6</b></div>
+    <div><span>Часы работы</span><b>Ежедневно, 10:00–23:00</b></div>
+    <div><span>Телефон</span><b><a href="tel:+998909718659">+998 90 971 86 59</a></b></div>
+    <div><span>Telegram</span><b><a href="https://t.me/sirapakspa" target="_blank" rel="noopener">@sirapakspa</a></b></div>
+  </div>
+</div></section>
+
+<footer><div class="wrap"><span>© Sirapak · тайский массаж и спа в Ташкенте</span><span>Демо-набросок сайта · данные с Яндекс Карт</span></div></footer>
+<div class="mbar"><a class="btn gold" href="#booking">Записаться онлайн</a></div>
+<div class="demo">Демо-набросок · сделал Андрей</div>
+
+<script>
+const P=[
+ {id:'thai',tag:'Классика',name:'Тайский массаж',d:'Растяжка и работа с энергетическими линиями. Без масла, в специальном костюме.'},
+ {id:'relax',tag:'Расслабление',name:'Relax-массаж с маслом',d:'Мягкий массаж всего тела с ароматным маслом на ваш выбор.'},
+ {id:'stone',tag:'Тепло',name:'Стоун-терапия',d:'Массаж горячими камнями — глубоко прогревает и снимает напряжение.'},
+ {id:'sport',tag:'Восстановление',name:'Спортивный массаж',d:'Интенсивная проработка мышц после нагрузок и тренировок.'},
+ {id:'back',tag:'Офисным',name:'Спина и воротниковая зона',d:'Для тех, кто много сидит: шея, плечи, спина.'},
+ {id:'foot',tag:'Лёгкость',name:'Массаж ног и головы',d:'Тайский массаж стоп и головы — снимает усталость за полчаса.'},
+ {id:'preg',tag:'Бережно',name:'Массаж для беременных',d:'Мягкая техника в удобном положении, с учётом срока.'},
+ {id:'two',tag:'Вдвоём',name:'Спа для двоих',d:'Программа в одной комнате для пары или подруг.'},
+ {id:'thaispa',tag:'Спа',name:'Тайский спа · девичник · мужской спа',d:'Спа-программы для себя или компании — состав уточняйте у администратора.'}
+];
+const $=s=>document.querySelector(s);
+const DN=['вс','пн','вт','ср','чт','пт','сб'],MN=['янв','фев','мар','апр','мая','июн','июл','авг','сен','окт','ноя','дек'];
+let prog=null,di=0,time=null;
+const progs=$('#progs');
+P.forEach(p=>{const el=document.createElement('div');el.className='prog';el.innerHTML=`<span class="tag">${p.tag}</span><h3>${p.name}</h3><p>${p.d}</p><div class="row"><span>длительность и цена</span><span class="price">в вашем прайсе</span></div><button type="button">Записаться</button>`;
+ el.querySelector('button').onclick=()=>{pick(p.id);location.hash='booking'};progs.appendChild(el)});
+const all=P.concat([{id:'gift',name:'Подарочный сертификат'}]);
+function tz(){const p=new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Tashkent',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hour12:false}).formatToParts(new Date());const g=t=>+p.find(x=>x.type===t).value;return {y:g('year'),m:g('month'),d:g('day'),min:(g('hour')%24)*60+g('minute')}}
+const now=tz();const days=[...Array(14)].map((_,i)=>new Date(Date.UTC(now.y,now.m-1,now.d+i)));
+function rP(){const el=$('#pchips');el.innerHTML='';all.forEach(p=>{const b=document.createElement('button');b.className='chip'+(p.id===prog?' on':'');b.textContent=p.name;b.onclick=()=>pick(p.id);el.appendChild(b)})}
+function rD(){const el=$('#days');el.innerHTML='';days.forEach((d,i)=>{const b=document.createElement('button');b.className='day'+(i===di?' on':'');b.innerHTML=`<small>${i===0?'сегодня':DN[d.getUTCDay()]}</small>${d.getUTCDate()}<small>${MN[d.getUTCMonth()]}</small>`;b.onclick=()=>{di=i;time=null;rD();rT();sum()};el.appendChild(b)})}
+function rT(){const el=$('#times');el.innerHTML='';if(prog==='gift'){el.innerHTML='<span style="color:var(--mute);font-size:14px">Для сертификата время не нужно — администратор свяжется с вами.</span>';return}
+ for(let h=10;h<=21;h++){const t=String(h).padStart(2,'0')+':00';const past=di===0&&h*60<=now.min+60;const b=document.createElement('button');b.className='chip'+(t===time?' on':'');b.textContent=t;b.disabled=past;b.onclick=()=>{time=t;rT();sum()};el.appendChild(b)}}
+function pick(id){prog=id;time=null;rP();rT();sum()}
+function sum(){const p=all.find(x=>x.id===prog);$('#sP').textContent=p?p.name:'—';const d=days[di];$('#sD').textContent=prog==='gift'?'—':(time?`${DN[d.getUTCDay()]}, ${d.getUTCDate()} ${MN[d.getUTCMonth()]}, ${time}`:'—')}
+$('#go').onclick=()=>{const e=$('#err');e.textContent='';
+ if(!prog)return e.textContent='Выберите программу';if(prog!=='gift'&&!time)return e.textContent='Выберите время';
+ if($('#nm').value.trim().length<2)return e.textContent='Укажите имя';if($('#ph').value.replace(/\D/g,'').length<9)return e.textContent='Укажите телефон';
+ if(!$('#ag').checked)return e.textContent='Отметьте согласие';
+ $('#doneTxt').textContent=$('#sP').textContent+($('#sD').textContent!=='—'?' · '+$('#sD').textContent:'');$('#form').style.display='none';$('#done').style.display='block'};
+$('#again').onclick=()=>{$('#form').style.display='';$('#done').style.display='none';time=null;rT();sum()};
+document.querySelectorAll('[data-pick]').forEach(a=>a.addEventListener('click',()=>pick(a.dataset.pick)));
+addEventListener('scroll',()=>$('#hdr').classList.toggle('solid',scrollY>40));
+rP();rD();rT();sum();
+</script>
+</body>
+</html>
