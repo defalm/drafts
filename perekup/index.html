@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
 <title>Перекуп</title>
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
+<script src="https://sad.adsgram.ai/js/sad.min.js"></script>
 <style>
 :root{--bg:#101215;--bg2:#181b20;--card:#1f232a;--card2:#2a2f38;--line:#323843;--txt:#f2f0ea;--mute:#949aa6;--acc:#ffc400;--acc2:#ff9500;--red:#ff5b5b;--green:#35d07f;--blue:#4ea4ff;
 --tg-bg:#0e1621;--tg-head:#17212b;--tg-in:#182533;--tg-out:#2b5278;--tg-acc:#5eb5f7;--tg-mute:#6d7f8f;--tg-time-out:#7da8d3}
@@ -460,8 +461,8 @@ $('#sheet').addEventListener('click',e=>{if(e.target.id==='sheet')closeSheet()})
 const bar=v=>`<div class="bar"><i style="width:${v}%;background:${v>=70?'var(--green)':v>=45?'var(--acc)':'var(--red)'}"></i></div>`;
 
 /* ===== реклама AdsGram ===== */
-const ADS_BLOCK='';let adCtl=null; // blockId из кабинета AdsGram
-function showAd(cb){if(window.Adsgram&&ADS_BLOCK){adCtl=adCtl||window.Adsgram.init({blockId:ADS_BLOCK});adCtl.show().then(r=>{if(r&&r.done)cb()}).catch(()=>toast('Реклама сейчас недоступна','alert'));return}
+const ADS_BLOCK='59100';let adCtl=null; // blockId из кабинета AdsGram
+function showAd(cb){if(tg&&window.Adsgram&&ADS_BLOCK){try{adCtl=adCtl||window.Adsgram.init({blockId:ADS_BLOCK});adCtl.show().then(r=>{if(!r||r.done!==false){hap('ok');cb()}}).catch(r=>toast(r&&r.state==='load'?'Реклама сейчас недоступна, попробуй позже':'Реклама не досмотрена — бонус не начислен','alert'))}catch(e){toast('Реклама сейчас недоступна','alert')}return}
  $('#adscreen').classList.add('on');setTimeout(()=>{$('#adscreen').classList.remove('on');hap('ok');cb()},2000)}
 
 /* ===== чаты ===== */
