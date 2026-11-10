@@ -328,8 +328,16 @@ const SELLERS=[
  {n:'Азат Моторс',st:'автохаус',lie:.6,crash:.45,cond:[25,85],min:[.80,.9],pat:3,t:['Не бита, не крашена, брат. Один хозяин, бабушка ездила.','Торг у капота. Сел и поехал, вложений ноль.','Пробег родной, мамой клянусь.'],ok:['Брат, ты жёсткий. Забирай.','Договорились, брат.'],no:['Брат, иди с такими предложениями. Блок.'],cnt:['Брат, {x} последняя, и то себе в минус.','За {x} отдам, ниже никак, клянусь.'],q:['Родной, брат.','Родной, брат. Мамой клянусь, вот те крест.']},
  {n:'Кирилл',st:'студент',lie:.1,crash:.25,cond:[35,85],min:[.70,.82],pat:2,t:['Срочно! Уезжаю учиться, нужны деньги до пятницы.','Батя подарил, но мне нужнее айфон. Торг.','Продам быстро, без нервов.'],ok:['Окей, давайте. Когда сможете приехать?','Ладно, забирайте.'],no:['Не, ну это совсем мало, извините.'],cnt:['Может {x}? Мне правда срочно.','{x} — и сегодня отдам ключи.'],q:['Вроде родной, я не крутил.','Да, родной.']},
  {n:'Светлана',st:'муж ездил',lie:.12,crash:.3,cond:[40,90],min:[.82,.92],pat:2,t:['Муж ездил, я в этом не разбираюсь. Вроде ездит.','Стучит что-то, но муж говорил — так и должно быть.','Продаём, купили новую.'],ok:['Хорошо, договорились.','Ладно, муж разрешил.'],no:['Нет, муж сказал меньше не отдавать. Всего хорошего.'],cnt:['Муж сказал, что за {x} можно.','Давайте {x}, и я больше не спорю.'],q:['Не знаю, спросите мужа. Вроде родной.','Муж сказал — родной.']},
- {n:'Рустам',st:'не такси (правда)',lie:.35,crash:.3,cond:[20,70],min:[.82,.9],pat:3,t:['В такси не работала, только для себя.','Ухоженная, каждый день мыл.','Мотор зверь, коробка как новая.'],ok:['По рукам, брат.','Давай, забирай.'],no:['Э, не, так не пойдёт. Удачи.'],cnt:['{x} — и забирай, брат.','Ну давай {x}, по-братски.'],q:['Честно, пробег большой — для себя много ездил.','Родной, для себя же ездил.']},
+ {n:'Рустам',st:'частник',lie:.35,crash:.3,cond:[20,70],min:[.82,.9],pat:3,t:['В такси не работала, только для себя.','Ухоженная, каждый день мыл.','Мотор зверь, коробка как новая.'],ok:['По рукам, брат.','Давай, забирай.'],no:['Э, не, так не пойдёт. Удачи.'],cnt:['{x} — и забирай, брат.','Ну давай {x}, по-братски.'],q:['Честно, пробег большой — для себя много ездил.','Родной, для себя же ездил.']},
  {n:'Макс Блогер',st:'200к подписчиков',lie:.25,crash:.35,cond:[45,90],min:[.90,.97],pat:1,t:['Машина из моих видео, 200к подписчиков видели!','Тюнинг на 300к, отдам почти даром.','Продаю ради контента. Цена фикс.'],ok:['Окей, сниму это для сторис.'],no:['Это кринж. Не продам.'],cnt:['Фикс {x}. Это уже ниже рынка.'],q:['Пробег смотрите на видео, там всё честно.','Всё честно, на видео видно.']},
+];
+const BTYPES=[
+ {st:'студент',nm:['Ваня','Кирилл','Тёма'],lo:.84,hi:.93,acc:.55,l:['Отдай за {x}, я студент','Мамой клянусь, больше нет. {x}?','Стипендию дали, есть {x}. Отдашь?'],y:['Ура! Еду с другом за ключами.'],n:['Эх, ладно, буду копить дальше.']},
+ {st:'семейный',nm:['Николай Петрович','Сергей','Олег'],lo:.95,hi:1.0,acc:.35,l:['Здравствуйте. Жена посмотрела фото, нравится. Готов {x}.','Добрый день. Для семьи ищу. {x} устроит?'],y:['Хорошо, договорились. Завтра с документами.'],n:['Извините, это для нас дорого.']},
+ {st:'перекуп',nm:['Азамат','Рома Альфач','Гена'],lo:.72,hi:.82,acc:.15,l:['Брат, по-быстрому: {x} налом, сегодня.','{x} и я забираю без торга. Решай.'],y:['Ладно, ты жёсткий. Еду.'],n:['Не, мне в перепродажу, дороже не возьму.']},
+ {st:'таксист',nm:['Паша','Ильдар','Ринат'],lo:.86,hi:.95,acc:.45,l:['Под такси беру. {x} — и по рукам.','Пробег не смущает, {x} даю.'],y:['Добро, вечером заеду.'],n:['Не, мне отбивать надо, дорого.']},
+ {st:'первая машина',nm:['Юля','Анна','Даша'],lo:.92,hi:1.0,acc:.6,l:['Здравствуйте! Это будет моя первая машина. Могу {x}.','Папа сказал, за {x} можно брать. Продадите?'],y:['Спасибо! Приеду с папой.'],n:['Ой, тогда я ещё подумаю.']},
+ {st:'на запчасти',nm:['Вован','Стас','Марат'],lo:.68,hi:.78,acc:.25,l:['На запчасти беру. {x}, больше она не стоит.','Разберу её. {x} — честная цена.'],y:['Пойдёт. Эвакуатор пришлю.'],n:['Ну, как знаешь.']},
 ];
 const BUYERS=['Сергей','Лёха','Дима','Армен','Вован','Женя','Тимур','Ильдар','Паша','Николай Петрович','Марат','Ваня','Анна','Олег','Гоша','Ринат','Стас','Юля'];
 const BLINES=['Здравствуйте, ещё продаёте? Беру за {x}','Жена разрешила. Беру за {x}, сегодня приеду.','Отдай за {x}, я студент','Обмен на айфон рассмотришь? Ладно, тогда {x} налом.','Видел скол на бампере. {x} — и забираю.','Брат, {x} и я твой лучший клиент.','Приеду с отцом, он посмотрит. Если всё ок — {x}.','У меня ровно {x}, больше нет, честно.','Беру не глядя за {x}. Где подписать?','Последняя цена? Готов {x} прямо сейчас.'];
@@ -339,7 +347,7 @@ const FRIENDS=[
  {id:'dimon',n:'Димон',st:'таксует',c:5,lie:.25},
  {id:'sanych',n:'Саныч',st:'механик',c:1,lie:0},
 ];
-const LV=[0,6e4,1.6e5,4e5,1e6,2.5e6,6e6,1.5e7,4e7,1e8];
+const LV=[0,15e3,45e3,1.2e5,3e5,8e5,2e6,5e6,1.3e7,3.5e7];
 const LVN=['Новичок','Лох с Авито','Шустрый','Знает толщиномер','Бывалый','Король Авито','Барон рынка','Свой автосалон','Легенда перекупа','Олигарх'];
 const PARTS=[['engine','Двигатель','chip',.14],['gear','Коробка','settings',.12],['body','Кузов','car',.12],['inter','Салон','user',.06]];
 const SLOTP=[0,0,1.2e5,4e5,1.5e6,5e6];
@@ -369,10 +377,10 @@ const ACH=[
 
 /* ===== состояние ===== */
 const KEY='perekup_v2';
-const fresh=()=>({money:150000,day:1,xp:0,uid:1,list:[],cars:[],slots:2,deals:[],best:null,profit:0,bought:0,sold:0,lastBonus:'',debt:0,perks:[],ach:[],chats:[],loansOut:[],f:{checks:0},name:tgUser?(tgUser.first_name||'Перекуп'):'Перекуп',ac:RI(0,7),vib:true});
+const fresh=()=>({tut:0,cnt:{},money:150000,day:1,xp:0,uid:1,list:[],cars:[],slots:2,deals:[],best:null,profit:0,bought:0,sold:0,lastBonus:'',debt:0,perks:[],ach:[],chats:[],loansOut:[],f:{checks:0},name:tgUser?(tgUser.first_name||'Перекуп'):'Перекуп',ac:RI(0,7),vib:true});
 let S=fresh();
 function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
-function load(){try{const o=JSON.parse(localStorage.getItem(KEY));if(o&&o.money!==undefined){S=Object.assign(fresh(),o);S.f=Object.assign({checks:0},o.f||{})}}catch(e){}VIB=S.vib!==false}
+function load(){try{const o=JSON.parse(localStorage.getItem(KEY));if(o&&o.money!==undefined){S=Object.assign(fresh(),o);S.f=Object.assign({checks:0},o.f||{});S.cnt=S.cnt||{};if(S.tut===undefined)S.tut=S.sold?99:0}}catch(e){}VIB=S.vib!==false}
 const level=()=>{let l=0;LV.forEach((v,i)=>{if(S.xp>=v)l=i});return l};
 const M=id=>MODELS.find(m=>m[0]===id);
 const has=p=>S.perks.includes(p);
@@ -391,9 +399,10 @@ function makeCar(sl){
  const lie=Math.random()<sl.lie;const C=()=>RI(sl.cond[0],sl.cond[1]);
  return {id:S.uid++,model:m[0],year,km:realKm,kmClaim:lie?r1k(realKm*R(.38,.6)):realKm,engine:C(),gear:C(),body:C(),inter:C(),crash:Math.random()<sl.crash,lien:Math.random()<.07,color:pick(COLORS),checks:{},washed:false}}
 function genListing(){const si=RI(0,SELLERS.length-1),sl=SELLERS[si];const c=makeCar(sl);
- Object.assign(c,{seller:si,said:pick(sl.t),age:0,minF:R(sl.min[0],sl.min[1]),pat:sl.pat,city:pick(['Симферополь','Севастополь','Ялта','Евпатория','Феодосия','Керчь','Алушта'])});
+ Object.assign(c,{seller:si,said:pick(sl.t),age:0,minF:R(sl.min[0],sl.min[1]),pat:sl.pat>=2?3:2,pmax:sl.pat>=2?3:2,city:pick(['Симферополь','Севастополь','Ялта','Евпатория','Феодосия','Керчь','Алушта'])});
  c.ask=r1k(value(c,true)*R(.88,1.18));return c}
-function refill(){S.list=S.list.filter(c=>c.age<3);while(S.list.length<6)S.list.push(genListing())}
+function refill(){S.list=S.list.filter(c=>c.age<3);const cap=Math.max(S.money*1.05,40000);let tries=0;
+ while(S.list.length<6){const c=genListing();const aff=S.list.filter(x=>x.ask<=cap).length;if(c.ask>cap&&aff<4&&tries++<25){S.uid--;continue}S.list.push(c)}}
 
 /* ===== рисунок машины ===== */
 const GEO={
@@ -445,7 +454,7 @@ function carSVG(c){const m=M(c.model),g=GEO[m[2]],col=c.color[1],id='c'+(++SVGN)
 let toastT;function toast(t,ic='check'){const e=$('#toast');e.innerHTML=I(ic)+'<span>'+t+'</span>';e.classList.add('on');clearTimeout(toastT);toastT=setTimeout(()=>e.classList.remove('on'),2500)}
 function modal(ic,cls,t,p,btns,extra=''){$('#mbox').innerHTML=`<div class="e ${cls}">${I(ic)}</div><h3>${t}</h3><p>${p}</p>${extra}`+btns.map((b,i)=>`<button class="btn ${b[1]||''}" data-i="${i}">${b[0]}</button>`).join('');$('#modal').classList.add('on');
  $('#mbox').querySelectorAll('[data-i]').forEach(x=>x.onclick=()=>{const f=btns[+x.dataset.i][2];$('#modal').classList.remove('on');f&&f()})}
-function sheet(h){$('#sbox').innerHTML='<div class="grab"></div>'+h;$('#sheet').classList.add('on');$('#sbox').scrollTop=0}
+function sheet(h,keep){const st=$('#sbox').scrollTop;$('#sbox').innerHTML='<div class="grab"></div>'+h;$('#sheet').classList.add('on');$('#sbox').scrollTop=keep?st:0}
 function closeSheet(){$('#sheet').classList.remove('on')}
 $('#sheet').addEventListener('click',e=>{if(e.target.id==='sheet')closeSheet()});
 const bar=v=>`<div class="bar"><i style="width:${v}%;background:${v>=70?'var(--green)':v>=45?'var(--acc)':'var(--red)'}"></i></div>`;
@@ -486,18 +495,20 @@ function drawKB(ch){
   if(c.pat<=0)return closedKB('Продавец тебя заблокировал');
   if(!ch.off)ch.off=r1k(c.ask*.9);
   const pre=`<div class="offer"><input type="range" id="ofr" min="${r1k(c.ask*.4)}" max="${c.ask}" step="1000" value="${ch.off}"><b id="ofv">${fmt(ch.off)}</b><button class="send" id="ofs">${I('send')}</button></div>`;
-  const btns=[];
+  const btns=[];const pt=c.pat,pmax=c.pmax||3;
+  const pre2=`<div class="hint" style="margin:0 0 6px;text-align:left">Терпение продавца: <b style="color:${pt<=1?'var(--red)':pt===2?'var(--acc)':'var(--green)'}">${'●'.repeat(Math.max(0,pt))}${'○'.repeat(Math.max(0,pmax-pt))}</b>${pt<=1?' · <span class="minus">продавец злится</span>':''}</div>`;
+  defects(c).filter(d=>!(c.used||{})[d.id]).forEach(d=>btns.push({l:d.l+' −'+Math.round(d.p*100)+'%',ic:'alert',cls:'y',full:true,f:()=>useArg(ch,c,d)}));
   if(!ch.askedKm)btns.push({l:'Пробег родной?',ic:'gauge',full:true,f:()=>{ch.askedKm=1;push(ch,{me:1,text:'Пробег родной?'});const sl=SELLERS[c.seller];say(ch,{text:c.km!==c.kmClaim?sl.q[1]:sl.q[0]});save()}});
   if(c.agreed)btns.push({l:'Забрать за '+fk(c.agreed),ic:'handshake',cls:'g',full:true,f:()=>confirmBuy(c,c.agreed,ch,true)});
   btns.push({l:'Купить за '+fk(c.ask),ic:'key',cls:'g',f:()=>confirmBuy(c,c.ask)},{l:'Объявление',ic:'list',f:()=>{closeChat();openListing(c.id)}});
-  setKB(pre,btns);
+  setKB(pre2+pre,btns);
   $('#ofr').oninput=e=>{ch.off=+e.target.value;$('#ofv').textContent=fmt(ch.off)};
   $('#ofs').onclick=()=>haggle(ch,c,ch.off);return}
  if(ch.kind==='buyer'){const c=S.cars.find(x=>x.id===ch.cid),o=ch.offer;
   if(!c||!c.onSale||!o)return closedKB('Сделка неактуальна');
   const btns=[{l:'Продать за '+fk(o.sum),ic:'handshake',cls:'g',full:true,f:()=>sell(c,o.sum,ch)}];
   if(!o.bar)btns.push({l:'Накинь '+fk(r1k(o.sum*.06)),ic:'tag',f:()=>{o.bar=1;const ask=r1k(o.sum*1.06);push(ch,{me:1,text:`Давай ${fmt(ask)} — и по рукам`});
-   const r=Math.random();if(r<.4){o.sum=ask;say(ch,{text:'Ладно, давай. Уговорил.'})}else if(r<.75){o.sum=r1k((o.sum+ask)/2);say(ch,{text:`Давай посередине — <b class="sum">${fmt(o.sum)}</b>`})}else{ch.offer=null;say(ch,{text:'Не, дорого. Найду другую.'})}save()}});
+   const bt=BTYPES[ch.bt||0],r=Math.random();if(r<bt.acc){o.sum=ask;say(ch,{text:pick(bt.y)})}else if(r<bt.acc+.35){o.sum=r1k((o.sum+ask)/2);say(ch,{text:`Давай посередине — <b class="sum">${fmt(o.sum)}</b>`})}else{ch.offer=null;say(ch,{text:pick(bt.n)})}save()}});
   btns.push({l:'Отказать',ic:'x',cls:'r',f:()=>{push(ch,{me:1,text:'Нет, дёшево.'});ch.offer=null;say(ch,{text:pick(['Ну как знаешь.','Ок, удачи с продажей.','Жаль. Если что — пиши.'])});save()}});
   return setKB('',btns)}
  if(ch.kind==='friend'){const ev=ch.ev;
@@ -515,7 +526,8 @@ function haggle(ch,c,off){const sl=SELLERS[c.seller];if(S.cars.length>=S.slots)r
  push(ch,{me:1,text:`Отдашь за ${fmt(off)}?`});save();
  const min=r1k(c.ask*clamp(c.minF-knownDisc(c),.45,1));
  if(off>=min){c.agreed=off;say(ch,{text:pick(sl.ok)+` Забираешь за <b class="sum">${fmt(off)}</b>?`},1000);setTimeout(()=>confirmBuy(c,off,ch,true),2000)}
- else if(off<min*.75||c.pat<=1){c.pat=0;say(ch,{text:pick(sl.no)},1000);setTimeout(()=>{S.f.angry=1;S.list=S.list.filter(x=>x.id!==c.id);ch.closed=1;push(ch,{sys:1,text:'Продавец удалил объявление'});achCheck();save();render();if(openChat===ch.key)drawChat()},2000)}
+ else if(c.pat<=1||(off<min*.75&&c.pat<=2)){c.pat=0;say(ch,{text:pick(sl.no)},1000);setTimeout(()=>{S.f.angry=1;S.list=S.list.filter(x=>x.id!==c.id);ch.closed=1;push(ch,{sys:1,text:'Продавец удалил объявление'});achCheck();save();render();if(openChat===ch.key)drawChat()},2000)}
+ else if(off<min*.75){c.pat-=2;say(ch,{text:pick(['Ты издеваешься? Ещё раз так — и в блок.','Это не торг, это неуважение. Предлагай нормально.','Серьёзно? Давай без цирка.'])},1000)}
  else{c.pat--;const cnt=r1k(clamp((min+Math.max(off,c.ask*.6))/2*1.04,min,c.ask));ch.off=cnt;say(ch,{text:pick(sl.cnt).replace('{x}',`<b class="sum">${fmt(cnt)}</b>`)+(c.pat===1?' Это последнее слово.':'')},1100)}
  drawChat()}
 function sellerChat(c){const sl=SELLERS[c.seller];const ch=chatGet('s'+c.id,{kind:'seller',lid:c.id,name:sl.n,c:c.seller+1,st:sl.st});
@@ -539,12 +551,22 @@ function friendBuy(ch){const ev=ch.ev,c=ev.car;if(S.cars.length>=S.slots)return 
  achCheck();save();hud()}
 
 /* ===== объявление ===== */
-const diagCost=c=>Math.round(clamp(M(c.model)[3]*.012,4500,40000)/500)*500;
-const baseCost=c=>12500;
-const paintCost=2500;
-function knownDisc(c){let d=0;const k=c.checks;if(k.paint&&c.crash)d+=.1;if(k.paint&&c.body<50)d+=.05;if(k.base&&c.km!==c.kmClaim)d+=.12;if(k.base&&c.lien)d+=.15;if(k.diag){if(c.engine<50)d+=.08;if(c.gear<50)d+=.06}return d}
+const r500=n=>Math.round(n/500)*500;
+const paintCost=c=>Math.max(500,r500(c.ask*.01));
+const diagCost=c=>Math.max(1000,r500(c.ask*.02));
+const baseCost=c=>Math.max(1500,r500(c.ask*.03));
+function defects(c){const k=c.checks,a=[];if(k.paint&&c.crash)a.push({id:'crash',k:'paint',p:.1,l:'Битая',m:'Толщиномер показал шпаклёвку — машина битая.',r:'Да там чуть-чуть подкрашено… Ладно, скину.'});
+ if(k.paint&&c.body<50)a.push({id:'rust',k:'paint',p:.05,l:'Гнилой кузов',m:'Кузов гнилой, пороги в рыжиках.',r:'Рыжики есть, не спорю. Скину немного.'});
+ if(k.base&&c.km!==c.kmClaim)a.push({id:'km',k:'base',p:.12,l:'Скручен пробег',m:`По базе пробег ${km(c.km)}, а не ${km(c.kmClaim)}.`,r:'Ну… может прошлый хозяин крутил. Ладно, скидываю.'});
+ if(k.base&&c.lien)a.push({id:'lien',k:'base',p:.15,l:'Залог',m:'Машина в залоге у банка. Мне её гасить.',r:'Блин, совсем забыл про кредит… Скину, конечно.'});
+ if(k.diag&&c.engine<50)a.push({id:'engine',k:'diag',p:.08,l:'Мотор убит',m:`Диагностика: мотор ${c.engine}%. Капиталка нужна.`,r:'Ну масло ест немного… Ладно, скину.'});
+ if(k.diag&&c.gear<50)a.push({id:'gear',k:'diag',p:.06,l:'Коробка пинается',m:`Коробка ${c.gear}%, пинается.`,r:'Коробка с характером, да. Скидываю.'});
+ return a}
+function knownDisc(c){return defects(c).filter(d=>!(c.used||{})[d.id]).reduce((a,d)=>a+d.p,0)}
+function useArg(ch,c,d){c.used=c.used||{};if(c.used[d.id])return;c.used[d.id]=1;push(ch,{me:1,text:d.m+' Скидывай.'});const old=c.ask;c.ask=r1k(c.ask*(1-d.p));c.agreed=0;ch.off=Math.min(ch.off||c.ask,c.ask);S.cnt.arg=(S.cnt.arg||0)+1;
+ say(ch,{text:d.r+` Новая цена: <b class="sum">${fmt(c.ask)}</b> вместо ${fmt(old)}.`});save()}
 function chk(k,ic,t,s,p,res){return `<button class="chk${res?' done':''}" data-c="${k}"><span class="ic">${I(res?'check':ic)}</span><span class="t"><b>${t}</b><small>${res||s}</small></span><span class="p">${res?'':p}</span></button>`}
-function openListing(id){const c=S.list.find(x=>x.id===id);if(!c)return;const m=M(c.model),sl=SELLERS[c.seller],k=c.checks;
+function openListing(id,keep){const c=S.list.find(x=>x.id===id);if(!c)return;const m=M(c.model),sl=SELLERS[c.seller],k=c.checks;
  const est=value(c,true),real=value(c);
  let h=`<div class="hero"><span class="ph">${I('camera')}фото продавца</span>${carSVG(c)}</div>
  <div class="st">${m[1]}, ${c.year}</div><div class="sub">${c.color[0]} · заявлено ${km(c.kmClaim)} · ${c.city}</div>
@@ -552,24 +574,24 @@ function openListing(id){const c=S.list.find(x=>x.id===id);if(!c)return;const m=
  ${has('nose')?`<div class="hint" style="text-align:left">${I('eye')} Чутьё подсказывает: реально стоит ~<b style="color:${real>c.ask?'var(--green)':'var(--red)'}">${fk(real*R(.95,1.05))}</b></div>`:''}
  <div class="who">${ava(sl.n,c.seller+1)}<div class="t"><b>${sl.n}</b><small>${esc(c.said)}</small></div></div>
  <div class="h"><span>Проверка</span></div>
- ${chk('paint','gauge','Толщиномер','Крашеные детали, следы ДТП',fmt(paintCost),k.paint?(c.crash?'<span class="minus">Битая: крыло и дверь в шпаклёвке</span>':'<span class="plus">Краска родная</span>')+` · кузов ${c.body}%`:'')}
- ${chk('base','search','Проверка по базе','Реальный пробег, залоги, ДТП',has('base')?'бесплатно':I('play')+fk(baseCost(c)),k.base?((c.km!==c.kmClaim?`<span class="minus">Скручен! Реально ${km(c.km)}</span>`:'<span class="plus">Пробег родной</span>')+(c.lien?' · <span class="minus">в залоге</span>':' · залогов нет')):'')}
- ${chk('diag','chip','Диагностика','Двигатель, коробка, салон',has('obd')?'бесплатно':fmt(diagCost(c)),k.diag?`Мотор ${c.engine}% · Коробка ${c.gear}% · Салон ${c.inter}%`:'')}
+ ${chk('paint','gauge','Толщиномер','Крашеные детали, следы ДТП',fmt(paintCost(c)),k.paint?(c.crash?'<span class="minus">Битая: крыло и дверь в шпаклёвке</span>':'<span class="plus">Краска родная</span>')+` · кузов ${c.body}%`:'')}
+ ${chk('base','search','Проверка по базе','Реальный пробег, залоги, ДТП',has('base')?'бесплатно':fmt(baseCost(c)),k.base?((c.km!==c.kmClaim?`<span class="minus">Скручен! Реально ${km(c.km)}</span>`:'<span class="plus">Пробег родной</span>')+(c.lien?' · <span class="minus">в залоге</span>':' · залогов нет')):'')}
+ ${chk('diag','chip','Диагностика','Двигатель, коробка, салон',has('obd')?'бесплатно':fmt(diagCost(c)),k.diag?`Мотор ${c.engine}% · Коробка ${c.gear}% · Салон ${c.inter}%<br>Ремонт ≈ <b style="color:var(--txt)">${fmt(repairAll(c))}</b>`:'')}
  <div class="btns" style="margin-top:12px"><button class="btn tg" id="wr">${I('chat')}Написать</button><button class="btn y" id="bb">${I('key')}Купить</button></div>
- <div class="hint">${S.cars.length>=S.slots?'Гараж забит — продай машину или купи место':'Торговаться выгоднее в переписке. Найденные косяки сбивают цену.'}</div>`;
- sheet(h);
+ <div class="hint">${S.cars.length>=S.slots?'Гараж забит — продай машину или купи место':defects(c).length?'<span style="color:var(--acc)">Найдено косяков: '+defects(c).length+'. Напиши продавцу и сбей цену!</span>':'Торговаться выгоднее в переписке. Найденные косяки сбивают цену.'}</div>`;
+ sheet(h,keep);
  $('#sbox').querySelectorAll('[data-c]').forEach(b=>b.onclick=()=>doCheck(c,b.dataset.c));
  $('#wr').onclick=()=>sellerChat(c);$('#bb').onclick=()=>confirmBuy(c,c.ask)}
-function doCheck(c,k){if(c.checks[k])return;const fin=()=>{c.checks[k]=1;S.f.checks++;hap('light');achCheck();save();openListing(c.id);render()};
- if(k==='paint'){if(S.money<paintCost)return toast('Не хватает денег','alert');S.money-=paintCost;hud();return fin()}
- if(k==='base'){if(has('base'))return fin();const p=baseCost(c);return modal('search','b','Проверка по базе','Посмотри рекламу или заплати '+fmt(p)+'.',[[I('play')+'Смотреть рекламу','ad',()=>showAd(fin)],['Заплатить '+fmt(p),'',()=>{if(S.money<p)return toast('Не хватает денег','alert');S.money-=p;hud();fin()}],['Отмена']])}
+function doCheck(c,k){if(c.checks[k])return;const fin=()=>{c.checks[k]=1;S.f.checks++;S.cnt.check=(S.cnt.check||0)+1;if(k==='base'&&c.km!==c.kmClaim)S.cnt.twist=(S.cnt.twist||0)+1;hap('light');achCheck();save();openListing(c.id,true);render();const fd=defects(c).filter(d=>d.k===k||(k==='paint'&&(d.id==='crash'||d.id==='rust'))||(k==='diag'&&(d.id==='engine'||d.id==='gear'))||(k==='base'&&(d.id==='km'||d.id==='lien')));if(fd.length)toast('Нашёл косяк! Используй в торге: −'+Math.round(fd.reduce((a,d)=>a+d.p,0)*100)+'%','search')};
+ if(k==='paint'){const pc=paintCost(c);if(S.money<pc)return toast('Не хватает денег','alert');S.money-=pc;hud();return fin()}
+ if(k==='base'){if(has('base'))return fin();const p=baseCost(c);return modal('search','b','Проверка по базе','Отчёт: реальный пробег, залоги, ДТП. Стоит '+fmt(p)+'.',[['Заплатить '+fmt(p),'y',()=>{if(S.money<p)return toast('Не хватает денег','alert');S.money-=p;hud();fin()}],[I('play')+'Бонус: бесплатно за рекламу','ad',()=>showAd(fin)],['Отмена']])}
  if(has('obd'))return fin();const p=diagCost(c);if(S.money<p)return toast('Не хватает денег','alert');S.money-=p;hud();fin()}
 function buyListing(c,price,ch){if(!S.list.includes(c))return;if(S.cars.length>=S.slots)return toast('Гараж забит','garage');if(S.money<price)return toast('Не хватает '+fmt(price-S.money),'alert');
  S.money-=price;S.list=S.list.filter(x=>x.id!==c.id);Object.assign(c,{paid:price,spent:0});S.cars.push(c);S.bought++;hap('ok');
  const chat=ch||S.chats.find(x=>x.key==='s'+c.id);if(chat)push(chat,{sys:1,text:`Сделка: ${fmt(price)}. Машина твоя`});
  const s=[];if(!c.checks.base&&c.km!==c.kmClaim)s.push('пробег скручен — реально '+km(c.km));if(!c.checks.base&&c.lien)s.push('машина в залоге у банка');if(!c.checks.paint&&c.crash)s.push('битая, полкузова в шпаклёвке');if(!c.checks.diag&&c.engine<40)s.push('мотор жрёт масло');
  c.checks={paint:1,base:1,diag:1};if(s.length)S.f.surprise=1;achCheck();save();closeSheet();closeChat();
- const v=value(c);
+ const v=r1k(value(c));render();
  if(s.length)modal('alert','r','Сюрприз!','Пригнал в гараж, а там: '+s.join(', ')+'. По рынку сейчас ~'+fmt(v)+'.',[['Ну, бывает…','y',()=>{view='garage';render()}]]);
  else modal('key','g','Куплено!',M(c.model)[1]+' теперь твоя. По рынку ~'+fmt(v)+'. Подлатай и продавай.',[['В гараж','y',()=>{view='garage';render()}]])}
 
@@ -595,7 +617,7 @@ $('#gX').onclick=()=>{if(G.playing)modal('alert','r','Бросить работ�
 function gHud(t,score){$('#gT').textContent=t;$('#gS').innerHTML=score}
 function gTimebar(p){$('#gBar').style.width=clamp(p,0,1)*100+'%'}
 function runJob(job,pay,startFn,finish){gClean();G.playing=false;$('#game').classList.add('on');$('#gTitle').textContent=job.n;gHud('','');gTimebar(1);
- const A=$('#garea');A.innerHTML=`<div class="gintro"><div class="gic">${I(job.ic)}</div><div class="gbig">${job.n}</div><p>${job.rules}</p><div class="sumbox"><div>${I('cash')}Оплата до<b>${fmt(r1k(pay*1.2))}</b></div><div>${I('sun')}Время<b>${job.time}</b></div></div><button class="btn y" id="gGo">${I('play')}Начать</button></div>`;
+ const A=$('#garea');A.innerHTML=`<div class="gintro"><div class="gic">${I(job.ic)}</div><div class="gbig">${job.n}</div><p>${job.rules}</p><div class="sumbox"><div>${I('cash')}Оплата до<b>${fmt(r1k(pay*1.2))}</b></div><div>${I('sun')}Время<b>${job.time}</b></div></div><button class="btn y" id="gGo">${I('bolt')}Начать</button></div>`;
  $('#gGo').onclick=()=>{A.innerHTML='';G.playing=true;hap('medium');startFn(A,score=>{if(!G.playing)return;G.playing=false;gClean();score=clamp(score,0,1.2);const got=r1k(pay*score);hap(score>.5?'ok':'err');
    A.innerHTML=`<div class="gintro"><div class="gic ${score>=.8?'g':score>=.4?'':'r'}">${I(score>=.8?'trophy':score>=.4?'check':'alert')}</div><div class="gbig">${score>=1?'Идеально!':score>=.8?'Отлично!':score>=.4?'Нормально':'Так себе'}</div><p>Результат ${Math.round(score*100)}%</p><div class="big plus" style="margin:6px 0 14px">+${fmt(got)}</div>
    <button class="btn y" id="gTake">Забрать</button>${got>0?`<button class="btn ad" id="gX2">${I('play')}Забрать x2 за рекламу</button>`:''}</div>`;
@@ -697,7 +719,7 @@ function gAuction(A,end){const N=5;let n=0,ok=0,L;
  lot()}
 
 /* ===== лимит дней ===== */
-const DMAX=5,DREGEN=10*60*1000,DCOOL=1500;let lastDayPress=0;
+const DMAX=8,DREGEN=5*60*1000,DCOOL=1500;let lastDayPress=0;
 function days(){const now=Date.now();if(S.en===undefined){S.en=DMAX;S.enT=now}
  if(S.en<DMAX){const add=Math.floor((now-S.enT)/DREGEN);if(add>0){S.en=Math.min(DMAX,S.en+add);S.enT=S.en>=DMAX?now:S.enT+add*DREGEN}}else S.enT=now;return S.en}
 const nextIn=()=>{const ms=Math.max(0,DREGEN-(Date.now()-S.enT));const m=ms/60000|0,s=(ms%60000)/1000|0;return m+':'+String(s).padStart(2,'0')};
@@ -706,7 +728,7 @@ setInterval(()=>{dayBtn()},1000);
 function askNextDay(){const now=Date.now();if(now-lastDayPress<DCOOL)return;lastDayPress=now;
  if($('#modal').classList.contains('on'))return;
  const e=days();
- if(e<1)return modal('sun','b','Дни закончились','Новый день появится через '+nextIn()+'. Максимум '+DMAX+' дней в запасе, +1 каждые 10 минут.',[[I('play')+'Реклама: +3 дня','ad',()=>showAd(()=>{S.en=Math.min(DMAX+3,S.en+3);save();dayBtn();toast('+3 дня','sun')})],['Подожду']]);
+ if(e<1)return modal('sun','b','Дни закончились','Новый день появится через '+nextIn()+'. Максимум '+DMAX+' дней в запасе, +1 каждые 5 минут.',[[I('play')+'Реклама: +3 дня','ad',()=>showAd(()=>{S.en=Math.min(DMAX+3,S.en+3);save();dayBtn();toast('+3 дня','sun')})],['Подожду']]);
  const rep=S.cars.filter(c=>c.repairing).length,offers=S.chats.filter(x=>x.kind==='buyer'&&x.offer).length,old=S.list.filter(c=>c.age>=2).length,un=S.chats.reduce((n,c)=>n+c.unread,0);
  const rows=[[ 'wrench','Закончится ремонт',rep],['chat','Непрочитанных сообщений',un],['handshake','Предложения ждут ответа',offers],['alert','Объявлений снимут',old]].filter(r=>r[2]);
  modal('sun','','Начать день '+(S.day+1)+'?','Дней в запасе: '+e+' из '+DMAX+'.',[['Начать день','y',()=>{S.en--;if(S.en<DMAX&&e>=DMAX)S.enT=Date.now();save();dayBtn();nextDay()}],['Отмена']],
@@ -715,16 +737,18 @@ function askNextDay(){const now=Date.now();if(now-lastDayPress<DCOOL)return;last
 /* ===== гараж ===== */
 const repCost=(c,p)=>Math.max(500,Math.round((p==='crash'?vbase(c)*.13:vbase(c)*PARTS.find(x=>x[0]===p)[3]*Math.max(0,95-c[p])/100)*1.3*(has('meh')?.75:1)/500)*500);
 const lienCost=c=>r1k(M(c.model)[3]*.22);
+const repairAll=c=>PARTS.reduce((a,p)=>a+(c[p[0]]<90?repCost(c,p[0]):0),0)+(c.crash?repCost(c,'crash'):0);
+const washCost=c=>Math.max(500,r500(value(c)*.012));
 function rep(k,ic,t,s,p){return `<button class="chk" data-r="${k}"><span class="ic">${I(ic)}</span><span class="t"><b>${t}</b><small>${s}</small></span><span class="p">${p}</span></button>`}
 function openCar(id){const c=S.cars.find(x=>x.id===id);if(!c)return;const m=M(c.model),v=value(c),fr=c.owner?FRIENDS.find(f=>f.id===c.owner):null;
  let h=`<div class="hero">${carSVG(c)}</div><div class="st">${m[1]}, ${c.year}</div><div class="sub">${c.color[0]} · ${km(c.km)}${c.crash?' · <span class="minus">битая</span>':''}${fr?` · <span style="color:var(--blue)">машина друга: ${fr.n}</span>`:''}</div>
  <div class="grid">${fr?`<div class="kv"><small>${I('handshake')}Другу на руки</small><b>${fmt(c.want)}</b></div>`:`<div class="kv"><small>${I('cash')}Вложено</small><b>${fmt(c.paid+c.spent)}</b></div>`}<div class="kv"><small>${I('chart')}Рынок сейчас</small><b style="color:var(--acc)">${fmt(v)}</b></div>
- ${PARTS.map(p=>`<div class="kv"><small>${I(p[2])}${p[1]}</small><b>${c[p[0]]}%</b>${bar(c[p[0]])}</div>`).join('')}</div>`;
+ ${PARTS.map(p=>`<div class="kv"><small>${I(p[2])}${p[1]}</small><b>${c[p[0]]}%</b>${bar(c[p[0]])}${c[p[0]]<90?`<small style="margin-top:4px">ремонт ≈ ${fmt(repCost(c,p[0]))}</small>`:''}</div>`).join('')}</div>`;
  if(c.repairing)h+=`<div class="who">${ava('Саныч',1)}<div class="t"><b>Саныч</b><small>Делаю, завтра будет готово.</small></div></div><button class="btn ad" id="rush">${I('play')}Закончить сейчас</button>`;
  else if(!c.onSale&&!fr){h+=`<div class="h"><span>Ремонт у Саныча</span><span>1 день${has('meh')?' · −25%':''}</span></div>`;
   if(c.crash)h+=rep('crash','car','Кузовной после ДТП','+18% к цене',fmt(repCost(c,'crash')));
   PARTS.forEach(p=>{if(c[p[0]]<90)h+=rep(p[0],p[2],p[1]+' до 95%','сейчас '+c[p[0]]+'%',fmt(repCost(c,p[0])))});
-  if(!c.washed)h+=rep('wash','spark','Мойка и полировка','+'+(has('wash')?7:5)+'% к цене',has('wash')?'бесплатно':fmt(3500));
+  if(!c.washed)h+=rep('wash','spark','Мойка и полировка','+'+(has('wash')?7:5)+'% к цене',has('wash')?'бесплатно':fmt(washCost(c)));
   if(c.lien)h+=rep('lien','bank','Погасить залог','без этого не продать',fmt(lienCost(c)))}
  if(!c.repairing&&!c.onSale){const done=S.jobs&&S.jobs['car'+c.id]===S.day,pay=taxiPay(c);h+=`<div class="h"><span>Подзаработать</span><span>раз в день</span></div>`+rep2('taxi','car',fr?'Потаксовать на машине друга':'Потаксовать на ней',done?'Сегодня уже катался':'Мотор −2…5%, пробег +300…800 км',done?'':'+'+fmt(pay),done)}
  h+=`<div class="h"><span>Продажа</span></div>`;
@@ -736,7 +760,7 @@ function openCar(id){const c=S.cars.find(x=>x.id===id);if(!c)return;const m=M(c.
  sheet(h);const bx=$('#sbox');
  bx.querySelectorAll('[data-r]').forEach(b=>b.onclick=()=>doRepair(c,b.dataset.r));
  const sr=$('#sr');if(sr){const upd=()=>{const p=+sr.value,r=p/v,pr=fr?p-c.want:p-c.paid-c.spent;$('#sv').textContent=fmt(p);$('#sh').innerHTML=(r<.95?'Улетит быстро':r<1.12?'Нормальная цена':r<1.3?'Дорого, будут торговаться':'Сильно дорого — писать не будут')+` · ${fr?'твоя доля':'прибыль'} <span class="${pr>=0?'plus':'minus'}">${pr>=0?'+':''}${fk(pr)}</span>`};sr.oninput=upd;upd();
-  $('#list').onclick=()=>{if(c.lien)return toast('Машина в залоге — сначала погаси','bank');c.onSale=true;c.salePrice=+sr.value;hap('light');const n=genOffers(c,1.2);save();openCar(c.id);render();if(n)toast('Уже пишут покупатели!','chat')}}
+  $('#list').onclick=()=>{if(c.lien)return toast('Машина в залоге — сначала погаси','bank');c.onSale=true;c.salePrice=+sr.value;hap('light');S.cnt.list=(S.cnt.list||0)+1;const n=genOffers(c,1.6,S.sold===0);save();openCar(c.id);render();if(n)toast('Уже пишут покупатели!','chat')}}
  const rush=$('#rush');if(rush)rush.onclick=()=>showAd(()=>{finishRepair(c);save();openCar(c.id);render()});
  const bump=$('#bump');if(bump)bump.onclick=()=>showAd(()=>{if(!genOffers(c,2.5))genOffers(c,9);save();openCar(c.id);render();toast('Объявление в топе — пишут!','fire')});
  const un=$('#unlist');if(un)un.onclick=()=>{c.onSale=false;S.chats.filter(x=>x.cid===c.id).forEach(x=>x.offer=null);save();openCar(c.id);render()};
@@ -747,7 +771,7 @@ function doRepair(c,k){if(k==='taxi'){S.jobs=S.jobs||{};if(S.jobs['car'+c.id]===
   return runJob({n:'Такси: '+M(c.model)[1],ic:'car',rules:'Вечерняя смена в такси. Объезжай ямы и машины, подбирай бонусы. Три удара — смена окончена. Мотор немного износится.',time:'35 сек'},taxiPay(c),(A,e)=>gRoad(A,e,{dur:35,taxi:1,col:c.color[1]}),(got,score)=>{
    S.jobs['car'+c.id]=S.day;c.engine=Math.max(10,c.engine-RI(2,5));c.inter=Math.max(10,c.inter-RI(0,3));const tw=c.kmClaim!==c.km;c.km+=RI(300,800);if(!tw)c.kmClaim=c.km;
    S.money+=got;save();render();toast(pick(['Возил студентов до общаги.','Ночная смена: клубы, аэропорт.','Пассажир учил тебя перекупать.'])+' +'+fmt(got),'car')})}
-const p=k==='wash'?(has('wash')?0:3500):k==='lien'?lienCost(c):repCost(c,k);
+const p=k==='wash'?(has('wash')?0:washCost(c)):k==='lien'?lienCost(c):repCost(c,k);
  if(S.money<p)return toast('Не хватает '+fmt(p-S.money),'alert');S.money-=p;c.spent+=p;hap('light');
  if(k==='wash'){c.washed=true;toast('Блестит как новая','spark')}
  else if(k==='lien'){c.lien=false;toast('Залог погашен','bank')}
@@ -756,10 +780,10 @@ const p=k==='wash'?(has('wash')?0:3500):k==='lien'?lienCost(c):repCost(c,k);
 function finishRepair(c){(c.repairing||[]).forEach(k=>{if(k==='crash'){c.crash=false;c.body=Math.max(c.body,80)}else c[k]=95});c.repairing=null}
 
 /* ===== продажа ===== */
-function genOffers(c,boost=1){const v=value(c),r=c.salePrice/v;const p=clamp((1.45-r)*.75*boost*(has('pro')?1.4:1)*(has('lot')?1.4:1),.04,.97);let n=0;
- for(let i=0;i<3;i++)if(Math.random()<p*(i?.45:1)){const sum=r1k(Math.max(v*.72,c.salePrice*R(.86,1)));const nm=pick(BUYERS);
-  const bc=chatGet('b'+c.id+nm,{kind:'buyer',cid:c.id,name:nm,c:RI(0,7),st:'по объявлению: '+M(c.model)[1]});
-  if(bc.offer)continue;bc.offer={sum,day:S.day};push(bc,{text:pick(BLINES).replace('{x}',`<b class="sum">${fmt(sum)}</b>`)});n++}
+function genOffers(c,boost=1,force){const v=value(c),r=c.salePrice/v;const p=clamp((1.65-r)*1.1*boost*(has('pro')?1.4:1)*(has('lot')?1.4:1)*(S.badUntil>=S.day?.5:1),.06,.97);let n=0;
+ for(let i=0;i<3;i++)if((force&&i===0)||Math.random()<p*(i?.45:1)){const bt=force?BTYPES[0]:pick(BTYPES),nm=pick(bt.nm);const sum=r1k(Math.max(v*.66,c.salePrice*R(bt.lo,bt.hi)));
+  const bc=chatGet('b'+c.id+nm,{kind:'buyer',cid:c.id,name:nm,c:RI(0,7),st:bt.st+' · '+M(c.model)[1],bt:BTYPES.indexOf(bt)});
+  if(bc.offer)continue;bc.offer={sum,day:S.day};push(bc,{text:pick(bt.l).replace('{x}',`<b class="sum">${fmt(sum)}</b>`)});n++}
  return n}
 function sell(c,sum,ch){if(!S.cars.includes(c))return;const fr=c.owner?FRIENDS.find(f=>f.id===c.owner):null;
  const cost=fr?c.want:c.paid+c.spent,profit=sum-cost;S.money+=fr?sum-c.want:sum;S.cars=S.cars.filter(x=>x.id!==c.id);S.sold++;S.profit+=profit;if(profit>0)S.xp+=profit;
@@ -784,7 +808,7 @@ function achCheck(){ACH.forEach(a=>{if(!S.ach.includes(a[0])&&a[4](S)){S.ach.pus
 
 /* ===== день ===== */
 const EVENTS=[['siren','r','Остановили гайцы','Штраф за тонировку.',-1500],['cash','g','Нашёл в бардачке','Кто-то забыл заначку.',3000],['cat','b','Кот под капотом','Выманивал колбасой. Минус колбаса.',-300],['phone','g','Ролик залетел','Твой ролик про перекуп набрал миллион. Рекламодатель скинул денег.',8000],['alert','b','Налоговая','Пришло письмо. Пока просто письмо.',0]];
-const bonusAmt=()=>r1k(Math.max(10000,LV[level()]*.025));
+const bonusAmt=()=>r1k(Math.max(3000,(LV[level()+1]||LV[9])*.04));
 function nextDay(){S.day++;S.clock=RI(480,600);S.list.forEach(c=>c.age++);refill();
  S.chats.filter(x=>x.kind==='seller'&&!x.closed).forEach(ch=>{if(!S.list.find(c=>c.id===ch.lid)&&!S.cars.find(c=>c.id===ch.lid)){ch.closed=1;push(ch,{sys:1,text:'Объявление снято с продажи'})}});
  S.cars.forEach(c=>{if(c.repairing){finishRepair(c);push(friendChat(FRIENDS[3]),{text:`${M(c.model)[1]} готова, забирай. Сделал как себе.`})}});
@@ -799,10 +823,30 @@ function nextDay(){S.day++;S.clock=RI(480,600);S.list.forEach(c=>c.age++);refill
  const today=new Date().toDateString(),bonus=S.lastBonus!==today;if(bonus)S.lastBonus=today;
  achCheck();hap('medium');save();render();
  if(bonus)return modal('gift','','Ежедневный бонус','Заходи каждый день — бонус растёт с уровнем.',[['Забрать '+fmt(bonusAmt()),'y',()=>{S.money+=bonusAmt();save();render()}],[I('play')+'Забрать x3','ad',()=>showAd(()=>{S.money+=bonusAmt()*3;save();render()})]]);
- if(Math.random()<.16){const e=pick(EVENTS);S.money=Math.max(0,S.money+e[4]);save();render();return modal(e[0],e[1],e[2],e[3]+(e[4]?` (${e[4]>0?'+':''}${fmt(e[4])})`:''),[['Ок','y']])}
+ if(S.pool&&S.pool.day<S.day){const pl=S.pool;S.pool=null;const ok=Math.random()<.6;if(ok)S.money+=r1k(pl.sum*1.5);save();render();return modal(ok?'coins':'alert',ok?'g':'r',ok?'Лот выстрелил!':'Лот прогорел',ok?'Перекупы продали машину. Твоя доля: +'+fmt(r1k(pl.sum*1.5)):'Машина оказалась утопленником. Вложенные '+fmt(pl.sum)+' сгорели.',[['Ок','y']])}
+ if(Math.random()<.3)return dayEvent();
  const un=S.chats.reduce((n,c)=>n+c.unread,0);toast(un?`День ${S.day}: новых сообщений — ${un}`:`День ${S.day}: новые объявления`,un?'chat':'sun')}
 $('#nextDay').onclick=askNextDay;
+function dayEvent(){const r=Math.random();
+ if(r<.22){const e=pick(EVENTS);S.money=Math.max(0,S.money+e[4]);save();render();return modal(e[0],e[1],e[2],e[3]+(e[4]?` (${e[4]>0?'+':''}${fmt(e[4])})`:''),[['Ок','y']])}
+ if(r<.45){const pay=r1k(Math.max(2000,bonusAmt()*.8));return modal('pin','b','Сосед просит помочь','Надо перегнать его машину в сервис на другой конец города. Заплатит '+fmt(pay)+'.',[['Помочь','y',()=>{S.money+=pay;save();render();toast('Сосед доволен: +'+fmt(pay),'handshake')}],['Некогда','']])}
+ if(r<.65&&S.deals.length){const d=S.deals[S.deals.length-1],ret=r1k(Math.max(1000,d.sell*.06));return modal('alert','r','Покупатель вернулся',`Тот, кто купил ${d.name}, пишет: «Стучит мотор! Верни ${fmt(ret)} на ремонт, или напишу отзыв везде».`,[['Вернуть '+fmt(ret),'y',()=>{S.money=Math.max(0,S.money-ret);save();render();toast('Конфликт улажен','handshake')}],['Послать','r',()=>{if(Math.random()<.5){S.badUntil=S.day+2;toast('Он написал плохой отзыв: 2 дня покупатели пишут реже','alert')}else toast('Пошумел и успокоился','check');save()}]])}
+ if(r<.85){const sum=r1k(Math.max(5000,S.money*.12));return modal('users','b','Перекупы зовут в долю',`Знакомые берут машину с аукциона, не хватает ${fmt(sum)}. Обещают вернуть в полтора раза — но бывает всякое.`,[['Вложить '+fk(sum),'y',()=>{if(S.money<sum)return toast('Не хватает денег','alert');S.money-=sum;S.pool={sum,day:S.day};save();render();toast('Вложился. Узнаешь завтра','coins')}],['Не, рискованно','']])}
+ const c=S.cars.find(x=>!x.onSale&&!x.repairing);if(c){const pay=r1k(Math.max(3000,value(c)*.04));return modal('camera','b','Аренда под съёмку','Блогер хочет снять ролик с твоей '+M(c.model)[1]+'. Платит '+fmt(pay)+', но вернёт в пыли.',[['Сдать','y',()=>{S.money+=pay;c.washed=false;save();render();toast('+'+fmt(pay),'camera')}],['Нет','']])}
+ toast(`День ${S.day}: новые объявления`,'sun')}
 const bankChat=()=>chatGet('bank',{kind:'bank',name:'Банк Копейка',c:2,st:'официальный канал'});
+
+/* ===== обучение и цели ===== */
+const TUT=[['Открой Девятку на доске и проверь её по базе',s=>(s.cnt.check||0)>=1,3000],['Нашёл косяк? Напиши продавцу и сбей цену аргументом',s=>(s.cnt.arg||0)>=1,3000],['Купи машину',s=>s.bought>=1,3000],['В гараже выставь машину на продажу',s=>(s.cnt.list||0)>=1,2000],['Продай машину покупателю из чатов',s=>s.sold>=1,8000]];
+const GOALS=[['check','Сделай 3 проверки',3],['buy','Купи машину',1],['sell','Продай машину',1],['arg','Сбей цену аргументом',1],['job','Выполни подработку',1],['twist','Найди скрученный пробег',1]];
+const cntVal=k=>k==='buy'?S.bought:k==='sell'?S.sold:(S.cnt[k]||0);
+function goalsFor(){if(!S.goals||S.goals.day!==S.day){const g=GOALS.slice().sort(()=>Math.random()-.5).slice(0,2);S.goals={day:S.day,list:g.map(x=>({k:x[0],n:x[1],need:x[2],from:cntVal(x[0]),got:0}))};save()}return S.goals}
+const goalReward=()=>r1k(Math.max(2000,(LV[level()+1]||LV[9])*.03));
+function goalsHTML(){if(S.tut<TUT.length){const t=TUT[S.tut],done=t[1](S);return `<div class="card" style="display:block;border-color:rgba(255,196,0,.4)"><div class="row"><span class="tag y">${I('star')}Обучение ${S.tut+1}/${TUT.length}</span><span style="margin-left:auto;color:var(--green);font-weight:800">+${fk(t[2])}</span></div><b style="display:block;margin-top:6px">${t[0]}</b>${done?`<button class="btn y" id="tutGo" style="margin:8px 0 0">${I('check')}Забрать награду</button>`:''}</div>`}
+ const g=goalsFor();return `<div class="h"><span>Цели дня</span><span>+${fk(goalReward())} за каждую</span></div>`+g.list.map((x,i)=>{const v=Math.min(x.need,cntVal(x.k)-x.from),ok=v>=x.need;return `<div class="chk${x.got?' done':''}"><span class="ic">${I(x.got?'check':ok?'gift':'star')}</span><span class="t"><b>${x.n}</b><small>${x.got?'награда получена':v+' / '+x.need}</small></span>${ok&&!x.got?`<button class="btn y" data-goal="${i}" style="margin:0;width:auto;padding:8px 12px">Забрать</button>`:''}</div>`}).join('')}
+function bindGoals(){const tg_=$('#tutGo');if(tg_)tg_.onclick=()=>{const t=TUT[S.tut];S.money+=t[2];S.tut++;hap('ok');toast('Награда: +'+fmt(t[2]),'gift');if(S.tut>=TUT.length)setTimeout(()=>modal('trophy','g','Обучение пройдено!','Теперь ты знаешь, как работает перекуп. Каждый день будут новые цели с наградами.',[['Погнали','y']]),400);save();render()};
+ document.querySelectorAll('[data-goal]').forEach(b=>b.onclick=()=>{const x=S.goals.list[+b.dataset.goal];if(x.got)return;x.got=1;S.money+=goalReward();hap('ok');toast('Цель выполнена: +'+fmt(goalReward()),'gift');save();render()})}
+function tutCar(){const si=1,sl=SELLERS[si];const c=makeCar({n:'',lie:0,crash:0,cond:[60,75]});Object.assign(c,{model:'devyatka',year:2008,km:290000,kmClaim:150000,engine:70,gear:66,body:62,inter:58,crash:false,lien:false,color:['Серебро','#a9b1bc'],seller:si,said:'Не бита, не крашена, брат. Пробег 150 тысяч, родной. Один хозяин.',age:-5,minF:.86,pat:3,pmax:3,city:'Симферополь'});c.ask=r1k(value(c)*1.2);return c}
 
 /* ===== экраны ===== */
 let view='board',ptab='stats';
@@ -815,7 +859,7 @@ function hud(){
  const un=S.chats.reduce((n,c)=>n+c.unread,0);const cb=$('#cbadge');cb.style.display=un?'block':'none';cb.textContent=un}
 function render(){hud();document.querySelectorAll('.nb').forEach(b=>b.classList.toggle('on',b.dataset.v===view));
  const W=$('#main');let h='';
- if(view==='board'){
+ if(view==='board'){h+=goalsHTML();
   if(S.money<Math.max(40000,(S.list.reduce((m,c)=>Math.min(m,c.ask),1e12))))h+=`<button class="card" id="goJob" style="border-color:rgba(53,208,127,.35)"><div class="ic" style="width:44px;height:44px;border-radius:12px;background:rgba(53,208,127,.14);color:var(--green);display:grid;place-items:center">${I('coins')}</div><div class="ci"><b>Мало денег? Подзаработай</b><small>Подработки, такси на своей машине, ролики</small></div></button>`;
   const fr=S.chats.filter(x=>x.kind==='friend'&&x.ev&&x.ev.type==='sell');
   if(fr.length)h+=`<div class="h"><span>Друзья продают</span><span>по-братски</span></div>`+fr.map(ch=>{const c=ch.ev.car;return `<button class="card" data-ch="${ch.key}"><div class="thumb">${carSVG(c)}</div><div class="ci"><b>${M(c.model)[1]}, ${c.year}</b><small>${fk(c.kmClaim)} км · ${c.color[0]}</small><div class="price">${fmt(ch.ev.price)}</div><span class="tag b">${I('users')}${ch.name}</span></div></button>`}).join('');
@@ -849,10 +893,11 @@ function render(){hud();document.querySelectorAll('.nb').forEach(b=>b.classList.
  const inv=$('#invite');if(inv)inv.onclick=()=>share(null);
  const bs=$('#buySlot');if(bs)bs.onclick=()=>{const p=SLOTP[S.slots+1];if(S.money<p)return toast('Не хватает денег','alert');modal('garage','','Купить место в гараже?','Ещё одно место за '+fmt(p)+'.',[['Купить за '+fk(p),'y',()=>{S.money-=p;S.slots++;hap('ok');toast('Новое место в гараже','key');save();render()}],['Отмена']])};
  if(view==='me')bindProfile();
+ if(view==='board')bindGoals();
  if(view==='job'){W.querySelectorAll('[data-job]').forEach(b=>b.onclick=()=>doJob(b.dataset.job));W.querySelectorAll('[data-taxi]').forEach(b=>b.onclick=()=>{const c=S.cars.find(x=>x.id===+b.dataset.taxi);if(c)doRepair(c,'taxi')});const a2=$('#adMoney2');if(a2)a2.onclick=()=>showAd(()=>{S.money+=bonusAmt();toast('Брат подкинул '+fmt(bonusAmt()),'cash');save();render()})}}
 
 const BOTN=['Ашот','Сява','Тимур Крымский','Гена Автохаус','Лёха Перекуп','Рома Альфач','Дядя Вова','Бекхан','Артур 777','Славик','Мага','Денис Тачки'];
-function rankList(){const base=Math.max(3e5,S.profit*1.6);const arr=BOTN.map((n,i)=>{const p=r1k(base*Math.pow(.78,i)*(1+((i*37)%10)/40));let l=0;LV.forEach((v,j)=>{if(p>=v)l=j});return {n,c:i,p,l}});arr.push({n:S.name,c:S.ac,p:S.profit,l:level(),me:1});return arr.sort((a,b)=>b.p-a.p)}
+function rankList(){const base=Math.max(2e5,S.profit*1.6);const arr=BOTN.map((n,i)=>{const p=r1k(base*Math.pow(.78,i)*(1+((i*37)%10)/40));let l=0;LV.forEach((v,j)=>{if(p>=v)l=j});return {n,c:i,p,l}});if(S.sold)arr.push({n:S.name,c:S.ac,p:S.profit,l:level(),me:1});return arr.sort((a,b)=>b.p-a.p)}
 const rankPlace=()=>rankList().findIndex(r=>r.me)+1;
 const credLim=()=>r1k(Math.max(1e5,(LV[level()+1]||1e8)*.5));
 function jobHTML(){let h='';const l=level();h+=`<div class="h"><span>Подработка</span><span>раз в игровой день</span></div>`+JOBS.map(j=>{const lock=l+1<j.lv,done=S.jobs&&S.jobs[j.id]===S.day,pay=jobPay(j);return `<button class="chk${done?' done':''}" data-job="${j.id}"${lock||done?' disabled':''} style="${lock?'opacity:.45':''}"><span class="ic">${I(done?'check':lock?'lock':j.ic)}</span><span class="t"><b>${j.n}</b><small>${lock?'Откроется на '+j.lv+' уровне':done?'Сделано сегодня':j.d}</small></span><span class="p" style="color:var(--green)">${lock||done?'':(j.ad?I('play'):'')+'+'+fk(pay)}</span></button>`}).join('');
@@ -863,7 +908,7 @@ function jobHTML(){let h='';const l=level();h+=`<div class="h"><span>Подра�
  h+=`<button class="btn ad" id="adMoney2">${I('play')}Занять у брата +${fmt(bonusAmt())}</button>`;
  return h}
 function profileHTML(){const l=level();
- let h=`<div class="prof">${ava(S.name,S.ac)}<div class="t"><b>${esc(S.name)}<button id="edName" style="color:var(--mute)">${I('edit')}</button></b><small>${LVN[l]} · ур. ${l+1}</small><small>${I('trophy')}${rankPlace()} место в Крыму</small></div></div>
+ let h=`<div class="prof">${ava(S.name,S.ac)}<div class="t"><b>${esc(S.name)}<button id="edName" style="color:var(--mute)">${I('edit')}</button></b><small>${LVN[l]} · ур. ${l+1}</small><small>${I('trophy')}${S.sold?rankPlace()+' место в Крыму':'в рейтинге после первой сделки'}</small></div></div>
  <div class="seg">${[['stats','Статистика'],['perks','Бизнес'],['bank','Банк'],['ach','Достижения'],['top','Рейтинг'],['set','Настройки']].map(t=>`<button data-pt="${t[0]}" class="${ptab===t[0]?'on':''}">${t[1]}</button>`).join('')}</div>`;
  if(ptab==='stats'){const ds=S.deals.slice(-16);const mx=Math.max(1,...ds.map(d=>Math.abs(d.profit)));
   h+=`<div class="grid"><div class="kv"><small>${I('coins')}Прибыль всего</small><b class="${S.profit>=0?'plus':'minus'}">${fmt(S.profit)}</b></div><div class="kv"><small>${I('handshake')}Сделок</small><b>${S.sold}</b></div><div class="kv"><small>${I('key')}Куплено</small><b>${S.bought}</b></div><div class="kv"><small>${I('chart')}Средний навар</small><b>${S.sold?fk(S.profit/S.sold):'—'}</b></div></div>`;
@@ -901,7 +946,7 @@ const JG={sanych:['Саныч даёт колёса. Подсвеченную г
 JOBS.forEach(j=>{const g=JG[j.id];j.rules=g[0];j.time=g[1];j.game=g[2]});
 const jobPay=j=>r1k(j.b+j.k*level());
 function doJob(id){const j=JOBS.find(x=>x.id===id);S.jobs=S.jobs||{};if(S.jobs[id]===S.day||level()+1<j.lv)return;
- runJob(j,jobPay(j)*(j.ad?1.6:1),j.game,(got,score)=>{S.jobs[id]=S.day;S.money+=got;save();render();toast((score>=.6?pick(j.t):'Сделал как смог. ')+' +'+fmt(got),j.ic)})}
+ runJob(j,jobPay(j)*(j.ad?1.6:1),j.game,(got,score)=>{S.jobs[id]=S.day;S.cnt.job=(S.cnt.job||0)+1;S.money+=got;save();render();toast((score>=.6?pick(j.t):'Сделал как смог. ')+' +'+fmt(got),j.ic)})}
 function bindProfile(){
  document.querySelectorAll('[data-job]').forEach(b=>b.onclick=()=>doJob(b.dataset.job));
  document.querySelectorAll('[data-pt]').forEach(b=>b.onclick=()=>{ptab=b.dataset.pt;hap('light');render()});
@@ -921,9 +966,9 @@ function help(){modal('car','','Как играть','1. На доске ищи 
 document.querySelectorAll('.nb').forEach(b=>b.onclick=()=>{view=b.dataset.v;hap('light');render();$('#main').scrollTop=0});
 
 /* ===== старт ===== */
-function start(){refill();if(!S.chats.length){push(friendChat(FRIENDS[3]),{text:'Здорово! Я Саныч, механик. Если что починить — пригоняй, сделаю за день.'});push(friendChat(FRIENDS[0]),{text:'Слышал, ты в перекуп подался? Если что — я рядом, в соседнем гараже.'})}save()}
+function start(){if(S.tut===0&&!S.bought&&!S.list.length){S.list.push(tutCar())}refill();if(!S.chats.length){push(friendChat(FRIENDS[3]),{text:'Здорово! Я Саныч, механик. Если что починить — пригоняй, сделаю за день.'});push(friendChat(FRIENDS[0]),{text:'Слышал, ты в перекуп подался? Если что — я рядом, в соседнем гараже.'})}save()}
 load();start();render();dayBtn();
-if(S.day===1&&!S.bought)setTimeout(()=>modal('car','','Добро пожаловать в перекуп','У тебя 150 000 ₽. Покупай машины дешевле рынка, проверяй, торгуйся в переписке, чини и продавай дороже. Продавцы врут — будь внимателен.',[['Погнали','y']]),300);
+if(S.day===1&&!S.bought)setTimeout(()=>modal('car','','Добро пожаловать в перекуп','У тебя 150 000 ₽. Задача — купить дешевле и продать дороже. Продавцы врут, поэтому проверяй машины. Начни с обучения на доске: там Девятка от Азата.',[['Погнали','y']]),300);
 if(/debug/.test(location.search)){window.__S=()=>S;window.__d={friendEvent,nextDay,openChatUI,render}}
 })();
 </script>
