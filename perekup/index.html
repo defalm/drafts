@@ -325,12 +325,12 @@ const MODELS=[ // id, имя, кузов, цена идеала, уровень,
 ];
 const COLORS=[['Белая','#e8ebef'],['Чёрная','#23262c'],['Серебро','#a9b1bc'],['Мокрый асфальт','#4a5361'],['Вишня','#8d1c2c'],['Синяя','#1f4ea6'],['Баклажан','#4b2b54'],['Зелёная','#2e6a40'],['Жёлтая','#e2b000'],['Рыжая','#c55b1f'],['Бежевая','#c9b79a']];
 const SELLERS=[
- {n:'Михалыч',st:'гаражное хранение',lie:.05,crash:.12,cond:[55,95],min:[.88,.95],pat:2,t:['Машина как часы, сынок. На дачу ездил по субботам.','Гаражное хранение, на зиму ставил. Масло менял сам.','Продаю, глаза уже не те.'],ok:['Эх, забирай. Береги её.','Ладно, сынок, по рукам.'],no:['Это несерьёзно, сынок. Не продам.'],cnt:['Не, мало. За {x} отдам.','{x} — и забирай, внучок.'],q:['Родной, сынок. Я ж только на дачу.','Родной, конечно.']},
- {n:'Азат Моторс',st:'автохаус',lie:.6,crash:.45,cond:[25,85],min:[.80,.9],pat:3,t:['Не бита, не крашена, брат. Один хозяин, бабушка ездила.','Торг у капота. Сел и поехал, вложений ноль.','Пробег родной, мамой клянусь.'],ok:['Брат, ты жёсткий. Забирай.','Договорились, брат.'],no:['Брат, иди с такими предложениями. Блок.'],cnt:['Брат, {x} последняя, и то себе в минус.','За {x} отдам, ниже никак, клянусь.'],q:['Родной, брат.','Родной, брат. Мамой клянусь, вот те крест.']},
- {n:'Кирилл',st:'студент',lie:.1,crash:.25,cond:[35,85],min:[.70,.82],pat:2,t:['Срочно! Уезжаю учиться, нужны деньги до пятницы.','Батя подарил, но мне нужнее айфон. Торг.','Продам быстро, без нервов.'],ok:['Окей, давайте. Когда сможете приехать?','Ладно, забирайте.'],no:['Не, ну это совсем мало, извините.'],cnt:['Может {x}? Мне правда срочно.','{x} — и сегодня отдам ключи.'],q:['Вроде родной, я не крутил.','Да, родной.']},
- {n:'Светлана',st:'муж ездил',lie:.12,crash:.3,cond:[40,90],min:[.82,.92],pat:2,t:['Муж ездил, я в этом не разбираюсь. Вроде ездит.','Стучит что-то, но муж говорил — так и должно быть.','Продаём, купили новую.'],ok:['Хорошо, договорились.','Ладно, муж разрешил.'],no:['Нет, муж сказал меньше не отдавать. Всего хорошего.'],cnt:['Муж сказал, что за {x} можно.','Давайте {x}, и я больше не спорю.'],q:['Не знаю, спросите мужа. Вроде родной.','Муж сказал — родной.']},
- {n:'Рустам',st:'частник',lie:.35,crash:.3,cond:[20,70],min:[.82,.9],pat:3,t:['В такси не работала, только для себя.','Ухоженная, каждый день мыл.','Мотор зверь, коробка как новая.'],ok:['По рукам, брат.','Давай, забирай.'],no:['Э, не, так не пойдёт. Удачи.'],cnt:['{x} — и забирай, брат.','Ну давай {x}, по-братски.'],q:['Честно, пробег большой — для себя много ездил.','Родной, для себя же ездил.']},
- {n:'Макс Блогер',st:'200к подписчиков',lie:.25,crash:.35,cond:[45,90],min:[.90,.97],pat:1,t:['Машина из моих видео, 200к подписчиков видели!','Тюнинг на 300к, отдам почти даром.','Продаю ради контента. Цена фикс.'],ok:['Окей, сниму это для сторис.'],no:['Это кринж. Не продам.'],cnt:['Фикс {x}. Это уже ниже рынка.'],q:['Пробег смотрите на видео, там всё честно.','Всё честно, на видео видно.']},
+ {n:'Михалыч',g:'Михалыча',st:'гаражное хранение',lie:.05,crash:.12,cond:[55,95],min:[.88,.95],pat:2,t:['Машина как часы, сынок. На дачу ездил по субботам.','Гаражное хранение, на зиму ставил. Масло менял сам.','Продаю, глаза уже не те.'],ok:['Эх, забирай. Береги её.','Ладно, сынок, по рукам.'],no:['Это несерьёзно, сынок. Не продам.'],cnt:['Не, мало. За {x} отдам.','{x} — и забирай, внучок.'],q:['Родной, сынок. Я ж только на дачу.','Родной, конечно.']},
+ {n:'Азат Моторс',g:'Азата',st:'автохаус',lie:.6,crash:.45,cond:[25,85],min:[.80,.9],pat:3,t:['Не бита, не крашена, брат. Один хозяин, бабушка ездила.','Торг у капота. Сел и поехал, вложений ноль.','Пробег родной, мамой клянусь.'],ok:['Брат, ты жёсткий. Забирай.','Договорились, брат.'],no:['Брат, иди с такими предложениями. Блок.'],cnt:['Брат, {x} последняя, и то себе в минус.','За {x} отдам, ниже никак, клянусь.'],q:['Родной, брат.','Родной, брат. Мамой клянусь, вот те крест.']},
+ {n:'Кирилл',g:'Кирилла',st:'студент',lie:.1,crash:.25,cond:[35,85],min:[.70,.82],pat:2,t:['Срочно! Уезжаю учиться, нужны деньги до пятницы.','Батя подарил, но мне нужнее айфон. Торг.','Продам быстро, без нервов.'],ok:['Окей, давайте. Когда сможете приехать?','Ладно, забирайте.'],no:['Не, ну это совсем мало, извините.'],cnt:['Может {x}? Мне правда срочно.','{x} — и сегодня отдам ключи.'],q:['Вроде родной, я не крутил.','Да, родной.']},
+ {n:'Светлана',g:'Светланы',st:'муж ездил',lie:.12,crash:.3,cond:[40,90],min:[.82,.92],pat:2,t:['Муж ездил, я в этом не разбираюсь. Вроде ездит.','Стучит что-то, но муж говорил — так и должно быть.','Продаём, купили новую.'],ok:['Хорошо, договорились.','Ладно, муж разрешил.'],no:['Нет, муж сказал меньше не отдавать. Всего хорошего.'],cnt:['Муж сказал, что за {x} можно.','Давайте {x}, и я больше не спорю.'],q:['Не знаю, спросите мужа. Вроде родной.','Муж сказал — родной.']},
+ {n:'Рустам',g:'Рустама',st:'частник',lie:.35,crash:.3,cond:[20,70],min:[.82,.9],pat:3,t:['В такси не работала, только для себя.','Ухоженная, каждый день мыл.','Мотор зверь, коробка как новая.'],ok:['По рукам, брат.','Давай, забирай.'],no:['Э, не, так не пойдёт. Удачи.'],cnt:['{x} — и забирай, брат.','Ну давай {x}, по-братски.'],q:['Честно, пробег большой — для себя много ездил.','Родной, для себя же ездил.']},
+ {n:'Макс Блогер',g:'Макса',st:'200к подписчиков',lie:.25,crash:.35,cond:[45,90],min:[.90,.97],pat:1,t:['Машина из моих видео, 200к подписчиков видели!','Тюнинг на 300к, отдам почти даром.','Продаю ради контента. Цена фикс.'],ok:['Окей, сниму это для сторис.'],no:['Это кринж. Не продам.'],cnt:['Фикс {x}. Это уже ниже рынка.'],q:['Пробег смотрите на видео, там всё честно.','Всё честно, на видео видно.']},
 ];
 const BTYPES=[
  {st:'студент',nm:['Ваня','Кирилл','Тёма'],lo:.84,hi:.93,acc:.55,l:['Отдай за {x}, я студент','Мамой клянусь, больше нет. {x}?','Стипендию дали, есть {x}. Отдашь?'],y:['Ура! Еду с другом за ключами.'],n:['Эх, ладно, буду копить дальше.']},
@@ -347,6 +347,7 @@ const FRIENDS=[
  {id:'seryi',n:'Серый',st:'одноклассник',c:0,lie:.45},
  {id:'dimon',n:'Димон',st:'таксует',c:5,lie:.25},
  {id:'sanych',n:'Саныч',st:'механик',c:1,lie:0},
+ {id:'timur',n:'Тимур',st:'перекуп со стажем',c:6,lie:.2},
 ];
 const LV=[0,15e3,45e3,1.2e5,3e5,8e5,2e6,5e6,1.3e7,3.5e7];
 const LVN=['Новичок','Лох с Авито','Шустрый','Знает толщиномер','Бывалый','Король Авито','Барон рынка','Свой автосалон','Легенда перекупа','Олигарх'];
@@ -461,6 +462,19 @@ $('#sheet').addEventListener('click',e=>{if(e.target.id==='sheet')closeSheet()})
 const bar=v=>`<div class="bar"><i style="width:${v}%;background:${v>=70?'var(--green)':v>=45?'var(--acc)':'var(--red)'}"></i></div>`;
 
 /* ===== реклама AdsGram ===== */
+const API=''; // адрес ref.php на Beget, например 'https://site.ru/perekup/ref.php'
+const BOT_LINK='https://t.me/avtoperekup_game_bot/play',REF_REWARD=50000,REF_WELCOME=20000;
+const myId=()=>tgUser&&tgUser.id?tgUser.id:null;
+const refLink=()=>myId()?BOT_LINK+'?startapp=ref_'+myId():BOT_LINK;
+function api(action,extra){return fetch(API,{method:'POST',headers:{'Content-Type':'text/plain'},body:JSON.stringify(Object.assign({action,initData:tg.initData},extra||{}))}).then(r=>r.json())}
+function copyText(t){const ok=()=>{hap('ok');toast('Ссылка скопирована — вставь другу в чат','check')};
+ const fb=()=>{try{const ta=document.createElement('textarea');ta.value=t;ta.setAttribute('readonly','');ta.style.cssText='position:fixed;top:-100px;opacity:0';document.body.appendChild(ta);ta.select();ta.setSelectionRange(0,t.length);const r=document.execCommand('copy');ta.remove();r?ok():toast('Не получилось — зажми ссылку и скопируй','alert')}catch(e){toast('Не получилось — зажми ссылку и скопируй','alert')}};
+ if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(t).then(ok,fb);else fb()}
+function refSync(){if(!tg||!API)return Promise.resolve();return api('status').then(r=>{if(r&&r.ok){S.ref={invited:r.invited,claimed:r.claimed};save();if(view==='me'&&ptab==='ref')render()}}).catch(()=>{})}
+function refInit(){const sp=tg&&tg.initDataUnsafe&&tg.initDataUnsafe.start_param||'';const m=/^ref_(\d+)$/.exec(sp);const rid=m&&+m[1]!==myId()?m[1]:null;
+ const welcome=()=>{if(S.refBonus)return;S.refBonus=1;S.money+=REF_WELCOME;save();render();setTimeout(()=>modal('gift','g','Тебя пригласил друг!','Держи '+fmt(REF_WELCOME)+' на старт. Позови своих друзей — за каждых троих получишь '+fmt(REF_REWARD)+'.',[['Спасибо!','y']]),900)};
+ if(tg&&API){api('join',{ref:rid}).then(r=>{if(r&&r.ok&&r.isNew&&rid)welcome();refSync()}).catch(()=>{})}
+ else if(rid&&S.day<=2&&!S.bought)welcome()}
 const ADS_BLOCK='59100';let adCtl=null; // blockId из кабинета AdsGram
 function showAd(cb){if(tg&&window.Adsgram&&ADS_BLOCK){try{adCtl=adCtl||window.Adsgram.init({blockId:ADS_BLOCK});adCtl.show().then(r=>{if(!r||r.done!==false){hap('ok');cb()}}).catch(r=>toast(r&&r.state==='load'?'Реклама сейчас недоступна, попробуй позже':'Реклама не досмотрена — бонус не начислен','alert'))}catch(e){toast('Реклама сейчас недоступна','alert')}return}
  $('#adscreen').classList.add('on');setTimeout(()=>{$('#adscreen').classList.remove('on');hap('ok');cb()},2000)}
@@ -513,7 +527,8 @@ function drawKB(ch){
   btns.push({l:'Отказать',ic:'x',cls:'r',f:()=>{push(ch,{me:1,text:'Нет, дёшево.'});ch.offer=null;say(ch,{text:pick(['Ну как знаешь.','Ок, удачи с продажей.','Жаль. Если что — пиши.'])});save()}});
   return setKB('',btns)}
  if(ch.kind==='friend'){const ev=ch.ev;
-  if(!ev)return setKB('',[{l:'Как дела?',ic:'chat',full:true,f:()=>{push(ch,{me:1,text:pick(['Как дела?','Здарова, чё как?','Есть чё интересного?'])});say(ch,{text:ch.fid==='sanych'?pick(['Работаю. Пригоняй, если что.','Всё в масле, как обычно. Есть что починить?']):pick(['Норм, крутимся. Подвернётся тема — напишу.','Да всё по-старому. Слышал, ты в перекуп ушёл?','Пока тихо. Будет тачка — маякну.'])});save()}}]);
+  if(!ev)return setKB('',talkTopics(ch));
+  if(ev.type==='share')return setKB('',[{l:'Вложиться '+fk(ev.sum),ic:'coins',cls:'g',f:()=>{if(S.money<ev.sum)return toast('Не хватает денег','alert');S.money-=ev.sum;S.shares=S.shares||[];S.shares.push({fr:ch.fid,sum:ev.sum,day:S.day,good:ev.good});push(ch,{me:1,text:`Я в деле. Кинул ${fmt(ev.sum)}.`});ch.ev=null;say(ch,{text:'Красава. Завтра скажу, как прошло.'});save();hud()}},{l:'Пас',ic:'x',cls:'r',f:()=>{push(ch,{me:1,text:'Не, я пас.'});ch.ev=null;say(ch,{text:pick(['Зря, тема жирная.','Ну смотри, потом не плачь.'])});save()}}]);
   if(ev.type==='sell')return setKB('',[{l:'Беру за '+fk(ev.price),ic:'key',cls:'g',full:true,f:()=>confirmFriend(ch)},
    {l:ev.looked?'Уже смотрел':'Глянуть машину',ic:'eye',f:()=>{if(ev.looked)return;ev.looked=1;const c=ev.car;push(ch,{me:1,text:'Можно гляну сначала?'});say(ch,{text:'Конечно, приезжай.'},700);
      setTimeout(()=>{push(ch,{sys:1,text:`Ты осмотрел: кузов ${c.body}%${c.crash?', была в ДТП':''}, мотор ${c.engine}%, салон ${c.inter}%`});save();if(openChat===ch.key)drawChat()},1700);save()}},
@@ -536,7 +551,7 @@ function sellerChat(c){const sl=SELLERS[c.seller];const ch=chatGet('s'+c.id,{kin
 
 /* ===== друзья ===== */
 function friendChat(f){return chatGet('f'+f.id,{kind:'friend',fid:f.id,name:f.n,c:f.c,st:f.st})}
-function friendEvent(){const f=pick(FRIENDS.filter(x=>x.id!=='sanych'));const ch=friendChat(f);if(ch.ev)return;
+function friendEvent(){const f=pick(FRIENDS.filter(x=>x.id!=='sanych'));if(f.id==='timur'&&Math.random()<.5)return timurDeal(friendChat(f),true);const ch=friendChat(f);if(ch.ev)return;
  const r=Math.random();
  if(r<.5){const car=makeCar({n:f.n,lie:0,crash:f.id==='seryi'?.4:.2,cond:f.id==='kolyan'?[55,92]:[35,85]});if(f.id==='seryi'&&Math.random()<.45)car.kmClaim=r1k(car.km*.6);
   const price=r1k(value(car)*R(.72,.9)*(f.id==='seryi'?1.15:1));ch.ev={type:'sell',car,price};
@@ -544,6 +559,41 @@ function friendEvent(){const f=pick(FRIENDS.filter(x=>x.id!=='sanych'));const ch
  else if(r<.78){const sum=r1k(clamp(S.money*.15,10000,300000));ch.ev={type:'loan',sum};push(ch,{text:pick([`Брат, займи ${fmt(sum)}? Через три дня верну с процентом, честно.`,`Выручай, нужно ${fmt(sum)}. Через три дня отдам +10%.`])})}
  else{const car=makeCar({n:f.n,lie:0,crash:.1,cond:[55,90]});const want=r1k(value(car)*R(.85,.95));ch.ev={type:'comm',car,want};
   push(ch,{text:'Слушай, ты ж в теме. Продай мою, а? Мне нужно на руки '+fmt(want)+', всё что сверху — твоё.'});push(ch,{car:car.id,text:`${M(car.model)[1]} ${car.year}, ${km(car.km)}`})}}
+/* --- живые разговоры --- */
+const JOKES=['Перекуп продаёт машину: «Не бита, не крашена». Покупатель: «А почему руль справа?» — «Это опция».','Приходит мужик к перекупу: «Мне бы машину, чтоб не сломалась». Перекуп: «Тогда велосипед, но тоже б/у».','Пробег 90 тысяч. Не уточняли, правда, на каком круге.','«Масло не ест!» — «А что ест?» — «Тосол».','Семёрка — единственная машина, которую можно починить кувалдой и молитвой.'];
+const TIPS={timur:['Первым цену не называй. Пусть он скажет.','Нашёл косяк — не ори сразу. Сначала спроси цену, потом добивай аргументом.','Чем больше у продавца «срочно», тем больше скидка.','Таксистам не верь, у них пробег в два раза больше.','Мойку делай всегда, она копейки, а цену поднимает.','Дорогие тачки берут дольше. Не держи деньги в одной машине.'],
+ kolyan:['Я б толщиномер всегда брал, он дешёвый.','Брат, по базе пробивай, Азат половину скручивает.'],seryi:['Да покупай не глядя, чё там проверять!','Бери самую дешёвую, потом перепродашь. Изи.'],dimon:['Под такси лучше Логанчик или Солярку, они живучие.','Пробег не страшен, если мотор живой.'],sanych:['Мотор ниже 50% — это капиталка, считай сразу.','Кузов гнилой — не связывайся, дорого и долго.']};
+function talkLeft(ch){ch.talk=ch.talk&&ch.talk.day===S.day?ch.talk:{day:S.day,n:0,used:{}};return 4-ch.talk.n}
+function talk(ch,id,me,reply,delay){ch.talk.n++;ch.talk.used[id]=1;push(ch,{me:1,text:me});say(ch,typeof reply==='string'?{text:reply}:reply,delay||1000);save()}
+function bestListing(acc){const L=S.list.filter(c=>c.ask<=Math.max(S.money*1.1,30000));if(!L.length)return null;const sorted=L.slice().sort((a,b)=>value(b)/b.ask-value(a)/a.ask);return Math.random()<acc?sorted[0]:pick(L)}
+function talkTopics(ch){const f=FRIENDS.find(x=>x.id===ch.fid),left=talkLeft(ch),u=ch.talk.used;
+ if(left<=0)return [{l:'Он занят до завтра',ic:'sun',full:true,f:()=>toast(f.n+' занят, напиши завтра','sun')}];
+ const T=[];
+ if(!u.hi)T.push({l:'Как дела?',ic:'chat',f:()=>talk(ch,'hi',pick(['Как дела?','Здарова, чё как?','Чем занят?']),pick({timur:['Да вот, третью тачку за неделю сливаю. Сам как, крутишься?','Норм. На рынке сейчас всё дорожает, надо успевать.'],kolyan:['В гараже ковыряюсь, как обычно. Заходи, чайку попьём.','Норм, Семёрку свою перебираю.'],seryi:['Да ваще ништяк! Вчера в кальянке был. А ты как?','Скучно, брат. Денег нет, но держусь.'],dimon:['Таксую, брат. Пассажир сегодня забыл в машине кота.','Норм. Ночную смену отбил, сплю на ходу.'],sanych:['Работаю. Пригоняй, если что.','В масле по локоть, как обычно.']}[f.id]))});
+ if(!u.buy&&f.id!=='sanych')T.push({l:'Что сейчас брать?',ic:'search',f:()=>{const acc={timur:.85,kolyan:.65,dimon:.6,seryi:.35}[f.id];const c=bestListing(acc);
+   if(!c)return talk(ch,'buy','Что сейчас брать посоветуешь?','Да сейчас на доске ничего путного по твоим деньгам. Подожди денёк.');
+   const sl=SELLERS[c.seller],tw=c.km!==c.kmClaim;let r=`Глянь ${M(c.model)[1]} ${c.year} у ${sl.g||sl.n} за ${fmt(c.ask)}.`;
+   if(f.id==='timur'&&tw&&Math.random()<.7)r+=' Только по базе пробей — у него пробег наверняка крученый, сбивай смело.';else if(value(c)>c.ask)r+=' По цене вроде вкусно.';else r+=' Но поторгуйся, дороговато.';
+   talk(ch,'buy','Что сейчас брать посоветуешь?',r,1400)}});
+ const mine=S.cars.find(c=>!c.owner);
+ if(!u.rate&&mine&&f.id!=='seryi')T.push({l:'Оцени мою тачку',ic:'tag',f:()=>{const v=value(mine),p1=r1k(v*1.08),p2=r1k(v*1.25);
+   talk(ch,'rate',`Глянь мою ${M(mine.model)[1]} ${mine.year}. Почём ставить?`,{car:mine.id,text:f.id==='sanych'?`Мотор ${mine.engine}%, кузов ${mine.body}%. ${repairAll(mine)?'Подшаманить — примерно '+fmt(repairAll(mine))+'. ':''}Ставь около ${fmt(p1)}.`:`Ставь ${fmt(p1)} — уйдёт быстро. Дороже ${fmt(p2)} не ставь, звонить не будут.`},1500)}});
+ if(!u.tip)T.push({l:f.id==='timur'?'Научи торговаться':'Дай совет',ic:'star',f:()=>talk(ch,'tip',f.id==='timur'?'Научи торговаться, а?':'Дай совет по перекупу',pick(TIPS[f.id]))});
+ if(!u.joke&&f.id!=='sanych')T.push({l:'Кинь анекдот',ic:'fire',f:()=>talk(ch,'joke','Скинь чё-нибудь смешное',pick(JOKES))});
+ if(f.id==='timur'&&!u.deal)T.push({l:'Есть тема?',ic:'coins',f:()=>{ch.talk.n++;u.deal=1;push(ch,{me:1,text:'Есть какая тема заработать?'});timurDeal(ch)}});
+ if(f.id==='kolyan'&&!u.loan&&!S.kolDebt)T.push({l:'Займи до завтра',ic:'cash',f:()=>{const sum=r1k(Math.max(5000,bonusAmt()*3));if(Math.random()<.7){S.kolDebt={sum,day:S.day+1};S.money+=sum;talk(ch,'loan','Колян, займи до завтра?',`Держи ${fmt(sum)}. Завтра верни, мне на запчасти.`);hud()}else talk(ch,'loan','Колян, займи до завтра?','Брат, сам пустой, всё в Семёрку вбухал.')}});
+ if(f.id==='sanych'&&!u.rep&&S.cars.length)T.push({l:'Сколько ремонт?',ic:'wrench',f:()=>{const t=S.cars.reduce((a,c)=>a+repairAll(c),0);talk(ch,'rep','Саныч, сколько всё починить?',t?`По всем твоим тачкам — около ${fmt(t)}. Пригоняй по одной.`:'Да у тебя всё живое, не трать деньги.')}});
+ if(f.id==='seryi'&&!u.lend)T.push({l:'Верни долг',ic:'cash',f:()=>{const l=S.loansOut.find(x=>x.fr==='seryi');talk(ch,'lend','Серый, когда долг вернёшь?',l?pick(['Брат, на днях, честно!','Завтра, отвечаю.','Слушай, а можно ещё неделю?']):'Какой долг? Я тебе ничего не должен вроде')}});
+ if(!T.length)T.push({l:'Пока',ic:'x',full:true,f:()=>{ch.talk.n=99;push(ch,{me:1,text:'Ладно, давай, на связи.'});say(ch,{text:'Давай, на связи!'});save()}});
+ if(T.length%2)T[T.length-1].full=true;return T}
+function timurDeal(ch,initiate){if(ch.ev){return}const good=Math.random()<.62,sum=r1k(Math.max(10000,S.money*R(.1,.2)));ch.ev={type:'share',sum,good};
+ const t=pick([`Есть битая Солярка с аукциона. Чиним и сливаем. Скинемся? С тебя ${fmt(sum)}, навар пополам.`,`Знакомый срочно сливает Пассатик ниже рынка. Не хватает ${fmt(sum)}. Вернём в полтора.`,`Тема: беру партию дисков, перепродам. Вложишь ${fmt(sum)}? Отдам с наваром.`]);
+ if(initiate){push(ch,{text:'Слышь, есть тема.'});push(ch,{text:t})}else say(ch,{text:t},1300);save()}
+function friendReact(kind,d){if(Math.random()>.45)return;const tm=friendChat(FRIENDS.find(f=>f.id==='timur'));
+ if(kind==='sell')push(tm,{text:d.profit>=Math.max(15000,d.buy*.2)?pick([`Видел, ты ${d.name} слил с наваром ${fk(d.profit)}. Растёшь!`,`${fk(d.profit)} с одной тачки? Уважаю.`]):d.profit<0?pick([`Ты чё, ${d.name} в минус отдал? Ну ты даёшь.`,'Минус — тоже опыт. Но лучше без него.']):pick(['Норм сделка. Но можно было и подороже.',`${d.name} ушла? Красава.`])});
+ if(kind==='surprise')push(tm,{text:pick(['Слышал, тебе скрутку впарили? Ахах, классика. По базе пробивай!','Без проверки взял? Ну, добро пожаловать в перекуп.'])});
+ if(kind==='buy')push(tm,{text:pick([`Видел, ты ${d} взял. Почём?`,`О, ${d}. Нормальный выбор, если мотор живой.`])})}
+
 function friendBuy(ch){const ev=ch.ev,c=ev.car;if(S.cars.length>=S.slots)return toast('Гараж забит','garage');if(S.money<ev.price)return toast('Не хватает '+fmt(ev.price-S.money),'alert');
  S.money-=ev.price;Object.assign(c,{paid:ev.price,spent:0,from:ch.name});S.cars.push(c);S.bought++;S.f.friendBuy=1;ch.ev=null;
  push(ch,{me:1,text:`Беру! Перевёл ${fmt(ev.price)}`});say(ch,{text:'Красава! Ключи у тебя.'});
@@ -591,7 +641,7 @@ function buyListing(c,price,ch){if(!S.list.includes(c))return;if(S.cars.length>=
  S.money-=price;S.list=S.list.filter(x=>x.id!==c.id);Object.assign(c,{paid:price,spent:0});S.cars.push(c);S.bought++;hap('ok');
  const chat=ch||S.chats.find(x=>x.key==='s'+c.id);if(chat)push(chat,{sys:1,text:`Сделка: ${fmt(price)}. Машина твоя`});
  const s=[];if(!c.checks.base&&c.km!==c.kmClaim)s.push('пробег скручен — реально '+km(c.km));if(!c.checks.base&&c.lien)s.push('машина в залоге у банка');if(!c.checks.paint&&c.crash)s.push('битая, полкузова в шпаклёвке');if(!c.checks.diag&&c.engine<40)s.push('мотор жрёт масло');
- c.checks={paint:1,base:1,diag:1};if(s.length)S.f.surprise=1;achCheck();save();closeSheet();closeChat();
+ c.checks={paint:1,base:1,diag:1};if(s.length){S.f.surprise=1;friendReact('surprise')}else friendReact('buy',M(c.model)[1]);achCheck();save();closeSheet();closeChat();
  const v=r1k(value(c));render();
  if(s.length)modal('alert','r','Сюрприз!','Пригнал в гараж, а там: '+s.join(', ')+'. По рынку сейчас ~'+fmt(v)+'.',[['Ну, бывает…','y',()=>{view='garage';render()}]]);
  else modal('key','g','Куплено!',M(c.model)[1]+' теперь твоя. По рынку ~'+fmt(v)+'. Подлатай и продавай.',[['В гараж','y',()=>{view='garage';render()}]])}
@@ -791,15 +841,15 @@ function sell(c,sum,ch){if(!S.cars.includes(c))return;const fr=c.owner?FRIENDS.f
  S.gone=S.gone||{};S.gone[c.id]=c;const ks=Object.keys(S.gone);if(ks.length>20)delete S.gone[ks[0]];
  S.chats.filter(x=>x.cid===c.id&&x!==ch&&x.offer).forEach(x=>x.offer=null);
  if(ch){push(ch,{me:1,text:'Договорились, приезжай.'});push(ch,{sys:1,text:`Продано за ${fmt(sum)}`});ch.offer=null}
- if(fr){S.f.comm=1;push(friendChat(fr),{text:`Брат, спасибо! ${fmt(c.want)} получил. Ты красава!`})}
+ friendReact('sell',{name:M(c.model)[1]+' '+c.year,profit,buy:cost});if(fr){S.f.comm=1;push(friendChat(fr),{text:`Брат, спасибо! ${fmt(c.want)} получил. Ты красава!`})}
  const d={name:M(c.model)[1]+' '+c.year,buy:cost,sell:sum,profit,day:S.day,comm:!!fr};S.deals.push(d);if(S.deals.length>40)S.deals.shift();
  if(['kruzak','kubik'].includes(c.model))S.f.lux=1;
  const lb=level();if(profit>0&&(!S.best||profit>S.best.profit))S.best=d;hap(profit>0?'ok':'err');achCheck();save();closeSheet();closeChat();render();
  modal(profit>=0?'coins':'alert',profit>=0?'g':'r',profit>=0?(fr?'Продал машину друга':'Продано!'):'Продал в минус',`${fr?'Другу '+fmt(c.want)+', остальное твоё.':'Купил за '+fmt(cost)+', продал за '+fmt(sum)+'.'}<br><span class="big ${profit>=0?'plus':'minus'}">${profit>=0?'+':''}${fmt(profit)}</span>`,
   [profit>0?[I('share')+'Похвастаться в чате','y',()=>share(d)]:null,['Дальше','']].filter(Boolean));
  if(level()>lb)setTimeout(()=>toast('Новый уровень: '+LVN[level()],'star'),2600)}
-function share(d){const txt=d?`Купил ${d.name} за ${fk(d.buy)}, продал за ${fk(d.sell)} — +${fk(d.profit)}. Слабо перекупить лучше?`:'Играю в Перекуп — покупаю тачки дешевле рынка и продаю дороже. Залетай!';
- const url=location.href.split('#')[0].split('?')[0];
+function share(d){const txt=d?`Купил ${d.name} за ${fk(d.buy)}, продал за ${fk(d.sell)} — +${fk(d.profit)}. Слабо перекупить лучше?`:'Играю в Перекуп — покупаю тачки дешевле рынка и продаю дороже. Залетай, по моей ссылке +'+fk(REF_WELCOME)+' на старт!';
+ const url=tg?refLink():location.href.split('#')[0].split('?')[0];
  if(tg&&tg.openTelegramLink)tg.openTelegramLink('https://t.me/share/url?url='+encodeURIComponent(url)+'&text='+encodeURIComponent(txt));
  else if(navigator.share)navigator.share({text:txt,url}).catch(()=>{});
  else{try{navigator.clipboard.writeText(txt+' '+url);toast('Скопировано — вставь в чат','share')}catch(e){toast(txt,'share')}}}
@@ -824,6 +874,8 @@ function nextDay(){S.day++;S.clock=RI(480,600);S.list.forEach(c=>c.age++);refill
  const today=new Date().toDateString(),bonus=S.lastBonus!==today;if(bonus)S.lastBonus=today;
  achCheck();hap('medium');save();render();
  if(bonus)return modal('gift','','Ежедневный бонус','Заходи каждый день — бонус растёт с уровнем.',[['Забрать '+fmt(bonusAmt()),'y',()=>{S.money+=bonusAmt();save();render()}],[I('play')+'Забрать x3','ad',()=>showAd(()=>{S.money+=bonusAmt()*3;save();render()})]]);
+ (S.shares||[]).filter(x=>x.day<S.day).forEach(x=>{const ch=friendChat(FRIENDS.find(f=>f.id===x.fr));if(x.good){const back=r1k(x.sum*R(1.35,1.7));S.money+=back;push(ch,{text:`Тема выстрелила! Твоя доля: <b class="sum">${fmt(back)}</b>. Держи.`})}else push(ch,{text:pick(['Брат, косяк вышел. Тачка оказалась утопленником, вложения сгорели. Сорян.','Покупатель слился, пришлось в минус отдать. Твоё сгорело, прости.'])})});S.shares=(S.shares||[]).filter(x=>x.day>=S.day);
+ if(S.kolDebt&&S.kolDebt.day<=S.day){const ch=friendChat(FRIENDS[0]);S.money-=S.kolDebt.sum;push(ch,{sys:1,text:'Ты вернул Коляну '+fmt(S.kolDebt.sum)});push(ch,{text:'Спасибо, брат, чётко.'});S.kolDebt=null}
  if(S.pool&&S.pool.day<S.day){const pl=S.pool;S.pool=null;const ok=Math.random()<.6;if(ok)S.money+=r1k(pl.sum*1.5);save();render();return modal(ok?'coins':'alert',ok?'g':'r',ok?'Лот выстрелил!':'Лот прогорел',ok?'Перекупы продали машину. Твоя доля: +'+fmt(r1k(pl.sum*1.5)):'Машина оказалась утопленником. Вложенные '+fmt(pl.sum)+' сгорели.',[['Ок','y']])}
  if(Math.random()<.3)return dayEvent();
  const un=S.chats.reduce((n,c)=>n+c.unread,0);toast(un?`День ${S.day}: новых сообщений — ${un}`:`День ${S.day}: новые объявления`,un?'chat':'sun')}
@@ -843,9 +895,10 @@ const GOALS=[['check','Сделай 3 проверки',3],['buy','Купи ма
 const cntVal=k=>k==='buy'?S.bought:k==='sell'?S.sold:(S.cnt[k]||0);
 function goalsFor(){if(!S.goals||S.goals.day!==S.day){const g=GOALS.slice().sort(()=>Math.random()-.5).slice(0,2);S.goals={day:S.day,list:g.map(x=>({k:x[0],n:x[1],need:x[2],from:cntVal(x[0]),got:0}))};save()}return S.goals}
 const goalReward=()=>r1k(Math.max(2000,(LV[level()+1]||LV[9])*.03));
-function goalsHTML(){if(S.tut<TUT.length){const t=TUT[S.tut],done=t[1](S);return `<div class="card" style="display:block;border-color:rgba(255,196,0,.4)"><div class="row"><span class="tag y">${I('star')}Обучение ${S.tut+1}/${TUT.length}</span><span style="margin-left:auto;color:var(--green);font-weight:800">+${fk(t[2])}</span></div><b style="display:block;margin-top:6px">${t[0]}</b>${done?`<button class="btn y" id="tutGo" style="margin:8px 0 0">${I('check')}Забрать награду</button>`:''}</div>`}
- const g=goalsFor();return `<div class="h"><span>Цели дня</span><span>+${fk(goalReward())} за каждую</span></div>`+g.list.map((x,i)=>{const v=Math.min(x.need,cntVal(x.k)-x.from),ok=v>=x.need;return `<div class="chk${x.got?' done':''}"><span class="ic">${I(x.got?'check':ok?'gift':'star')}</span><span class="t"><b>${x.n}</b><small>${x.got?'награда получена':v+' / '+x.need}</small></span>${ok&&!x.got?`<button class="btn y" data-goal="${i}" style="margin:0;width:auto;padding:8px 12px">Забрать</button>`:''}</div>`}).join('')}
-function bindGoals(){const tg_=$('#tutGo');if(tg_)tg_.onclick=()=>{const t=TUT[S.tut];S.money+=t[2];S.tut++;hap('ok');toast('Награда: +'+fmt(t[2]),'gift');if(S.tut>=TUT.length)setTimeout(()=>modal('trophy','g','Обучение пройдено!','Теперь ты знаешь, как работает перекуп. Каждый день будут новые цели с наградами.',[['Погнали','y']]),400);save();render()};
+function goalsHTML(){if(S.tut>=TUT.length&&!(S.ref&&S.ref.claimed)&&!S.refHide){var promo=`<button class="card" id="refPromo" style="border-color:rgba(53,208,127,.35)"><div class="gic g" style="width:44px;height:44px;margin:0;border-radius:12px">${I('users')}</div><div class="ci"><b>Позови 3 друзей — ${fk(REF_REWARD)}</b><small>Другу — ${fk(REF_WELCOME)} на старт</small></div><span class="pill" id="refCopy2" style="color:var(--acc)">${I('list')}Копировать</span></button>`}else var promo='';
+ if(S.tut<TUT.length){const t=TUT[S.tut],done=t[1](S);return `<div class="card" style="display:block;border-color:rgba(255,196,0,.4)"><div class="row"><span class="tag y">${I('star')}Обучение ${S.tut+1}/${TUT.length}</span><span style="margin-left:auto;color:var(--green);font-weight:800">+${fk(t[2])}</span></div><b style="display:block;margin-top:6px">${t[0]}</b>${done?`<button class="btn y" id="tutGo" style="margin:8px 0 0">${I('check')}Забрать награду</button>`:''}</div>`}
+ const g=goalsFor();return promo+`<div class="h"><span>Цели дня</span><span>+${fk(goalReward())} за каждую</span></div>`+g.list.map((x,i)=>{const v=Math.min(x.need,cntVal(x.k)-x.from),ok=v>=x.need;return `<div class="chk${x.got?' done':''}"><span class="ic">${I(x.got?'check':ok?'gift':'star')}</span><span class="t"><b>${x.n}</b><small>${x.got?'награда получена':v+' / '+x.need}</small></span>${ok&&!x.got?`<button class="btn y" data-goal="${i}" style="margin:0;width:auto;padding:8px 12px">Забрать</button>`:''}</div>`}).join('')}
+function bindGoals(){const rp_=$('#refPromo');if(rp_)rp_.onclick=e=>{if(e.target.closest('#refCopy2'))return copyText(refLink());view='me';ptab='ref';render();$('#main').scrollTop=0};const tg_=$('#tutGo');if(tg_)tg_.onclick=()=>{const t=TUT[S.tut];S.money+=t[2];S.tut++;hap('ok');toast('Награда: +'+fmt(t[2]),'gift');if(S.tut>=TUT.length)setTimeout(()=>modal('trophy','g','Обучение пройдено!','Теперь ты знаешь, как работает перекуп. Каждый день будут новые цели с наградами.',[['Погнали','y']]),400);save();render()};
  document.querySelectorAll('[data-goal]').forEach(b=>b.onclick=()=>{const x=S.goals.list[+b.dataset.goal];if(x.got)return;x.got=1;S.money+=goalReward();hap('ok');toast('Цель выполнена: +'+fmt(goalReward()),'gift');save();render()})}
 function tutCar(){const si=1,sl=SELLERS[si];const c=makeCar({n:'',lie:0,crash:0,cond:[60,75]});Object.assign(c,{model:'devyatka',year:2008,km:290000,kmClaim:150000,engine:70,gear:66,body:62,inter:58,crash:false,lien:false,color:['Серебро','#a9b1bc'],seller:si,said:'Не бита, не крашена, брат. Пробег 150 тысяч, родной. Один хозяин.',age:-5,minF:.86,pat:3,pmax:3,city:'Симферополь'});c.ask=r1k(value(c)*1.2);return c}
 
@@ -910,7 +963,7 @@ function jobHTML(){let h='';const l=level();h+=`<div class="h"><span>Подра�
  return h}
 function profileHTML(){const l=level();
  let h=`<div class="prof">${ava(S.name,S.ac)}<div class="t"><b>${esc(S.name)}<button id="edName" style="color:var(--mute)">${I('edit')}</button></b><small>${LVN[l]} · ур. ${l+1}</small><small>${I('trophy')}${S.sold?rankPlace()+' место в Крыму':'в рейтинге после первой сделки'}</small></div></div>
- <div class="seg">${[['stats','Статистика'],['perks','Бизнес'],['bank','Банк'],['ach','Достижения'],['top','Рейтинг'],['set','Настройки']].map(t=>`<button data-pt="${t[0]}" class="${ptab===t[0]?'on':''}">${t[1]}</button>`).join('')}</div>`;
+ <div class="seg">${[['stats','Статистика'],['ref','Друзья'],['perks','Бизнес'],['bank','Банк'],['ach','Достижения'],['top','Рейтинг'],['set','Настройки']].map(t=>`<button data-pt="${t[0]}" class="${ptab===t[0]?'on':''}">${t[1]}</button>`).join('')}</div>`;
  if(ptab==='stats'){const ds=S.deals.slice(-16);const mx=Math.max(1,...ds.map(d=>Math.abs(d.profit)));
   h+=`<div class="grid"><div class="kv"><small>${I('coins')}Прибыль всего</small><b class="${S.profit>=0?'plus':'minus'}">${fmt(S.profit)}</b></div><div class="kv"><small>${I('handshake')}Сделок</small><b>${S.sold}</b></div><div class="kv"><small>${I('key')}Куплено</small><b>${S.bought}</b></div><div class="kv"><small>${I('chart')}Средний навар</small><b>${S.sold?fk(S.profit/S.sold):'—'}</b></div></div>`;
   h+=`<div class="h"><span>Прибыль по сделкам</span></div>`+(ds.length?`<div class="chart">${ds.map(d=>`<i class="${d.profit<0?'n':''}" style="height:${Math.abs(d.profit)/mx*100}%"></i>`).join('')}</div>`:'<div class="empty">Нет сделок</div>');
@@ -925,6 +978,16 @@ function profileHTML(){const l=level();
   <div class="h"><span>Должны тебе</span></div>`+(S.loansOut.length?S.loansOut.map(l=>`<div class="lb">${ava(FRIENDS.find(f=>f.id===l.fr).n,FRIENDS.find(f=>f.id===l.fr).c,'s')}<div class="t"><b>${FRIENDS.find(f=>f.id===l.fr).n}</b><small>обещал вернуть на ${l.due}-й день</small></div><b>${fmt(l.sum)}</b></div>`).join(''):'<div class="empty">Никто не должен</div>')}
  if(ptab==='ach')h+=`<div class="hint" style="text-align:left;margin:10px 2px">Открыто ${S.ach.length} из ${ACH.length}</div>`+ACH.map(a=>{const ok=S.ach.includes(a[0]);return `<div class="ach${ok?'':' lock'}"><span class="ic">${I(ok?a[3]:'lock')}</span><div class="t"><b>${a[1]}</b><small>${a[2]}</small></div></div>`}).join('');
  if(ptab==='top')h+=`<div class="hint" style="text-align:left;margin:10px 2px">Лучшие перекупы Крыма по прибыли</div>`+rankList().slice(0,13).map((r,i)=>`<div class="lb${r.me?' me':''}"><div class="n">${i+1}</div>${ava(r.n,r.c,'s')}<div class="t"><b>${esc(r.n)}</b><small>${LVN[r.l]}</small></div><b class="${r.p>=0?'plus':'minus'}">${fk(r.p)}</b></div>`).join('')+`<button class="btn tg" id="inv2">${I('users')}Позвать друзей в рейтинг</button>`;
+ if(ptab==='ref'){const r=S.ref||{invited:0,claimed:0},inv=r.invited||0,cl=r.claimed||0,tiers=Math.floor(inv/3),avail=Math.max(0,tiers-cl),cur=inv-cl*3>=3?3:inv%3+(avail?0:0);const prog=avail?3:inv%3;
+  h+=`<div class="card" style="display:block;border-color:rgba(255,196,0,.4);margin-top:10px"><div class="row"><div class="gic" style="width:52px;height:52px;margin:0;border-radius:16px">${I('users')}</div><div style="flex:1"><b style="font-size:17px">Позови 3 друзей</b><div class="sub" style="margin:2px 0 0">и получи <b style="color:var(--green)">${fmt(REF_REWARD)}</b>. Другу — ${fmt(REF_WELCOME)} на старт</div></div></div>
+  <div style="display:flex;gap:8px;margin:14px 0 6px">${[0,1,2].map(i=>`<div style="flex:1;height:10px;border-radius:6px;background:${i<prog?'var(--green)':'var(--card2)'}"></div>`).join('')}</div>
+  <div class="hint" style="text-align:left">Пришло по твоей ссылке: <b style="color:var(--txt)">${inv}</b> · наград получено: ${cl}</div>
+  ${avail?`<button class="btn g" id="refClaim">${I('gift')}Забрать ${fmt(REF_REWARD*avail)}</button>`:''}
+  <div id="refBox" style="background:var(--bg);border:1px dashed var(--line);border-radius:12px;padding:10px;font:600 12.5px ui-monospace,monospace;word-break:break-all;margin:8px 0;user-select:text;-webkit-user-select:text;cursor:pointer">${refLink()}</div>
+  <div class="btns"><button class="btn y" id="refCopy">${I('list')}Скопировать ссылку</button><button class="btn tg" id="refShare">${I('share')}Отправить</button></div>
+  ${tg?'':'<div class="hint">Личная ссылка с твоим ID появится, когда откроешь игру в Telegram.</div>'}
+  ${API?'':'<div class="hint">Счётчик друзей заработает после подключения сервера.</div>'}</div>
+  <div class="hint" style="text-align:left;margin:10px 2px">Засчитываются только новые игроки, которые впервые открыли игру по твоей ссылке.</div>`}
  if(ptab==='set')h+=`<button class="chk" id="sVib"><span class="ic">${I('vibe')}</span><span class="t"><b>Вибрация</b><small>Отклик на нажатия</small></span><span class="sw${VIB?' on':''}"></span></button>
   <button class="chk" id="sAva"><span class="ic">${I('user')}</span><span class="t"><b>Цвет аватарки</b><small>Нажми, чтобы сменить</small></span>${ava(S.name,S.ac,'s')}</button>
   <button class="chk" id="sHelp"><span class="ic">${I('alert')}</span><span class="t"><b>Как играть</b><small>Короткая инструкция</small></span></button>
@@ -958,6 +1021,10 @@ function bindProfile(){
   modal(p[3],'','Купить «'+p[1]+'»?',p[2]+'. Стоимость '+fmt(p[4])+'.',[['Купить','y',()=>{S.money-=p[4];S.perks.push(p[0]);hap('ok');save();render();toast('Куплено: '+p[1],'check')}],['Отмена']])});
  const tk=$('#take');if(tk)tk.onclick=()=>{const lim=credLim(),sum=r1k(lim/2);if(S.debt+sum>lim)return toast('Лимит исчерпан','bank');S.debt+=sum;S.money+=sum;S.f.took=1;const bc=bankChat();push(bc,{text:`Кредит одобрен! Зачислено ${fmt(sum)}. Ставка 2% в день.`});bc.unread=0;hap('ok');save();render()};
  const rp=$('#repay');if(rp)rp.onclick=()=>{const p=Math.min(S.money,S.debt);if(p<=0)return toast('Нет денег','alert');S.money-=p;S.debt-=p;if(S.debt===0&&S.f.took)S.f.repaid=1;achCheck();toast(S.debt?'Погашено '+fmt(p):'Кредит закрыт','bank');save();render()};
+ const rs_=$('#refShare');if(rs_)rs_.onclick=()=>share(null);
+ const rc_=$('#refCopy');if(rc_)rc_.onclick=()=>copyText(refLink());const rb_=$('#refBox');if(rb_)rb_.onclick=()=>copyText(refLink());
+ const rcl=$('#refClaim');if(rcl)rcl.onclick=()=>{rcl.disabled=true;api('claim').then(r=>{if(r&&r.ok&&r.reward){S.money+=r.reward;S.ref={invited:r.invited,claimed:r.claimed};hap('ok');save();render();modal('gift','g','Награда за друзей!','+'+fmt(r.reward)+' на счёт. Зови ещё — каждые 3 друга дают '+fmt(REF_REWARD)+'.',[['Круто','y']])}else{toast('Пока нечего забирать','alert');refSync()}}).catch(()=>{toast('Сервер недоступен','alert');rcl.disabled=false})};
+ if(ptab==='ref')refSync();
  const i2=$('#inv2');if(i2)i2.onclick=()=>share(null);
  const sv=$('#sVib');if(sv)sv.onclick=()=>{VIB=!VIB;S.vib=VIB;save();render()};
  const sa=$('#sAva');if(sa)sa.onclick=()=>{S.ac=(S.ac+1)%8;save();render()};
@@ -967,8 +1034,8 @@ function help(){modal('car','','Как играть','1. На доске ищи 
 document.querySelectorAll('.nb').forEach(b=>b.onclick=()=>{view=b.dataset.v;hap('light');render();$('#main').scrollTop=0});
 
 /* ===== старт ===== */
-function start(){if(S.tut===0&&!S.bought&&!S.list.length){S.list.push(tutCar())}refill();if(!S.chats.length){push(friendChat(FRIENDS[3]),{text:'Здорово! Я Саныч, механик. Если что починить — пригоняй, сделаю за день.'});push(friendChat(FRIENDS[0]),{text:'Слышал, ты в перекуп подался? Если что — я рядом, в соседнем гараже.'})}save()}
-load();start();render();dayBtn();
+function start(){if(S.tut===0&&!S.bought&&!S.list.length){S.list.push(tutCar())}refill();if(!S.chats.length){push(friendChat(FRIENDS[3]),{text:'Здорово! Я Саныч, механик. Если что починить — пригоняй, сделаю за день.'});push(friendChat(FRIENDS[0]),{text:'Слышал, ты в перекуп подался? Если что — я рядом, в соседнем гараже.'});push(friendChat(FRIENDS[4]),{text:'Здорово, новичок. Я Тимур, пятый год в перекупе. Будут вопросы — пиши, подскажу. Только Азату не верь.'})}save()}
+load();start();render();dayBtn();refInit();
 if(S.day===1&&!S.bought)setTimeout(()=>modal('car','','Добро пожаловать в перекуп','У тебя 150 000 ₽. Задача — купить дешевле и продать дороже. Продавцы врут, поэтому проверяй машины. Начни с обучения на доске: там Девятка от Азата.',[['Погнали','y']]),300);
 if(/debug/.test(location.search)){window.__S=()=>S;window.__d={friendEvent,nextDay,openChatUI,render}}
 })();
