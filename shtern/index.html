@@ -1,0 +1,849 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Shtern Tattoo — тату и пирсинг в Севастополе</title>
+<meta name="description" content="Shtern Tattoo — тату-салон и пирсинг-салон в Севастополе. Ул. Пожарова, 27. Ежедневно 08:00–22:00, по записи. Рейтинг 4,9 на Яндекс Картах.">
+<meta name="theme-color" content="#0d0c0b">
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' fill='%230d0c0b'/%3E%3Cpath fill='%23c9974a' d='M12 1l1.15 8.23L16.6 7.4l-1.83 3.45L23 12l-8.23 1.15 1.83 3.45-3.45-1.83L12 23l-1.15-8.23L7.4 16.6l1.83-3.45L1 12l8.23-1.15L7.4 7.4l3.45 1.83z'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,500;0,600;1,500&family=Oswald:wght@400;500&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d0c0b;
+    --bg-2: #141210;
+    --bg-3: #1b1815;
+    --ink: #f1e9dc;
+    --soft: rgba(241, 233, 220, .66);
+    --faint: rgba(241, 233, 220, .4);
+    --line: rgba(241, 233, 220, .14);
+    --brass: #c9974a;
+    --brass-2: #dcae62;
+    --head: "Cormorant", "Times New Roman", Georgia, serif;
+    --caps: "Oswald", "Arial Narrow", Arial, sans-serif;
+    --body: "Golos Text", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --pad: 20px;
+    --ease: cubic-bezier(.2, .7, .2, 1);
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; scroll-padding-top: 76px; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font: 400 16px/1.6 var(--body);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+  /* лёгкое зерно, как на плёнке */
+  body::after {
+    content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 90; opacity: .06;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .9 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  img { display: block; max-width: 100%; }
+  a { color: inherit; }
+  button { font: inherit; color: inherit; }
+  h1, h2, h3, p { margin: 0; }
+  .wrap { max-width: 1240px; margin: 0 auto; padding: 0 var(--pad); }
+  .star { width: 1em; height: 1em; fill: currentColor; flex: none; }
+  .caps { font: 400 13px/1.2 var(--caps); letter-spacing: .16em; text-transform: uppercase; }
+  .brass { color: var(--brass); }
+  :focus-visible { outline: 2px solid var(--brass); outline-offset: 3px; }
+
+  /* плашка наброска */
+  .draft-strip {
+    background: var(--brass); color: #17120a; text-align: center;
+    font: 500 12px/1.3 var(--caps); letter-spacing: .12em; text-transform: uppercase;
+    padding: 8px var(--pad);
+  }
+
+  /* шапка */
+  .top {
+    position: sticky; top: 0; z-index: 40;
+    background: rgba(13, 12, 11, .92);
+    border-bottom: 1px solid var(--line);
+  }
+  .top .wrap { display: flex; align-items: center; justify-content: space-between; height: 60px; gap: 16px; }
+  .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; font: 500 17px/1 var(--caps); letter-spacing: .2em; text-transform: uppercase; white-space: nowrap; }
+  .logo .star { color: var(--brass); font-size: 20px; transition: transform .8s var(--ease); }
+  .logo:hover .star { transform: rotate(180deg); }
+  .nav { display: none; gap: 34px; }
+  .nav a { text-decoration: none; color: var(--soft); transition: color .2s; position: relative; padding: 6px 0; }
+  .nav a::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: var(--brass); transform: scaleX(0); transform-origin: left; transition: transform .3s var(--ease); }
+  .nav a:hover { color: var(--ink); }
+  .nav a:hover::after { transform: scaleX(1); }
+
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+    font: 500 14px/1 var(--caps); letter-spacing: .16em; text-transform: uppercase; text-decoration: none;
+    padding: 17px 28px; border: 1px solid var(--brass); background: var(--brass); color: #17120a;
+    cursor: pointer; transition: background .25s, color .25s, border-color .25s; border-radius: 0;
+  }
+  .btn:hover { background: var(--brass-2); border-color: var(--brass-2); }
+  .btn.ghost { background: transparent; color: var(--ink); border-color: var(--line); }
+  .btn.ghost:hover { border-color: var(--brass); color: var(--brass); }
+  .btn.small { padding: 12px 18px; font-size: 12px; }
+  .btn.dark { background: #17120a; border-color: #17120a; color: var(--ink); }
+  .btn.dark:hover { background: #000; border-color: #000; }
+
+  /* первый экран */
+  .hero { position: relative; isolation: isolate; overflow: hidden; }
+  .hero-photo { position: absolute; inset: 0; z-index: -2; }
+  .hero-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 70% 30%; animation: heroZoom 18s ease-out both; }
+  @keyframes heroZoom { from { transform: scale(1.12); } to { transform: scale(1); } }
+  .hero::before {
+    content: ""; position: absolute; inset: 0; z-index: -1;
+    background: linear-gradient(180deg, rgba(13,12,11,.78) 0%, rgba(13,12,11,.84) 45%, var(--bg) 100%);
+  }
+  .hero .wrap { padding-top: 34px; padding-bottom: 40px; }
+  .rating { display: inline-flex; align-items: center; gap: 10px; color: var(--soft); text-decoration: none; }
+  .rating b { color: var(--brass); font-weight: 500; font-size: 15px; letter-spacing: .08em; }
+  .rating .star { color: var(--brass); font-size: 14px; }
+  .hero h1 {
+    font: 500 clamp(76px, 22vw, 190px)/.84 var(--head); letter-spacing: -.02em;
+    margin: 22px 0 0 -3px;
+  }
+  .hero h1 em { display: block; font-style: italic; color: var(--brass); padding-left: .42em; }
+  .hero-sub { font: 400 20px/1.3 var(--caps); letter-spacing: .14em; text-transform: uppercase; margin-top: 26px; }
+  .hero-addr { color: var(--soft); margin-top: 10px; font-size: 15px; }
+  .doors { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 28px; }
+  .door {
+    position: relative; display: flex; flex-direction: column; justify-content: space-between;
+    min-height: 124px; padding: 14px 14px 12px; text-decoration: none;
+    border: 1px solid var(--line); background: rgba(13,12,11,.55);
+    transition: border-color .3s, background .3s;
+  }
+  .door:hover { border-color: var(--brass); background: rgba(201,151,74,.08); }
+  .door .n { color: var(--brass); font-size: 12px; }
+  .door strong { font: 500 40px/1 var(--head); display: block; }
+  .door span.d { color: var(--soft); font-size: 13px; line-height: 1.35; display: block; margin-top: 6px; }
+  .door .arr { position: absolute; top: 12px; right: 12px; width: 18px; height: 18px; color: var(--brass); transition: transform .3s var(--ease); }
+  .door:hover .arr { transform: translateY(4px); }
+  .hero .btn { width: 100%; margin-top: 12px; }
+
+  /* секции */
+  section { padding: 76px 0; position: relative; }
+  .sec-head { display: flex; align-items: center; gap: 12px; color: var(--brass); margin-bottom: 18px; }
+  .sec-head .star { font-size: 14px; }
+  .sec-head::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+  h2 { font: 500 clamp(46px, 12vw, 104px)/.92 var(--head); letter-spacing: -.015em; }
+  h2 em { font-style: italic; color: var(--brass); }
+  h3 { font: 500 30px/1.05 var(--head); }
+  .lead { color: var(--soft); max-width: 560px; margin-top: 18px; font-size: 17px; }
+
+  /* портфолио */
+  .works { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 34px; }
+  .work { position: relative; padding: 0; border: 0; background: var(--bg-3); cursor: zoom-in; overflow: hidden; aspect-ratio: 3 / 4; display: block; }
+  .work img { width: 100%; height: 100%; object-fit: cover; transition: transform .9s var(--ease), filter .5s; filter: saturate(.85); }
+  .work:hover img { transform: scale(1.06); filter: saturate(1); }
+  .work::after { content: ""; position: absolute; inset: 0; border: 1px solid transparent; transition: border-color .3s; pointer-events: none; }
+  .work:hover::after { border-color: var(--brass); }
+  .work .num { position: absolute; left: 10px; bottom: 8px; font: 400 12px/1 var(--caps); letter-spacing: .14em; color: var(--ink); text-shadow: 0 1px 6px rgba(0,0,0,.8); }
+  .works-note { color: var(--faint); font-size: 13px; margin-top: 12px; }
+
+  /* что делаем */
+  .does { margin-top: 64px; border-top: 1px solid var(--line); }
+  .do { display: grid; grid-template-columns: 44px 1fr; gap: 4px 0; padding: 22px 0; border-bottom: 1px solid var(--line); transition: padding-left .4s var(--ease); }
+  .do:hover { padding-left: 8px; }
+  .do .n { color: var(--brass); padding-top: 9px; }
+  .do p { grid-column: 2; color: var(--soft); font-size: 15px; }
+  .consult { margin-top: 22px; display: flex; gap: 12px; align-items: flex-start; color: var(--soft); font-size: 15px; }
+  .consult .star { color: var(--brass); margin-top: 5px; }
+  .consult b { color: var(--ink); font-weight: 500; }
+
+  /* первая тату */
+  .first { margin-top: 72px; display: grid; gap: 28px; }
+  .first-photo { overflow: hidden; aspect-ratio: 4 / 5; background: var(--bg-3); }
+  .first-photo img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--ease); }
+  .first-photo:hover img { transform: scale(1.05); }
+  .first h3 { font-size: clamp(40px, 10vw, 68px); line-height: .95; }
+  .first h3 em { font-style: italic; color: var(--brass); }
+  .steps { list-style: none; margin: 26px 0 0; padding: 0; counter-reset: s; }
+  .steps li { counter-increment: s; position: relative; padding: 0 0 22px 52px; }
+  .steps li::before {
+    content: counter(s); position: absolute; left: 0; top: 0; width: 34px; height: 34px;
+    border: 1px solid var(--brass); color: var(--brass); display: grid; place-items: center;
+    font: 400 14px/1 var(--caps);
+  }
+  .steps li::after { content: ""; position: absolute; left: 17px; top: 38px; bottom: 4px; width: 1px; background: var(--line); }
+  .steps li:last-child { padding-bottom: 0; }
+  .steps li:last-child::after { display: none; }
+  .steps b { display: block; font: 500 17px/1.3 var(--body); padding-top: 5px; }
+  .steps b i { font-style: normal; color: var(--brass); font-weight: 400; font-size: 14px; margin-left: 6px; }
+  .steps span { color: var(--soft); font-size: 15px; }
+
+  /* пирсинг */
+  .alt { background: var(--bg-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .price-note { display: inline-flex; flex-wrap: wrap; gap: 6px 10px; align-items: center; margin-top: 22px; padding: 10px 14px; border: 1px solid var(--brass); color: var(--brass); font-size: 14px; }
+  .price-note .star { font-size: 12px; }
+  .prices { display: grid; gap: 40px; margin-top: 40px; }
+  .pgroup h3 { display: flex; align-items: baseline; gap: 12px; padding-bottom: 12px; border-bottom: 1px solid var(--brass); }
+  .pgroup h3 small { font: 400 12px/1 var(--caps); letter-spacing: .16em; color: var(--brass); }
+  .pgroup table { width: 100%; border-collapse: collapse; }
+  .pgroup td { padding: 13px 0; border-bottom: 1px solid var(--line); vertical-align: baseline; }
+  .pgroup td:last-child { text-align: right; white-space: nowrap; font: 400 17px/1 var(--caps); letter-spacing: .04em; padding-left: 16px; }
+  .pgroup tr { transition: color .2s; }
+  .pgroup tr:hover td { color: var(--brass); }
+  .sterile { margin-top: 56px; display: grid; gap: 20px; padding: 26px 22px; border: 1px solid var(--line); background: var(--bg); }
+  .sterile h3 { font-size: 34px; }
+  .sterile ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+  .sterile li { display: flex; gap: 12px; color: var(--soft); }
+  .sterile li .star { color: var(--brass); margin-top: 6px; font-size: 13px; }
+  .sterile li b { color: var(--ink); font-weight: 500; }
+
+  /* почему мы */
+  .why { display: grid; gap: 0; margin-top: 34px; border-top: 1px solid var(--line); }
+  .why > div { padding: 24px 0; border-bottom: 1px solid var(--line); }
+  .why .n { color: var(--brass); display: block; margin-bottom: 10px; }
+  .why p { color: var(--soft); margin-top: 8px; font-size: 15px; }
+  .room { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 34px; }
+  .room figure { margin: 0; overflow: hidden; aspect-ratio: 1; background: var(--bg-3); }
+  .room img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--ease); }
+  .room figure:hover img { transform: scale(1.05); }
+  .room-cap { color: var(--faint); font-size: 13px; margin-top: 10px; }
+
+  .rev-head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 14px; margin-top: 64px; }
+  .score { display: flex; align-items: baseline; gap: 14px; }
+  .score strong { font: 500 72px/.8 var(--head); color: var(--brass); }
+  .score span { color: var(--soft); font-size: 14px; line-height: 1.35; }
+  .reviews { display: grid; gap: 10px; margin-top: 26px; }
+  .review { margin: 0; padding: 22px 20px; border: 1px solid var(--line); background: var(--bg-2); display: flex; flex-direction: column; gap: 16px; transition: border-color .3s, transform .4s var(--ease); }
+  .review:hover { border-color: var(--brass); transform: translateY(-3px); }
+  .review blockquote { margin: 0; font: 500 23px/1.22 var(--head); }
+  .review figcaption { margin-top: auto; display: flex; align-items: center; gap: 8px; color: var(--soft); font-size: 14px; }
+  .review figcaption .star { color: var(--brass); font-size: 11px; }
+  .link { display: inline-flex; align-items: center; gap: 8px; color: var(--brass); text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 3px; }
+  .link:hover { color: var(--brass-2); }
+
+  /* сертификат */
+  .gift { background: var(--brass); color: #17120a; overflow: hidden; }
+  .gift .sec-head { color: #17120a; }
+  .gift .sec-head::after { background: rgba(23,18,10,.3); }
+  .gift h2 em { color: #17120a; }
+  .gift .lead { color: rgba(23,18,10,.78); }
+  .gift-grid { display: grid; gap: 36px; }
+  .gift ul { list-style: none; padding: 0; margin: 22px 0 28px; display: grid; gap: 8px; font-weight: 500; }
+  .gift li { display: flex; gap: 10px; align-items: baseline; }
+  .gift li .star { font-size: 12px; }
+  .cert {
+    position: relative; background: var(--bg); color: var(--ink); aspect-ratio: 1.6; max-width: 480px; width: 100%;
+    padding: 22px; display: flex; flex-direction: column; justify-content: space-between;
+    transform: rotate(-3deg); box-shadow: 0 30px 50px -20px rgba(23,18,10,.6);
+    transition: transform .6s var(--ease); justify-self: center;
+  }
+  .cert:hover { transform: rotate(0deg) scale(1.02); }
+  .cert::before { content: ""; position: absolute; inset: 8px; border: 1px solid rgba(201,151,74,.5); pointer-events: none; }
+  .cert .bigstar { position: absolute; right: -30px; bottom: -40px; width: 200px; height: 200px; fill: none; stroke: rgba(201,151,74,.28); stroke-width: .25; animation: spin 60s linear infinite; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .cert .logo { font-size: 13px; }
+  .cert .sum { font: 500 clamp(54px, 15vw, 84px)/.9 var(--head); color: var(--brass); }
+  .cert .caps { color: var(--soft); font-size: 11px; }
+
+  /* мастерам */
+  .pro { display: grid; gap: 10px; margin-top: 30px; }
+  .pro > div { border: 1px solid var(--line); padding: 24px 20px; display: flex; flex-direction: column; gap: 10px; }
+  .pro p { color: var(--soft); font-size: 15px; }
+  .rent { display: flex; gap: 28px; margin-top: 6px; }
+  .rent div b { display: block; font: 500 40px/1 var(--head); color: var(--brass); white-space: nowrap; }
+  .rent div span { color: var(--soft); font-size: 13px; }
+  .pro .link { align-self: flex-start; margin-top: auto; font-size: 14px; }
+
+  /* запись */
+  .book-grid { display: grid; gap: 34px; }
+  .book-side dl { margin: 28px 0 0; display: grid; gap: 16px; }
+  .book-side dt { color: var(--brass); margin-bottom: 4px; }
+  .book-side dd { margin: 0; color: var(--soft); }
+  .book-side dd a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--line); }
+  .book-side dd a:hover { border-color: var(--brass); color: var(--brass); }
+  form { display: grid; gap: 18px; padding: 24px 20px; border: 1px solid var(--line); background: var(--bg-2); }
+  .field { display: grid; gap: 8px; }
+  .field > span, fieldset legend { font: 400 12px/1.2 var(--caps); letter-spacing: .16em; text-transform: uppercase; color: var(--soft); }
+  input[type=text], input[type=tel], textarea {
+    width: 100%; background: transparent; border: 0; border-bottom: 1px solid var(--line); color: var(--ink);
+    font: 400 17px/1.4 var(--body); padding: 8px 0 10px; border-radius: 0; transition: border-color .25s;
+  }
+  textarea { resize: vertical; min-height: 84px; }
+  input::placeholder, textarea::placeholder { color: var(--faint); }
+  input:focus, textarea:focus { outline: none; border-color: var(--brass); }
+  fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
+  fieldset legend { padding: 0; margin-bottom: 10px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chips label { position: relative; cursor: pointer; }
+  .chips input { position: absolute; opacity: 0; inset: 0; }
+  .chips span { display: block; padding: 10px 16px; border: 1px solid var(--line); font-size: 15px; transition: all .2s; }
+  .chips label:hover span { border-color: var(--brass); }
+  .chips input:checked + span { background: var(--brass); border-color: var(--brass); color: #17120a; font-weight: 500; }
+  .chips input:focus-visible + span { outline: 2px solid var(--brass); outline-offset: 3px; }
+  .attach { display: flex; align-items: center; gap: 14px; padding: 16px; border: 1px dashed var(--faint); cursor: pointer; color: var(--soft); transition: border-color .25s, color .25s; position: relative; }
+  .attach:hover { border-color: var(--brass); color: var(--ink); }
+  .attach input { position: absolute; inset: 0; opacity: 0; cursor: pointer; width: 100%; }
+  .attach svg { width: 22px; height: 22px; flex: none; color: var(--brass); }
+  .attach small { display: block; color: var(--faint); font-size: 13px; }
+  .attach b { font-weight: 400; word-break: break-all; }
+  form .btn { width: 100%; }
+  .form-note { color: var(--faint); font-size: 13px; text-align: center; }
+
+  .sent { display: none; }
+  .sent.on { display: block; animation: rise .6s var(--ease) both; }
+  @keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+  .sent-msg { border: 1px solid var(--brass); padding: 22px 20px; display: flex; gap: 14px; align-items: flex-start; }
+  .sent-msg .star { color: var(--brass); font-size: 24px; margin-top: 4px; animation: spin 6s linear infinite; }
+  .sent-msg h3 { font-size: 30px; }
+  .sent-msg p { color: var(--soft); margin-top: 6px; font-size: 15px; }
+  .tg-cap { margin: 28px 0 12px; color: var(--soft); }
+  .tg { background: #17212b; padding: 14px 12px 16px; font: 400 15px/1.45 -apple-system, "Segoe UI", Roboto, Arial, sans-serif; color: #f5f5f5; max-width: 460px; }
+  .tg-top { display: flex; align-items: center; gap: 10px; padding: 0 2px 12px; border-bottom: 1px solid rgba(255,255,255,.07); margin-bottom: 14px; }
+  .tg-ava { width: 38px; height: 38px; border-radius: 50%; background: var(--bg); display: grid; place-items: center; color: var(--brass); font-size: 20px; flex: none; }
+  .tg-top b { display: block; font-weight: 600; font-size: 15px; line-height: 1.2; }
+  .tg-top small { color: #6d7f8f; font-size: 13px; }
+  .tg-bubble { background: #182533; border-radius: 4px 14px 14px 14px; padding: 9px 12px 7px; max-width: 92%; overflow-wrap: anywhere; }
+  .tg-bubble strong { font-weight: 600; }
+  .tg-bubble .k { color: #6ab3f3; }
+  .tg-bubble time { display: block; text-align: right; color: #6d7f8f; font-size: 12px; margin-top: 2px; }
+  .tg-keys { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; margin-top: 4px; max-width: 92%; }
+  .tg-keys span { background: rgba(43,82,120,.55); border-radius: 6px; text-align: center; padding: 8px 6px; font-size: 14px; }
+  .again { margin-top: 20px; }
+
+  /* контакты */
+  .contacts-grid { display: grid; gap: 30px; margin-top: 30px; }
+  .cinfo { display: grid; gap: 0; border-top: 1px solid var(--line); align-content: start; }
+  .cinfo > div { padding: 18px 0; border-bottom: 1px solid var(--line); }
+  .cinfo .caps { color: var(--brass); display: block; margin-bottom: 6px; }
+  .cinfo strong { font: 500 27px/1.1 var(--head); display: block; }
+  .cinfo a { text-decoration: none; }
+  .cinfo a:hover { color: var(--brass); }
+  .cinfo small { color: var(--soft); font-size: 14px; }
+  .map { border: 1px solid var(--line); min-height: 380px; background: var(--bg-3); }
+  .map iframe { width: 100%; height: 100%; min-height: 380px; border: 0; display: block; filter: grayscale(.35) contrast(1.02); }
+
+  footer { border-top: 1px solid var(--line); padding: 30px 0 110px; color: var(--faint); font-size: 13px; }
+  footer .wrap { display: flex; flex-direction: column; gap: 14px; }
+  footer a { color: var(--soft); }
+
+  /* нижняя кнопка на телефоне */
+  .dock { position: fixed; left: 0; right: 0; bottom: 0; z-index: 45; padding: 10px var(--pad) calc(10px + env(safe-area-inset-bottom)); background: linear-gradient(180deg, rgba(13,12,11,0), rgba(13,12,11,.96) 38%); transform: translateY(110%); transition: transform .45s var(--ease); }
+  .dock.on { transform: none; }
+  .dock .btn { width: 100%; }
+
+  /* просмотр фото */
+  .lb { position: fixed; inset: 0; z-index: 100; background: rgba(8,7,6,.96); display: none; align-items: center; justify-content: center; }
+  .lb.on { display: flex; animation: fade .3s both; }
+  @keyframes fade { from { opacity: 0; } }
+  .lb img { max-width: calc(100vw - 24px); max-height: calc(100vh - 130px); max-height: calc(100dvh - 130px); object-fit: contain; animation: lbIn .45s var(--ease) both; }
+  @keyframes lbIn { from { opacity: 0; transform: scale(.96); } }
+  .lb button { position: absolute; background: rgba(13,12,11,.6); border: 1px solid var(--line); width: 48px; height: 48px; display: grid; place-items: center; cursor: pointer; transition: border-color .2s, color .2s; }
+  .lb button:hover { border-color: var(--brass); color: var(--brass); }
+  .lb button svg { width: 20px; height: 20px; }
+  .lb .x { top: 12px; right: 12px; }
+  .lb .prev { left: 12px; bottom: 12px; }
+  .lb .next { right: 12px; bottom: 12px; }
+  .lb .count { position: absolute; bottom: 26px; left: 0; right: 0; text-align: center; color: var(--soft); pointer-events: none; }
+
+  /* появление */
+  .js .rv { opacity: 0; transform: translateY(26px); transition: opacity .9s var(--ease), transform .9s var(--ease); transition-delay: var(--d, 0s); }
+  .js .rv.in { opacity: 1; transform: none; }
+
+  @media (min-width: 640px) {
+    .works { grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .reviews { grid-template-columns: 1fr 1fr; }
+    .pro { grid-template-columns: 1fr 1fr; }
+    .prices { grid-template-columns: 1fr 1fr; gap: 48px 56px; }
+    .hero .btn { width: auto; }
+  }
+  @media (min-width: 960px) {
+    :root { --pad: 48px; }
+    body { font-size: 17px; }
+    .nav { display: flex; }
+    .top .wrap { height: 72px; }
+    .dock { display: none; }
+    footer { padding-bottom: 40px; }
+    footer .wrap { flex-direction: row; justify-content: space-between; }
+    section { padding: 130px 0; }
+    .sec-head { margin-bottom: 26px; }
+
+    .hero::before { background: linear-gradient(90deg, var(--bg) 0%, rgba(13,12,11,.94) 38%, rgba(13,12,11,.35) 78%, rgba(13,12,11,.55) 100%), linear-gradient(180deg, rgba(13,12,11,0) 70%, var(--bg) 100%); }
+    .hero-photo { left: 38%; }
+    .hero .wrap { padding-top: 84px; padding-bottom: 96px; min-height: calc(100vh - 106px); display: flex; flex-direction: column; justify-content: center; }
+    .hero h1 { margin-top: 30px; font-size: clamp(120px, 13.4vw, 200px); }
+    .hero-sub { font-size: 24px; margin-top: 40px; }
+    .hero-addr { font-size: 17px; }
+    .doors { max-width: 640px; gap: 14px; margin-top: 44px; }
+    .door { min-height: 168px; padding: 20px; }
+    .door strong { font-size: 58px; }
+    .door span.d { font-size: 15px; }
+    .door .arr { top: 20px; right: 20px; }
+    .hero .btn { margin-top: 14px; align-self: flex-start; min-width: 313px; }
+
+    .works { gap: 16px; margin-top: 56px; }
+    .does { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0 32px; margin-top: 90px; border-top: 0; }
+    .do { display: block; border-top: 1px solid var(--line); border-bottom: 0; padding: 24px 0 0; }
+    .do:hover { padding-left: 0; border-top-color: var(--brass); }
+    .do .n { display: block; padding: 0 0 26px; }
+    .do p { margin-top: 10px; }
+    .consult { margin-top: 44px; font-size: 17px; }
+    .first { grid-template-columns: 5fr 6fr; gap: 80px; align-items: center; margin-top: 130px; }
+    .steps { margin-top: 40px; }
+    .steps li { padding-bottom: 30px; }
+
+    .sterile { grid-template-columns: 1fr 1.4fr; gap: 56px; padding: 48px; margin-top: 90px; align-items: center; }
+    .sterile h3 { font-size: 48px; }
+
+    .why { grid-template-columns: repeat(3, 1fr); gap: 0 40px; margin-top: 56px; }
+    .why > div { border-bottom: 0; padding: 28px 0 0; }
+    .room { gap: 16px; margin-top: 64px; grid-template-columns: 1.25fr 1fr; }
+    .room figure { aspect-ratio: auto; height: 520px; }
+    .rev-head { margin-top: 120px; }
+    .score strong { font-size: 120px; }
+    .reviews { grid-template-columns: repeat(6, 1fr); gap: 16px; margin-top: 40px; }
+    .review { grid-column: span 2; padding: 30px 28px; }
+    .review:nth-child(n+4) { grid-column: span 3; }
+    .review blockquote { font-size: 27px; }
+
+    .gift-grid { grid-template-columns: 1.1fr 1fr; gap: 60px; align-items: center; }
+    .cert { padding: 34px; }
+    .pro { gap: 16px; margin-top: 48px; }
+    .pro > div { padding: 36px 32px; }
+    .rent div b { font-size: 54px; }
+
+    .book-grid { grid-template-columns: 1fr 1.1fr; gap: 90px; align-items: start; }
+    .book-side { position: sticky; top: 110px; }
+    form { padding: 40px; gap: 24px; }
+    .contacts-grid { grid-template-columns: 1fr 1.5fr; gap: 60px; margin-top: 56px; }
+    .map, .map iframe { min-height: 480px; }
+    .lb .prev { left: 24px; bottom: auto; top: calc(50% - 24px); }
+    .lb .next { right: 24px; bottom: auto; top: calc(50% - 24px); }
+    .lb .x { top: 24px; right: 24px; }
+    .lb img { max-width: calc(100vw - 200px); max-height: calc(100vh - 100px); }
+  }
+</style>
+</head>
+<body>
+<script>document.documentElement.classList.add('js')</script>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="star" viewBox="0 0 24 24"><path d="M12 1l1.15 8.23L16.6 7.4l-1.83 3.45L23 12l-8.23 1.15 1.83 3.45-3.45-1.83L12 23l-1.15-8.23L7.4 16.6l1.83-3.45L1 12l8.23-1.15L7.4 7.4l3.45 1.83z"/></symbol>
+  <symbol id="arrow" viewBox="0 0 24 24"><path d="M12 4v15m0 0l-6-6m6 6l6-6" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
+</svg>
+
+<div class="draft-strip">Это бесплатный набросок для Shtern Tattoo</div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Shtern Tattoo — наверх"><svg class="star"><use href="#star"/></svg>Shtern Tattoo</a>
+    <nav class="nav caps" aria-label="Разделы">
+      <a href="#tattoo">Тату</a>
+      <a href="#piercing">Пирсинг</a>
+      <a href="#gift">Сертификат</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <a class="btn small" href="#booking">Записаться</a>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- 1. Первый экран -->
+<div class="hero">
+  <div class="hero-photo"><img src="https://avatars.mds.yandex.net/get-altay/18785127/2a0000019dad1abc20995186ae33e9cdf0c0/XXL" alt="Студия Shtern Tattoo: тёмная стена, рога, тёплый свет ламп"></div>
+  <div class="wrap">
+    <a class="rating caps rv" href="https://yandex.ru/maps/org/12920472632/reviews/" target="_blank" rel="noopener">
+      <svg class="star"><use href="#star"/></svg><b>4,9</b> на Яндекс Картах · 32 оценки
+    </a>
+    <h1 class="rv" style="--d:.08s">Shtern <em>Tattoo</em></h1>
+    <p class="hero-sub rv" style="--d:.16s">Тату и пирсинг в Севастополе</p>
+    <p class="hero-addr rv" style="--d:.2s">ул. Пожарова, 27 · ежедневно 08:00–22:00 · по записи</p>
+    <div class="doors rv" style="--d:.28s">
+      <a class="door" href="#tattoo">
+        <span class="n caps">01</span>
+        <svg class="arr"><use href="#arrow"/></svg>
+        <span><strong>Тату</strong><span class="d">Свои эскизы, cover-up, камуфляж шрамов</span></span>
+      </a>
+      <a class="door" href="#piercing">
+        <span class="n caps">02</span>
+        <svg class="arr"><use href="#arrow"/></svg>
+        <span><strong>Пирсинг</strong><span class="d">Уши, лицо, тело — от 800 ₽</span></span>
+      </a>
+    </div>
+    <a class="btn rv" style="--d:.34s" href="#booking">Записаться</a>
+  </div>
+</div>
+
+<!-- 2. Тату -->
+<section id="tattoo">
+  <div class="wrap">
+    <div class="sec-head caps rv"><svg class="star"><use href="#star"/></svg>01 · Тату</div>
+    <h2 class="rv">Рисунок, который <em>останется</em></h2>
+    <p class="lead rv">Каждый эскиз рисуем под человека: под идею, место и характер. Ниже — работы студии, нажмите на фото, чтобы рассмотреть.</p>
+
+    <div class="works" id="works">
+      <button class="work rv" data-full="https://avatars.mds.yandex.net/get-altay/19708557/2a0000019eda7effe5ffcdb3c66feeca4f4b/XXL"><img loading="lazy" src="https://avatars.mds.yandex.net/get-altay/19708557/2a0000019eda7effe5ffcdb3c66feeca4f4b/L" srcset="https://avatars.mds.yandex.net/get-altay/19708557/2a0000019eda7effe5ffcdb3c66feeca4f4b/L 400w, https://avatars.mds.yandex.net/get-altay/19708557/2a0000019eda7effe5ffcdb3c66feeca4f4b/XXL 800w" sizes="(min-width: 640px) 33vw, 50vw" alt="Тату: сложенные в молитве руки с надписью, графика"><span class="num">01</span></button>
+      <button class="work rv" style="--d:.08s" data-full="https://avatars.mds.yandex.net/get-altay/20412588/2a0000019eda7efd4a431e2fdfe828b46d62/XXL"><img loading="lazy" src="https://avatars.mds.yandex.net/get-altay/20412588/2a0000019eda7efd4a431e2fdfe828b46d62/L" srcset="https://avatars.mds.yandex.net/get-altay/20412588/2a0000019eda7efd4a431e2fdfe828b46d62/L 400w, https://avatars.mds.yandex.net/get-altay/20412588/2a0000019eda7efd4a431e2fdfe828b46d62/XXL 800w" sizes="(min-width: 640px) 33vw, 50vw" alt="Тату: готический собор на предплечье, тонкие линии"><span class="num">02</span></button>
+      <button class="work rv" style="--d:.16s" data-full="https://avatars.mds.yandex.net/get-altay/19803395/2a0000019df7a145f4af68d418383c83a978/XXL"><img loading="lazy" src="https://avatars.mds.yandex.net/get-altay/19803395/2a0000019df7a145f4af68d418383c83a978/L" srcset="https://avatars.mds.yandex.net/get-altay/19803395/2a0000019df7a145f4af68d418383c83a978/L 400w, https://avatars.mds.yandex.net/get-altay/19803395/2a0000019df7a145f4af68d418383c83a978/XXL 800w" sizes="(min-width: 640px) 33vw, 50vw" alt="Тату: большая графичная работа на бедре"><span class="num">03</span></button>
+      <button class="work rv" data-full="https://avatars.mds.yandex.net/get-altay/19546938/2a0000019dad2a1a345bcd57b583b25aca1b/XXL"><img loading="lazy" src="https://avatars.mds.yandex.net/get-altay/19546938/2a0000019dad2a1a345bcd57b583b25aca1b/L" srcset="https://avatars.mds.yandex.net/get-altay/19546938/2a0000019dad2a1a345bcd57b583b25aca1b/L 400w, https://avatars.mds.yandex.net/get-altay/19546938/2a0000019dad2a1a345bcd57b583b25aca1b/XXL 800w" sizes="(min-width: 640px) 33vw, 50vw" alt="Тату: кошка-сфинкс на предплечье, линейная работа"><span class="num">04</span></button>
+      <button class="work rv" style="--d:.08s" data-full="https://avatars.mds.yandex.net/get-altay/12448848/2a0000019dad2a4ce35c7bf5231f9e2f31b6/XXL"><img loading="lazy" src="https://avatars.mds.yandex.net/get-altay/12448848/2a0000019dad2a4ce35c7bf5231f9e2f31b6/L" srcset="https://avatars.mds.yandex.net/get-altay/12448848/2a0000019dad2a4ce35c7bf5231f9e2f31b6/L 400w, https://avatars.mds.yandex.net/get-altay/12448848/2a0000019dad2a4ce35c7bf5231f9e2f31b6/XXL 800w" sizes="(min-width: 640px) 33vw, 50vw" alt="Тату: чёрная графика на голени"><span class="num">05</span></button>
+      <button class="work rv" style="--d:.16s" data-full="https://avatars.mds.yandex.net/get-altay/17753003/2a0000019dad2a315d25c161f1b78dc3cb5b/XXL"><img loading="lazy" src="https://avatars.mds.yandex.net/get-altay/17753003/2a0000019dad2a315d25c161f1b78dc3cb5b/L" srcset="https://avatars.mds.yandex.net/get-altay/17753003/2a0000019dad2a315d25c161f1b78dc3cb5b/L 400w, https://avatars.mds.yandex.net/get-altay/17753003/2a0000019dad2a315d25c161f1b78dc3cb5b/XXL 800w" sizes="(min-width: 640px) 33vw, 50vw" alt="Тату: цветы тонкой линией"><span class="num">06</span></button>
+    </div>
+    <p class="works-note">Фото студии с Яндекс Карт.</p>
+
+    <div class="does">
+      <div class="do rv"><span class="n caps">01</span><h3>Татуировки</h3><p>От небольшой надписи до крупной работы.</p></div>
+      <div class="do rv" style="--d:.08s"><span class="n caps">02</span><h3>Коррекция и cover-up</h3><p>Исправляем и перекрываем старые тату.</p></div>
+      <div class="do rv" style="--d:.16s"><span class="n caps">03</span><h3>Камуфляж шрамов</h3><p>Закрываем шрам рисунком, который хочется показывать.</p></div>
+      <div class="do rv" style="--d:.24s"><span class="n caps">04</span><h3>Свои эскизы</h3><p>Индивидуальный эскиз под вашу идею.</p></div>
+    </div>
+    <p class="consult rv"><svg class="star"><use href="#star"/></svg><span><b>Консультация по выбору тату — бесплатно.</b> Не знаете, что и где набить, — приходите, разберёмся вместе.</span></p>
+
+    <div class="first">
+      <div class="first-photo rv"><img loading="lazy" src="https://avatars.mds.yandex.net/get-altay/17700564/2a0000019eda7efdaf1ed7fd2f894cc31247/XXL" alt="Мастер Shtern Tattoo за работой"></div>
+      <div>
+        <h3 class="rv">Первая тату? <em>Не страшно</em></h3>
+        <ol class="steps">
+          <li class="rv"><b>Консультация <i>бесплатно</i></b><span>Обсуждаем идею, размер и место. Отвечаем на все вопросы.</span></li>
+          <li class="rv" style="--d:.08s"><b>Эскиз</b><span>Рисуем индивидуальный эскиз и правим, пока он не станет вашим.</span></li>
+          <li class="rv" style="--d:.16s"><b>Сеанс</b><span>Стерильно и аккуратно, одноразовыми инструментами.</span></li>
+          <li class="rv" style="--d:.24s"><b>Уход</b><span>Объясняем, как ухаживать за тату, пока она заживает.</span></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. Пирсинг -->
+<section id="piercing" class="alt">
+  <div class="wrap">
+    <div class="sec-head caps rv"><svg class="star"><use href="#star"/></svg>02 · Пирсинг</div>
+    <h2 class="rv">Прокол <em>без сюрпризов</em></h2>
+    <p class="lead rv">Цены известны заранее. Выберите зону — и запишитесь на удобное время.</p>
+    <p class="price-note rv"><svg class="star"><use href="#star"/></svg>Цена без украшения · титан от 1 000 ₽</p>
+
+    <div class="prices">
+      <div class="pgroup rv">
+        <h3>Уши <small>5 позиций</small></h3>
+        <table>
+          <tr><td>Мочка</td><td>800 ₽</td></tr>
+          <tr><td>Две мочки</td><td>1 200 ₽</td></tr>
+          <tr><td>Хрящ уха</td><td>1 500 ₽</td></tr>
+          <tr><td>Хрящ «рук»</td><td>1 500 ₽</td></tr>
+          <tr><td>Двойной прокол</td><td>2 000 ₽</td></tr>
+        </table>
+      </div>
+      <div class="pgroup rv" style="--d:.08s">
+        <h3>Лицо <small>6 позиций</small></h3>
+        <table>
+          <tr><td>Крыло носа</td><td>1 500 ₽</td></tr>
+          <tr><td>Септум</td><td>1 500 ₽</td></tr>
+          <tr><td>Бровь</td><td>1 500 ₽</td></tr>
+          <tr><td>Губа</td><td>1 500 ₽</td></tr>
+          <tr><td>Язык</td><td>1 500 ₽</td></tr>
+          <tr><td>Смайл</td><td>1 000 ₽</td></tr>
+        </table>
+      </div>
+      <div class="pgroup rv">
+        <h3>Тело <small>3 позиции</small></h3>
+        <table>
+          <tr><td>Пупок</td><td>1 500 ₽</td></tr>
+          <tr><td>Сосок</td><td>1 500 ₽</td></tr>
+          <tr><td>Соски (2 шт.)</td><td>2 500 ₽</td></tr>
+        </table>
+      </div>
+      <div class="pgroup rv" style="--d:.08s">
+        <h3>Услуги <small>после прокола</small></h3>
+        <table>
+          <tr><td>Замена украшения</td><td>250 ₽</td></tr>
+          <tr><td>Даунсайз</td><td>500 ₽</td></tr>
+          <tr><td>Апсайз</td><td>500 ₽</td></tr>
+          <tr><td>Восстановление прокола без иглы</td><td>500 ₽</td></tr>
+          <tr><td>Базовое украшение из титана</td><td>1 000 ₽</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="sterile rv">
+      <h3>Стерильно. <br>Каждый раз.</h3>
+      <ul>
+        <li><svg class="star"><use href="#star"/></svg><span><b>Одноразовые инструменты.</b> Для каждого клиента — новые.</span></li>
+        <li><svg class="star"><use href="#star"/></svg><span><b>Всё стерильно.</b> Об этом гости пишут в отзывах на Картах.</span></li>
+        <li><svg class="star"><use href="#star"/></svg><span><b>Титан.</b> Базовое украшение из титана — 1 000 ₽.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 4. Почему мы -->
+<section id="why">
+  <div class="wrap">
+    <div class="sec-head caps rv"><svg class="star"><use href="#star"/></svg>03 · Почему мы</div>
+    <h2 class="rv">Сюда приходят <em>спокойно</em></h2>
+
+    <div class="why">
+      <div class="rv"><span class="n caps">Стерильно</span><h3>Чисто и аккуратно</h3><p>Одноразовые инструменты и стерильность — основа, а не опция.</p></div>
+      <div class="rv" style="--d:.08s"><span class="n caps">Мастера</span><h3>Любовь Моргенштерн</h3><p>Люба — мастер и основатель студии. В отзывах гости благодарят и мастера Веронику.</p></div>
+      <div class="rv" style="--d:.16s"><span class="n caps">Студия</span><h3>Уютно, как дома</h3><p>Тёмные стены, картины, тёплый свет. Здесь легко выдохнуть перед сеансом.</p></div>
+    </div>
+
+    <div class="room">
+      <figure class="rv"><img loading="lazy" src="https://avatars.mds.yandex.net/get-altay/18785127/2a0000019dad1abc20995186ae33e9cdf0c0/XXL" alt="Интерьер студии: рабочее место, тёмная стена с рогами"></figure>
+      <figure class="rv" style="--d:.1s"><img loading="lazy" src="https://avatars.mds.yandex.net/get-altay/18108291/2a0000019dad1a8870e427c00898444d0ddd/XXL" alt="Интерьер студии: стена с картинами"></figure>
+    </div>
+    <p class="room-cap">Студия на ул. Пожарова, 27.</p>
+
+    <div class="rev-head">
+      <div class="score rv"><strong>4,9</strong><span>рейтинг на Яндекс Картах<br>32 оценки</span></div>
+      <a class="link caps rv" href="https://yandex.ru/maps/org/12920472632/reviews/" target="_blank" rel="noopener">Все отзывы на Яндекс Картах →</a>
+    </div>
+    <div class="reviews">
+      <figure class="review rv"><blockquote>«Студия чистенькая и уютная… работу делает качественно и аккуратно».</blockquote><figcaption><svg class="star"><use href="#star"/></svg>Диана К.</figcaption></figure>
+      <figure class="review rv" style="--d:.08s"><blockquote>«Всё стерильно, аккуратно. Эскиз нарисовала быстро… Цены адекватные».</blockquote><figcaption><svg class="star"><use href="#star"/></svg>Влад Р.</figcaption></figure>
+      <figure class="review rv" style="--d:.16s"><blockquote>«Сделала татуировку и пирсинг… стерильные инструменты… Я была максимально спокойна».</blockquote><figcaption><svg class="star"><use href="#star"/></svg>Анастасия К.</figcaption></figure>
+      <figure class="review rv"><blockquote>«Волновалась, что первая татуировка будет больной и страшной, но этот салон показал обратное».</blockquote><figcaption><svg class="star"><use href="#star"/></svg>Sanina</figcaption></figure>
+      <figure class="review rv" style="--d:.08s"><blockquote>«Очень долго выбирала место и ни разу не пожалела».</blockquote><figcaption><svg class="star"><use href="#star"/></svg>Виолетта Д.</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- 5. Сертификат -->
+<section id="gift" class="gift">
+  <div class="wrap gift-grid">
+    <div>
+      <div class="sec-head caps rv"><svg class="star"><use href="#star"/></svg>Подарок к Новому году</div>
+      <h2 class="rv">Подарите <em>тату</em></h2>
+      <p class="lead rv">Подарочный сертификат на тату — для тех, кто давно хотел, но всё не решался.</p>
+      <ul class="rv">
+        <li><svg class="star"><use href="#star"/></svg>Номинал 5 000 ₽</li>
+        <li><svg class="star"><use href="#star"/></svg>Бумажный или электронный</li>
+      </ul>
+      <a class="btn dark rv" href="#booking" data-pick="Сертификат">Заказать сертификат</a>
+    </div>
+    <div class="cert rv" aria-hidden="true">
+      <svg class="bigstar" viewBox="0 0 24 24"><use href="#star"/></svg>
+      <span class="logo"><svg class="star"><use href="#star"/></svg>Shtern Tattoo</span>
+      <div>
+        <div class="caps">Подарочный сертификат на тату</div>
+        <div class="sum">5 000 ₽</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. Для мастеров -->
+<section id="masters">
+  <div class="wrap">
+    <div class="sec-head caps rv"><svg class="star"><use href="#star"/></svg>Для мастеров</div>
+    <h2 class="rv">Учим и <em>даём место</em></h2>
+    <div class="pro">
+      <div class="rv">
+        <h3>Обучение татуировке</h3>
+        <p>Для тех, кто хочет войти в профессию. Напишите — расскажем, как проходит обучение.</p>
+        <a class="link caps" href="#booking" data-pick="Обучение">Узнать про обучение →</a>
+      </div>
+      <div class="rv" style="--d:.08s">
+        <h3>Аренда рабочего места</h3>
+        <p>Для тату-мастеров и мастеров пирсинга.</p>
+        <div class="rent">
+          <div><b>1 500 ₽</b><span>в день</span></div>
+          <div><b>12 000 ₽</b><span>в месяц</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. Запись -->
+<section id="booking" class="alt">
+  <div class="wrap book-grid">
+    <div class="book-side">
+      <div class="sec-head caps rv"><svg class="star"><use href="#star"/></svg>Запись</div>
+      <h2 class="rv">Расскажите <em>идею</em></h2>
+      <p class="lead rv">Оставьте заявку — ответим в Telegram, подберём время и мастера. Работаем по записи.</p>
+      <dl class="rv">
+        <div><dt class="caps">Быстрее всего</dt><dd><a href="https://t.me/shterntattoo" target="_blank" rel="noopener">Telegram @shterntattoo</a> · <a href="tel:+79786767361">+7 (978) 676-73-61</a></dd></div>
+        <div><dt class="caps">Оплата</dt><dd>Карта, СБП, QR, наличные, онлайн по ссылке</dd></div>
+      </dl>
+    </div>
+
+    <div>
+      <form id="form" class="rv">
+        <label class="field"><span>Имя</span><input type="text" name="name" placeholder="Как к вам обращаться" autocomplete="given-name" required></label>
+        <label class="field"><span>Телефон</span><input type="tel" name="phone" placeholder="+7 (___) ___-__-__" autocomplete="tel" required></label>
+        <fieldset>
+          <legend>Что хотите</legend>
+          <div class="chips">
+            <label><input type="radio" name="what" value="Тату" checked><span>Тату</span></label>
+            <label><input type="radio" name="what" value="Пирсинг"><span>Пирсинг</span></label>
+            <label><input type="radio" name="what" value="Сертификат"><span>Сертификат</span></label>
+            <label><input type="radio" name="what" value="Обучение"><span>Обучение</span></label>
+          </div>
+        </fieldset>
+        <label class="field"><span>Опишите идею</span><textarea name="idea" placeholder="Что, где, какого размера. Можно в двух словах"></textarea></label>
+        <label class="attach">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 11.5l-8 8a5 5 0 01-7-7l8.500-8.500a3.500 3.500 0 015 5L10 17.500a2 2 0 01-3-3L14.500 7"/></svg>
+          <span><b id="fileName">Прикрепить эскиз</b><small>Фото или референс, по желанию</small></span>
+          <input type="file" name="file" accept="image/*" aria-label="Прикрепить эскиз">
+        </label>
+        <button class="btn" type="submit">Отправить</button>
+        <p class="form-note">Это набросок: данные никуда не отправляются.</p>
+      </form>
+
+      <div class="sent" id="sent" aria-live="polite">
+        <div class="sent-msg">
+          <svg class="star"><use href="#star"/></svg>
+          <div><h3>Заявка отправлена</h3><p>Мы ответим в Telegram.</p></div>
+        </div>
+        <p class="tg-cap caps">Так заявка придёт студии в Telegram</p>
+        <div class="tg">
+          <div class="tg-top">
+            <span class="tg-ava"><svg class="star"><use href="#star"/></svg></span>
+            <span><b>Shtern Tattoo · Заявки</b><small>бот</small></span>
+          </div>
+          <div class="tg-bubble">
+            <strong>Новая заявка с сайта</strong><br>
+            <span class="k">Имя:</span> <span id="tName"></span><br>
+            <span class="k">Телефон:</span> <span id="tPhone"></span><br>
+            <span class="k">Услуга:</span> <span id="tWhat"></span><br>
+            <span class="k">Идея:</span> <span id="tIdea"></span><br>
+            <span class="k">Эскиз:</span> <span id="tFile"></span>
+            <time id="tTime"></time>
+          </div>
+          <div class="tg-keys"><span>Ответить клиенту</span><span>Записать на сеанс</span></div>
+        </div>
+        <button class="btn ghost again" type="button" id="again">Отправить ещё одну</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 8. Контакты -->
+<section id="contacts">
+  <div class="wrap">
+    <div class="sec-head caps rv"><svg class="star"><use href="#star"/></svg>Контакты</div>
+    <h2 class="rv">Заходите <em>в гости</em></h2>
+    <div class="contacts-grid">
+      <div class="cinfo">
+        <div class="rv"><span class="caps">Адрес</span><strong>Севастополь, ул. Пожарова, 27</strong></div>
+        <div class="rv"><span class="caps">Часы</span><strong>Ежедневно 08:00–22:00</strong><small>По записи</small></div>
+        <div class="rv"><span class="caps">Телефон</span><strong><a href="tel:+79786767361">+7 (978) 676-73-61</a></strong></div>
+        <div class="rv"><span class="caps">Telegram</span><strong><a href="https://t.me/shterntattoo" target="_blank" rel="noopener">@shterntattoo</a></strong></div>
+      </div>
+      <div class="map rv">
+        <iframe src="https://yandex.ru/map-widget/v1/?ll=33.52%2C44.6&z=16&oid=12920472632&ol=biz" title="Shtern Tattoo на Яндекс Картах" loading="lazy" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="logo" style="font-size:13px;color:var(--soft)"><svg class="star"><use href="#star"/></svg>Shtern Tattoo</span>
+    <span>Набросок сайта · сделано Orbit · <a href="https://orbitdev.ru" target="_blank" rel="noopener">orbitdev.ru</a></span>
+  </div>
+</footer>
+
+<div class="dock" id="dock"><a class="btn" href="#booking">Записаться</a></div>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Просмотр работы">
+  <img id="lbImg" alt="">
+  <div class="count caps" id="lbCount"></div>
+  <button class="x" id="lbX" aria-label="Закрыть"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 5l14 14M19 5L5 19"/></svg></button>
+  <button class="prev" id="lbPrev" aria-label="Предыдущая"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 5l-7 7 7 7"/></svg></button>
+  <button class="next" id="lbNext" aria-label="Следующая"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 5l7 7-7 7"/></svg></button>
+</div>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+
+  // плавное появление блоков
+  var rv = [].slice.call(document.querySelectorAll('.rv'));
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: .08 });
+    rv.forEach(function (el) { io.observe(el); });
+  } else { rv.forEach(function (el) { el.classList.add('in'); }); }
+
+  // нижняя кнопка на телефоне: после первого экрана и не на форме
+  var dock = $('dock'), hero = document.querySelector('.hero'), booking = $('booking');
+  function onScroll() {
+    var pastHero = hero.getBoundingClientRect().bottom < 80;
+    var b = booking.getBoundingClientRect();
+    var onForm = b.top < window.innerHeight * .7 && b.bottom > 120;
+    dock.classList.toggle('on', pastHero && !onForm);
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // просмотр фото
+  var works = [].slice.call(document.querySelectorAll('.work'));
+  var lb = $('lb'), lbImg = $('lbImg'), lbCount = $('lbCount'), cur = 0, lastFocus = null;
+  function show(i) {
+    cur = (i + works.length) % works.length;
+    var w = works[cur];
+    lbImg.style.animation = 'none'; void lbImg.offsetWidth; lbImg.style.animation = '';
+    lbImg.src = w.getAttribute('data-full');
+    lbImg.alt = w.querySelector('img').alt;
+    lbCount.textContent = (cur + 1) + ' / ' + works.length;
+  }
+  function open(i) { lastFocus = document.activeElement; show(i); lb.classList.add('on'); document.body.style.overflow = 'hidden'; $('lbX').focus(); }
+  function close() { lb.classList.remove('on'); document.body.style.overflow = ''; if (lastFocus) lastFocus.focus(); }
+  works.forEach(function (w, i) { w.addEventListener('click', function () { open(i); }); });
+  $('lbX').addEventListener('click', close);
+  $('lbPrev').addEventListener('click', function (e) { e.stopPropagation(); show(cur - 1); });
+  $('lbNext').addEventListener('click', function (e) { e.stopPropagation(); show(cur + 1); });
+  lb.addEventListener('click', function (e) { if (e.target === lb) close(); });
+  document.addEventListener('keydown', function (e) {
+    if (!lb.classList.contains('on')) return;
+    if (e.key === 'Escape') close();
+    if (e.key === 'ArrowLeft') show(cur - 1);
+    if (e.key === 'ArrowRight') show(cur + 1);
+  });
+  var tx = null;
+  lb.addEventListener('touchstart', function (e) { tx = e.touches[0].clientX; }, { passive: true });
+  lb.addEventListener('touchend', function (e) {
+    if (tx === null) return;
+    var dx = e.changedTouches[0].clientX - tx; tx = null;
+    if (Math.abs(dx) > 50) show(cur + (dx < 0 ? 1 : -1));
+  });
+
+  // кнопки, которые заранее выбирают услугу в форме
+  [].forEach.call(document.querySelectorAll('[data-pick]'), function (a) {
+    a.addEventListener('click', function () {
+      var r = document.querySelector('input[name=what][value="' + a.getAttribute('data-pick') + '"]');
+      if (r) r.checked = true;
+      if ($('sent').classList.contains('on')) reset();
+    });
+  });
+
+  // форма (набросок: ничего не отправляем)
+  var form = $('form'), sent = $('sent'), fileName = $('fileName');
+  form.file.addEventListener('change', function () {
+    fileName.textContent = form.file.files[0] ? form.file.files[0].name : 'Прикрепить эскиз';
+  });
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    $('tName').textContent = form.name.value.trim();
+    $('tPhone').textContent = form.phone.value.trim();
+    $('tWhat').textContent = form.what.value;
+    $('tIdea').textContent = form.idea.value.trim() || 'не указана';
+    $('tFile').textContent = form.file.files[0] ? form.file.files[0].name : 'не прикреплён';
+    var d = new Date();
+    $('tTime').textContent = ('0' + d.getHours()).slice(-2) + ':' + ('0' + d.getMinutes()).slice(-2);
+    form.style.display = 'none';
+    sent.classList.add('on');
+    sent.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
+  function reset() {
+    var what = form.what.value;
+    form.reset(); form.what.value = what;
+    fileName.textContent = 'Прикрепить эскиз';
+    sent.classList.remove('on'); form.style.display = '';
+  }
+  $('again').addEventListener('click', reset);
+})();
+</script>
+</body>
+</html>
